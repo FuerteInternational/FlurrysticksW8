@@ -5,7 +5,6 @@ Assets\MediumGray.png
 Assets\SmallLogo.png
 Assets\SplashScreen.png
 Assets\StoreLogo.png
+AccountApplicationsPage.xaml
 App.xaml
 Common\StandardStyles.xaml
-ItemsPage.xaml
-SplitPage.xaml

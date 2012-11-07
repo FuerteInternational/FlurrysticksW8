@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Diagnostics;
 
 // The Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234233
 
@@ -43,8 +44,9 @@ namespace Flurrysticks
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
-            var sampleDataGroups = SampleDataSource.GetGroups((String)navigationParameter);
-            this.DefaultViewModel["Items"] = sampleDataGroups;
+            var sampleAccounts = SampleDataSource.GetAccounts();
+            this.DefaultViewModel["Items"] = sampleAccounts;
+            Debug.WriteLine("Assign Data");
         }
 
         /// <summary>
@@ -57,8 +59,8 @@ namespace Flurrysticks
         {
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
-            var groupId = ((SampleDataGroup)e.ClickedItem).UniqueId;
-            this.Frame.Navigate(typeof(SplitPage), groupId);
+            // var groupId = ((SampleDataGroup)e.ClickedItem).UniqueId;
+            // this.Frame.Navigate(typeof(SplitPage), groupId);
         }
     }
 }

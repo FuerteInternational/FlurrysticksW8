@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Diagnostics;
 
 // The Split App template is documented at http://go.microsoft.com/fwlink/?LinkId=234228
 
@@ -31,6 +32,7 @@ namespace Flurrysticks
         /// </summary>
         public App()
         {
+            Debug.WriteLine("init App");
             this.InitializeComponent();
             this.Suspending += OnSuspending;
         }
@@ -69,19 +71,21 @@ namespace Flurrysticks
                     }
                 }
 
+                if (rootFrame.Content == null)
+                {
+                    // When the navigation stack isn't restored navigate to the first page,
+                    // configuring the new page by passing required information as a navigation
+                    // parameter
+                    if (!rootFrame.Navigate(typeof(AccountApplicationsPage), args.Arguments))
+                    {
+                        throw new Exception("Failed to create initial page");
+                    }
+                }
+
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
             }
-            if (rootFrame.Content == null)
-            {
-                // When the navigation stack isn't restored navigate to the first page,
-                // configuring the new page by passing required information as a navigation
-                // parameter
-                if (!rootFrame.Navigate(typeof(ItemsPage), "AllGroups"))
-                {
-                    throw new Exception("Failed to create initial page");
-                }
-            }
+            
             // Ensure the current window is active
             Window.Current.Activate();
         }
