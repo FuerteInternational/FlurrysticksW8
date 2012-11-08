@@ -5,7 +5,7 @@
     <WindowsUser>fuerte</WindowsUser>
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
-    <RegisteredManifestChecksum>D4A170979AAD86B9B8B5DF80C818ECF7C389E7D248F15FC23EBB61DE8338AFC9</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>4763A52A127656A07E7208209DEF534B324EB5AFAEABCE9DE4EC35C703E44224</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>3a699d93-555f-439e-879a-96f992557b96_1.0.0.0_neutral__m162tqyk5q2fg</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>3a699d93-555f-439e-879a-96f992557b96_m162tqyk5q2fg!App</RegisteredUserModeAppID>
     <RegisteredPackageID>3a699d93-555f-439e-879a-96f992557b96</RegisteredPackageID>
@@ -16,17 +16,25 @@
     <AppXManifest Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-11-07T15:40:36.832</Modified>
+      <Modified>2012-11-08T10:26:13.364</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Flurrysticks.exe">
       <PackagePath>Flurrysticks.exe</PackagePath>
-      <Modified>2012-11-07T17:22:56.495</Modified>
+      <Modified>2012-11-08T13:43:36.588</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Flurrysticks.pdb">
       <PackagePath>Flurrysticks.pdb</PackagePath>
-      <Modified>2012-11-07T17:22:56.464</Modified>
+      <Modified>2012-11-08T13:43:36.570</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Callisto\1.2.5\References\CommonConfiguration\neutral\Callisto.dll">
+      <PackagePath>Callisto.dll</PackagePath>
+      <Modified>2012-11-06T11:40:35.343</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Callisto\1.2.5\Redist\CommonConfiguration\neutral\Themes\Generic.xaml">
+      <PackagePath>Callisto\Themes\Generic.xaml</PackagePath>
+      <Modified>2012-11-06T11:40:35.319</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\Logo.png">
       <PackagePath>Assets\Logo.png</PackagePath>
@@ -70,11 +78,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\AccountApplicationsPage.xaml">
       <PackagePath>AccountApplicationsPage.xaml</PackagePath>
-      <Modified>2012-11-07T17:15:57.818</Modified>
+      <Modified>2012-11-08T13:43:23.393</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2012-11-07T15:40:36.665</Modified>
+      <Modified>2012-11-08T10:26:12.969</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -101,6 +101,9 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <SDKReference Include="Callisto, Version=1.2.5">
+      <Name>Callisto</Name>
+    </SDKReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">

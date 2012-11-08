@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Diagnostics;
+using Callisto.Controls;
 
 // The Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234233
 
@@ -48,6 +49,39 @@ namespace Flurrysticks
             this.DefaultViewModel["Items"] = sampleAccounts;
             Debug.WriteLine("Assign Data");
         }
+
+
+        private void headerMenuClicked(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine("headerMenuClicked");
+            // Create a menu containing two items
+            var menu = new Menu();
+            var item1 = new MenuItem { Text = "Group" };
+            item1.Tapped += groupNavClicked;
+            menu.Items.Add(item1);
+            var item2 = new MenuItem { Text = "Home" };
+            item2.Tapped += homeNavClicked;
+            menu.Items.Add(item2);
+            // Show the menu in a flyout anchored to the header title
+            var flyout = new Flyout();
+            flyout.Placement = PlacementMode.Bottom;
+            flyout.HorizontalAlignment = HorizontalAlignment.Right;
+            flyout.HorizontalContentAlignment = HorizontalAlignment.Left;
+            flyout.PlacementTarget = pageDropDown;
+            flyout.Content = menu;
+            flyout.IsOpen = true;
+        }
+
+        private void homeNavClicked(object sender, TappedRoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void groupNavClicked(object sender, TappedRoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
 
         /// <summary>
         /// Invoked when an item is clicked.
