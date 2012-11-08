@@ -112,6 +112,9 @@ namespace Flurrysticks.Data
     /// </summary>
     public sealed class SampleDataSource
     {
+
+        public static Account currentAccount = null;
+
         private static SampleDataSource _sampleDataSource = new SampleDataSource();
 
         private ObservableCollection<Account> _allAccounts = new ObservableCollection<Account>();
@@ -141,6 +144,15 @@ namespace Flurrysticks.Data
             return null;
         }
 
+
+        public static IEnumerable<AppItem> GetAppItems(string ApiKey)
+        {
+            Account requestedAccount = GetAccount(ApiKey);
+            // Simple linear search is acceptable for small data sets
+            // var matches = requestedAccount.Apps.SelectMany(group => group.Apps).Where((item) => item.AppApiKey.Equals(AppApiKey));
+            return requestedAccount.Apps;
+        }
+
         public SampleDataSource()
         {
            
@@ -162,7 +174,51 @@ namespace Flurrysticks.Data
                     "Android",
                     DateTime.Now,
                     "HXCWZ1L3CWMVGQM68JPI"));
+            account1.Apps.Add(
+                new AppItem(
+                    "Test App 3",
+                    "Android",
+                    DateTime.Now,
+                    "HXCWZ1L3CWMVGQM68JPI"));
+                        account1.Apps.Add(
+                new AppItem(
+                    "Test App 4",
+                    "Android",
+                    DateTime.Now,
+                    "HXCWZ1L3CWMVGQM68JPI"));
             this.AllAccounts.Add(account1);
+
+            var account2 = new Account(
+                    "Test Account 2",
+                    false,
+                    "WSN22PRKRZH4B6RKFPZN"
+                    );
+            // String Name, String Platform, DateTime createdDate, String AppApiKey
+            account2.Apps.Add(
+                new AppItem(
+                    "Test2 App 1",
+                    "Android",
+                    DateTime.Now,
+                    "HXCWZ1L3CWMVGQM68JPI"));
+            account2.Apps.Add(
+                new AppItem(
+                    "Test2 App 2",
+                    "Android",
+                    DateTime.Now,
+                    "HXCWZ1L3CWMVGQM68JPI"));
+            account2.Apps.Add(
+                new AppItem(
+                    "Test2 App 3",
+                    "Android",
+                    DateTime.Now,
+                    "HXCWZ1L3CWMVGQM68JPI"));
+            account2.Apps.Add(
+                new AppItem(
+                    "Test2 App 4",
+                    "Android",
+                    DateTime.Now,
+                    "HXCWZ1L3CWMVGQM68JPI"));
+            this.AllAccounts.Add(account2);
 
         }
     }

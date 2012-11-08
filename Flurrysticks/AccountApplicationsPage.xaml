@@ -90,7 +90,8 @@
             SelectionMode="None"
             IsSwipeEnabled="false"
             IsItemClickEnabled="True"
-            ItemClick="ItemView_ItemClick"/>
+            ItemClick="ItemView_ItemClick">
+        </GridView>
 
         <!-- Vertical scrolling list only used when snapped -->
         <ListView

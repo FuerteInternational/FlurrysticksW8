@@ -90,7 +90,8 @@
             SelectionMode="None"
             IsSwipeEnabled="false"
             IsItemClickEnabled="True"
-                                          />
+                                          >
+        </GridView>
 
         <!-- Vertical scrolling list only used when snapped -->
         <ListView x:ConnectionId='2'

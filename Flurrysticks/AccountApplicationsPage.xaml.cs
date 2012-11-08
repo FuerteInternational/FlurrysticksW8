@@ -1,5 +1,4 @@
 ﻿using Flurrysticks.Data;
-
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +16,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Diagnostics;
 using Callisto.Controls;
+using System.Collections.ObjectModel;
 
 // The Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234233
 
@@ -28,6 +28,9 @@ namespace Flurrysticks
     /// </summary>
     public sealed partial class AccountApplicationsPage : Flurrysticks.Common.LayoutAwarePage
     {
+        IEnumerable<AppItem> sampleApps;
+        IEnumerable<Account> sampleAccounts;
+
         public AccountApplicationsPage()
         {
             this.InitializeComponent();
@@ -45,23 +48,28 @@ namespace Flurrysticks
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
-            var sampleAccounts = SampleDataSource.GetAccounts();
-            this.DefaultViewModel["Items"] = sampleAccounts;
+            sampleAccounts = SampleDataSource.GetAccounts();
+            sampleApps = SampleDataSource.GetAppItems("DJBUBP9NE5YBQB5CQKH3");
+            this.DefaultViewModel["Items"] = sampleApps;
             Debug.WriteLine("Assign Data");
         }
-
 
         private void headerMenuClicked(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("headerMenuClicked");
             // Create a menu containing two items
             var menu = new Menu();
-            var item1 = new MenuItem { Text = "Group" };
-            item1.Tapped += groupNavClicked;
-            menu.Items.Add(item1);
-            var item2 = new MenuItem { Text = "Home" };
-            item2.Tapped += homeNavClicked;
-            menu.Items.Add(item2);
+
+            IEnumerator<Account> MyEnumerator = sampleAccounts.GetEnumerator();
+
+            while (MyEnumerator.MoveNext())
+            {
+                Account processingAccount = MyEnumerator.Current;
+                var newItem = new MenuItem { Text = processingAccount.Name, Tag = processingAccount.ApiKey };
+                newItem.Tapped += homeNavClicked;
+                menu.Items.Add(newItem);
+            }
+ 
             // Show the menu in a flyout anchored to the header title
             var flyout = new Flyout();
             flyout.Placement = PlacementMode.Bottom;
@@ -74,14 +82,11 @@ namespace Flurrysticks
 
         private void homeNavClicked(object sender, TappedRoutedEventArgs e)
         {
-            throw new NotImplementedException();
-        }
+            MenuItem what = ((MenuItem)sender);
+            pageTitle.Text = what.Text; 
 
-        private void groupNavClicked(object sender, TappedRoutedEventArgs e)
-        {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
-
 
         /// <summary>
         /// Invoked when an item is clicked.
