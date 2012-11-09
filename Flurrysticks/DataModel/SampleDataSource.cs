@@ -224,6 +224,30 @@ namespace Flurrysticks.Data
                     "Android",
                     DateTime.Now,
                     "HXCWZ1L3CWMVGQM68JPI"));
+            account2.Apps.Add(
+                 new AppItem(
+                     "Test2 App 5",
+                     "Android",
+                     DateTime.Now,
+                     "HXCWZ1L3CWMVGQM68JPI"));
+            account2.Apps.Add(
+                new AppItem(
+                    "Test2 App 6",
+                    "Android",
+                    DateTime.Now,
+                    "HXCWZ1L3CWMVGQM68JPI"));
+            account2.Apps.Add(
+                new AppItem(
+                    "Test2 App 7",
+                    "Android",
+                    DateTime.Now,
+                    "HXCWZ1L3CWMVGQM68JPI"));
+            account2.Apps.Add(
+                new AppItem(
+                    "Test2 App 8",
+                    "Android",
+                    DateTime.Now,
+                    "HXCWZ1L3CWMVGQM68JPI"));
             this.AllAccounts.Add(account2);
 
         }

@@ -50,7 +50,7 @@ namespace Flurrysticks
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
             SampleDataSource.currentAccount = 0; // otherwise get it from stored isolated storage
             sampleAccounts = SampleDataSource.GetAccounts();
-            sampleApps = SampleDataSource.GetAppItems("DJBUBP9NE5YBQB5CQKH3");
+            sampleApps = SampleDataSource.GetAppItems(SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).ApiKey);
             this.DefaultViewModel["Items"] = sampleApps;
             pageTitle.Text = SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).Name; 
             Debug.WriteLine("Assign Data");
@@ -70,6 +70,7 @@ namespace Flurrysticks
                 var newItem = new MenuItem { Text = processingAccount.Name, Tag = i /* processingAccount.ApiKey */ };
                 newItem.Tapped += homeNavClicked;
                 menu.Items.Add(newItem);
+                i++;
             }
  
             // Show the menu in a flyout anchored to the header title
@@ -87,6 +88,10 @@ namespace Flurrysticks
             MenuItem what = ((MenuItem)sender);
             pageTitle.Text = what.Text;
             SampleDataSource.currentAccount = (int)what.Tag;
+            Debug.WriteLine("switching to currentAccount:" + SampleDataSource.currentAccount);
+            Debug.WriteLine("switching to ApiKey:" + SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).ApiKey);
+            sampleApps = SampleDataSource.GetAppItems(SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).ApiKey);
+            this.DefaultViewModel["Items"] = sampleApps;
             //throw new NotImplementedException();
         }
 
