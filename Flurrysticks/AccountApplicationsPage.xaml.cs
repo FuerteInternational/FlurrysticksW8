@@ -48,9 +48,11 @@ namespace Flurrysticks
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
+            SampleDataSource.currentAccount = 0; // otherwise get it from stored isolated storage
             sampleAccounts = SampleDataSource.GetAccounts();
             sampleApps = SampleDataSource.GetAppItems("DJBUBP9NE5YBQB5CQKH3");
             this.DefaultViewModel["Items"] = sampleApps;
+            pageTitle.Text = SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).Name; 
             Debug.WriteLine("Assign Data");
         }
 
@@ -61,11 +63,11 @@ namespace Flurrysticks
             var menu = new Menu();
 
             IEnumerator<Account> MyEnumerator = sampleAccounts.GetEnumerator();
-
+            int i = 0;
             while (MyEnumerator.MoveNext())
             {
                 Account processingAccount = MyEnumerator.Current;
-                var newItem = new MenuItem { Text = processingAccount.Name, Tag = processingAccount.ApiKey };
+                var newItem = new MenuItem { Text = processingAccount.Name, Tag = i /* processingAccount.ApiKey */ };
                 newItem.Tapped += homeNavClicked;
                 menu.Items.Add(newItem);
             }
@@ -83,8 +85,8 @@ namespace Flurrysticks
         private void homeNavClicked(object sender, TappedRoutedEventArgs e)
         {
             MenuItem what = ((MenuItem)sender);
-            pageTitle.Text = what.Text; 
-
+            pageTitle.Text = what.Text;
+            SampleDataSource.currentAccount = (int)what.Tag;
             //throw new NotImplementedException();
         }
 

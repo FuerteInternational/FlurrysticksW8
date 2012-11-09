@@ -113,7 +113,7 @@ namespace Flurrysticks.Data
     public sealed class SampleDataSource
     {
 
-        public static Account currentAccount = null;
+        public static int currentAccount = 0;
 
         private static SampleDataSource _sampleDataSource = new SampleDataSource();
 
@@ -134,6 +134,12 @@ namespace Flurrysticks.Data
             var matches = _sampleDataSource.AllAccounts.Where((group) => group.ApiKey.Equals(ApiKey));
             if (matches.Count() == 1) return matches.First();
             return null;
+        }
+
+        public static Account GetAccountByIndex(int i)
+        {
+            // Simple linear search is acceptable for small data sets
+            return _sampleDataSource.AllAccounts.ElementAt<Account>(i);
         }
 
         public static AppItem GetAppItem(string AppApiKey)
