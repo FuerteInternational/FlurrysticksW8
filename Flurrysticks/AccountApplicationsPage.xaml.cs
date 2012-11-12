@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Navigation;
 using System.Diagnostics;
 using Callisto.Controls;
 using System.Collections.ObjectModel;
+using System.Xml.Linq;
 
 // The Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234233
 
@@ -45,7 +46,7 @@ namespace Flurrysticks
         /// </param>
         /// <param name="pageState">A dictionary of state preserved by this page during an earlier
         /// session.  This will be null the first time a page is visited.</param>
-        protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
+        protected async override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
             SampleDataSource.currentAccount = 0; // otherwise get it from stored isolated storage
@@ -54,6 +55,11 @@ namespace Flurrysticks
             this.DefaultViewModel["Items"] = sampleApps;
             pageTitle.Text = SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).Name; 
             Debug.WriteLine("Assign Data");
+
+            DownloadHelper dh = new DownloadHelper();
+            XDocument result = await dh.DownloadXML();
+
+            Debug.WriteLine(result.ToString());
         }
 
         private void headerMenuClicked(object sender, RoutedEventArgs e)
@@ -83,7 +89,7 @@ namespace Flurrysticks
             flyout.IsOpen = true;
         }
 
-        private void homeNavClicked(object sender, TappedRoutedEventArgs e)
+        private async void homeNavClicked(object sender, TappedRoutedEventArgs e)
         {
             MenuItem what = ((MenuItem)sender);
             pageTitle.Text = what.Text;

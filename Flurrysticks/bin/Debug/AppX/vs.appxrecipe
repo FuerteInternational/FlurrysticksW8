@@ -5,7 +5,7 @@
     <WindowsUser>fuerte</WindowsUser>
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
-    <RegisteredManifestChecksum>4763A52A127656A07E7208209DEF534B324EB5AFAEABCE9DE4EC35C703E44224</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>586F41D3E73F46F44E9A556A4A14B2D22702127D3986D82543BF343E75A99AC9</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>3a699d93-555f-439e-879a-96f992557b96_1.0.0.0_neutral__m162tqyk5q2fg</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>3a699d93-555f-439e-879a-96f992557b96_m162tqyk5q2fg!App</RegisteredUserModeAppID>
     <RegisteredPackageID>3a699d93-555f-439e-879a-96f992557b96</RegisteredPackageID>
@@ -16,17 +16,17 @@
     <AppXManifest Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-11-08T10:26:13.364</Modified>
+      <Modified>2012-11-12T17:17:08.036</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Flurrysticks.exe">
       <PackagePath>Flurrysticks.exe</PackagePath>
-      <Modified>2012-11-09T16:34:25.399</Modified>
+      <Modified>2012-11-12T17:17:07.736</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Flurrysticks.pdb">
       <PackagePath>Flurrysticks.pdb</PackagePath>
-      <Modified>2012-11-09T16:34:25.369</Modified>
+      <Modified>2012-11-12T17:17:07.714</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Callisto\1.2.5\References\CommonConfiguration\neutral\Callisto.dll">
       <PackagePath>Callisto.dll</PackagePath>
@@ -82,7 +82,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2012-11-08T10:26:12.969</Modified>
+      <Modified>2012-11-12T17:17:07.969</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
