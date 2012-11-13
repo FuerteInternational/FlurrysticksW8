@@ -140,5 +140,20 @@
             </StackPanel>
         </Grid>
     </Grid>
+
+    <common:LayoutAwarePage.BottomAppBar>
+        <AppBar x:Name="bottomAppBar" Padding="10,0,10,0" IsSticky="True" IsOpen="True">
+            <Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:ConnectionId='6' Style="{StaticResource RemoveAppBarButtonStyle}"                       />
+                    <Button x:ConnectionId='7' Style="{StaticResource AddAppBarButtonStyle}"                       />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Button x:ConnectionId='5' Style="{StaticResource SortAppBarButtonStyle}"                       />
+                </StackPanel>
+            </Grid>
+        </AppBar>
+    </common:LayoutAwarePage.BottomAppBar>
+
 </common:LayoutAwarePage>
 
