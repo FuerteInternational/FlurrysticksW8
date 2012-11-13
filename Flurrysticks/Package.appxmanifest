@@ -15,9 +15,9 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Flurrysticks.App">
-      <VisualElements DisplayName="Flurrysticks" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Flurrysticks" ForegroundText="light" BackgroundColor="#464646">
-        <DefaultTile ShowName="allLogos" />
-        <SplashScreen Image="Assets\SplashScreen.png" />
+      <VisualElements DisplayName="Flurrysticks" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Flurrysticks" ForegroundText="dark" BackgroundColor="#eaeaea">
+        <DefaultTile ShowName="allLogos" WideLogo="Assets\WideLogo.png" />
+        <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#eaeaea" />
       </VisualElements>
     </Application>
   </Applications>

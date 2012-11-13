@@ -5,7 +5,7 @@
     <WindowsUser>fuerte</WindowsUser>
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
-    <RegisteredManifestChecksum>586F41D3E73F46F44E9A556A4A14B2D22702127D3986D82543BF343E75A99AC9</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>4C9913103CE9AAC23DE25FEC8C2175D33A4C6B371659DEEF7E8FA72A6432734B</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>3a699d93-555f-439e-879a-96f992557b96_1.0.0.0_neutral__m162tqyk5q2fg</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>3a699d93-555f-439e-879a-96f992557b96_m162tqyk5q2fg!App</RegisteredUserModeAppID>
     <RegisteredPackageID>3a699d93-555f-439e-879a-96f992557b96</RegisteredPackageID>
@@ -16,17 +16,17 @@
     <AppXManifest Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-11-12T17:17:08.036</Modified>
+      <Modified>2012-11-13T17:34:23.978</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Flurrysticks.exe">
       <PackagePath>Flurrysticks.exe</PackagePath>
-      <Modified>2012-11-13T17:05:10.521</Modified>
+      <Modified>2012-11-13T17:34:23.048</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Flurrysticks.pdb">
       <PackagePath>Flurrysticks.pdb</PackagePath>
-      <Modified>2012-11-13T17:05:10.499</Modified>
+      <Modified>2012-11-13T17:34:23.030</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Callisto\1.2.5\References\CommonConfiguration\neutral\Callisto.dll">
       <PackagePath>Callisto.dll</PackagePath>
@@ -39,22 +39,22 @@
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\Logo.png">
       <PackagePath>Assets\Logo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-03-15T19:42:52.000</Modified>
+      <Modified>2012-11-13T17:03:53.120</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\SmallLogo.png">
       <PackagePath>Assets\SmallLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-03-15T19:42:52.000</Modified>
+      <Modified>2012-11-13T17:03:50.841</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\SplashScreen.png">
       <PackagePath>Assets\SplashScreen.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-03-15T19:42:52.000</Modified>
+      <Modified>2012-11-13T17:03:26.149</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-03-15T19:42:52.000</Modified>
+      <Modified>2012-11-13T17:03:30.709</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\LightGray.png">
       <PackagePath>Assets\LightGray.png</PackagePath>
@@ -67,6 +67,11 @@
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\DarkGray.png">
       <PackagePath>Assets\DarkGray.png</PackagePath>
       <Modified>2011-12-12T21:08:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\WideLogo.png">
+      <PackagePath>Assets\WideLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2012-11-13T17:33:00.025</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\App.xaml">
       <PackagePath>App.xaml</PackagePath>
@@ -82,7 +87,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2012-11-12T17:17:07.969</Modified>
+      <Modified>2012-11-13T17:34:23.248</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
