@@ -27,7 +27,7 @@ namespace Flurrysticks
     sealed partial class App : Application
     {
 
-        public static long lastRequest = 0; // timestamp of lastrequest through the app
+        public static long lastRequestTimeOut = 0; // timeOut from last request; increases w/ each request; decreases w/ each request finished
 
 
         /// <summary>

@@ -11,6 +11,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using System.Collections.Specialized;
+using System.Xml.Linq;
 
 // The data model defined by this file serves as a representative example of a strongly-typed
 // model that supports notification when members are added, removed, or modified.  The property
@@ -97,6 +98,13 @@ namespace Flurrysticks.Data
             set { this.SetProperty(ref this._ApiKey, value); }
         }
 
+        private XDocument _xdoc = null;
+        public XDocument xdoc
+        {
+            get { return this._xdoc; }
+            set { this.SetProperty(ref this._xdoc, value); }
+        }
+
         private ObservableCollection<AppItem> _Apps = new ObservableCollection<AppItem>();
         public ObservableCollection<AppItem> Apps
         {
@@ -159,97 +167,104 @@ namespace Flurrysticks.Data
             return requestedAccount.Apps;
         }
 
-        public SampleDataSource()
-        {
-           
-            var account1 = new Account(
-                    "Test Account 1",
-                    false,
-                    "DJBUBP9NE5YBQB5CQKH3"
-                    );
-            // String Name, String Platform, DateTime createdDate, String AppApiKey
-            account1.Apps.Add(
-                new AppItem(
-                    "Test App 1",
-                    "Android",
-                    DateTime.Now,
-                    "HXCWZ1L3CWMVGQM68JPI"));
-            account1.Apps.Add(
-                new AppItem(
-                    "Test App 2",
-                    "Android",
-                    DateTime.Now,
-                    "HXCWZ1L3CWMVGQM68JPI"));
-            account1.Apps.Add(
-                new AppItem(
-                    "Test App 3",
-                    "Android",
-                    DateTime.Now,
-                    "HXCWZ1L3CWMVGQM68JPI"));
-                        account1.Apps.Add(
-                new AppItem(
-                    "Test App 4",
-                    "Android",
-                    DateTime.Now,
-                    "HXCWZ1L3CWMVGQM68JPI"));
-            this.AllAccounts.Add(account1);
+     public SampleDataSource()
+     {
 
-            var account2 = new Account(
-                    "Test Account 2",
-                    false,
-                    "WSN22PRKRZH4B6RKFPZN"
-                    );
-            // String Name, String Platform, DateTime createdDate, String AppApiKey
-            account2.Apps.Add(
-                new AppItem(
-                    "Test2 App 1",
-                    "Android",
-                    DateTime.Now,
-                    "HXCWZ1L3CWMVGQM68JPI"));
-            account2.Apps.Add(
-                new AppItem(
-                    "Test2 App 2",
-                    "Android",
-                    DateTime.Now,
-                    "HXCWZ1L3CWMVGQM68JPI"));
-            account2.Apps.Add(
-                new AppItem(
-                    "Test2 App 3",
-                    "Android",
-                    DateTime.Now,
-                    "HXCWZ1L3CWMVGQM68JPI"));
-            account2.Apps.Add(
-                new AppItem(
-                    "Test2 App 4",
-                    "Android",
-                    DateTime.Now,
-                    "HXCWZ1L3CWMVGQM68JPI"));
-            account2.Apps.Add(
-                 new AppItem(
-                     "Test2 App 5",
-                     "Android",
-                     DateTime.Now,
-                     "HXCWZ1L3CWMVGQM68JPI"));
-            account2.Apps.Add(
-                new AppItem(
-                    "Test2 App 6",
-                    "Android",
-                    DateTime.Now,
-                    "HXCWZ1L3CWMVGQM68JPI"));
-            account2.Apps.Add(
-                new AppItem(
-                    "Test2 App 7",
-                    "Android",
-                    DateTime.Now,
-                    "HXCWZ1L3CWMVGQM68JPI"));
-            account2.Apps.Add(
-                new AppItem(
-                    "Test2 App 8",
-                    "Android",
-                    DateTime.Now,
-                    "HXCWZ1L3CWMVGQM68JPI"));
-            this.AllAccounts.Add(account2);
+         var account1 = new Account(
+                 "Test Account 1",
+                 false,
+                 "DJBUBP9NE5YBQB5CQKH3"
+                 );
+         /*
+         // String Name, String Platform, DateTime createdDate, String AppApiKey
+         account1.Apps.Add(
+             new AppItem(
+                 "Test App 1",
+                 "Android",
+                 DateTime.Now,
+                 "HXCWZ1L3CWMVGQM68JPI"));
+         account1.Apps.Add(
+             new AppItem(
+                 "Test App 2",
+                 "Android",
+                 DateTime.Now,
+                 "HXCWZ1L3CWMVGQM68JPI"));
+         account1.Apps.Add(
+             new AppItem(
+                 "Test App 3",
+                 "Android",
+                 DateTime.Now,
+                 "HXCWZ1L3CWMVGQM68JPI"));
+                     account1.Apps.Add(
+             new AppItem(
+                 "Test App 4",
+                 "Android",
+                 DateTime.Now,
+                 "HXCWZ1L3CWMVGQM68JPI"));
+          * */
+         this.AllAccounts.Add(account1);
 
-        }
+         var account2 = new Account(
+                 "Test Account 2",
+                 false,
+                 "WSN22PRKRZH4B6RKFPZN"
+                 );
+         /*
+         // String Name, String Platform, DateTime createdDate, String AppApiKey
+         account2.Apps.Add(
+             new AppItem(
+                 "Test2 App 1",
+                 "Android",
+                 DateTime.Now,
+                 "HXCWZ1L3CWMVGQM68JPI"));
+         account2.Apps.Add(
+             new AppItem(
+                 "Test2 App 2",
+                 "Android",
+                 DateTime.Now,
+                 "HXCWZ1L3CWMVGQM68JPI"));
+         account2.Apps.Add(
+             new AppItem(
+                 "Test2 App 3",
+                 "Android",
+                 DateTime.Now,
+                 "HXCWZ1L3CWMVGQM68JPI"));
+         account2.Apps.Add(
+             new AppItem(
+                 "Test2 App 4",
+                 "Android",
+                 DateTime.Now,
+                 "HXCWZ1L3CWMVGQM68JPI"));
+         account2.Apps.Add(
+              new AppItem(
+                  "Test2 App 5",
+                  "Android",
+                  DateTime.Now,
+                  "HXCWZ1L3CWMVGQM68JPI"));
+         account2.Apps.Add(
+             new AppItem(
+                 "Test2 App 6",
+                 "Android",
+                 DateTime.Now,
+                 "HXCWZ1L3CWMVGQM68JPI"));
+         account2.Apps.Add(
+             new AppItem(
+                 "Test2 App 7",
+                 "Android",
+                 DateTime.Now,
+                 "HXCWZ1L3CWMVGQM68JPI"));
+         account2.Apps.Add(
+             new AppItem(
+                 "Test2 App 8",
+                 "Android",
+                 DateTime.Now,
+                 "HXCWZ1L3CWMVGQM68JPI"));
+          * */
+         this.AllAccounts.Add(account2);
+
+            
+
+     }
+         
     }
 }

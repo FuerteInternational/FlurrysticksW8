@@ -13,11 +13,19 @@ namespace Flurrysticks
     class DownloadHelper
     {
 
-        public async Task<XDocument> DownloadXML()
+        public async Task<XDocument> DownloadXML(string callURL)
         {
-            string ApiKey = "DJBUBP9NE5YBQB5CQKH3";
+
+
+            while (App.lastRequestTimeOut > 0)
+            {
+                Debug.WriteLine("Waiting " + App.lastRequestTimeOut);
+                await Task.Delay((int)App.lastRequestTimeOut);
+                Debug.WriteLine("Wait is over, continuing...");
+                App.lastRequestTimeOut = 0; // reseting timeOut
+            }
+
             // the following uri will returns a response with xml content
-            string callURL = "http://api.flurry.com/appInfo/getAllApplications?apiAccessCode=" + ApiKey;
             Debug.WriteLine("callURL:" + callURL);
             Uri uri = new Uri(callURL);
 
@@ -25,12 +33,10 @@ namespace Flurrysticks
             client.DefaultRequestHeaders.Add("Accept", "application/xml"); // we want XML
             HttpResponseMessage response = await client.GetAsync(uri);
             response.EnsureSuccessStatusCode();
-
             // ReadAsStreamAsync() returns when the whole message is downloaded
             Stream stream = await response.Content.ReadAsStreamAsync();
-
             XDocument xdoc = XDocument.Load(stream);
-
+            App.lastRequestTimeOut = App.lastRequestTimeOut + 1000;
             return xdoc; 
 
             /*

@@ -31,6 +31,7 @@ namespace Flurrysticks
     {
         IEnumerable<AppItem> sampleApps;
         IEnumerable<Account> sampleAccounts;
+        DownloadHelper dh = new DownloadHelper();
 
         public AccountApplicationsPage()
         {
@@ -46,20 +47,14 @@ namespace Flurrysticks
         /// </param>
         /// <param name="pageState">A dictionary of state preserved by this page during an earlier
         /// session.  This will be null the first time a page is visited.</param>
-        protected async override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
+        protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
             SampleDataSource.currentAccount = 0; // otherwise get it from stored isolated storage
             sampleAccounts = SampleDataSource.GetAccounts();
-            sampleApps = SampleDataSource.GetAppItems(SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).ApiKey);
-            this.DefaultViewModel["Items"] = sampleApps;
-            pageTitle.Text = SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).Name; 
-            Debug.WriteLine("Assign Data");
+            switchData(SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).Name);
 
-            DownloadHelper dh = new DownloadHelper();
-            XDocument result = await dh.DownloadXML();
-
-            Debug.WriteLine(result.ToString());
+            //Debug.WriteLine(result.ToString());
         }
 
         private void headerMenuClicked(object sender, RoutedEventArgs e)
@@ -89,15 +84,58 @@ namespace Flurrysticks
             flyout.IsOpen = true;
         }
 
-        private async void homeNavClicked(object sender, TappedRoutedEventArgs e)
+        private void ParseXML(Account what)
+        {
+            Debug.WriteLine("Processing..."+what.xdoc.ToString());
+            what.Name = what.xdoc.Root.Attribute("companyName").Value;
+            var apps = from node in what.xdoc.Descendants("application") 
+                       orderby node.Attribute("name").Value
+                       select node;
+            IEnumerator<XElement> myEnum = apps.GetEnumerator();
+            while (myEnum.MoveNext())
+            {
+                XElement current = myEnum.Current;
+                string name = current.Attribute("name").Value;
+                string platform = current.Attribute("platform").Value;
+                DateTime cdate = DateTime.Parse(current.Attribute("createdDate").Value);
+                string appapi = current.Attribute("apiKey").Value;
+                what.Apps.Add(new AppItem(
+                            name,
+                            platform,
+                            cdate,
+                            appapi
+                            ));
+            }
+        }
+
+        private async void switchData(String title) {
+            Debug.WriteLine("switching to currentAccount:" + SampleDataSource.currentAccount);
+            Debug.WriteLine("switching to ApiKey:" + SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).ApiKey);          
+
+            // check if it's loaded, if not - load it up
+
+            if (!SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).IsLoaded) // if not loaded
+            {
+                string callURL = "http://api.flurry.com/appInfo/getAllApplications?apiAccessCode=" + SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).ApiKey;
+                XDocument result = await dh.DownloadXML(callURL); // load it            
+                //where node.Element("CountryRegion").Value.Contains("United States")
+                //select node.Element("FormattedAddress").Value                           
+                SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).xdoc = result; // if we will need it in future
+                ParseXML(SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount));
+                SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).IsLoaded = true;
+                // SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).Apps
+            }
+            sampleApps = SampleDataSource.GetAppItems(SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).ApiKey);
+
+            this.DefaultViewModel["Items"] = sampleApps;
+            pageTitle.Text = title;
+        }
+
+        private void homeNavClicked(object sender, TappedRoutedEventArgs e)
         {
             MenuItem what = ((MenuItem)sender);
-            pageTitle.Text = what.Text;
             SampleDataSource.currentAccount = (int)what.Tag;
-            Debug.WriteLine("switching to currentAccount:" + SampleDataSource.currentAccount);
-            Debug.WriteLine("switching to ApiKey:" + SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).ApiKey);
-            sampleApps = SampleDataSource.GetAppItems(SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).ApiKey);
-            this.DefaultViewModel["Items"] = sampleApps;
+            switchData(what.Text);
             //throw new NotImplementedException();
         }
 
