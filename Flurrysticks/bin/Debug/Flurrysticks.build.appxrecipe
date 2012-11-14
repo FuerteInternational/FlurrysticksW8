@@ -25,9 +25,21 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Callisto\1.2.5\Redist\CommonConfiguration\neutral\Themes\Generic.xaml">
       <PackagePath>Callisto\Themes\Generic.xaml</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\flu_bg_1024.png">
+      <PackagePath>Assets\flu_bg_1024.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\flu_bg_1366.png">
+      <PackagePath>Assets\flu_bg_1366.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\flu_bg_2560.png">
+      <PackagePath>Assets\flu_bg_2560.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\Logo.png">
       <PackagePath>Assets\Logo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\PageLogo.png">
+      <PackagePath>Assets\PageLogo.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\SmallLogo.png">
       <PackagePath>Assets\SmallLogo.png</PackagePath>

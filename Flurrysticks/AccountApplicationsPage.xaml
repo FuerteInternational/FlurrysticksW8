@@ -29,6 +29,9 @@
         * Row 1 contains the rest of the page layout
     -->
     <Grid Style="{StaticResource LayoutRootStyle}">
+        <Grid.Background>
+            <ImageBrush x:Name="backgroundGrid" ImageSource="/Assets/flu_bg_2560.png" />
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="140"/>
             <RowDefinition Height="*"/>
@@ -117,9 +120,12 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}" />
+            <Image Source="Assets/PageLogo.png"
+                   Grid.Column="1" HorizontalAlignment="Left"
+                   />
             <StackPanel 
                 Orientation="Horizontal" 
-                Grid.Column="1" HorizontalAlignment="Left"
+                Grid.Column="1" HorizontalAlignment="Right"
                 IsTapEnabled="True"
                 Tapped="headerMenuClicked"
                 >
