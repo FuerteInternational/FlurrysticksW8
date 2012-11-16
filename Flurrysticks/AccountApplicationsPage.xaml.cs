@@ -106,6 +106,7 @@ namespace Flurrysticks
                             appapi
                             ));
             }
+            pageTitle.Text = what.Name;
         }
 
         private async void switchData(String title) {
@@ -125,10 +126,14 @@ namespace Flurrysticks
                 SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).IsLoaded = true;
                 // SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).Apps
             }
+            else
+            {
+                pageTitle.Text = title;
+            }
             sampleApps = SampleDataSource.GetAppItems(SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).ApiKey);
 
             this.DefaultViewModel["Items"] = sampleApps;
-            pageTitle.Text = title;
+            
         }
 
         private void homeNavClicked(object sender, TappedRoutedEventArgs e)

@@ -171,7 +171,7 @@ namespace Flurrysticks.Data
      {
 
          var account1 = new Account(
-                 "Test Account 1",
+                 "loading...",
                  false,
                  "DJBUBP9NE5YBQB5CQKH3"
                  );
@@ -205,7 +205,7 @@ namespace Flurrysticks.Data
          this.AllAccounts.Add(account1);
 
          var account2 = new Account(
-                 "Test Account 2",
+                 "loading...",
                  false,
                  "WSN22PRKRZH4B6RKFPZN"
                  );

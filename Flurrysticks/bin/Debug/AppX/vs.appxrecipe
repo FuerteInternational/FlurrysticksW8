@@ -22,11 +22,11 @@
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Flurrysticks.exe">
       <PackagePath>Flurrysticks.exe</PackagePath>
-      <Modified>2012-11-14T11:34:27.093</Modified>
+      <Modified>2012-11-16T13:47:07.598</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Flurrysticks.pdb">
       <PackagePath>Flurrysticks.pdb</PackagePath>
-      <Modified>2012-11-14T11:34:27.070</Modified>
+      <Modified>2012-11-16T13:47:07.575</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Callisto\1.2.5\References\CommonConfiguration\neutral\Callisto.dll">
       <PackagePath>Callisto.dll</PackagePath>
@@ -99,7 +99,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\AccountApplicationsPage.xaml">
       <PackagePath>AccountApplicationsPage.xaml</PackagePath>
-      <Modified>2012-11-14T11:34:23.045</Modified>
+      <Modified>2012-11-16T13:47:03.546</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>

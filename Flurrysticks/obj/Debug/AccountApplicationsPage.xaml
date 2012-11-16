@@ -131,7 +131,7 @@
                 >
             <TextBlock 
                 x:Name="pageTitle"                
-                Text="{StaticResource AppName}" 
+                Text="loading..." 
                 Style="{StaticResource PageHeaderTextStyle}" 
                  HorizontalAlignment="Left"
                 />
