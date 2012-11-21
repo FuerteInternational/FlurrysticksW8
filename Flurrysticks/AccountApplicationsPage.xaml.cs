@@ -18,6 +18,11 @@ using System.Diagnostics;
 using Callisto.Controls;
 using System.Collections.ObjectModel;
 using System.Xml.Linq;
+using System.Xml.Serialization;
+using System.Threading.Tasks;
+using Windows.Storage;
+using System.Runtime.Serialization;
+using Flurrysticks.DataModel;
 
 // The Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234233
 
@@ -38,6 +43,93 @@ namespace Flurrysticks
             this.InitializeComponent();
         }
 
+        private async static Task<StorageFile> GetFile(string path)
+        {
+            var folder = ApplicationData.Current.LocalFolder;
+            try
+            {
+                return await folder.GetFileAsync(path);
+            }
+            catch (FileNotFoundException)
+            {
+                return null;
+            }
+        }
+
+        private async static Task<bool> FileExists(string path)
+        {
+            var folder = ApplicationData.Current.LocalFolder;
+            try
+            {
+                var file = await folder.GetFileAsync(path);
+                return true;
+            }
+            catch (FileNotFoundException)
+            {
+                return false;
+            }
+        }
+
+        private async static Task<Stream> WriteFile(string path)
+        {
+            var folder = ApplicationData.Current.LocalFolder;
+            return await folder.OpenStreamForWriteAsync(path, CreationCollisionOption.ReplaceExisting);
+        }
+
+        static readonly string ApiFileName = "apikeys.xml";
+
+        private void LoadApiKeyData()
+        {
+            GetFile(ApiFileName).ContinueWith(value =>
+            {
+                var file = value.Result;
+                if (file == null)
+                {
+                    // nothing loaded
+                    Debug.WriteLine("Api XML empty");
+                    return;
+                }
+                var folder = ApplicationData.Current.LocalFolder;
+                folder.OpenStreamForReadAsync(ApiFileName).ContinueWith(filevalue =>
+                {
+                    using (var stream = filevalue.Result)
+                    {
+                        DataContractSerializer serializer = new DataContractSerializer(typeof(AccountItem[]));
+                        var localCats = serializer.ReadObject(stream) as Account[];
+                        if (localCats == null || localCats.Length == 0)
+                        {
+                            // nothing loaded
+                            Debug.WriteLine("Api XML empty");
+                            return;
+                        }
+                        sampleAccounts = localCats;
+                    }
+                });
+            });
+        }
+
+        private void SaveApiKeyData()
+        {
+            List<AccountItem> Accounts = new List<AccountItem>(); ;
+            IEnumerator<Account> MyEnumerator = sampleAccounts.GetEnumerator();
+            while (MyEnumerator.MoveNext())
+            {
+                Account processingAccount = MyEnumerator.Current;
+                var newItem = new AccountItem { Name = processingAccount.Name, ApiKey = processingAccount.ApiKey };
+                Accounts.Add(newItem);
+            }
+
+            WriteFile(ApiFileName).ContinueWith(opentask =>
+            {
+                using (var stream = opentask.Result)
+                {
+                    DataContractSerializer serializer = new DataContractSerializer(typeof(AccountItem[]));
+                    serializer.WriteObject(stream, Accounts.ToArray());
+                }
+            });
+
+        }
+
         /// <summary>
         /// Populates the page with content passed during navigation.  Any saved state is also
         /// provided when recreating a page from a prior session.
@@ -52,6 +144,8 @@ namespace Flurrysticks
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
             SampleDataSource.currentAccount = 0; // otherwise get it from stored isolated storage
             sampleAccounts = SampleDataSource.GetAccounts();
+            //RestoreAccounts();
+            
             switchData(SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).Name);
 
             //Debug.WriteLine(result.ToString());
@@ -88,6 +182,7 @@ namespace Flurrysticks
         {
             Debug.WriteLine("Processing..."+what.xdoc.ToString());
             what.Name = what.xdoc.Root.Attribute("companyName").Value;
+            SaveApiKeyData(); // we got name and apikey - let's save it
             var apps = from node in what.xdoc.Descendants("application") 
                        orderby node.Attribute("name").Value
                        select node;
@@ -173,4 +268,15 @@ namespace Flurrysticks
 
         }
     }
+
+    [XmlRoot]
+    public class ApiKeysContainer
+    {
+        private List<string> strings = new List<string>();
+        public List<string> Strings { get { return strings; } set { strings = value; } }
+
+        private List<string> names = new List<string>();
+        public List<string> Names { get { return names; } set { names = value; } }
+    }
+
 }

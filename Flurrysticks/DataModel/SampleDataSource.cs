@@ -12,6 +12,9 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using System.Collections.Specialized;
 using System.Xml.Linq;
+using System.Xml.Serialization;
+using System.IO;
+using System.Runtime.Serialization;
 
 // The data model defined by this file serves as a representative example of a strongly-typed
 // model that supports notification when members are added, removed, or modified.  The property
@@ -67,6 +70,7 @@ namespace Flurrysticks.Data
     /// <summary>
     /// Generic group data model.
     /// </summary>
+    /// 
     public class Account : Flurrysticks.Common.BindableBase
     {
         public Account(String Name, bool isLoaded, String ApiKey)

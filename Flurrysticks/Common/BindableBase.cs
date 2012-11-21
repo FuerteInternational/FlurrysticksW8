@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Runtime.Serialization;
 using Windows.UI.Xaml.Data;
 
 namespace Flurrysticks.Common
