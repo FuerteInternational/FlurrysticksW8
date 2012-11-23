@@ -34,8 +34,9 @@ namespace Flurrysticks
     /// </summary>
     public sealed partial class AccountApplicationsPage : Flurrysticks.Common.LayoutAwarePage
     {
-        IEnumerable<AppItem> sampleApps;
-        IEnumerable<Account> sampleAccounts;
+        ObservableCollection<AppItem> sampleApps;
+        ObservableCollection<Account> sampleAccounts;
+        int currentAccount;
         DownloadHelper dh = new DownloadHelper();
 
         public AccountApplicationsPage()
@@ -78,39 +79,57 @@ namespace Flurrysticks
 
         static readonly string ApiFileName = "apikeys.xml";
 
-        private void LoadApiKeyData()
+        public async void LoadApiKeyData()
         {
-            GetFile(ApiFileName).ContinueWith(value =>
+            //List<AccountItem> Accounts = new List<AccountItem>();
+            Debug.WriteLine("LoadApiKeyData()");
+            //AccountItem[] AccountsArray;
+            await GetFile(ApiFileName).ContinueWith(value =>
             {
                 var file = value.Result;
+
                 if (file == null)
                 {
-                    // nothing loaded
-                    Debug.WriteLine("Api XML empty");
+                    Debug.WriteLine("Empty XML");
                     return;
                 }
+
                 var folder = ApplicationData.Current.LocalFolder;
                 folder.OpenStreamForReadAsync(ApiFileName).ContinueWith(filevalue =>
                 {
                     using (var stream = filevalue.Result)
                     {
                         DataContractSerializer serializer = new DataContractSerializer(typeof(AccountItem[]));
-                        var localCats = serializer.ReadObject(stream) as Account[];
+                        var localCats = serializer.ReadObject(stream) as AccountItem[];
+
                         if (localCats == null || localCats.Length == 0)
                         {
-                            // nothing loaded
-                            Debug.WriteLine("Api XML empty");
+                            Debug.WriteLine("Empty XML");
                             return;
                         }
-                        sampleAccounts = localCats;
+                        //AccountsArray = localCats;
+                        sampleAccounts = new ObservableCollection<Account>();
+                        foreach (AccountItem OneAccount in localCats)
+                        {
+                            sampleAccounts.Add(
+                                new Account(
+                                    OneAccount.Name,
+                                    false,
+                                    OneAccount.ApiKey
+                                    )
+                                );
+
+                        }
                     }
                 });
             });
+                switchData(sampleAccounts.ElementAt<Account>(currentAccount).Name);
         }
 
         private void SaveApiKeyData()
         {
-            List<AccountItem> Accounts = new List<AccountItem>(); ;
+            List<AccountItem> Accounts = new List<AccountItem>();
+            if (sampleAccounts == null) { return; }
             IEnumerator<Account> MyEnumerator = sampleAccounts.GetEnumerator();
             while (MyEnumerator.MoveNext())
             {
@@ -141,13 +160,8 @@ namespace Flurrysticks
         /// session.  This will be null the first time a page is visited.</param>
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
-            // TODO: Create an appropriate data model for your problem domain to replace the sample data
-            SampleDataSource.currentAccount = 0; // otherwise get it from stored isolated storage
-            sampleAccounts = SampleDataSource.GetAccounts();
-            //RestoreAccounts();
-            
-            switchData(SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).Name);
-
+            currentAccount = 0; // otherwise get it from stored isolated storage
+            LoadApiKeyData();
             //Debug.WriteLine(result.ToString());
         }
 
@@ -161,7 +175,7 @@ namespace Flurrysticks
             int i = 0;
             while (MyEnumerator.MoveNext())
             {
-                Account processingAccount = MyEnumerator.Current;
+                Account processingAccount = MyEnumerator.Current;   
                 var newItem = new MenuItem { Text = processingAccount.Name, Tag = i /* processingAccount.ApiKey */ };
                 newItem.Tapped += homeNavClicked;
                 menu.Items.Add(newItem);
@@ -205,27 +219,29 @@ namespace Flurrysticks
         }
 
         private async void switchData(String title) {
-            Debug.WriteLine("switching to currentAccount:" + SampleDataSource.currentAccount);
-            Debug.WriteLine("switching to ApiKey:" + SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).ApiKey);          
+            Debug.WriteLine("switching to currentAccount:" + currentAccount);
+            Debug.WriteLine("switching to ApiKey:" + sampleAccounts.ElementAt<Account>(currentAccount).ApiKey);          
 
             // check if it's loaded, if not - load it up
 
-            if (!SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).IsLoaded) // if not loaded
+            if (!sampleAccounts.ElementAt<Account>(currentAccount).IsLoaded) // if not loaded
             {
-                string callURL = "http://api.flurry.com/appInfo/getAllApplications?apiAccessCode=" + SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).ApiKey;
+                string callURL = "http://api.flurry.com/appInfo/getAllApplications?apiAccessCode=" + sampleAccounts.ElementAt<Account>(currentAccount).ApiKey;
                 XDocument result = await dh.DownloadXML(callURL); // load it            
                 //where node.Element("CountryRegion").Value.Contains("United States")
                 //select node.Element("FormattedAddress").Value                           
-                SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).xdoc = result; // if we will need it in future
-                ParseXML(SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount));
-                SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).IsLoaded = true;
+                sampleAccounts.ElementAt<Account>(currentAccount).xdoc = result; // if we will need it in future
+                ParseXML(sampleAccounts.ElementAt<Account>(currentAccount));
+                sampleAccounts.ElementAt<Account>(currentAccount).IsLoaded = true;
                 // SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).Apps
             }
             else
             {
                 pageTitle.Text = title;
             }
-            sampleApps = SampleDataSource.GetAppItems(SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).ApiKey);
+
+            // sampleApps = SampleDataSource.GetAppItems(SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).ApiKey);
+            sampleApps = sampleAccounts.ElementAt<Account>(currentAccount).Apps;
 
             this.DefaultViewModel["Items"] = sampleApps;
             
@@ -234,7 +250,7 @@ namespace Flurrysticks
         private void homeNavClicked(object sender, TappedRoutedEventArgs e)
         {
             MenuItem what = ((MenuItem)sender);
-            SampleDataSource.currentAccount = (int)what.Tag;
+            currentAccount = (int)what.Tag;
             switchData(what.Text);
             //throw new NotImplementedException();
         }

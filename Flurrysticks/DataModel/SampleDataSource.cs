@@ -122,6 +122,8 @@ namespace Flurrysticks.Data
     /// SampleDataSource initializes with placeholder data rather than live production
     /// data so that sample data is provided at both design-time and run-time.
     /// </summary>
+    /// 
+    /*
     public sealed class SampleDataSource
     {
 
@@ -150,8 +152,11 @@ namespace Flurrysticks.Data
 
         public static Account GetAccountByIndex(int i)
         {
-            // Simple linear search is acceptable for small data sets
-            return _sampleDataSource.AllAccounts.ElementAt<Account>(i);
+            if (_sampleDataSource.AllAccounts.Count > 0)
+            {
+                return _sampleDataSource.AllAccounts.ElementAt<Account>(i);
+            }
+            else return null;
         }
 
         public static AppItem GetAppItem(string AppApiKey)
@@ -163,49 +168,51 @@ namespace Flurrysticks.Data
         }
 
 
-        public static IEnumerable<AppItem> GetAppItems(string ApiKey)
+        public static ObservableCollection<AppItem> GetAppItems(string ApiKey)
         {
             Account requestedAccount = GetAccount(ApiKey);
             // Simple linear search is acceptable for small data sets
             // var matches = requestedAccount.Apps.SelectMany(group => group.Apps).Where((item) => item.AppApiKey.Equals(AppApiKey));
             return requestedAccount.Apps;
         }
+        */
 
-     public SampleDataSource()
-     {
-
-         var account1 = new Account(
-                 "loading...",
-                 false,
-                 "DJBUBP9NE5YBQB5CQKH3"
-                 );
+     //public SampleDataSource()
+     //{
          /*
-         // String Name, String Platform, DateTime createdDate, String AppApiKey
-         account1.Apps.Add(
-             new AppItem(
-                 "Test App 1",
-                 "Android",
-                 DateTime.Now,
-                 "HXCWZ1L3CWMVGQM68JPI"));
-         account1.Apps.Add(
-             new AppItem(
-                 "Test App 2",
-                 "Android",
-                 DateTime.Now,
-                 "HXCWZ1L3CWMVGQM68JPI"));
-         account1.Apps.Add(
-             new AppItem(
-                 "Test App 3",
-                 "Android",
-                 DateTime.Now,
-                 "HXCWZ1L3CWMVGQM68JPI"));
-                     account1.Apps.Add(
-             new AppItem(
-                 "Test App 4",
-                 "Android",
-                 DateTime.Now,
-                 "HXCWZ1L3CWMVGQM68JPI"));
-          * */
+                  var account1 = new Account(
+                          "loading...",
+                          false,
+                          "DJBUBP9NE5YBQB5CQKH3"
+                          );
+         
+                  // String Name, String Platform, DateTime createdDate, String AppApiKey
+                  account1.Apps.Add(
+                      new AppItem(
+                          "Test App 1",
+                          "Android",
+                          DateTime.Now,
+                          "HXCWZ1L3CWMVGQM68JPI"));
+                  account1.Apps.Add(
+                      new AppItem(
+                          "Test App 2",
+                          "Android",
+                          DateTime.Now,
+                          "HXCWZ1L3CWMVGQM68JPI"));
+                  account1.Apps.Add(
+                      new AppItem(
+                          "Test App 3",
+                          "Android",
+                          DateTime.Now,
+                          "HXCWZ1L3CWMVGQM68JPI"));
+                              account1.Apps.Add(
+                      new AppItem(
+                          "Test App 4",
+                          "Android",
+                          DateTime.Now,
+                          "HXCWZ1L3CWMVGQM68JPI"));
+                   * */
+        /*
          this.AllAccounts.Add(account1);
 
          var account2 = new Account(
@@ -213,6 +220,7 @@ namespace Flurrysticks.Data
                  false,
                  "WSN22PRKRZH4B6RKFPZN"
                  );
+         */
          /*
          // String Name, String Platform, DateTime createdDate, String AppApiKey
          account2.Apps.Add(
@@ -264,11 +272,11 @@ namespace Flurrysticks.Data
                  DateTime.Now,
                  "HXCWZ1L3CWMVGQM68JPI"));
           * */
-         this.AllAccounts.Add(account2);
+         //this.AllAccounts.Add(account2);
 
             
 
-     }
+     //}
          
-    }
+    //}
 }

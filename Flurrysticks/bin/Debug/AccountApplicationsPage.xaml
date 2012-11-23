@@ -18,7 +18,7 @@
         <CollectionViewSource
             x:Name="itemsViewSource"
             Source="{Binding Items}"
-            d:Source="{Binding AllAccounts, Source={d:DesignInstance IsDesignTimeCreatable=True, Type=data:SampleDataSource}}"
+            d:Source="{Binding AllAccounts}"
             />
 
     </common:LayoutAwarePage.Resources>
