@@ -93,8 +93,35 @@
             SelectionMode="None"
             IsSwipeEnabled="false"
             IsItemClickEnabled="True"
-                                          >
+                                          
+            VerticalContentAlignment="Stretch"
+            >
         </GridView>
+
+        <Popup x:Name="logincontrol1" IsOpen="False" IsLightDismissEnabled="True">
+            <Popup.ChildTransitions>
+                <TransitionCollection>
+                    <PaneThemeTransition />
+                </TransitionCollection>
+            </Popup.ChildTransitions>
+            <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" BorderThickness="2" Background="#f1f0f1" x:Name="RootPopupBorder">
+                <StackPanel Orientation="Vertical" Height="300"  x:Name="pop" >
+                    <StackPanel>
+                        <TextBlock Text="Add Flurry API "  HorizontalAlignment="Center" FontSize="25" Margin="0,20,0,0" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,50" HorizontalAlignment="Center">
+                        <TextBlock Text="Flurry API Access" Margin="10" FontSize="25" />
+                        <TextBox x:Name="flurry_api_access" IsSpellCheckEnabled="False" Height="40" Margin="13,1" Width="408" InputScope="Default" >
+                        </TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,30" HorizontalAlignment="Center">
+                        <Button x:Name="addClick"  Foreground="White"   Width="100" Content="Add"/>
+                        <Button x:Name="cancelClick"    Foreground="White"  Width="100" Content="Cancel" />
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+        </Popup>
 
         <!-- Vertical scrolling list only used when snapped -->
         <ListView x:ConnectionId='2'

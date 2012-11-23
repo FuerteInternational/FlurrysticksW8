@@ -280,7 +280,15 @@ namespace Flurrysticks
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            if (!logincontrol1.IsOpen)
+            {
 
+                RootPopupBorder.Width = 646;
+                logincontrol1.HorizontalOffset = Window.Current.Bounds.Width - 650;
+                logincontrol1.VerticalOffset = Window.Current.Bounds.Height - 400;
+                logincontrol1.IsOpen = true;
+
+            }    
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
