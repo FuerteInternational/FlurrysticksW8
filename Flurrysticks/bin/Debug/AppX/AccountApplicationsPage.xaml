@@ -85,11 +85,11 @@
             x:Name="itemGridView"
             AutomationProperties.AutomationId="ItemsGridView"
             AutomationProperties.Name="Items"
-            TabIndex="1"
-            Grid.RowSpan="2"
-            Padding="116,136,116,46"
             ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
-            ItemTemplate="{StaticResource Standard250x250ItemTemplate}"
+            ItemTemplate="{StaticResource Standard250x500ItemTemplate}"
+            TabIndex="1"
+            Grid.Row="2"
+            Padding="116,36,116,36"
             SelectionMode="None"
             IsSwipeEnabled="false"
             IsItemClickEnabled="True"
@@ -119,13 +119,37 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:ConnectionId='3' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}" />
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <ProgressBar 
+            x:Name="ProgressBar1" 
+            IsIndeterminate="True"
+            Height="10" 
+            VerticalAlignment="Top" 
+            HorizontalContentAlignment="Stretch"  
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            />
+
+            <Button x:ConnectionId='3' x:Name="backButton" 
+                                   
+                    IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" 
+                    Style="{StaticResource BackButtonStyle}" 
+                    Grid.Row="2"
+                    />
             <Image Source="Assets/PageLogo.png"
-                   Grid.Column="1" HorizontalAlignment="Left"
+                   Grid.Column="1" 
+                   Grid.Row="2"
+                   HorizontalAlignment="Left"
                    />
             <StackPanel x:ConnectionId='4' 
                 Orientation="Horizontal" 
-                Grid.Column="1" HorizontalAlignment="Right"
+                Grid.Column="1" 
+                Grid.Row="2"
+                HorizontalAlignment="Right"
                 IsTapEnabled="True"
                                           
                 >
@@ -148,7 +172,7 @@
     </Grid>
 
     <common:LayoutAwarePage.BottomAppBar>
-        <AppBar x:Name="bottomAppBar" Padding="10,0,10,0" IsSticky="True" IsOpen="True">
+        <AppBar x:Name="bottomAppBar" Padding="10,0,10,0">
             <Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button x:ConnectionId='6' Style="{StaticResource RemoveAppBarButtonStyle}"                       />

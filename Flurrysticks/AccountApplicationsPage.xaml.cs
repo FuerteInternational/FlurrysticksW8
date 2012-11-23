@@ -220,20 +220,21 @@ namespace Flurrysticks
 
         private async void switchData(String title) {
             Debug.WriteLine("switching to currentAccount:" + currentAccount);
-            Debug.WriteLine("switching to ApiKey:" + sampleAccounts.ElementAt<Account>(currentAccount).ApiKey);          
+            Debug.WriteLine("switching to ApiKey:" + sampleAccounts.ElementAt<Account>(currentAccount).ApiKey);
 
+
+            ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            pageTitle.IsTapEnabled = false;
+            pageDropDown.IsTapEnabled = false;
             // check if it's loaded, if not - load it up
 
             if (!sampleAccounts.ElementAt<Account>(currentAccount).IsLoaded) // if not loaded
             {
                 string callURL = "http://api.flurry.com/appInfo/getAllApplications?apiAccessCode=" + sampleAccounts.ElementAt<Account>(currentAccount).ApiKey;
-                XDocument result = await dh.DownloadXML(callURL); // load it            
-                //where node.Element("CountryRegion").Value.Contains("United States")
-                //select node.Element("FormattedAddress").Value                           
+                XDocument result = await dh.DownloadXML(callURL); // load it                                     
                 sampleAccounts.ElementAt<Account>(currentAccount).xdoc = result; // if we will need it in future
                 ParseXML(sampleAccounts.ElementAt<Account>(currentAccount));
                 sampleAccounts.ElementAt<Account>(currentAccount).IsLoaded = true;
-                // SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).Apps
             }
             else
             {
@@ -244,6 +245,9 @@ namespace Flurrysticks
             sampleApps = sampleAccounts.ElementAt<Account>(currentAccount).Apps;
 
             this.DefaultViewModel["Items"] = sampleApps;
+            ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            pageTitle.IsTapEnabled = true;
+            pageDropDown.IsTapEnabled = true;
             
         }
 
