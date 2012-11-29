@@ -115,8 +115,8 @@
                         </TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,30" HorizontalAlignment="Center">
-                        <Button x:Name="addClick"  Foreground="White"   Width="100" Content="Add"/>
-                        <Button x:Name="cancelClick"    Foreground="White"  Width="100" Content="Cancel" />
+                        <Button x:ConnectionId='5' x:Name="addClick"  Foreground="White"   Width="100" Content="Add"                         />
+                        <Button x:ConnectionId='6' x:Name="cancelClick"    Foreground="White"  Width="100" Content="Cancel"                             />
                     </StackPanel>
 
                 </StackPanel>
@@ -202,11 +202,11 @@
         <AppBar x:Name="bottomAppBar" Padding="10,0,10,0">
             <Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:ConnectionId='6' Style="{StaticResource RemoveAppBarButtonStyle}"                       />
-                    <Button x:ConnectionId='7' Style="{StaticResource AddAppBarButtonStyle}"                       />
+                    <Button x:ConnectionId='8' Style="{StaticResource RemoveAppBarButtonStyle}"                       />
+                    <Button x:ConnectionId='9' Style="{StaticResource AddAppBarButtonStyle}"                       />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Button x:ConnectionId='5' Style="{StaticResource SortAppBarButtonStyle}"                       />
+                    <Button x:ConnectionId='7' Style="{StaticResource SortAppBarButtonStyle}"                       />
                 </StackPanel>
             </Grid>
         </AppBar>

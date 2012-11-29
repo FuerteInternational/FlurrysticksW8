@@ -295,6 +295,19 @@ namespace Flurrysticks
         {
 
         }
+
+        private void cancelClick_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (logincontrol1.IsOpen)
+            {
+                logincontrol1.IsOpen = false;
+            }
+        }
+
+        private void addClick_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
     [XmlRoot]

@@ -115,8 +115,8 @@
                         </TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,30" HorizontalAlignment="Center">
-                        <Button x:Name="addClick"  Foreground="White"   Width="100" Content="Add"/>
-                        <Button x:Name="cancelClick"    Foreground="White"  Width="100" Content="Cancel" />
+                        <Button x:Name="addClick"  Foreground="White"   Width="100" Content="Add" Click="addClick_Click_1"/>
+                        <Button x:Name="cancelClick"    Foreground="White"  Width="100" Content="Cancel" Click="cancelClick_Click_1" />
                     </StackPanel>
 
                 </StackPanel>
