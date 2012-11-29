@@ -300,13 +300,27 @@ namespace Flurrysticks
         {
             if (logincontrol1.IsOpen)
             {
+                Debug.WriteLine("Cancel removal new API key");
                 logincontrol1.IsOpen = false;
             }
         }
 
         private void addClick_Click_1(object sender, RoutedEventArgs e)
         {
-
+            if (logincontrol1.IsOpen)
+            {
+                Debug.WriteLine("Adding new API key");
+                sampleAccounts.Add(
+                    new Account(
+                        "Loading...",
+                        false,
+                        flurry_api_access.Text
+                        )
+                    );
+                logincontrol1.IsOpen = false;
+                currentAccount = sampleAccounts.ToList<Account>().Count-1;
+                switchData(sampleAccounts.ElementAt<Account>(currentAccount).Name);
+            }
         }
     }
 
