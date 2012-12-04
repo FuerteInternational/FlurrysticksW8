@@ -193,31 +193,37 @@ namespace Flurrysticks
             flyout.IsOpen = true;
         }
 
-        private void ParseXML(Account what)
+        private bool ParseXML(Account what)
         {
             Debug.WriteLine("Processing..."+what.xdoc.ToString());
-            what.Name = what.xdoc.Root.Attribute("companyName").Value;
-            SaveApiKeyData(); // we got name and apikey - let's save it
-            var apps = from node in what.xdoc.Descendants("application") 
-                       orderby node.Attribute("name").Value
-                       select node;
-            IEnumerator<XElement> myEnum = apps.GetEnumerator();
-            while (myEnum.MoveNext())
+            bool result = false;
+            if (what.xdoc.Root.Element("error") == null)
             {
-                XElement current = myEnum.Current;
-                string name = current.Attribute("name").Value;
-                string platform = current.Attribute("platform").Value;
-                DateTime cdate = DateTime.Parse(current.Attribute("createdDate").Value);
-                string appapi = current.Attribute("apiKey").Value;
-                what.Apps.Add(new AppItem(
-                            name,
-                            platform,
-                            cdate,
-                            appapi
-                            ));
+                what.Name = what.xdoc.Root.Attribute("companyName").Value;
+                SaveApiKeyData(); // we got name and apikey - let's save it
+                var apps = from node in what.xdoc.Descendants("application")
+                           orderby node.Attribute("name").Value
+                           select node;
+                IEnumerator<XElement> myEnum = apps.GetEnumerator();
+                while (myEnum.MoveNext())
+                {
+                    XElement current = myEnum.Current;
+                    string name = current.Attribute("name").Value;
+                    string platform = current.Attribute("platform").Value;
+                    DateTime cdate = DateTime.Parse(current.Attribute("createdDate").Value);
+                    string appapi = current.Attribute("apiKey").Value;
+                    what.Apps.Add(new AppItem(
+                                name,
+                                platform,
+                                cdate,
+                                appapi
+                                ));
+                }
+                pageTitle.Text = what.Name;
+                result = true;
             }
-            pageTitle.Text = what.Name;
-        }
+            return result;
+        } // ParseXML
 
         private async void switchData(String title) {
             Debug.WriteLine("switching to currentAccount:" + currentAccount);
@@ -227,19 +233,65 @@ namespace Flurrysticks
             pageTitle.IsTapEnabled = false;
             pageDropDown.IsTapEnabled = false;
             // check if it's loaded, if not - load it up
+            bool success;
+            bool retry = true;
+            XDocument result = null;
 
-            if (!sampleAccounts.ElementAt<Account>(currentAccount).IsLoaded) // if not loaded
+            while (retry)
             {
-                string callURL = "http://api.flurry.com/appInfo/getAllApplications?apiAccessCode=" + sampleAccounts.ElementAt<Account>(currentAccount).ApiKey;
-                XDocument result = await dh.DownloadXML(callURL); // load it                                     
-                sampleAccounts.ElementAt<Account>(currentAccount).xdoc = result; // if we will need it in future
-                ParseXML(sampleAccounts.ElementAt<Account>(currentAccount));
-                sampleAccounts.ElementAt<Account>(currentAccount).IsLoaded = true;
-            }
-            else
-            {
-                pageTitle.Text = title;
-            }
+
+                if (!sampleAccounts.ElementAt<Account>(currentAccount).IsLoaded) // if not loaded
+                {
+                    string callURL = "http://api.flurry.com/appInfo/getAllApplications?apiAccessCode=" + sampleAccounts.ElementAt<Account>(currentAccount).ApiKey;
+                    try
+                    {
+                        result = await dh.DownloadXML(callURL); // load it   
+                        success = true;
+                    }
+                    catch (System.Net.Http.HttpRequestException)
+                    { // load failed
+                        success = false;
+                    }
+
+                    if (success) // data OK
+                    {
+                        sampleAccounts.ElementAt<Account>(currentAccount).xdoc = result; // if we will need it in future
+                        if (ParseXML(sampleAccounts.ElementAt<Account>(currentAccount)))
+                        {
+                            sampleAccounts.ElementAt<Account>(currentAccount).IsLoaded = true;
+                        }
+                        else success = false;
+                    }
+
+                    if (!success)  // data not OK
+                    {
+                        var messageDialog = new Windows.UI.Popups.MessageDialog("Unable to fetch data; either API access key is incorrect or something's wrong with internet connection.", "Load data fail");
+                        retry = false;
+                        // clear all account, which weren't loaded EVER
+                        if (sampleAccounts.ElementAt<Account>(currentAccount).Name == "Loading...")
+                        {
+                            sampleAccounts.RemoveAt(currentAccount);
+                            retry = true;
+                            if (currentAccount > sampleAccounts.ToList().Count - 1)
+                            { // if currentAccount pointer is after the last item
+                                currentAccount = currentAccount - 1;
+                                retry = true;
+                            }
+                            title = sampleAccounts.ElementAt<Account>(currentAccount).Name; // update title for next round (retry=true) 
+                            SaveApiKeyData(); // we better save it if next account data is cached
+                        }
+                        await messageDialog.ShowAsync();
+                    }
+                    else retry = false;
+
+                }
+                else
+                {
+                    pageTitle.Text = title;
+                    retry = false;
+                }
+
+            } // retry
 
             // sampleApps = SampleDataSource.GetAppItems(SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).ApiKey);
             sampleApps = sampleAccounts.ElementAt<Account>(currentAccount).Apps;
@@ -275,7 +327,7 @@ namespace Flurrysticks
 
         private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            var messageDialog = new Windows.UI.Popups.MessageDialog("Are you Sure you want to remove account \"" + sampleAccounts.ElementAt<Account>(currentAccount).Name + "\" ?");
+            var messageDialog = new Windows.UI.Popups.MessageDialog("Are you Sure you want to remove account \"" + sampleAccounts.ElementAt<Account>(currentAccount).Name + "\" ?","Please confirm");
 
             // Add commands and set their callbacks
 
@@ -305,20 +357,18 @@ namespace Flurrysticks
             await messageDialog.ShowAsync();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Button_Click_2(object sender, RoutedEventArgs e) // hitting adding new account
         {
-            if (!logincontrol1.IsOpen)
+            if (!logincontrol1.IsOpen) // if not open - start anim
             {
-
                 RootPopupBorder.Width = 646;
                 logincontrol1.HorizontalOffset = Window.Current.Bounds.Width - 650;
                 logincontrol1.VerticalOffset = Window.Current.Bounds.Height - 400;
                 logincontrol1.IsOpen = true;
-
             }    
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void Button_Click_3(object sender, RoutedEventArgs e) // filter
         {
 
         }
@@ -332,22 +382,34 @@ namespace Flurrysticks
             }
         }
 
-        private void addClick_Click_1(object sender, RoutedEventArgs e)
+        private async void addClick_Click_1(object sender, RoutedEventArgs e)
         {
             if (logincontrol1.IsOpen)
             {
-                Debug.WriteLine("Adding new API key");
-                sampleAccounts.Add(
-                    new Account(
-                        "Loading...",
-                        false,
-                        flurry_api_access.Text
-                        )
-                    );
-                logincontrol1.IsOpen = false;
-                currentAccount = sampleAccounts.ToList<Account>().Count-1;
-                switchData(sampleAccounts.ElementAt<Account>(currentAccount).Name);
-            }
+
+                // first check if we have 20-chars (that's standard flurry API access key length)
+                if (flurry_api_access.Text.Length != 20)
+                {
+                    var messageDialog = new Windows.UI.Popups.MessageDialog("Please enter valid Flurry API access key", "Flurry API access key incorrect");
+                    await messageDialog.ShowAsync();
+                }
+                else // it's 20-char string - PROCEEED
+                {
+
+                    Debug.WriteLine("Adding new API key");
+                    sampleAccounts.Add(
+                        new Account(
+                            "Loading...",
+                            false,
+                            flurry_api_access.Text
+                            )
+                        );
+                    logincontrol1.IsOpen = false;
+                    currentAccount = sampleAccounts.ToList<Account>().Count - 1;
+                    switchData(sampleAccounts.ElementAt<Account>(currentAccount).Name);
+
+                }
+            } // logincontrol1.IsOpen
         }
     }
 
