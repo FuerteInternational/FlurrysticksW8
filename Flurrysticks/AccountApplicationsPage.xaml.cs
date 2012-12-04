@@ -23,6 +23,7 @@ using System.Threading.Tasks;
 using Windows.Storage;
 using System.Runtime.Serialization;
 using Flurrysticks.DataModel;
+using Windows.UI.Popups;
 
 // The Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234233
 
@@ -222,7 +223,6 @@ namespace Flurrysticks
             Debug.WriteLine("switching to currentAccount:" + currentAccount);
             Debug.WriteLine("switching to ApiKey:" + sampleAccounts.ElementAt<Account>(currentAccount).ApiKey);
 
-
             ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
             pageTitle.IsTapEnabled = false;
             pageDropDown.IsTapEnabled = false;
@@ -273,9 +273,36 @@ namespace Flurrysticks
             // this.Frame.Navigate(typeof(SplitPage), groupId);
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            var messageDialog = new Windows.UI.Popups.MessageDialog("Are you Sure you want to remove account \"" + sampleAccounts.ElementAt<Account>(currentAccount).Name + "\" ?");
 
+            // Add commands and set their callbacks
+
+            messageDialog.Commands.Add(new UICommand("Yes", (command) =>
+            {
+                // what happens when Yes is selected
+                // remove account
+                int removeAccount = currentAccount;
+                if (currentAccount > sampleAccounts.ToList().Count - 2)
+                { // if currentAccount pointer is after the last item
+                    currentAccount = currentAccount - 1;
+                }
+                sampleAccounts.RemoveAt(removeAccount);
+                switchData(sampleAccounts.ElementAt<Account>(currentAccount).Name);
+
+            }));
+
+            messageDialog.Commands.Add(new UICommand("No", (command) =>
+            {
+                // what happens when No is selected
+                // - nothing
+            }));
+
+            // Set the command that will be invoked by default
+            messageDialog.DefaultCommandIndex = 1;
+            // Show the message dialog
+            await messageDialog.ShowAsync();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
