@@ -39,6 +39,7 @@ namespace Flurrysticks
         ObservableCollection<Account> sampleAccounts = new ObservableCollection<Account>();
         int currentAccount;
         DownloadHelper dh = new DownloadHelper();
+        Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
         String settingsOrderBy = "name1";
 
         public AccountApplicationsPage()
@@ -192,7 +193,23 @@ namespace Flurrysticks
         /// session.  This will be null the first time a page is visited.</param>
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
-            currentAccount = 0; // otherwise get it from stored isolated storage
+            try
+            {
+                settingsOrderBy = (String)localSettings.Values["settingsOrderBy"];
+            }
+            catch (System.NullReferenceException)
+            {
+                settingsOrderBy = "name1";
+            }
+            if (settingsOrderBy == null) { settingsOrderBy = "name1"; }
+            try
+            {
+                currentAccount = (int)localSettings.Values["currentAccount"]; ; // otherwise get it from stored isolated storage
+            }
+            catch (System.NullReferenceException)
+            {
+                currentAccount = 0;
+            }
             LoadApiKeyData();
 
             // if (!(sampleAccounts.ToList().Count>0)) { noAccountData(); }  // if load failed / no account data available
@@ -342,6 +359,7 @@ namespace Flurrysticks
                             if (currentAccount > sampleAccounts.ToList().Count - 1)
                             { // if currentAccount pointer is after the last item
                                 currentAccount = currentAccount - 1;
+                                localSettings.Values["currentAccount"] = currentAccount;
                                 retry = true;
                             }
                             title = sampleAccounts.ElementAt<Account>(currentAccount).Name; // update title for next round (retry=true) 
@@ -387,6 +405,7 @@ namespace Flurrysticks
             }
 
             settingsOrderBy = sortModeClicked;
+            localSettings.Values["settingsOrderBy"] = settingsOrderBy;
 
             try
             {
@@ -408,6 +427,7 @@ namespace Flurrysticks
         {
             MenuItem what = ((MenuItem)sender);
             currentAccount = (int)what.Tag;
+            localSettings.Values["currentAccount"] = currentAccount;
             switchData(what.Text);
             //throw new NotImplementedException();
         }
@@ -440,6 +460,7 @@ namespace Flurrysticks
                 if (currentAccount > sampleAccounts.ToList().Count - 2)
                 { // if currentAccount pointer is after the last item
                     currentAccount = currentAccount - 1;
+                    localSettings.Values["currentAccount"] = currentAccount;
                 }
                 sampleAccounts.RemoveAt(removeAccount);
                 switchData(sampleAccounts.ElementAt<Account>(currentAccount).Name);
@@ -526,6 +547,7 @@ namespace Flurrysticks
                         );
                     logincontrol1.IsOpen = false;
                     currentAccount = sampleAccounts.ToList<Account>().Count - 1;
+                    localSettings.Values["currentAccount"] = currentAccount;
                     switchData(sampleAccounts.ElementAt<Account>(currentAccount).Name);
                 }
             } // logincontrol1.IsOpen
