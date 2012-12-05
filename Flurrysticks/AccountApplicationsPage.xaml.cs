@@ -36,7 +36,7 @@ namespace Flurrysticks
     public sealed partial class AccountApplicationsPage : Flurrysticks.Common.LayoutAwarePage
     {
         ObservableCollection<AppItem> sampleApps;
-        ObservableCollection<Account> sampleAccounts;
+        ObservableCollection<Account> sampleAccounts = new ObservableCollection<Account>();
         int currentAccount;
         DownloadHelper dh = new DownloadHelper();
 
@@ -80,6 +80,27 @@ namespace Flurrysticks
 
         static readonly string ApiFileName = "apikeys.xml";
 
+        private void noAccountData()
+        {
+            ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            pageTitle.IsTapEnabled = false;
+            pageTitle.Text = "no account";
+            pageDropDown.IsTapEnabled = false;
+
+            // no account defined - let's open appbar and entry new api dialog
+
+            bottomAppBar.IsOpen = true;
+
+            if (!logincontrol1.IsOpen) // if not open - start anim
+            {
+                RootPopupBorder.Width = 646;
+                logincontrol1.HorizontalOffset = Window.Current.Bounds.Width - 650;
+                logincontrol1.VerticalOffset = Window.Current.Bounds.Height - 400;
+                logincontrol1.IsOpen = true;
+            }    
+
+        }
+
         public async void LoadApiKeyData()
         {
             //List<AccountItem> Accounts = new List<AccountItem>();
@@ -109,7 +130,7 @@ namespace Flurrysticks
                             return;
                         }
                         //AccountsArray = localCats;
-                        sampleAccounts = new ObservableCollection<Account>();
+                        //sampleAccounts = new ObservableCollection<Account>();
                         foreach (AccountItem OneAccount in localCats)
                         {
                             sampleAccounts.Add(
@@ -119,12 +140,21 @@ namespace Flurrysticks
                                     OneAccount.ApiKey
                                     )
                                 );
-
                         }
                     }
                 });
             });
+
+            try
+            {
                 switchData(sampleAccounts.ElementAt<Account>(currentAccount).Name);
+            }
+            catch (System.ArgumentOutOfRangeException)
+            {
+                Debug.WriteLine("No account");
+                noAccountData();
+            }
+
         }
 
         private void SaveApiKeyData()
@@ -144,7 +174,7 @@ namespace Flurrysticks
                 using (var stream = opentask.Result)
                 {
                     DataContractSerializer serializer = new DataContractSerializer(typeof(AccountItem[]));
-                    serializer.WriteObject(stream, Accounts.ToArray());
+                    serializer.WriteObject(stream, Accounts.ToArray()); 
                 }
             });
 
@@ -163,6 +193,9 @@ namespace Flurrysticks
         {
             currentAccount = 0; // otherwise get it from stored isolated storage
             LoadApiKeyData();
+
+            // if (!(sampleAccounts.ToList().Count>0)) { noAccountData(); }  // if load failed / no account data available
+            
             //Debug.WriteLine(result.ToString());
         }
 
@@ -226,6 +259,9 @@ namespace Flurrysticks
         } // ParseXML
 
         private async void switchData(String title) {
+
+            if (sampleAccounts.ElementAt<Account>(currentAccount) == null) { return; }
+
             Debug.WriteLine("switching to currentAccount:" + currentAccount);
             Debug.WriteLine("switching to ApiKey:" + sampleAccounts.ElementAt<Account>(currentAccount).ApiKey);
 
@@ -386,7 +422,6 @@ namespace Flurrysticks
         {
             if (logincontrol1.IsOpen)
             {
-
                 // first check if we have 20-chars (that's standard flurry API access key length)
                 if (flurry_api_access.Text.Length != 20)
                 {
@@ -407,7 +442,6 @@ namespace Flurrysticks
                     logincontrol1.IsOpen = false;
                     currentAccount = sampleAccounts.ToList<Account>().Count - 1;
                     switchData(sampleAccounts.ElementAt<Account>(currentAccount).Name);
-
                 }
             } // logincontrol1.IsOpen
         }
