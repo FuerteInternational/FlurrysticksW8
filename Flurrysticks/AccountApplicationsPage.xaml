@@ -206,7 +206,7 @@
                     <Button Style="{StaticResource AddAppBarButtonStyle}" Click="Button_Click_2"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Button Style="{StaticResource SortAppBarButtonStyle}" Click="Button_Click_3"/>
+                    <Button x:Name="sortButton" Style="{StaticResource SortAppBarButtonStyle}" Click="Button_Click_3"/>
                 </StackPanel>
             </Grid>
         </AppBar>

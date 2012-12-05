@@ -206,7 +206,7 @@
                     <Button x:ConnectionId='9' Style="{StaticResource AddAppBarButtonStyle}"                       />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Button x:ConnectionId='7' Style="{StaticResource SortAppBarButtonStyle}"                       />
+                    <Button x:ConnectionId='7' x:Name="sortButton" Style="{StaticResource SortAppBarButtonStyle}"                       />
                 </StackPanel>
             </Grid>
         </AppBar>

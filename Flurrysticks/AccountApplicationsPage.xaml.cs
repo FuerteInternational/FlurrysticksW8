@@ -39,6 +39,7 @@ namespace Flurrysticks
         ObservableCollection<Account> sampleAccounts = new ObservableCollection<Account>();
         int currentAccount;
         DownloadHelper dh = new DownloadHelper();
+        String settingsOrderBy = "name1";
 
         public AccountApplicationsPage()
         {
@@ -234,10 +235,40 @@ namespace Flurrysticks
             {
                 what.Name = what.xdoc.Root.Attribute("companyName").Value;
                 SaveApiKeyData(); // we got name and apikey - let's save it
-                var apps = from node in what.xdoc.Descendants("application")
-                           orderby node.Attribute("name").Value
-                           select node;
+
+                String orderValue = "name";
+                if (settingsOrderBy.Contains("name"))
+                {
+                    orderValue = "name";
+                }
+                if (settingsOrderBy.Contains("createddate"))
+                {
+                    orderValue = "createdDate";
+                }
+                if (settingsOrderBy.Contains("platform"))
+                {
+                    orderValue = "platform";
+                }
+                Debug.WriteLine("orderValue:"+orderValue);
+                IEnumerable<XElement> apps;
+                if (settingsOrderBy.Contains("1")) // ascending
+                {
+                        Debug.WriteLine("order ASCENDING");
+                        apps = from node in what.xdoc.Descendants("application")
+                               orderby node.Attribute(orderValue).Value ascending
+                               select node;
+
+                }
+                else // descending
+                {
+                        Debug.WriteLine("order DESCENDING");
+                        apps = from node in what.xdoc.Descendants("application")
+                               orderby node.Attribute(orderValue).Value descending
+                               select node;
+                }
+
                 IEnumerator<XElement> myEnum = apps.GetEnumerator();
+                what.Apps.Clear(); // reset before filling new data
                 while (myEnum.MoveNext())
                 {
                     XElement current = myEnum.Current;
@@ -339,6 +370,40 @@ namespace Flurrysticks
             
         }
 
+        private void sortNavClicked(object sender, TappedRoutedEventArgs e)
+        {
+            MenuItem what = ((MenuItem)sender);
+            String sortModeClicked = (String)what.Tag;
+            if (settingsOrderBy == sortModeClicked)
+            { // if it is the same order just reverse direction
+                if (sortModeClicked.Contains("1"))
+                {
+                    sortModeClicked = sortModeClicked.Replace("1", "2");
+                }
+                else
+                {
+                    sortModeClicked = sortModeClicked.Replace("2", "1");
+                }
+            }
+
+            settingsOrderBy = sortModeClicked;
+
+            try
+            {
+                // switchData(sampleAccounts.ElementAt<Account>(currentAccount).Name);
+                if (sampleAccounts.ToList().Count > 0)
+                {
+                    ParseXML(sampleAccounts.ElementAt<Account>(currentAccount)); // -> REORDER
+                }
+            }
+            catch (System.ArgumentOutOfRangeException)
+            {
+                Debug.WriteLine("No account");
+                noAccountData();
+            }
+
+        }
+
         private void homeNavClicked(object sender, TappedRoutedEventArgs e)
         {
             MenuItem what = ((MenuItem)sender);
@@ -406,6 +471,26 @@ namespace Flurrysticks
 
         private void Button_Click_3(object sender, RoutedEventArgs e) // filter
         {
+
+            var menu = new Menu();
+            MenuItem newItem;
+            newItem = new MenuItem { Text = "Name", Tag = "name1" };
+            newItem.Tapped += sortNavClicked;
+            menu.Items.Add(newItem);
+            newItem = new MenuItem { Text = "Platform", Tag = "platform1" };
+            newItem.Tapped += sortNavClicked;
+            menu.Items.Add(newItem);
+            newItem = new MenuItem { Text = "Created Date", Tag = "createddate1" };
+            newItem.Tapped += sortNavClicked;
+            menu.Items.Add(newItem);
+            // Show the menu in a flyout anchored to the header title
+            var flyout = new Flyout();
+            flyout.Placement = PlacementMode.Top;
+            flyout.HorizontalAlignment = HorizontalAlignment.Right;
+            flyout.HorizontalContentAlignment = HorizontalAlignment.Left;
+            flyout.PlacementTarget = sortButton;
+            flyout.Content = menu;
+            flyout.IsOpen = true;
 
         }
 
