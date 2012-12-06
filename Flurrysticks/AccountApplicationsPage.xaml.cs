@@ -444,6 +444,8 @@ namespace Flurrysticks
             // by passing required information as a navigation parameter
             // var groupId = ((SampleDataGroup)e.ClickedItem).UniqueId;
             // this.Frame.Navigate(typeof(SplitPage), groupId);
+            Debug.WriteLine(((AppItem)e.ClickedItem).AppApiKey);
+            //this.Frame.Navigate(typeof(AppMetrics), ((AppItem)e.ClickedItem).AppApiKey);
         }
 
         private async void Button_Click_1(object sender, RoutedEventArgs e)

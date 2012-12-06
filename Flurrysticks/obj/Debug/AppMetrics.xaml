@@ -67,11 +67,25 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            <ProgressBar 
+            x:Name="ProgressBar1" 
+            IsIndeterminate="True"
+            Height="10" 
+            VerticalAlignment="Top" 
+            HorizontalContentAlignment="Stretch"  
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            />
             <Button x:ConnectionId='1' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
 
-        <Chart:RadCartesianChart HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" VerticalAlignment="Top" Height="628" Width="1346"/>
+        <Chart:RadCartesianChart 
+            HorizontalAlignment="Stretch" 
+            Margin="10,0,0,0" 
+            Grid.Row="1" 
+            VerticalAlignment="Stretch" 
+            />
     </Grid>
 </common:LayoutAwarePage>
 
