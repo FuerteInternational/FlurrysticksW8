@@ -104,6 +104,9 @@
     <SDKReference Include="Callisto, Version=1.2.5">
       <Name>Callisto</Name>
     </SDKReference>
+    <SDKReference Include="RadControls for Windows 8, Version=2012.3.1204">
+      <Name>RadControls for Windows 8</Name>
+    </SDKReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -111,6 +114,9 @@
     </Compile>
     <Compile Include="AccountApplicationsPage.xaml.cs">
       <DependentUpon>AccountApplicationsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppMetrics.xaml.cs">
+      <DependentUpon>AppMetrics.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataModel\AccountItem.cs" />
     <Compile Include="DownloadHelper.cs" />
@@ -131,6 +137,10 @@
     <None Include="Flurrysticks_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="AppMetrics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Content Include="Assets\flu_bg_1024.png" />
     <Content Include="Assets\flu_bg_1366.png" />
     <Content Include="Assets\flu_bg_2560.png" />

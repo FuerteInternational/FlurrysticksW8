@@ -12,4 +12,5 @@ Assets\StoreLogo.png
 Assets\WideLogo.png
 AccountApplicationsPage.xaml
 App.xaml
+AppMetrics.xaml
 Common\StandardStyles.xaml

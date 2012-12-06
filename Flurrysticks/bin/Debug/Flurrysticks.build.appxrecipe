@@ -22,8 +22,80 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Callisto\1.2.5\References\CommonConfiguration\neutral\Callisto.dll">
       <PackagePath>Callisto.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.Core.dll">
+      <PackagePath>Telerik.Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.Chart.dll">
+      <PackagePath>Telerik.UI.Xaml.Chart.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.DataVisualization.dll">
+      <PackagePath>Telerik.UI.Xaml.DataVisualization.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.Input.dll">
+      <PackagePath>Telerik.UI.Xaml.Input.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives.dll">
+      <PackagePath>Telerik.UI.Xaml.Primitives.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.Core.xml">
+      <PackagePath>Telerik.Core.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.Chart.xml">
+      <PackagePath>Telerik.UI.Xaml.Chart.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.DataVisualization.xml">
+      <PackagePath>Telerik.UI.Xaml.DataVisualization.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.Input.xml">
+      <PackagePath>Telerik.UI.Xaml.Input.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives.xml">
+      <PackagePath>Telerik.UI.Xaml.Primitives.xml</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Callisto\1.2.5\Redist\CommonConfiguration\neutral\Themes\Generic.xaml">
       <PackagePath>Callisto\Themes\Generic.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Chart\Themes\Generic.xaml">
+      <PackagePath>Telerik.UI.Xaml.Chart\Themes\Generic.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.DataVisualization\Themes\Generic.xaml">
+      <PackagePath>Telerik.UI.Xaml.DataVisualization\Themes\Generic.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Input\Themes\Generic.xaml">
+      <PackagePath>Telerik.UI.Xaml.Input\Themes\Generic.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives\Themes\Generic.xaml">
+      <PackagePath>Telerik.UI.Xaml.Primitives\Themes\Generic.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives\Themes\GlobalPaletteDark.xaml">
+      <PackagePath>Telerik.UI.Xaml.Primitives\Themes\GlobalPaletteDark.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives\Themes\GlobalPaletteLight.xaml">
+      <PackagePath>Telerik.UI.Xaml.Primitives\Themes\GlobalPaletteLight.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives\Themes\HubTile.xaml">
+      <PackagePath>Telerik.UI.Xaml.Primitives\Themes\HubTile.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives\Themes\Pagination.xaml">
+      <PackagePath>Telerik.UI.Xaml.Primitives\Themes\Pagination.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.DataVisualization\Themes\PaletteDark.xaml">
+      <PackagePath>Telerik.UI.Xaml.DataVisualization\Themes\PaletteDark.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Input\Themes\PaletteDark.xaml">
+      <PackagePath>Telerik.UI.Xaml.Input\Themes\PaletteDark.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives\Themes\PaletteDark.xaml">
+      <PackagePath>Telerik.UI.Xaml.Primitives\Themes\PaletteDark.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.DataVisualization\Themes\PaletteLight.xaml">
+      <PackagePath>Telerik.UI.Xaml.DataVisualization\Themes\PaletteLight.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Input\Themes\PaletteLight.xaml">
+      <PackagePath>Telerik.UI.Xaml.Input\Themes\PaletteLight.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives\Themes\PaletteLight.xaml">
+      <PackagePath>Telerik.UI.Xaml.Primitives\Themes\PaletteLight.xaml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\flu_bg_1024.png">
       <PackagePath>Assets\flu_bg_1024.png</PackagePath>
@@ -68,6 +140,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\App.xaml">
       <PackagePath>App.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\AppMetrics.xaml">
+      <PackagePath>AppMetrics.xaml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Common\StandardStyles.xaml">
       <PackagePath>Common\StandardStyles.xaml</PackagePath>
