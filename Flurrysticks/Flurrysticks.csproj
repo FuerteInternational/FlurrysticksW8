@@ -101,9 +101,6 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <SDKReference Include="Callisto, Version=1.2.5">
-      <Name>Callisto %28Callisto, Version=1.2.5%29</Name>
-    </SDKReference>
     <SDKReference Include="Callisto, Version=1.2.6">
       <Name>Callisto %28Callisto, Version=1.2.6%29</Name>
     </SDKReference>
