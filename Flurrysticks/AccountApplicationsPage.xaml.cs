@@ -445,7 +445,10 @@ namespace Flurrysticks
             // var groupId = ((SampleDataGroup)e.ClickedItem).UniqueId;
             // this.Frame.Navigate(typeof(SplitPage), groupId);
             Debug.WriteLine(((AppItem)e.ClickedItem).AppApiKey);
-            this.Frame.Navigate(typeof(AppMetrics), ((AppItem)e.ClickedItem).AppApiKey);
+            CallApp what = new CallApp();
+            what.AppApiKey = ((AppItem)e.ClickedItem).AppApiKey;
+            what.ApiKey = sampleAccounts.ElementAt<Account>(currentAccount).ApiKey;
+            this.Frame.Navigate(typeof(AppMetrics), what);
         }
 
         private async void Button_Click_1(object sender, RoutedEventArgs e)
@@ -564,6 +567,14 @@ namespace Flurrysticks
 
         private List<string> names = new List<string>();
         public List<string> Names { get { return names; } set { names = value; } }
+    }
+
+    public class CallApp
+    {
+        public string AppApiKey;
+        public string ApiKey;
+
+
     }
 
 }
