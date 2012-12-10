@@ -67,25 +67,48 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            
             <ProgressBar 
-            x:Name="ProgressBar1" 
-            IsIndeterminate="True"
-            Height="10" 
-            VerticalAlignment="Top" 
-            HorizontalContentAlignment="Stretch"  
-            Grid.Row="1"
-            Grid.ColumnSpan="2"
-            />
+                x:Name="ProgressBar1" 
+                IsIndeterminate="True"
+                Height="10" 
+                VerticalAlignment="Top" 
+                HorizontalContentAlignment="Stretch"  
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                />
+            
             <Button x:ConnectionId='1' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
 
         <Chart:RadCartesianChart 
+            x:Name="radChart"
             HorizontalAlignment="Stretch" 
             Margin="10,0,0,0" 
             Grid.Row="1" 
             VerticalAlignment="Stretch" 
-            />
+            >
+            <Chart:RadCartesianChart.HorizontalAxis>
+                <Chart:DateTimeCategoricalAxis/>
+            </Chart:RadCartesianChart.HorizontalAxis>
+            <Chart:RadCartesianChart.VerticalAxis>
+                <Chart:LinearAxis/>
+            </Chart:RadCartesianChart.VerticalAxis>
+            <Chart:LineSeries 
+                ItemsSource="{Binding ChartData}"
+                >
+
+                <Chart:LineSeries.ValueBinding>
+                    <Chart:PropertyNameDataPointBinding PropertyName="Value"/>                        
+                </Chart:LineSeries.ValueBinding>
+                <Chart:LineSeries.CategoryBinding>
+                    <Chart:PropertyNameDataPointBinding PropertyName="Label"/>
+                </Chart:LineSeries.CategoryBinding>
+
+            </Chart:LineSeries>
+        </Chart:RadCartesianChart>
+
     </Grid>
 </common:LayoutAwarePage>
 

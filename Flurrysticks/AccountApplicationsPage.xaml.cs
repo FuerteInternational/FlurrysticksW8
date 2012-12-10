@@ -448,6 +448,8 @@ namespace Flurrysticks
             CallApp what = new CallApp();
             what.AppApiKey = ((AppItem)e.ClickedItem).AppApiKey;
             what.ApiKey = sampleAccounts.ElementAt<Account>(currentAccount).ApiKey;
+            what.Name = ((AppItem)e.ClickedItem).Name;
+            what.Platform = ((AppItem)e.ClickedItem).Platform;
             this.Frame.Navigate(typeof(AppMetrics), what);
         }
 
@@ -573,8 +575,8 @@ namespace Flurrysticks
     {
         public string AppApiKey;
         public string ApiKey;
-
-
+        public string Name;
+        public string Platform;
     }
 
 }

@@ -11,6 +11,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Diagnostics;
+using System.Xml.Linq;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
@@ -21,9 +23,59 @@ namespace Flurrysticks
     /// </summary>
     public sealed partial class AppMetrics : Flurrysticks.Common.LayoutAwarePage
     {
+
+        string apiKey;
+        string appapikey = ""; // initial apikey of the app
+        string appName = "";   // appName
+        string platform = "";  // platform
+        string[] AppMetricsNames = { "ActiveUsers", "ActiveUsersByWeek", "ActiveUsersByMonth", "NewUsers", "MedianSessionLength", "AvgSessionLength", "Sessions", "RetainedUsers" };
+        string EndDate;
+        string StartDate;
+        DownloadHelper dh = new DownloadHelper();
+
         public AppMetrics()
         {
             this.InitializeComponent();
+        }
+
+        private void ParseXML(XDocument what)
+        {
+            Debug.WriteLine("Processing..." + what);
+            bool result = false;
+                IEnumerable<ChartDataPoint> ChartData;
+                   ChartData = from query in what.Descendants("day")
+                               select new ChartDataPoint
+                               {
+                                   Value = (double)query.Attribute("value"),
+                                   Label = (string)query.Attribute("date")
+                               };
+           radChart.DataContext = ChartData;
+        } // ParseXML
+
+        private async void loadData(int metricsIndex)
+        {
+            Debug.WriteLine("loadData()");
+            EndDate   = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1));
+            StartDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddMonths(-1));
+            string metrics = AppMetricsNames[metricsIndex]; // this will be selectable
+            ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            // check if it's loaded, if not - load it up
+            bool success;
+            XDocument result = null;
+                string callURL = "http://api.flurry.com/appMetrics/" + metrics + "?apiAccessCode=" + apiKey + "&apiKey=" + appapikey + "&startDate=" + StartDate + "&endDate=" + EndDate;
+                Debug.WriteLine(callURL);
+                try
+                {
+                    result = await dh.DownloadXML(callURL); // load it   
+                    success = true;
+                }
+                catch (System.Net.Http.HttpRequestException)
+                {   // load failed
+                    success = false;
+                }
+                Debug.WriteLine("Success:" + success);
+                if (success) { ParseXML(result); }
+
         }
 
         /// <summary>
@@ -38,7 +90,10 @@ namespace Flurrysticks
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
             CallApp what = (CallApp)navigationParameter;
-            pageTitle.Text = what.AppApiKey;
+            pageTitle.Text = what.Name;
+            apiKey = what.ApiKey;
+            appapikey = what.AppApiKey;
+            loadData(0);
         }
 
         /// <summary>
@@ -50,5 +105,16 @@ namespace Flurrysticks
         protected override void SaveState(Dictionary<String, Object> pageState)
         {
         }
+
+        public class ChartDataPoint
+        {
+            public string Label { get; set; }
+            public double Value { get; set; } // appmetrics
+            public double Value1 { get; set; } // Unique Users
+            public double Value2 { get; set; } // Total Sessions
+            public double Value3 { get; set; } //
+            public double Value4 { get; set; }
+        }
+
     }
 }
