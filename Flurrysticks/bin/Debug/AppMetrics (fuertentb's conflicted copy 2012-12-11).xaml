@@ -95,18 +95,20 @@
             <Chart:RadCartesianChart.VerticalAxis>
                 <Chart:LinearAxis/>
             </Chart:RadCartesianChart.VerticalAxis>
-            <Chart:LineSeries 
-                ItemsSource="{Binding}"
-                >
 
-                <Chart:LineSeries.ValueBinding>
-                    <Chart:PropertyNameDataPointBinding PropertyName="Value"/>                        
-                </Chart:LineSeries.ValueBinding>
-                <Chart:LineSeries.CategoryBinding>
-                    <Chart:PropertyNameDataPointBinding PropertyName="Label"/>
-                </Chart:LineSeries.CategoryBinding>
+                <Chart:LineSeries ItemsSource="{Binding}">
+                    <Chart:LineSeries.CategoryBinding>
+                        <Chart:PropertyNameDataPointBinding PropertyName="Value">
+                            
+                        </Chart:PropertyNameDataPointBinding>
+                    </Chart:LineSeries.CategoryBinding>
+                    <Chart:LineSeries.ValueBinding>
+                        <Chart:PropertyNameDataPointBinding PropertyName="Label">
+                            
+                        </Chart:PropertyNameDataPointBinding>
+                    </Chart:LineSeries.ValueBinding>
+                </Chart:LineSeries>
 
-            </Chart:LineSeries>
         </Chart:RadCartesianChart>
 
     </Grid>

@@ -989,8 +989,8 @@ namespace Flurrysticks.Flurrysticks_XamlTypeInfo
                 userType.AddMemberName("DataPoints");
                 AddToMapOfTypeToStandardName(typeof(global::Telerik.Charting.DataPointCollection<global::Telerik.Charting.CategoricalDataPoint>),
                                                    "Telerik.Charting.DataPointCollection<Telerik.Charting.CategoricalDataPoint>");
-                userType.AddMemberName("ValueBinding");
                 userType.AddMemberName("CategoryBinding");
+                userType.AddMemberName("ValueBinding");
                 userType.AddMemberName("CombineMode");
                 userType.AddMemberName("StackGroupKey");
                 AddToMapOfTypeToStandardName(typeof(global::System.Object),
@@ -1964,25 +1964,25 @@ namespace Flurrysticks.Flurrysticks_XamlTypeInfo
             var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalSeries)instance;
             return that.DataPoints;
         }
-        private object get_102_CategoricalSeries_ValueBinding(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalSeries)instance;
-            return that.ValueBinding;
-        }
-        private void set_102_CategoricalSeries_ValueBinding(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalSeries)instance;
-            that.ValueBinding = (global::Telerik.UI.Xaml.Controls.Chart.DataPointBinding)Value;
-        }
-        private object get_103_CategoricalSeries_CategoryBinding(object instance)
+        private object get_102_CategoricalSeries_CategoryBinding(object instance)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalSeries)instance;
             return that.CategoryBinding;
         }
-        private void set_103_CategoricalSeries_CategoryBinding(object instance, object Value)
+        private void set_102_CategoricalSeries_CategoryBinding(object instance, object Value)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalSeries)instance;
             that.CategoryBinding = (global::Telerik.UI.Xaml.Controls.Chart.DataPointBinding)Value;
+        }
+        private object get_103_CategoricalSeries_ValueBinding(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalSeries)instance;
+            return that.ValueBinding;
+        }
+        private void set_103_CategoricalSeries_ValueBinding(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalSeries)instance;
+            that.ValueBinding = (global::Telerik.UI.Xaml.Controls.Chart.DataPointBinding)Value;
         }
         private object get_104_CategoricalStrokedSeries_Stroke(object instance)
         {
@@ -2735,19 +2735,19 @@ namespace Flurrysticks.Flurrysticks_XamlTypeInfo
                 xamlMember.Getter = get_101_CategoricalSeries_DataPoints;
                 xamlMember.SetIsReadOnly();
                 break;
-            case "Telerik.UI.Xaml.Controls.Chart.CategoricalSeries.ValueBinding":
-                userType = (global::Flurrysticks.Flurrysticks_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalSeries");
-                xamlMember = new global::Flurrysticks.Flurrysticks_XamlTypeInfo.XamlMember(this, "ValueBinding", "Telerik.UI.Xaml.Controls.Chart.DataPointBinding");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_102_CategoricalSeries_ValueBinding;
-                xamlMember.Setter = set_102_CategoricalSeries_ValueBinding;
-                break;
             case "Telerik.UI.Xaml.Controls.Chart.CategoricalSeries.CategoryBinding":
                 userType = (global::Flurrysticks.Flurrysticks_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalSeries");
                 xamlMember = new global::Flurrysticks.Flurrysticks_XamlTypeInfo.XamlMember(this, "CategoryBinding", "Telerik.UI.Xaml.Controls.Chart.DataPointBinding");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_103_CategoricalSeries_CategoryBinding;
-                xamlMember.Setter = set_103_CategoricalSeries_CategoryBinding;
+                xamlMember.Getter = get_102_CategoricalSeries_CategoryBinding;
+                xamlMember.Setter = set_102_CategoricalSeries_CategoryBinding;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.CategoricalSeries.ValueBinding":
+                userType = (global::Flurrysticks.Flurrysticks_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalSeries");
+                xamlMember = new global::Flurrysticks.Flurrysticks_XamlTypeInfo.XamlMember(this, "ValueBinding", "Telerik.UI.Xaml.Controls.Chart.DataPointBinding");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_103_CategoricalSeries_ValueBinding;
+                xamlMember.Setter = set_103_CategoricalSeries_ValueBinding;
                 break;
             case "Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries.Stroke":
                 userType = (global::Flurrysticks.Flurrysticks_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries");

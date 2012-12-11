@@ -96,7 +96,7 @@
                 <Chart:LinearAxis/>
             </Chart:RadCartesianChart.VerticalAxis>
             <Chart:LineSeries 
-                ItemsSource="{Binding ChartData}"
+                ItemsSource="{Binding}"
                 >
 
                 <Chart:LineSeries.ValueBinding>

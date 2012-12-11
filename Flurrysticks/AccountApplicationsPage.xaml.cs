@@ -135,7 +135,7 @@ namespace Flurrysticks
                         //sampleAccounts = new ObservableCollection<Account>();
                         foreach (AccountItem OneAccount in localCats)
                         {
-                            sampleAccounts.Add(
+                            sampleAccounts.Add( 
                                 new Account(
                                     OneAccount.Name,
                                     false,
@@ -191,7 +191,9 @@ namespace Flurrysticks
         /// </param>
         /// <param name="pageState">A dictionary of state preserved by this page during an earlier
         /// session.  This will be null the first time a page is visited.</param>
-        protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
+        /// 
+
+        private void initApp()
         {
             try
             {
@@ -211,10 +213,26 @@ namespace Flurrysticks
                 currentAccount = 0;
             }
             LoadApiKeyData();
+        }
+       
+        /*
+        protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
+        {
+            Debug.WriteLine("AccountApplicationsPage - LoadState");
+            initApp();
+        }
+         * */
+                
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            Debug.WriteLine("AccountApplicationsPage - OnNavigatedTo");
+            initApp();
+        }
 
-            // if (!(sampleAccounts.ToList().Count>0)) { noAccountData(); }  // if load failed / no account data available
-            
-            //Debug.WriteLine(result.ToString());
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
         }
 
         private void headerMenuClicked(object sender, RoutedEventArgs e)
