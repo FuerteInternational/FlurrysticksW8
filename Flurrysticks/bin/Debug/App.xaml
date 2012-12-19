@@ -20,7 +20,7 @@
 
             <!-- Application-specific resources -->
 
-            <x:String x:Key="AppName">Flurrysticks</x:String>
+            <x:String x:Key="AppName">Flurrystics</x:String>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

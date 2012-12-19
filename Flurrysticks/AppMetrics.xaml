@@ -12,9 +12,6 @@
     mc:Ignorable="d">
 
     <common:LayoutAwarePage.Resources>
-
-        <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
-        <x:String x:Key="AppName">My Application</x:String>
     </common:LayoutAwarePage.Resources>
 
     <!--
@@ -82,32 +79,170 @@
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
 
-        <Chart:RadCartesianChart 
-            x:Name="radChart"
-            HorizontalAlignment="Stretch" 
-            Margin="10,0,0,0" 
-            Grid.Row="1" 
-            VerticalAlignment="Stretch" 
-            >
-            <Chart:RadCartesianChart.HorizontalAxis>
-                <Chart:DateTimeCategoricalAxis/>
-            </Chart:RadCartesianChart.HorizontalAxis>
-            <Chart:RadCartesianChart.VerticalAxis>
-                <Chart:LinearAxis/>
-            </Chart:RadCartesianChart.VerticalAxis>
-            <Chart:LineSeries 
-                ItemsSource="{Binding}"
-                >
-
-                <Chart:LineSeries.ValueBinding>
-                    <Chart:PropertyNameDataPointBinding PropertyName="Value"/>                        
-                </Chart:LineSeries.ValueBinding>
-                <Chart:LineSeries.CategoryBinding>
-                    <Chart:PropertyNameDataPointBinding PropertyName="Label"/>
-                </Chart:LineSeries.CategoryBinding>
-
-            </Chart:LineSeries>
-        </Chart:RadCartesianChart>
+        <FlipView x:Name="flipView1" 
+                  Grid.Row="1" 
+                  SelectionChanged="flipView1_SelectionChanged_1">        
+            <Chart:RadCartesianChart 
+                x:Name="radChart1"
+                HorizontalAlignment="Stretch" 
+                Margin="10,0,0,0"            
+                VerticalAlignment="Stretch">
+                <Chart:RadCartesianChart.HorizontalAxis>
+                    <Chart:DateTimeCategoricalAxis/>
+                </Chart:RadCartesianChart.HorizontalAxis>
+                <Chart:RadCartesianChart.VerticalAxis>
+                    <Chart:LinearAxis/>
+                </Chart:RadCartesianChart.VerticalAxis>
+                <Chart:LineSeries ItemsSource="{Binding}">
+                    <Chart:LineSeries.ValueBinding>
+                        <Chart:PropertyNameDataPointBinding PropertyName="Value"/>
+                    </Chart:LineSeries.ValueBinding>
+                    <Chart:LineSeries.CategoryBinding>
+                        <Chart:PropertyNameDataPointBinding PropertyName="Label"/>
+                    </Chart:LineSeries.CategoryBinding>
+                </Chart:LineSeries>
+            </Chart:RadCartesianChart>
+            <Chart:RadCartesianChart 
+                x:Name="radChart2"
+                HorizontalAlignment="Stretch" 
+                Margin="10,0,0,0"            
+                VerticalAlignment="Stretch">
+                <Chart:RadCartesianChart.HorizontalAxis>
+                    <Chart:DateTimeCategoricalAxis/>
+                </Chart:RadCartesianChart.HorizontalAxis>
+                <Chart:RadCartesianChart.VerticalAxis>
+                    <Chart:LinearAxis/>
+                </Chart:RadCartesianChart.VerticalAxis>
+                <Chart:LineSeries ItemsSource="{Binding}">
+                    <Chart:LineSeries.ValueBinding>
+                        <Chart:PropertyNameDataPointBinding PropertyName="Value"/>
+                    </Chart:LineSeries.ValueBinding>
+                    <Chart:LineSeries.CategoryBinding>
+                        <Chart:PropertyNameDataPointBinding PropertyName="Label"/>
+                    </Chart:LineSeries.CategoryBinding>
+                </Chart:LineSeries>
+            </Chart:RadCartesianChart>
+            <Chart:RadCartesianChart 
+                x:Name="radChart3"
+                HorizontalAlignment="Stretch" 
+                Margin="10,0,0,0"            
+                VerticalAlignment="Stretch">
+                <Chart:RadCartesianChart.HorizontalAxis>
+                    <Chart:DateTimeCategoricalAxis/>
+                </Chart:RadCartesianChart.HorizontalAxis>
+                <Chart:RadCartesianChart.VerticalAxis>
+                    <Chart:LinearAxis/>
+                </Chart:RadCartesianChart.VerticalAxis>
+                <Chart:LineSeries ItemsSource="{Binding}">
+                    <Chart:LineSeries.ValueBinding>
+                        <Chart:PropertyNameDataPointBinding PropertyName="Value"/>
+                    </Chart:LineSeries.ValueBinding>
+                    <Chart:LineSeries.CategoryBinding>
+                        <Chart:PropertyNameDataPointBinding PropertyName="Label"/>
+                    </Chart:LineSeries.CategoryBinding>
+                </Chart:LineSeries>
+            </Chart:RadCartesianChart>
+            <Chart:RadCartesianChart 
+                x:Name="radChart4"
+                HorizontalAlignment="Stretch" 
+                Margin="10,0,0,0"            
+                VerticalAlignment="Stretch">
+                <Chart:RadCartesianChart.HorizontalAxis>
+                    <Chart:DateTimeCategoricalAxis/>
+                </Chart:RadCartesianChart.HorizontalAxis>
+                <Chart:RadCartesianChart.VerticalAxis>
+                    <Chart:LinearAxis/>
+                </Chart:RadCartesianChart.VerticalAxis>
+                <Chart:LineSeries ItemsSource="{Binding}">
+                    <Chart:LineSeries.ValueBinding>
+                        <Chart:PropertyNameDataPointBinding PropertyName="Value"/>
+                    </Chart:LineSeries.ValueBinding>
+                    <Chart:LineSeries.CategoryBinding>
+                        <Chart:PropertyNameDataPointBinding PropertyName="Label"/>
+                    </Chart:LineSeries.CategoryBinding>
+                </Chart:LineSeries>
+            </Chart:RadCartesianChart>
+            <Chart:RadCartesianChart 
+                x:Name="radChart5"
+                HorizontalAlignment="Stretch" 
+                Margin="10,0,0,0"            
+                VerticalAlignment="Stretch">
+                <Chart:RadCartesianChart.HorizontalAxis>
+                    <Chart:DateTimeCategoricalAxis/>
+                </Chart:RadCartesianChart.HorizontalAxis>
+                <Chart:RadCartesianChart.VerticalAxis>
+                    <Chart:LinearAxis/>
+                </Chart:RadCartesianChart.VerticalAxis>
+                <Chart:LineSeries ItemsSource="{Binding}">
+                    <Chart:LineSeries.ValueBinding>
+                        <Chart:PropertyNameDataPointBinding PropertyName="Value"/>
+                    </Chart:LineSeries.ValueBinding>
+                    <Chart:LineSeries.CategoryBinding>
+                        <Chart:PropertyNameDataPointBinding PropertyName="Label"/>
+                    </Chart:LineSeries.CategoryBinding>
+                </Chart:LineSeries>
+            </Chart:RadCartesianChart>
+            <Chart:RadCartesianChart 
+                x:Name="radChart6"
+                HorizontalAlignment="Stretch" 
+                Margin="10,0,0,0"            
+                VerticalAlignment="Stretch">
+                <Chart:RadCartesianChart.HorizontalAxis>
+                    <Chart:DateTimeCategoricalAxis/>
+                </Chart:RadCartesianChart.HorizontalAxis>
+                <Chart:RadCartesianChart.VerticalAxis>
+                    <Chart:LinearAxis/>
+                </Chart:RadCartesianChart.VerticalAxis>
+                <Chart:LineSeries ItemsSource="{Binding}">
+                    <Chart:LineSeries.ValueBinding>
+                        <Chart:PropertyNameDataPointBinding PropertyName="Value"/>
+                    </Chart:LineSeries.ValueBinding>
+                    <Chart:LineSeries.CategoryBinding>
+                        <Chart:PropertyNameDataPointBinding PropertyName="Label"/>
+                    </Chart:LineSeries.CategoryBinding>
+                </Chart:LineSeries>
+            </Chart:RadCartesianChart>
+            <Chart:RadCartesianChart 
+                x:Name="radChart7"
+                HorizontalAlignment="Stretch" 
+                Margin="10,0,0,0"            
+                VerticalAlignment="Stretch">
+                <Chart:RadCartesianChart.HorizontalAxis>
+                    <Chart:DateTimeCategoricalAxis/>
+                </Chart:RadCartesianChart.HorizontalAxis>
+                <Chart:RadCartesianChart.VerticalAxis>
+                    <Chart:LinearAxis/>
+                </Chart:RadCartesianChart.VerticalAxis>
+                <Chart:LineSeries ItemsSource="{Binding}">
+                    <Chart:LineSeries.ValueBinding>
+                        <Chart:PropertyNameDataPointBinding PropertyName="Value"/>
+                    </Chart:LineSeries.ValueBinding>
+                    <Chart:LineSeries.CategoryBinding>
+                        <Chart:PropertyNameDataPointBinding PropertyName="Label"/>
+                    </Chart:LineSeries.CategoryBinding>
+                </Chart:LineSeries>
+            </Chart:RadCartesianChart>
+            <Chart:RadCartesianChart 
+                x:Name="radChart8"
+                HorizontalAlignment="Stretch" 
+                Margin="10,0,0,0"            
+                VerticalAlignment="Stretch">
+                <Chart:RadCartesianChart.HorizontalAxis>
+                    <Chart:DateTimeCategoricalAxis/>
+                </Chart:RadCartesianChart.HorizontalAxis>
+                <Chart:RadCartesianChart.VerticalAxis>
+                    <Chart:LinearAxis/>
+                </Chart:RadCartesianChart.VerticalAxis>
+                <Chart:LineSeries ItemsSource="{Binding}">
+                    <Chart:LineSeries.ValueBinding>
+                        <Chart:PropertyNameDataPointBinding PropertyName="Value"/>
+                    </Chart:LineSeries.ValueBinding>
+                    <Chart:LineSeries.CategoryBinding>
+                        <Chart:PropertyNameDataPointBinding PropertyName="Label"/>
+                    </Chart:LineSeries.CategoryBinding>
+                </Chart:LineSeries>
+            </Chart:RadCartesianChart>            
+        </FlipView>
 
     </Grid>
 </common:LayoutAwarePage>

@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Diagnostics;
 using System.Xml.Linq;
+using Telerik.UI.Xaml.Controls.Chart;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
@@ -31,6 +32,7 @@ namespace Flurrysticks
         string[] AppMetricsNames = { "ActiveUsers", "ActiveUsersByWeek", "ActiveUsersByMonth", "NewUsers", "MedianSessionLength", "AvgSessionLength", "Sessions", "RetainedUsers" };
         string EndDate;
         string StartDate;
+        int actualMetricsIndex = 0;
         DownloadHelper dh = new DownloadHelper();
 
         public AppMetrics()
@@ -38,9 +40,10 @@ namespace Flurrysticks
             this.InitializeComponent();
         }
 
-        private void ParseXML(XDocument what)
+        private void ParseXML(XDocument what, int i)
         {
             Debug.WriteLine("Processing..." + what);
+            RadCartesianChart[] targetCharts = { radChart1, radChart2, radChart3, radChart4, radChart5, radChart6, radChart7, radChart8 };
             bool result = false;
                 IEnumerable<ChartDataPoint> ChartData;
                    ChartData = from query in what.Descendants("day")
@@ -49,15 +52,16 @@ namespace Flurrysticks
                                    Value = (double)query.Attribute("value"),
                                    Label = (string)query.Attribute("date")
                                };
-           radChart.DataContext = ChartData;
+           targetCharts[i].DataContext = ChartData;          
         } // ParseXML
 
         private async void loadData(int metricsIndex)
         {
-            Debug.WriteLine("loadData()");
+            Debug.WriteLine("loadData() " + metricsIndex);
             EndDate   = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1));
             StartDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddMonths(-1));
             string metrics = AppMetricsNames[metricsIndex]; // this will be selectable
+            if (ProgressBar1 == null) {return;}
             ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
             // check if it's loaded, if not - load it up
             bool success;
@@ -74,7 +78,8 @@ namespace Flurrysticks
                     success = false;
                 }
                 Debug.WriteLine("Success:" + success);
-                if (success) { ParseXML(result); }
+                if (success) { ParseXML(result, metricsIndex); }
+                ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
 
         }
 
@@ -102,7 +107,7 @@ namespace Flurrysticks
             pageTitle.Text = what.Name;
             apiKey = what.ApiKey;
             appapikey = what.AppApiKey;
-            loadData(0);
+            loadData(actualMetricsIndex);
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -128,6 +133,13 @@ namespace Flurrysticks
             public double Value2 { get; set; } // Total Sessions
             public double Value3 { get; set; } //
             public double Value4 { get; set; }
+        }
+
+        private void flipView1_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            Debug.WriteLine("flipView1 SelectionChanged");
+            actualMetricsIndex = ((FlipView)sender).SelectedIndex;
+            loadData(actualMetricsIndex);
         }
 
     }
