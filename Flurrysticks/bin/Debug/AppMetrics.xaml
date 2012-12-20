@@ -32,8 +32,8 @@
 
             <!-- Visual states reflect the application's view state -->
             <VisualStateGroup x:Name="ApplicationViewStates">
-                <VisualState x:Name="FullScreenLandscape"/>
-                <VisualState x:Name="Filled"/>
+                 <VisualState x:Name="FullScreenLandscape"/>
+                 <VisualState x:Name="Filled"/>
 
                 <!-- The entire page respects the narrower 100-pixel margin convention for portrait -->
                 <VisualState x:Name="FullScreenPortrait">
@@ -87,6 +87,17 @@
             <Grid>
 
                 <Grid.Resources>
+
+                    <DataTemplate x:Key="TrackInfoTemplate">
+                        <StackPanel Background="White">
+                            <Border Background="#FF1E98E4">
+                                <TextBlock Margin="4" 
+                                           Text="{Binding DataPoint.Value}" 
+                                           FontSize="12" 
+                                           Foreground="White"/>
+                            </Border>
+                        </StackPanel>
+                    </DataTemplate>
                     <DataTemplate x:Key="IntersectionPointTemplate">
                         <Ellipse Stroke="White"  StrokeThickness="2" Width="8" Height="8"/>
                     </DataTemplate>
@@ -94,11 +105,11 @@
                 </Grid.Resources>
 
                 <Chart:RadCartesianChart 
-                x:Name="radChart1"
-                HorizontalAlignment="Stretch" 
-                Margin="10,0,0,0"           
-                MinZoom="1,1"
-                VerticalAlignment="Stretch">
+                    x:Name="radChart1"
+                    HorizontalAlignment="Stretch" 
+                    Margin="10,0,0,0"           
+                    MinZoom="1,1"
+                    VerticalAlignment="Stretch">
 
                     <Chart:RadCartesianChart.Grid>
                         <Chart:CartesianChartGrid MajorLinesVisibility="Y" />
@@ -112,7 +123,7 @@
                     </Chart:RadCartesianChart.VerticalAxis>
 
                     <Chart:AreaSeries ItemsSource="{Binding}"
-                                  Chart:ChartTrackBallBehavior.TrackInfoTemplate="{StaticResource EmptyTemplate}" 
+                                  Chart:ChartTrackBallBehavior.TrackInfoTemplate="{StaticResource TrackInfoTemplate}" 
                                   Chart:ChartTrackBallBehavior.IntersectionTemplate="{StaticResource IntersectionPointTemplate}">
 
                         <Chart:AreaSeries.ValueBinding>
@@ -128,6 +139,7 @@
                         <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
                         <Chart:ChartTrackBallBehavior x:ConnectionId='2' 
                             ShowIntersectionPoints="True" 
+                            InfoMode="Multiple"
                                                                                         />
                     </Chart:RadCartesianChart.Behaviors>
 

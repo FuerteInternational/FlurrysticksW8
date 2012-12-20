@@ -1120,15 +1120,22 @@ namespace Flurrysticks.Flurrysticks_XamlTypeInfo
                 userType.AddMemberName("ShowIntersectionPoints");
                 AddToMapOfTypeToStandardName(typeof(global::System.Boolean),
                                                    "Boolean");
+                userType.AddMemberName("InfoMode");
                 userType.AddMemberName("LineStyle");
                 userType.AddMemberName("InfoStyle");
                 userType.AddMemberName("ShowInfo");
                 AddToMapOfTypeToStandardName(typeof(global::System.Boolean),
                                                    "Boolean");
                 userType.AddMemberName("SnapMode");
-                userType.AddMemberName("InfoMode");
                 userType.AddMemberName("TrackInfoTemplate");
                 userType.AddMemberName("IntersectionTemplate");
+                xamlType = userType;
+                break;
+
+            case "Telerik.UI.Xaml.Controls.Chart.TrackInfoMode":
+                userType = new global::Flurrysticks.Flurrysticks_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Telerik.UI.Xaml.Controls.Chart.TrackInfoMode), GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("Multiple", global::Telerik.UI.Xaml.Controls.Chart.TrackInfoMode.Multiple);
+                userType.AddEnumValue("Individual", global::Telerik.UI.Xaml.Controls.Chart.TrackInfoMode.Individual);
                 xamlType = userType;
                 break;
 
@@ -1137,13 +1144,6 @@ namespace Flurrysticks.Flurrysticks_XamlTypeInfo
                 userType.AddEnumValue("None", global::Telerik.UI.Xaml.Controls.Chart.TrackBallSnapMode.None);
                 userType.AddEnumValue("ClosestPoint", global::Telerik.UI.Xaml.Controls.Chart.TrackBallSnapMode.ClosestPoint);
                 userType.AddEnumValue("AllClosePoints", global::Telerik.UI.Xaml.Controls.Chart.TrackBallSnapMode.AllClosePoints);
-                xamlType = userType;
-                break;
-
-            case "Telerik.UI.Xaml.Controls.Chart.TrackInfoMode":
-                userType = new global::Flurrysticks.Flurrysticks_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Telerik.UI.Xaml.Controls.Chart.TrackInfoMode), GetXamlTypeByName("System.Enum"));
-                userType.AddEnumValue("Multiple", global::Telerik.UI.Xaml.Controls.Chart.TrackInfoMode.Multiple);
-                userType.AddEnumValue("Individual", global::Telerik.UI.Xaml.Controls.Chart.TrackInfoMode.Individual);
                 xamlType = userType;
                 break;
 
@@ -2305,55 +2305,55 @@ namespace Flurrysticks.Flurrysticks_XamlTypeInfo
             var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
             that.ShowIntersectionPoints = (global::System.Boolean)Value;
         }
-        private object get_122_ChartTrackBallBehavior_LineStyle(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
-            return that.LineStyle;
-        }
-        private void set_122_ChartTrackBallBehavior_LineStyle(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
-            that.LineStyle = (global::Windows.UI.Xaml.Style)Value;
-        }
-        private object get_123_ChartTrackBallBehavior_InfoStyle(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
-            return that.InfoStyle;
-        }
-        private void set_123_ChartTrackBallBehavior_InfoStyle(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
-            that.InfoStyle = (global::Windows.UI.Xaml.Style)Value;
-        }
-        private object get_124_ChartTrackBallBehavior_ShowInfo(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
-            return that.ShowInfo;
-        }
-        private void set_124_ChartTrackBallBehavior_ShowInfo(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
-            that.ShowInfo = (global::System.Boolean)Value;
-        }
-        private object get_125_ChartTrackBallBehavior_SnapMode(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
-            return that.SnapMode;
-        }
-        private void set_125_ChartTrackBallBehavior_SnapMode(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
-            that.SnapMode = (global::Telerik.UI.Xaml.Controls.Chart.TrackBallSnapMode)Value;
-        }
-        private object get_126_ChartTrackBallBehavior_InfoMode(object instance)
+        private object get_122_ChartTrackBallBehavior_InfoMode(object instance)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
             return that.InfoMode;
         }
-        private void set_126_ChartTrackBallBehavior_InfoMode(object instance, object Value)
+        private void set_122_ChartTrackBallBehavior_InfoMode(object instance, object Value)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
             that.InfoMode = (global::Telerik.UI.Xaml.Controls.Chart.TrackInfoMode)Value;
+        }
+        private object get_123_ChartTrackBallBehavior_LineStyle(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
+            return that.LineStyle;
+        }
+        private void set_123_ChartTrackBallBehavior_LineStyle(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
+            that.LineStyle = (global::Windows.UI.Xaml.Style)Value;
+        }
+        private object get_124_ChartTrackBallBehavior_InfoStyle(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
+            return that.InfoStyle;
+        }
+        private void set_124_ChartTrackBallBehavior_InfoStyle(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
+            that.InfoStyle = (global::Windows.UI.Xaml.Style)Value;
+        }
+        private object get_125_ChartTrackBallBehavior_ShowInfo(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
+            return that.ShowInfo;
+        }
+        private void set_125_ChartTrackBallBehavior_ShowInfo(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
+            that.ShowInfo = (global::System.Boolean)Value;
+        }
+        private object get_126_ChartTrackBallBehavior_SnapMode(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
+            return that.SnapMode;
+        }
+        private void set_126_ChartTrackBallBehavior_SnapMode(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
+            that.SnapMode = (global::Telerik.UI.Xaml.Controls.Chart.TrackBallSnapMode)Value;
         }
         private object get_127_ChartTrackBallBehavior_TrackInfoTemplate(object instance)
         {
@@ -3213,37 +3213,37 @@ namespace Flurrysticks.Flurrysticks_XamlTypeInfo
                 xamlMember.Getter = get_121_ChartTrackBallBehavior_ShowIntersectionPoints;
                 xamlMember.Setter = set_121_ChartTrackBallBehavior_ShowIntersectionPoints;
                 break;
+            case "Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior.InfoMode":
+                userType = (global::Flurrysticks.Flurrysticks_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior");
+                xamlMember = new global::Flurrysticks.Flurrysticks_XamlTypeInfo.XamlMember(this, "InfoMode", "Telerik.UI.Xaml.Controls.Chart.TrackInfoMode");
+                xamlMember.Getter = get_122_ChartTrackBallBehavior_InfoMode;
+                xamlMember.Setter = set_122_ChartTrackBallBehavior_InfoMode;
+                break;
             case "Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior.LineStyle":
                 userType = (global::Flurrysticks.Flurrysticks_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior");
                 xamlMember = new global::Flurrysticks.Flurrysticks_XamlTypeInfo.XamlMember(this, "LineStyle", "Windows.UI.Xaml.Style");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_122_ChartTrackBallBehavior_LineStyle;
-                xamlMember.Setter = set_122_ChartTrackBallBehavior_LineStyle;
+                xamlMember.Getter = get_123_ChartTrackBallBehavior_LineStyle;
+                xamlMember.Setter = set_123_ChartTrackBallBehavior_LineStyle;
                 break;
             case "Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior.InfoStyle":
                 userType = (global::Flurrysticks.Flurrysticks_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior");
                 xamlMember = new global::Flurrysticks.Flurrysticks_XamlTypeInfo.XamlMember(this, "InfoStyle", "Windows.UI.Xaml.Style");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_123_ChartTrackBallBehavior_InfoStyle;
-                xamlMember.Setter = set_123_ChartTrackBallBehavior_InfoStyle;
+                xamlMember.Getter = get_124_ChartTrackBallBehavior_InfoStyle;
+                xamlMember.Setter = set_124_ChartTrackBallBehavior_InfoStyle;
                 break;
             case "Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior.ShowInfo":
                 userType = (global::Flurrysticks.Flurrysticks_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior");
                 xamlMember = new global::Flurrysticks.Flurrysticks_XamlTypeInfo.XamlMember(this, "ShowInfo", "Boolean");
-                xamlMember.Getter = get_124_ChartTrackBallBehavior_ShowInfo;
-                xamlMember.Setter = set_124_ChartTrackBallBehavior_ShowInfo;
+                xamlMember.Getter = get_125_ChartTrackBallBehavior_ShowInfo;
+                xamlMember.Setter = set_125_ChartTrackBallBehavior_ShowInfo;
                 break;
             case "Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior.SnapMode":
                 userType = (global::Flurrysticks.Flurrysticks_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior");
                 xamlMember = new global::Flurrysticks.Flurrysticks_XamlTypeInfo.XamlMember(this, "SnapMode", "Telerik.UI.Xaml.Controls.Chart.TrackBallSnapMode");
-                xamlMember.Getter = get_125_ChartTrackBallBehavior_SnapMode;
-                xamlMember.Setter = set_125_ChartTrackBallBehavior_SnapMode;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior.InfoMode":
-                userType = (global::Flurrysticks.Flurrysticks_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior");
-                xamlMember = new global::Flurrysticks.Flurrysticks_XamlTypeInfo.XamlMember(this, "InfoMode", "Telerik.UI.Xaml.Controls.Chart.TrackInfoMode");
-                xamlMember.Getter = get_126_ChartTrackBallBehavior_InfoMode;
-                xamlMember.Setter = set_126_ChartTrackBallBehavior_InfoMode;
+                xamlMember.Getter = get_126_ChartTrackBallBehavior_SnapMode;
+                xamlMember.Setter = set_126_ChartTrackBallBehavior_SnapMode;
                 break;
             case "Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior.TrackInfoTemplate":
                 userType = (global::Flurrysticks.Flurrysticks_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior");
