@@ -150,5 +150,10 @@ namespace Flurrysticks
             loadData(actualMetricsIndex);
         }
 
+        private void ChartTrackBallBehavior_TrackInfoUpdated_1(object sender, TrackBallInfoEventArgs e)
+        {
+
+        }
+
     }
 }

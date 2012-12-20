@@ -60,6 +60,7 @@
 
         <!-- Back button and page title -->
         <Grid>
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
@@ -81,27 +82,59 @@
 
         <FlipView x:Name="flipView1" 
                   Grid.Row="1" 
-                  SelectionChanged="flipView1_SelectionChanged_1">        
-            <Chart:RadCartesianChart 
+                  SelectionChanged="flipView1_SelectionChanged_1">
+
+            <Grid>
+
+                <Grid.Resources>
+                    <DataTemplate x:Key="IntersectionPointTemplate">
+                        <Ellipse Stroke="White"  StrokeThickness="2" Width="8" Height="8"/>
+                    </DataTemplate>
+                    <DataTemplate x:Key="EmptyTemplate"/>
+                </Grid.Resources>
+
+                <Chart:RadCartesianChart 
                 x:Name="radChart1"
                 HorizontalAlignment="Stretch" 
-                Margin="10,0,0,0"            
+                Margin="10,0,0,0"           
+                MinZoom="1,1"
                 VerticalAlignment="Stretch">
-                <Chart:RadCartesianChart.HorizontalAxis>
-                    <Chart:DateTimeCategoricalAxis/>
-                </Chart:RadCartesianChart.HorizontalAxis>
-                <Chart:RadCartesianChart.VerticalAxis>
-                    <Chart:LinearAxis/>
-                </Chart:RadCartesianChart.VerticalAxis>
-                <Chart:LineSeries ItemsSource="{Binding}">
-                    <Chart:LineSeries.ValueBinding>
-                        <Chart:PropertyNameDataPointBinding PropertyName="Value"/>
-                    </Chart:LineSeries.ValueBinding>
-                    <Chart:LineSeries.CategoryBinding>
-                        <Chart:PropertyNameDataPointBinding PropertyName="Label"/>
-                    </Chart:LineSeries.CategoryBinding>
-                </Chart:LineSeries>
-            </Chart:RadCartesianChart>
+
+                    <Chart:RadCartesianChart.Grid>
+                        <Chart:CartesianChartGrid MajorLinesVisibility="Y" />
+                    </Chart:RadCartesianChart.Grid>
+
+                    <Chart:RadCartesianChart.HorizontalAxis>
+                        <Chart:DateTimeCategoricalAxis/>
+                    </Chart:RadCartesianChart.HorizontalAxis>
+                    <Chart:RadCartesianChart.VerticalAxis>
+                        <Chart:LinearAxis/>
+                    </Chart:RadCartesianChart.VerticalAxis>
+
+                    <Chart:AreaSeries ItemsSource="{Binding}"
+                                  Chart:ChartTrackBallBehavior.TrackInfoTemplate="{StaticResource EmptyTemplate}" 
+                                  Chart:ChartTrackBallBehavior.IntersectionTemplate="{StaticResource IntersectionPointTemplate}">
+
+                        <Chart:AreaSeries.ValueBinding>
+                            <Chart:PropertyNameDataPointBinding PropertyName="Value"/>
+                        </Chart:AreaSeries.ValueBinding>
+                        <Chart:AreaSeries.CategoryBinding>
+                            <Chart:PropertyNameDataPointBinding PropertyName="Label"/>
+                        </Chart:AreaSeries.CategoryBinding>
+
+                    </Chart:AreaSeries>
+
+                    <Chart:RadCartesianChart.Behaviors>
+                        <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
+                        <Chart:ChartTrackBallBehavior 
+                            ShowIntersectionPoints="True" 
+                            TrackInfoUpdated="ChartTrackBallBehavior_TrackInfoUpdated_1"/>
+                    </Chart:RadCartesianChart.Behaviors>
+
+                </Chart:RadCartesianChart>
+
+            </Grid>
+
             <Chart:RadCartesianChart 
                 x:Name="radChart2"
                 HorizontalAlignment="Stretch" 

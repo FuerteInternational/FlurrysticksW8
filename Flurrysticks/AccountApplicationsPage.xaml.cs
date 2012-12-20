@@ -115,6 +115,7 @@ namespace Flurrysticks
                 if (file == null)
                 {
                     Debug.WriteLine("Empty XML");
+                    noAccountData();
                     return;
                 }
 

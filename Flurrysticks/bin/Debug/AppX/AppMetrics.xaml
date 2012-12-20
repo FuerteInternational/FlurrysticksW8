@@ -60,6 +60,7 @@
 
         <!-- Back button and page title -->
         <Grid>
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
@@ -75,33 +76,65 @@
                 Grid.ColumnSpan="2"
                 />
             
-            <Button x:ConnectionId='2' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
+            <Button x:ConnectionId='3' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
 
         <FlipView x:ConnectionId='1' x:Name="flipView1" 
                   Grid.Row="1" 
-                                                                 >        
-            <Chart:RadCartesianChart 
+                                                                 >
+
+            <Grid>
+
+                <Grid.Resources>
+                    <DataTemplate x:Key="IntersectionPointTemplate">
+                        <Ellipse Stroke="White"  StrokeThickness="2" Width="8" Height="8"/>
+                    </DataTemplate>
+                    <DataTemplate x:Key="EmptyTemplate"/>
+                </Grid.Resources>
+
+                <Chart:RadCartesianChart 
                 x:Name="radChart1"
                 HorizontalAlignment="Stretch" 
-                Margin="10,0,0,0"            
+                Margin="10,0,0,0"           
+                MinZoom="1,1"
                 VerticalAlignment="Stretch">
-                <Chart:RadCartesianChart.HorizontalAxis>
-                    <Chart:DateTimeCategoricalAxis/>
-                </Chart:RadCartesianChart.HorizontalAxis>
-                <Chart:RadCartesianChart.VerticalAxis>
-                    <Chart:LinearAxis/>
-                </Chart:RadCartesianChart.VerticalAxis>
-                <Chart:LineSeries ItemsSource="{Binding}">
-                    <Chart:LineSeries.ValueBinding>
-                        <Chart:PropertyNameDataPointBinding PropertyName="Value"/>
-                    </Chart:LineSeries.ValueBinding>
-                    <Chart:LineSeries.CategoryBinding>
-                        <Chart:PropertyNameDataPointBinding PropertyName="Label"/>
-                    </Chart:LineSeries.CategoryBinding>
-                </Chart:LineSeries>
-            </Chart:RadCartesianChart>
+
+                    <Chart:RadCartesianChart.Grid>
+                        <Chart:CartesianChartGrid MajorLinesVisibility="Y" />
+                    </Chart:RadCartesianChart.Grid>
+
+                    <Chart:RadCartesianChart.HorizontalAxis>
+                        <Chart:DateTimeCategoricalAxis/>
+                    </Chart:RadCartesianChart.HorizontalAxis>
+                    <Chart:RadCartesianChart.VerticalAxis>
+                        <Chart:LinearAxis/>
+                    </Chart:RadCartesianChart.VerticalAxis>
+
+                    <Chart:AreaSeries ItemsSource="{Binding}"
+                                  Chart:ChartTrackBallBehavior.TrackInfoTemplate="{StaticResource EmptyTemplate}" 
+                                  Chart:ChartTrackBallBehavior.IntersectionTemplate="{StaticResource IntersectionPointTemplate}">
+
+                        <Chart:AreaSeries.ValueBinding>
+                            <Chart:PropertyNameDataPointBinding PropertyName="Value"/>
+                        </Chart:AreaSeries.ValueBinding>
+                        <Chart:AreaSeries.CategoryBinding>
+                            <Chart:PropertyNameDataPointBinding PropertyName="Label"/>
+                        </Chart:AreaSeries.CategoryBinding>
+
+                    </Chart:AreaSeries>
+
+                    <Chart:RadCartesianChart.Behaviors>
+                        <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='2' 
+                            ShowIntersectionPoints="True" 
+                                                                                        />
+                    </Chart:RadCartesianChart.Behaviors>
+
+                </Chart:RadCartesianChart>
+
+            </Grid>
+
             <Chart:RadCartesianChart 
                 x:Name="radChart2"
                 HorizontalAlignment="Stretch" 
