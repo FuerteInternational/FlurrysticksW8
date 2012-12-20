@@ -86,7 +86,7 @@
             AutomationProperties.AutomationId="ItemsGridView"
             AutomationProperties.Name="Items"
             ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
-            ItemTemplate="{StaticResource Standard250x500ItemTemplate}"
+            ItemTemplate="{StaticResource Standard250x250ItemTemplate}"
             TabIndex="1"
             Grid.Row="2"
             Padding="116,36,116,36"

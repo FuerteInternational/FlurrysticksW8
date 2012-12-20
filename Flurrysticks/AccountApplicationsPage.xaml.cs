@@ -108,9 +108,9 @@ namespace Flurrysticks
             //List<AccountItem> Accounts = new List<AccountItem>();
             Debug.WriteLine("LoadApiKeyData()");
             //AccountItem[] AccountsArray;
-            await GetFile(ApiFileName).ContinueWith(value =>
-            {
-                var file = value.Result;
+            StorageFile x = await GetFile(ApiFileName);
+            
+                var file = x;
 
                 if (file == null)
                 {
@@ -119,13 +119,15 @@ namespace Flurrysticks
                 }
 
                 var folder = ApplicationData.Current.LocalFolder;
-                folder.OpenStreamForReadAsync(ApiFileName).ContinueWith(filevalue =>
-                {
-                    using (var stream = filevalue.Result)
+                Stream filevalue = await folder.OpenStreamForReadAsync(ApiFileName);
+
+                    Debug.WriteLine("OpenStreamForReadAsync()");
+                    using (var stream = filevalue)
                     {
+                        Debug.WriteLine("filevalue.Result");
                         DataContractSerializer serializer = new DataContractSerializer(typeof(AccountItem[]));
                         var localCats = serializer.ReadObject(stream) as AccountItem[];
-
+                        Debug.WriteLine("localCats length:" + localCats.Length);
                         if (localCats == null || localCats.Length == 0)
                         {
                             Debug.WriteLine("Empty XML");
@@ -134,7 +136,7 @@ namespace Flurrysticks
                         //AccountsArray = localCats;
                         //sampleAccounts = new ObservableCollection<Account>();
                         foreach (AccountItem OneAccount in localCats)
-                        {
+                        { 
                             sampleAccounts.Add( 
                                 new Account(
                                     OneAccount.Name,
@@ -144,8 +146,8 @@ namespace Flurrysticks
                                 );
                         }
                     }
-                });
-            });
+
+            Debug.WriteLine("After await");
 
             try
             {
@@ -215,25 +217,28 @@ namespace Flurrysticks
             LoadApiKeyData();
         }
        
-        /*
+        
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
             Debug.WriteLine("AccountApplicationsPage - LoadState");
             initApp();
         }
-         * */
-                
+         /*
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            
             base.OnNavigatedTo(e);
             Debug.WriteLine("AccountApplicationsPage - OnNavigatedTo");
             initApp();
         }
-
+       
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
+            //initApp();
             base.OnNavigatedFrom(e);
+
         }
+          * */
 
         private void headerMenuClicked(object sender, RoutedEventArgs e)
         {

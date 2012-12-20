@@ -15,15 +15,13 @@ namespace Flurrysticks
 
         public async Task<XDocument> DownloadXML(string callURL)
         {
+            App.taskCount++;
 
+            long waitTime = App.taskCount * 1000;
 
-            while (App.lastRequestTimeOut > 0)
-            {
-                Debug.WriteLine("Waiting " + App.lastRequestTimeOut);
-                await Task.Delay((int)App.lastRequestTimeOut);
-                Debug.WriteLine("Wait is over, continuing...");
-                App.lastRequestTimeOut = 0; // reseting timeOut
-            }
+            Debug.WriteLine("Waiting " + waitTime);
+            await Task.Delay((int)waitTime);
+            Debug.WriteLine("Wait is over, continuing...");
 
             // the following uri will returns a response with xml content
             Debug.WriteLine("callURL:" + callURL);
@@ -36,7 +34,7 @@ namespace Flurrysticks
             // ReadAsStreamAsync() returns when the whole message is downloaded
             Stream stream = await response.Content.ReadAsStreamAsync();
             XDocument xdoc = XDocument.Load(stream);
-            App.lastRequestTimeOut = App.lastRequestTimeOut + 1000;
+            App.taskCount--;
             return xdoc; 
 
             /*

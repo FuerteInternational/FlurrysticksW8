@@ -79,7 +79,9 @@ namespace Flurrysticks
                 }
                 Debug.WriteLine("Success:" + success);
                 if (success) { ParseXML(result, metricsIndex); }
-                ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                if (App.taskCount==0) {
+                    ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                }
 
         }
 
@@ -93,12 +95,17 @@ namespace Flurrysticks
         /// <param name="pageState">A dictionary of state preserved by this page during an earlier
         /// session.  This will be null the first time a page is visited.</param>
         
-        /*
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
             Debug.WriteLine("AppMetrics - LoadState");
-        } */      
-        
+            CallApp what = (CallApp)navigationParameter;
+            pageTitle.Text = what.Name;
+            apiKey = what.ApiKey;
+            appapikey = what.AppApiKey;
+            loadData(actualMetricsIndex); 
+        }
+     
+        /*
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
@@ -114,6 +121,7 @@ namespace Flurrysticks
         {
             base.OnNavigatedFrom(e);
         }        
+        */
 
         /// <summary>
         /// Preserves state associated with this page in case the application is suspended or the

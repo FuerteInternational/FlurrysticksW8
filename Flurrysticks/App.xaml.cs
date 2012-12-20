@@ -27,8 +27,7 @@ namespace Flurrysticks
     sealed partial class App : Application
     {
 
-        public static long lastRequestTimeOut = 0; // timeOut from last request; increases w/ each request; decreases w/ each request finished
-
+        public static int taskCount = 0;
 
         /// <summary>
         /// Initializes the singleton Application object.  This is the first line of authored code
