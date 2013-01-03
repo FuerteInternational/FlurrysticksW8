@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Flurrysticks.DataModel
+namespace Flurrystics.DataModel
 {
 
-    [KnownType(typeof(Flurrysticks.DataModel.AccountItem))]
+    [KnownType(typeof(Flurrystics.DataModel.AccountItem))]
     [DataContractAttribute]
     class AccountItem
     {

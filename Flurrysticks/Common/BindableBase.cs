@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using Windows.UI.Xaml.Data;
 
-namespace Flurrysticks.Common
+namespace Flurrystics.Common
 {
     /// <summary>
     /// Implementation of <see cref="INotifyPropertyChanged"/> to simplify models.

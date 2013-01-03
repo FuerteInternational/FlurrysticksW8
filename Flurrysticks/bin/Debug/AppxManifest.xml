@@ -9,7 +9,7 @@
   -->
   <Identity Name="3a699d93-555f-439e-879a-96f992557b96" Publisher="CN=fuerte" Version="1.0.0.0" ProcessorArchitecture="neutral" />
   <Properties>
-    <DisplayName>Flurrysticks</DisplayName>
+    <DisplayName>Flurrystics</DisplayName>
     <PublisherDisplayName>fuerte</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -21,8 +21,8 @@
     <Resource Language="EN-US" />
   </Resources>
   <Applications>
-    <Application Id="App" Executable="Flurrysticks.exe" EntryPoint="Flurrysticks.App">
-      <VisualElements DisplayName="Flurrysticks" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Flurrysticks" ForegroundText="dark" BackgroundColor="#eaeaea">
+    <Application Id="App" Executable="Flurrysticks.exe" EntryPoint="Flurrystics.App">
+      <VisualElements DisplayName="Flurrystics" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Flurrystics" ForegroundText="dark" BackgroundColor="#eaeaea">
         <DefaultTile ShowName="noLogos" WideLogo="Assets\WideLogo.png" />
         <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#eaeaea" />
       </VisualElements>

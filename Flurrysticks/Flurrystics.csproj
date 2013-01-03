@@ -134,7 +134,7 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="Common\ReadMe.txt" />
-    <None Include="Flurrysticks_TemporaryKey.pfx" />
+    <None Include="Flurrystics_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="AppMetrics.xaml">

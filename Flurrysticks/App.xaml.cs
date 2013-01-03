@@ -1,4 +1,4 @@
-﻿using Flurrysticks.Common;
+﻿using Flurrystics.Common;
 
 using System;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ using System.Diagnostics;
 
 // The Split App template is documented at http://go.microsoft.com/fwlink/?LinkId=234228
 
-namespace Flurrysticks
+namespace Flurrystics
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.

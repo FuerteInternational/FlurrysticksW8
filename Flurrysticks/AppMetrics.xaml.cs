@@ -17,12 +17,12 @@ using Telerik.UI.Xaml.Controls.Chart;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
-namespace Flurrysticks
+namespace Flurrystics
 {
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class AppMetrics : Flurrysticks.Common.LayoutAwarePage
+    public sealed partial class AppMetrics : Flurrystics.Common.LayoutAwarePage
     {
 
         string apiKey;

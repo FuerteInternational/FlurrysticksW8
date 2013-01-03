@@ -1,4 +1,4 @@
-﻿using Flurrysticks.Data;
+﻿using Flurrystics.Data;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,18 +22,18 @@ using System.Xml.Serialization;
 using System.Threading.Tasks;
 using Windows.Storage;
 using System.Runtime.Serialization;
-using Flurrysticks.DataModel;
+using Flurrystics.DataModel;
 using Windows.UI.Popups;
 
 // The Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234233
 
-namespace Flurrysticks
+namespace Flurrystics
 {
     /// <summary>
     /// A page that displays a collection of item previews.  In the Split Application this page
     /// is used to display and select one of the available groups.
     /// </summary>
-    public sealed partial class AccountApplicationsPage : Flurrysticks.Common.LayoutAwarePage
+    public sealed partial class AccountApplicationsPage : Flurrystics.Common.LayoutAwarePage
     {
         ObservableCollection<AppItem> sampleApps;
         ObservableCollection<Account> sampleAccounts = new ObservableCollection<Account>();

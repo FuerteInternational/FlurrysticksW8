@@ -1,13 +1,13 @@
 ﻿<common:LayoutAwarePage
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Flurrysticks"
-    xmlns:common="using:Flurrysticks.Common"
+    xmlns:local="using:Flurrystics"
+    xmlns:common="using:Flurrystics.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Chart="using:Telerik.UI.Xaml.Controls.Chart"
     x:Name="pageRoot"
-    x:Class="Flurrysticks.AppMetrics"
+    x:Class="Flurrystics.AppMetrics"
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Mode=Self}}"
     mc:Ignorable="d">
 

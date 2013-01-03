@@ -23,12 +23,12 @@ using System.Runtime.Serialization;
 // Applications may use this model as a starting point and build on it, or discard it entirely and
 // replace it with something appropriate to their needs.
 
-namespace Flurrysticks.Data
+namespace Flurrystics.Data
 {
     /// <summary>
     /// Generic item data model.
     /// </summary>
-    public class AppItem : Flurrysticks.Common.BindableBase
+    public class AppItem : Flurrystics.Common.BindableBase
     {
         public AppItem(String Name, String Platform, DateTime createdDate, String AppApiKey)
         {
@@ -71,7 +71,7 @@ namespace Flurrysticks.Data
     /// Generic group data model.
     /// </summary>
     /// 
-    public class Account : Flurrysticks.Common.BindableBase
+    public class Account : Flurrystics.Common.BindableBase
     {
         public Account(String Name, bool isLoaded, String ApiKey)
         {

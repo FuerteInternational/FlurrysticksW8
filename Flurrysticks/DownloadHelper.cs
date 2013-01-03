@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Diagnostics;
 
-namespace Flurrysticks
+namespace Flurrystics
 {
     class DownloadHelper
     {
