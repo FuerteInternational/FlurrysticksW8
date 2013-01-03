@@ -577,6 +577,7 @@ namespace Flurrysticks
                             )
                         );
                     logincontrol1.IsOpen = false;
+                    flurry_api_access.Text = "";
                     currentAccount = sampleAccounts.ToList<Account>().Count - 1;
                     localSettings.Values["currentAccount"] = currentAccount;
                     switchData(sampleAccounts.ElementAt<Account>(currentAccount).Name);
