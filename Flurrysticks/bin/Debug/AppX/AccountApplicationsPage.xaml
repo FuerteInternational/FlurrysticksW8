@@ -17,12 +17,11 @@
         <!-- Collection of items displayed by this page -->
         <CollectionViewSource
             x:Name="itemsViewSource"
-            Source="{Binding Items}"
-            d:Source="{Binding AllAccounts}"
+            Source="{Binding Items}"     
+            IsSourceGrouped="True"
             />
 
     </common:LayoutAwarePage.Resources>
-
     <!--
         This grid acts as a root panel for the page that defines two rows:
         * Row 0 contains the back button and page title
@@ -55,7 +54,6 @@
                         </ObjectAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
-
                 <!--
                     The back button and title have different styles when snapped, and the list representation is substituted
                     for the grid displayed in all other view states
@@ -82,20 +80,46 @@
 
         <!-- Horizontal scrolling grid used in most view states -->
         <GridView x:ConnectionId='1'
-            x:Name="itemGridView"
-            AutomationProperties.AutomationId="ItemsGridView"
-            AutomationProperties.Name="Items"
-            ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
-            ItemTemplate="{StaticResource Standard250x250ItemTemplate}"
-            TabIndex="1"
-            Grid.Row="2"
-            Padding="116,36,116,36"
-            SelectionMode="None"
-            IsSwipeEnabled="false"
-            IsItemClickEnabled="True"
-                                          
-            VerticalContentAlignment="Stretch"
-            >
+                x:Name="itemGridView"
+                AutomationProperties.AutomationId="ItemsGridView"
+                ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
+                ItemTemplate="{StaticResource Standard250x250ItemTemplate}"
+                TabIndex="1"
+                Grid.Row="2"
+                Padding="116,36,116,36"
+                SelectionMode="None"
+                IsSwipeEnabled="false"
+                IsItemClickEnabled="True"
+                                              
+                VerticalContentAlignment="Stretch">
+            
+            <GridView.GroupStyle>
+                <GroupStyle HidesIfEmpty="True">
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0">
+                                <TextBlock Text='{Binding Key}' 
+                                   Foreground="Black" Margin="20"
+                                   Style="{StaticResource HeaderTextStyle}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+
+                    <GroupStyle.ContainerStyle>
+                        <Style TargetType="GroupItem">
+                            <Setter Property="Margin" Value="3,0"/>
+                        </Style>
+                    </GroupStyle.ContainerStyle>
+
+                    <GroupStyle.Panel>
+                        <ItemsPanelTemplate>
+                            <VariableSizedWrapGrid />
+                        </ItemsPanelTemplate>
+                    </GroupStyle.Panel>
+                    
+                </GroupStyle>
+            </GridView.GroupStyle>
+
         </GridView>
 
         <Popup x:Name="logincontrol1" IsOpen="False" IsLightDismissEnabled="True">

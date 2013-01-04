@@ -405,7 +405,11 @@ namespace Flurrystics
             // sampleApps = SampleDataSource.GetAppItems(SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).ApiKey);
             sampleApps = sampleAccounts.ElementAt<Account>(currentAccount).Apps;
 
-            this.DefaultViewModel["Items"] = sampleApps;
+            //this.DefaultViewModel["Items"] = sampleApps;
+
+            List<GroupInfoList<object>> dataLetter = GetGroupsByCategory();
+            this.DefaultViewModel["Items"] = dataLetter;
+
             ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             pageTitle.IsTapEnabled = true;
             pageDropDown.IsTapEnabled = true;
@@ -454,6 +458,26 @@ namespace Flurrystics
             localSettings.Values["currentAccount"] = currentAccount;
             switchData(what.Text);
             //throw new NotImplementedException();
+        }
+
+        internal List<GroupInfoList<object>> GetGroupsByCategory()
+        {
+            List<GroupInfoList<object>> groups = new List<GroupInfoList<object>>();
+            var query = from item in sampleApps
+                        orderby ((AppItem)item).Platform
+                        group item by ((AppItem)item).Platform into g
+                        select new { GroupName = g.Key, Items = g };
+            foreach (var g in query)
+            {
+                GroupInfoList<object> info = new GroupInfoList<object>();
+                info.Key = g.GroupName;
+                foreach (var item in g.Items)
+                {
+                    info.Add(item);
+                }
+                groups.Add(info);
+            }
+            return groups;
         }
 
         /// <summary>
@@ -602,6 +626,16 @@ namespace Flurrystics
         public string ApiKey;
         public string Name;
         public string Platform;
+    }
+
+    public class GroupInfoList<T> : List<object>
+    {
+        public object Key { get; set; }
+        public new IEnumerator<object> GetEnumerator()
+        {
+            return (System.Collections.Generic.IEnumerator<object>)base.GetEnumerator();
+        }
+
     }
 
 }
