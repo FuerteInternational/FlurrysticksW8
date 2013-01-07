@@ -1619,8 +1619,8 @@
     <DataTemplate x:Key="Standard250x250ItemTemplate">
         <Grid HorizontalAlignment="Left" Width="250" Height="250" Background="#15a5d8">
             <TextBlock Text="{Binding Name}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource SubheaderTextStyle}" Margin="15,10,15,0"/>
-            <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal">
-                <Image Source="{Binding Image}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
+            <StackPanel VerticalAlignment="Bottom" Height="30" Orientation="Horizontal" Margin="15,0,15,10">
+                <Image Source="{Binding Image}" AutomationProperties.Name="{Binding Platform}"/>
                 <TextBlock Text="{Binding Platform}" Foreground="{StaticResource ListViewItemOverlaySecondaryForegroundThemeBrush}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap" Margin="15,0,15,10"/>
             </StackPanel>
         </Grid>
@@ -1688,7 +1688,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Border Background="#15a5d8" Width="60" Height="60">
-                <Image Source="{Binding Image}" Stretch="UniformToFill"/>
+                <Image Source="{Binding Image}" Height="30" Width="30" />
             </Border>
             <StackPanel Grid.Column="1" Margin="10,0,0,0">
                 <TextBlock Text="{Binding Name}" Style="{StaticResource ItemTextStyle}" MaxHeight="40"/>

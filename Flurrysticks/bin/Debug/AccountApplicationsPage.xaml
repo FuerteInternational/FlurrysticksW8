@@ -40,8 +40,8 @@
 
             <!-- Visual states reflect the application's view state -->
             <VisualStateGroup x:Name="ApplicationViewStates">
-                <VisualState x:Name="FullScreenLandscape"/>
-                <VisualState x:Name="Filled"/>
+                <VisualState  x:Name="FullScreenLandscape"/>
+                <VisualState  x:Name="Filled"/>
 
                 <!-- The entire page respects the narrower 100-pixel margin convention for portrait -->
                 <VisualState x:Name="FullScreenPortrait">
@@ -107,7 +107,7 @@
 
                     <GroupStyle.ContainerStyle>
                         <Style TargetType="GroupItem">
-                            <Setter Property="Margin" Value="3,0"/>
+                            <Setter Property="Margin" Value="30,0"/>
                         </Style>
                     </GroupStyle.ContainerStyle>
 
@@ -176,13 +176,13 @@
             </Grid.RowDefinitions>
 
             <ProgressBar 
-            x:Name="ProgressBar1" 
-            IsIndeterminate="True"
-            Height="10" 
-            VerticalAlignment="Top" 
-            HorizontalContentAlignment="Stretch"  
-            Grid.Row="1"
-            Grid.ColumnSpan="2"
+                x:Name="ProgressBar1" 
+                IsIndeterminate="True"
+                Height="10" 
+                VerticalAlignment="Top" 
+                HorizontalContentAlignment="Stretch"  
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
             />
 
             <Button x:ConnectionId='3' x:Name="backButton" 
@@ -226,12 +226,14 @@
         <AppBar x:Name="bottomAppBar" Padding="10,0,10,0">
             <Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:ConnectionId='8' Style="{StaticResource RemoveAppBarButtonStyle}"                       />
-                    <Button x:ConnectionId='9' Style="{StaticResource AddAppBarButtonStyle}"                       />
+                    <Button x:ConnectionId='7' Style="{StaticResource RemoveAppBarButtonStyle}"                       />
+                    <Button x:ConnectionId='8' Style="{StaticResource AddAppBarButtonStyle}"                       />
                 </StackPanel>
+                <!--
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Button x:ConnectionId='7' x:Name="sortButton" Style="{StaticResource SortAppBarButtonStyle}"                       />
+                    <Button x:Name="sortButton" Style="{StaticResource SortAppBarButtonStyle}" Click="Button_Click_3"/>
                 </StackPanel>
+                -->
             </Grid>
         </AppBar>
     </common:LayoutAwarePage.BottomAppBar>

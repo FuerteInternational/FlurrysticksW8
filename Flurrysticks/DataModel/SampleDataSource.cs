@@ -30,12 +30,13 @@ namespace Flurrystics.Data
     /// </summary>
     public class AppItem : Flurrystics.Common.BindableBase
     {
-        public AppItem(String Name, String Platform, DateTime createdDate, String AppApiKey)
+        public AppItem(String Name, String Platform, DateTime createdDate, String AppApiKey, String Image)
         {
             this._Name = Name;
             this._AppApiKey = AppApiKey;
             this._Platform = Platform;
             this._CreatedDate = CreatedDate;
+            this._Image = Image;
         }
 
         private string _Name = string.Empty;
@@ -57,6 +58,13 @@ namespace Flurrystics.Data
         {
             get { return this._Platform; }
             set { this.SetProperty(ref this._Platform, value); }
+        }
+
+        private string _Image = string.Empty;
+        public string Image
+        {
+            get { return this._Image; }
+            set { this.SetProperty(ref this._Image, value); }
         }
 
         private DateTime _CreatedDate = DateTime.Now;

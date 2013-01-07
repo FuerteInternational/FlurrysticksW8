@@ -241,6 +241,32 @@ namespace Flurrystics
         }
           * */
 
+        private string getIconFileForPlatform(string input)
+        {
+            string output = "Assets/flu_device_8_ios.png";
+            switch (input)
+            {
+                case "iPhone":
+                case "iPad":
+                    output = "Assets/flu_device_8_ios.png"; 
+                    break;
+                case "Android":
+                    output = "Assets/flu_device_8_android.png";
+                    break;
+                case "WindowsPhone":
+                    output = "Assets/flu_device_8_android.png";
+                    break;
+                case "BlackberrySDK":
+                    output = "Assets/flu_device_8_android.png";
+                    break;
+                case "JavaMESDK":
+                    output = "Assets/flu_device_8_android.png";
+                    break;
+
+            }
+            return output;
+        }
+
         private void headerMenuClicked(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("headerMenuClicked");
@@ -321,7 +347,8 @@ namespace Flurrystics
                                 name,
                                 platform,
                                 cdate,
-                                appapi
+                                appapi,
+                                getIconFileForPlatform(platform)
                                 ));
                 }
                 pageTitle.Text = what.Name;
@@ -547,7 +574,7 @@ namespace Flurrystics
 
         private void Button_Click_3(object sender, RoutedEventArgs e) // filter
         {
-
+            /*
             var menu = new Menu();
             MenuItem newItem;
             newItem = new MenuItem { Text = "Name", Tag = "name1" };
@@ -567,7 +594,7 @@ namespace Flurrystics
             flyout.PlacementTarget = sortButton;
             flyout.Content = menu;
             flyout.IsOpen = true;
-
+            */
         }
 
         private void cancelClick_Click_1(object sender, RoutedEventArgs e)
