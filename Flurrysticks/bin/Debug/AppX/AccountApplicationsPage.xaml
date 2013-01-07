@@ -99,8 +99,8 @@
                         <DataTemplate>
                             <Grid Margin="0">
                                 <TextBlock Text='{Binding Key}' 
-                                   Foreground="Black" Margin="20"
-                                   Style="{StaticResource HeaderTextStyle}"/>
+                                   Foreground="Black" Margin="5,5,5,15"
+                                   Style="{StaticResource SubheaderTextStyle}" />
                             </Grid>
                         </DataTemplate>
                     </GroupStyle.HeaderTemplate>

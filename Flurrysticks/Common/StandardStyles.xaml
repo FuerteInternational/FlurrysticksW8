@@ -1617,12 +1617,10 @@
 
     <!-- Grid-appropriate 250 pixel square item template as seen in the GroupedItemsPage and ItemsPage -->
     <DataTemplate x:Key="Standard250x250ItemTemplate">
-        <Grid HorizontalAlignment="Left" Width="250" Height="250">
-            <Border Background="#15a5d8" >
+        <Grid HorizontalAlignment="Left" Width="250" Height="250" Background="#15a5d8">
+            <TextBlock Text="{Binding Name}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource SubheaderTextStyle}" Margin="15,10,15,0"/>
+            <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal">
                 <Image Source="{Binding Image}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
-            </Border>
-            <StackPanel VerticalAlignment="Bottom" Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
-                <TextBlock Text="{Binding Name}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Height="60" Margin="15,0,15,0"/>
                 <TextBlock Text="{Binding Platform}" Foreground="{StaticResource ListViewItemOverlaySecondaryForegroundThemeBrush}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap" Margin="15,0,15,10"/>
             </StackPanel>
         </Grid>
@@ -1654,8 +1652,8 @@
                 <Image Source="{Binding Image}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
             </Border>
             <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="10,0,0,0">
-                <TextBlock Text="{Binding Title}" Style="{StaticResource TitleTextStyle}" TextWrapping="NoWrap"/>
-                <TextBlock Text="{Binding Subtitle}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap"/>
+                <TextBlock Text="{Binding Name}" Style="{StaticResource TitleTextStyle}" TextWrapping="NoWrap"/>
+                <TextBlock Text="{Binding Platform}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap"/>
                 <TextBlock Text="{Binding Description}" Style="{StaticResource BodyTextStyle}" MaxHeight="60"/>
             </StackPanel>
         </Grid>
@@ -1710,8 +1708,8 @@
                 <Image Source="{Binding Image}" Stretch="UniformToFill"/>
             </Border>
             <StackPanel Grid.Column="1" Margin="10,-10,0,0">
-                <TextBlock Text="{Binding Title}" Style="{StaticResource BodyTextStyle}" TextWrapping="NoWrap"/>
-                <TextBlock Text="{Binding Subtitle}" Style="{StaticResource BodyTextStyle}" Foreground="{StaticResource ApplicationSecondaryForegroundThemeBrush}" TextWrapping="NoWrap"/>
+                <TextBlock Text="{Binding Name}" Style="{StaticResource BodyTextStyle}" TextWrapping="NoWrap"/>
+                <TextBlock Text="{Binding Platform}" Style="{StaticResource BodyTextStyle}" Foreground="{StaticResource ApplicationSecondaryForegroundThemeBrush}" TextWrapping="NoWrap"/>
                 <TextBlock Text="{Binding Description}" Style="{StaticResource BodyTextStyle}" Foreground="{StaticResource ApplicationSecondaryForegroundThemeBrush}" TextWrapping="NoWrap"/>
             </StackPanel>
         </Grid>

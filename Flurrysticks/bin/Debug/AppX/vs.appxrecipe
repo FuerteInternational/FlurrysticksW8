@@ -16,17 +16,17 @@
     <AppXManifest Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-01-04T14:24:08.479</Modified>
+      <Modified>2013-01-07T11:27:30.451</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Flurrysticks.exe">
       <PackagePath>Flurrysticks.exe</PackagePath>
-      <Modified>2013-01-04T14:24:08.368</Modified>
+      <Modified>2013-01-07T11:27:30.343</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Flurrysticks.pdb">
       <PackagePath>Flurrysticks.pdb</PackagePath>
-      <Modified>2013-01-04T14:24:08.346</Modified>
+      <Modified>2013-01-07T11:27:30.322</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Callisto\1.2.6\References\CommonConfiguration\neutral\Callisto.dll">
       <PackagePath>Callisto.dll</PackagePath>
@@ -195,11 +195,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Common\StandardStyles.xaml">
       <PackagePath>Common\StandardStyles.xaml</PackagePath>
-      <Modified>2012-12-20T14:06:49.200</Modified>
+      <Modified>2013-01-07T11:27:25.300</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\AccountApplicationsPage.xaml">
       <PackagePath>AccountApplicationsPage.xaml</PackagePath>
-      <Modified>2013-01-04T14:24:00.003</Modified>
+      <Modified>2013-01-07T11:26:37.030</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
