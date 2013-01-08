@@ -198,5 +198,10 @@ namespace Flurrystics
             flyout.IsOpen = true;
         }
 
+        private void TimeRangeButton_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }

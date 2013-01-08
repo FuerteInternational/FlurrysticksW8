@@ -315,4 +315,17 @@
         </FlipView>
 
     </Grid>
+
+    <common:LayoutAwarePage.BottomAppBar>
+        <AppBar x:Name="bottomAppBar" Padding="10,0,10,0">
+            <Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Button x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}" Click="TimeRangeButton_Click_1" />
+                </StackPanel>
+            </Grid>
+        </AppBar>
+    </common:LayoutAwarePage.BottomAppBar>
+
 </common:LayoutAwarePage>

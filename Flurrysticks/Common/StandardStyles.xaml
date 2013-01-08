@@ -456,6 +456,11 @@
         <Setter Property="AutomationProperties.Name" Value="Add"/>
         <Setter Property="Content" Value="&#xE109;"/>
     </Style>
+    <Style x:Key="TimeRangeAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+        <Setter Property="AutomationProperties.AutomationId" Value="TimeRangeAppBarButton"/>
+        <Setter Property="AutomationProperties.Name" Value="Choose Time Range"/>
+        <Setter Property="Content" Value="&#xE13C;"/>
+    </Style>
     <Style x:Key="NoAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
         <Setter Property="AutomationProperties.AutomationId" Value="NoAppBarButton"/>
         <Setter Property="AutomationProperties.Name" Value="No"/>
