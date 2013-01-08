@@ -89,7 +89,7 @@
                 >
                 <TextBlock 
                     x:Name="pageTitle2"                
-                    Text="select" 
+                    Text="Active Users" 
                     Style="{StaticResource PageHeaderTextStyle}" 
                     HorizontalAlignment="Left"
                 />

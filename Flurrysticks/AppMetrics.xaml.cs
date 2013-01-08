@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Navigation;
 using System.Diagnostics;
 using System.Xml.Linq;
 using Telerik.UI.Xaml.Controls.Chart;
+using Callisto.Controls;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
@@ -30,6 +31,7 @@ namespace Flurrystics
         string appName = "";   // appName
         string platform = "";  // platform
         string[] AppMetricsNames = { "ActiveUsers", "ActiveUsersByWeek", "ActiveUsersByMonth", "NewUsers", "MedianSessionLength", "AvgSessionLength", "Sessions", "RetainedUsers" };
+        string[] AppMetricsNamesFormatted = { "Active Users", "Active Users By Week", "Active Users By Month", "New Users", "Median Session Length", "Avg Session Length", "Sessions", "Retained Users" };
         string EndDate;
         string StartDate;
         int actualMetricsIndex = 0;
@@ -143,11 +145,24 @@ namespace Flurrystics
             public double Value4 { get; set; }
         }
 
+        private void changeMetrics(int index)
+        {
+            actualMetricsIndex = index;
+            loadData(actualMetricsIndex);
+            if (pageTitle2 != null)
+            {
+                pageTitle2.Text = AppMetricsNamesFormatted[actualMetricsIndex];
+            }
+            if (flipView1 != null)
+            {
+                flipView1.SelectedIndex = actualMetricsIndex;
+            }
+        }
+
         private void flipView1_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
             Debug.WriteLine("flipView1 SelectionChanged");
-            actualMetricsIndex = ((FlipView)sender).SelectedIndex;
-            loadData(actualMetricsIndex);
+            changeMetrics(((FlipView)sender).SelectedIndex);
         }
 
         private void ChartTrackBallBehavior_TrackInfoUpdated_1(object sender, TrackBallInfoEventArgs e)
@@ -155,9 +170,32 @@ namespace Flurrystics
 
         }
 
+        private void changeMetricsClicked(object sender, TappedRoutedEventArgs e)
+        {
+            MenuItem what = ((MenuItem)sender);
+            changeMetrics((int)what.Tag);
+        }
+
         private void StackPanel_Tapped_1(object sender, TappedRoutedEventArgs e)
         { // handle change metrics
+            Debug.WriteLine("headerMenuClicked");
+            // Create a menu containing two items
+            var menu = new Menu();
+            for (int i = 0; i <= AppMetricsNamesFormatted.Length-1; i++)
+            {
+                var newItem = new MenuItem { Text = AppMetricsNamesFormatted[i], Tag = i /* processingAccount.ApiKey */ };
+                newItem.Tapped += changeMetricsClicked;
+                menu.Items.Add(newItem);
+            }
 
+            // Show the menu in a flyout anchored to the header title
+            var flyout = new Flyout();
+            flyout.Placement = PlacementMode.Bottom;
+            flyout.HorizontalAlignment = HorizontalAlignment.Right;
+            flyout.HorizontalContentAlignment = HorizontalAlignment.Left;
+            flyout.PlacementTarget = pageDropDown;
+            flyout.Content = menu;
+            flyout.IsOpen = true;
         }
 
     }
