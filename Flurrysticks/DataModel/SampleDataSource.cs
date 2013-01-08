@@ -35,7 +35,7 @@ namespace Flurrystics.Data
             this._Name = Name;
             this._AppApiKey = AppApiKey;
             this._Platform = Platform;
-            this._CreatedDate = CreatedDate;
+            this._CreatedDate = CreatedDate; 
             this._Image = Image;
         }
 

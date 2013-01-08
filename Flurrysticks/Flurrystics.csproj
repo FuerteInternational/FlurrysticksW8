@@ -135,6 +135,7 @@
     </AppxManifest>
     <None Include="Common\ReadMe.txt" />
     <None Include="Flurrystics_TemporaryKey.pfx" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="AppMetrics.xaml">
@@ -148,6 +149,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\flu_device_8_ios.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\flu_home_logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Logo.png" />
@@ -175,6 +179,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="WinRTXamlToolkit">
+      <HintPath>..\packages\winrtxamltoolkit.1.3.5.2\lib\netcore45\WinRTXamlToolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>

@@ -416,7 +416,7 @@ namespace Flurrystics
                             title = sampleAccounts.ElementAt<Account>(currentAccount).Name; // update title for next round (retry=true) 
                             SaveApiKeyData(); // we better save it if next account data is cached
                         }
-                        await messageDialog.ShowAsync();
+                        await messageDialog.ShowAsync(); 
                     }
                     else retry = false;
 
@@ -432,11 +432,13 @@ namespace Flurrystics
             // sampleApps = SampleDataSource.GetAppItems(SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).ApiKey);
             sampleApps = sampleAccounts.ElementAt<Account>(currentAccount).Apps;
 
-            //this.DefaultViewModel["Items"] = sampleApps;
+            this.DefaultViewModel["Items"] = sampleApps;
 
+            /*
             List<GroupInfoList<object>> dataLetter = GetGroupsByCategory();
             this.DefaultViewModel["Items"] = dataLetter;
-
+            */
+              
             ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             pageTitle.IsTapEnabled = true;
             pageDropDown.IsTapEnabled = true;
@@ -494,15 +496,23 @@ namespace Flurrystics
                         orderby ((AppItem)item).Platform
                         group item by ((AppItem)item).Platform into g
                         select new { GroupName = g.Key, Items = g };
+            // reorder according to most items in group
+            /*
+            var newquery = from item2 in query
+                           orderby item2.Items.Count() descending
+                           select new { GroupName = item2.GroupName, Items = item2.Items };
+            */
             foreach (var g in query)
             {
                 GroupInfoList<object> info = new GroupInfoList<object>();
-                info.Key = g.GroupName;
-                foreach (var item in g.Items)
-                {
-                    info.Add(item);
-                }
-                groups.Add(info);
+
+                    info.Key = g.GroupName + " (" + g.Items.Count() + ")";
+                    foreach (var item in g.Items)
+                    {
+                        info.Add(item);
+                    }
+                    groups.Add(info);
+
             }
             return groups;
         }
@@ -574,7 +584,6 @@ namespace Flurrystics
 
         private void Button_Click_3(object sender, RoutedEventArgs e) // filter
         {
-            /*
             var menu = new Menu();
             MenuItem newItem;
             newItem = new MenuItem { Text = "Name", Tag = "name1" };
@@ -594,7 +603,6 @@ namespace Flurrystics
             flyout.PlacementTarget = sortButton;
             flyout.Content = menu;
             flyout.IsOpen = true;
-            */
         }
 
         private void cancelClick_Click_1(object sender, RoutedEventArgs e)

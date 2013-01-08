@@ -43,3 +43,8 @@ C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\o
 C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\obj\Debug\ProjectArchitectures.txt
 C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Assets\flu_device_8_android.png
 C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Assets\flu_device_8_ios.png
+C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Assets\flu_home_logo.png
+C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\WinRTXamlToolkit.dll
+C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\WinRTXamlToolkit.pri
+C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\obj\Debug\Flurrystics.csprojResolveAssemblyReference.cache
+C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\obj\Debug\WinRTXamlToolkit.pri.xml

@@ -7,10 +7,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Controls="using:Callisto.Controls"
+    xmlns:XAMLcontrols="using:WinRTXamlToolkit.Controls"
     x:Name="pageRoot"
     x:Class="Flurrystics.AccountApplicationsPage"
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Mode=Self}}"
-    mc:Ignorable="d">
+    mc:Ignorable="d"> 
 
     <common:LayoutAwarePage.Resources>
 
@@ -18,7 +19,7 @@
         <CollectionViewSource
             x:Name="itemsViewSource"
             Source="{Binding Items}"     
-            IsSourceGrouped="True"
+            IsSourceGrouped="False"
             />
 
     </common:LayoutAwarePage.Resources>
@@ -86,13 +87,13 @@
                 ItemTemplate="{StaticResource Standard250x250ItemTemplate}"
                 TabIndex="1"
                 Grid.Row="2"
-                Padding="116,36,116,36"
+                Padding="116,19,116,36"
                 SelectionMode="None"
                 IsSwipeEnabled="false"
                 IsItemClickEnabled="True"
                 ItemClick="ItemView_ItemClick"
                 VerticalContentAlignment="Stretch">
-            
+            <!--
             <GridView.GroupStyle>
                 <GroupStyle HidesIfEmpty="True">
                     <GroupStyle.HeaderTemplate>
@@ -119,7 +120,7 @@
                     
                 </GroupStyle>
             </GridView.GroupStyle>
-
+           -->
         </GridView>
 
         <Popup x:Name="logincontrol1" IsOpen="False" IsLightDismissEnabled="True">
@@ -191,11 +192,27 @@
                     Style="{StaticResource BackButtonStyle}" 
                     Grid.Row="2"
                     />
-            <Image Source="Assets/PageLogo.png"
-                   Grid.Column="1" 
-                   Grid.Row="2"
+            
+            <StackPanel
+                Grid.Column="1" 
+                Grid.Row="2"
+                Orientation="Horizontal"
+                Margin="0,0,0,30"
+                >
+                
+            <Image Source="Assets/flu_home_logo.png"
+                   Stretch="UniformToFill"
+                   Width="50" Height="60"
                    HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom"
                    />
+            <TextBlock Text="Flurrystics"
+                       Style="{StaticResource PageHeaderTextStyleBold}" 
+                       Margin="15,0,0,15"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Bottom"
+                       />
+            </StackPanel>
             <StackPanel 
                 Orientation="Horizontal" 
                 Grid.Column="1" 
@@ -229,11 +246,9 @@
                     <Button Style="{StaticResource RemoveAppBarButtonStyle}" Click="Button_Click_1"/>
                     <Button Style="{StaticResource AddAppBarButtonStyle}" Click="Button_Click_2"/>
                 </StackPanel>
-                <!--
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <Button x:Name="sortButton" Style="{StaticResource SortAppBarButtonStyle}" Click="Button_Click_3"/>
                 </StackPanel>
-                -->
             </Grid>
         </AppBar>
     </common:LayoutAwarePage.BottomAppBar>

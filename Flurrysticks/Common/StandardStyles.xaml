@@ -1384,6 +1384,15 @@
         <Setter Property="Margin" Value="0,0,30,40"/>
     </Style>
 
+    <Style x:Key="PageHeaderTextStyleBold" TargetType="TextBlock" BasedOn="{StaticResource HeaderTextStyle}">
+        <Setter Property="TextWrapping" Value="NoWrap" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="FontSize" Value="36"/>
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+        
+        <Setter Property="Margin" Value="0,0,30,40"/>
+    </Style>
+
     <Style x:Key="PageSubheaderTextStyle" TargetType="TextBlock" BasedOn="{StaticResource SubheaderTextStyle}">
         <Setter Property="TextWrapping" Value="NoWrap"/>
         <Setter Property="VerticalAlignment" Value="Bottom"/>
@@ -1616,7 +1625,7 @@
     <!-- Item templates -->
 
     <!-- Grid-appropriate 250 pixel square item template as seen in the GroupedItemsPage and ItemsPage -->
-    <DataTemplate x:Key="Standard250x250ItemTemplate">
+    <DataTemplate x:Key="Standard250x250ItemTemplate"> 
         <Grid HorizontalAlignment="Left" Width="250" Height="250" Background="#15a5d8">
             <TextBlock Text="{Binding Name}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource SubheaderTextStyle}" Margin="15,10,15,0"/>
             <StackPanel VerticalAlignment="Bottom" Height="30" Orientation="Horizontal" Margin="15,0,15,10">
