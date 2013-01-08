@@ -78,6 +78,31 @@
             
             <Button x:ConnectionId='3' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
+
+            <StackPanel x:ConnectionId='4' 
+                Orientation="Horizontal" 
+                Grid.Column="1" 
+                Grid.Row="2"
+                HorizontalAlignment="Right"
+                IsTapEnabled="True"
+                                            
+                >
+                <TextBlock 
+                    x:Name="pageTitle2"                
+                    Text="select" 
+                    Style="{StaticResource PageHeaderTextStyle}" 
+                    HorizontalAlignment="Left"
+                />
+                <TextBlock 
+                    x:Name="pageDropDown"  
+                    FontFamily="Segoe UI Symbol" 
+                    Style="{StaticResource PageHeaderTextStyle}" 
+                    HorizontalAlignment="Left"
+                    Text=""
+                />
+
+            </StackPanel>
+
         </Grid>
 
         <FlipView x:ConnectionId='1' x:Name="flipView1" 

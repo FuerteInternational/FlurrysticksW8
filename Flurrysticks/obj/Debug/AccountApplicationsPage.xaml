@@ -198,7 +198,7 @@
                 Grid.Row="2"
                 Orientation="Horizontal"
                 Margin="0,0,0,30"
-                >
+                > 
                 
             <Image Source="Assets/flu_home_logo.png"
                    Stretch="UniformToFill"
@@ -206,6 +206,7 @@
                    HorizontalAlignment="Left"
                    VerticalAlignment="Bottom"
                    />
+                
             <TextBlock Text="Flurrystics"
                        Style="{StaticResource PageHeaderTextStyleBold}" 
                        Margin="15,0,0,15"
