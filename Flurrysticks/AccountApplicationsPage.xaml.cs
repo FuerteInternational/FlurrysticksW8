@@ -209,7 +209,7 @@ namespace Flurrystics
             if (settingsOrderBy == null) { settingsOrderBy = "name1"; }
             try
             {
-                currentAccount = (int)localSettings.Values["currentAccount"]; ; // otherwise get it from stored isolated storage
+                currentAccount = (int)localSettings.Values["currentAccount"];  // otherwise get it from stored isolated storage
             }
             catch (System.NullReferenceException)
             {

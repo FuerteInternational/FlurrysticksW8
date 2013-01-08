@@ -75,6 +75,22 @@ namespace Flurrystics.Data
         }
     }
 
+    public class TimeRange
+    {
+        public DateTime StartTime
+        {
+            get;
+            set;
+        }
+
+        public DateTime EndTime
+        {
+            get;
+            set;
+        }
+    }
+
+
     /// <summary>
     /// Generic group data model.
     /// </summary>

@@ -15,6 +15,7 @@ using System.Diagnostics;
 using System.Xml.Linq;
 using Telerik.UI.Xaml.Controls.Chart;
 using Callisto.Controls;
+using Flurrystics.Data;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
@@ -36,6 +37,7 @@ namespace Flurrystics
         string StartDate;
         int actualMetricsIndex = 0;
         DownloadHelper dh = new DownloadHelper();
+        Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
         public AppMetrics()
         {
@@ -60,8 +62,6 @@ namespace Flurrystics
         private async void loadData(int metricsIndex)
         {
             Debug.WriteLine("loadData() " + metricsIndex);
-            EndDate   = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1));
-            StartDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddMonths(-1));
             string metrics = AppMetricsNames[metricsIndex]; // this will be selectable
             if (ProgressBar1 == null) {return;}
             ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
@@ -104,6 +104,25 @@ namespace Flurrystics
             pageTitle.Text = what.Name;
             apiKey = what.ApiKey;
             appapikey = what.AppApiKey;
+
+            try
+            {
+                StartDate = (string)localSettings.Values["StartDate"];
+                EndDate = (string)localSettings.Values["EndDate"];
+            }
+            catch (System.NullReferenceException)
+            {
+                EndDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1));
+                StartDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddMonths(-1));
+            }
+
+            var myTimeRange = new TimeRange();
+            myTimeRange.StartTime = DateTime.Parse(StartDate);
+            myTimeRange.EndTime = DateTime.Parse(EndDate);
+
+            datePicker1.DataContext = myTimeRange;
+            datePicker2.DataContext = myTimeRange;
+
             loadData(actualMetricsIndex); 
         }
      
@@ -212,6 +231,8 @@ namespace Flurrystics
         private void setClick_Click_1(object sender, RoutedEventArgs e)
         { // set new timerange
             TimeRangeControl.IsOpen = false;
+            localSettings.Values["StartDate"] = StartDate;
+            localSettings.Values["EndDate"] = EndDate;
         }
 
         private void cancelClick_Click_1(object sender, RoutedEventArgs e)

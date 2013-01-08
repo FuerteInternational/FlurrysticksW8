@@ -330,8 +330,8 @@
                             x:Name="datePicker1" 
                             ItemLength="80" 
                             Margin="20,20,20,0" 
-                            DisplayValueFormat="dddd, MMMM dd, yyyy" 
-                            Value="{Binding Date}"
+                            DisplayValueFormat="dddd, MMMM dd, yyyy"
+                            Value="{Binding StartTime}"
                             />
                     <telerikInput:RadDatePicker 
                             Header="To:" 
@@ -339,7 +339,7 @@
                             ItemLength="80" 
                             Margin="20,20,20,0" 
                             DisplayValueFormat="dddd, MMMM dd, yyyy" 
-                            Value="{Binding Date}"
+                            Value="{Binding EndTime}"
                             />
                     </StackPanel>
 
