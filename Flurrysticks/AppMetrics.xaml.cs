@@ -199,8 +199,24 @@ namespace Flurrystics
         }
 
         private void TimeRangeButton_Click_1(object sender, RoutedEventArgs e)
-        {
+        { // AppMenu click on TimeRange
+            if (!TimeRangeControl.IsOpen) // if not open - start anim
+            {
+                RootPopupBorder.Width = 646;
+                TimeRangeControl.HorizontalOffset = 0;
+                TimeRangeControl.VerticalOffset = Window.Current.Bounds.Height - 400;
+                TimeRangeControl.IsOpen = true;
+            }    
+        }
 
+        private void setClick_Click_1(object sender, RoutedEventArgs e)
+        { // set new timerange
+            TimeRangeControl.IsOpen = false;
+        }
+
+        private void cancelClick_Click_1(object sender, RoutedEventArgs e)
+        { // cancel - just close timerange
+            TimeRangeControl.IsOpen = false;
         }
 
     }

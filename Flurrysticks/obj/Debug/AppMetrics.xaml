@@ -6,11 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Chart="using:Telerik.UI.Xaml.Controls.Chart"
+    xmlns:telerikInput="using:Telerik.UI.Xaml.Controls.Input"
+    xmlns:telerikCore="using:Telerik.Core"
     x:Name="pageRoot"
     x:Class="Flurrystics.AppMetrics"
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Mode=Self}}"
     mc:Ignorable="d">
-
+    
     <common:LayoutAwarePage.Resources>
     </common:LayoutAwarePage.Resources>
 
@@ -76,10 +78,10 @@
                 Grid.ColumnSpan="2"
                 />
             
-            <Button x:ConnectionId='3' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
+            <Button x:ConnectionId='5' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
 
-            <StackPanel x:ConnectionId='4' 
+            <StackPanel x:ConnectionId='6' 
                 Orientation="Horizontal" 
                 Grid.Column="1" 
                 Grid.Row="2"
@@ -162,7 +164,7 @@
 
                     <Chart:RadCartesianChart.Behaviors>
                         <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
-                        <Chart:ChartTrackBallBehavior x:ConnectionId='2' 
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='4' 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                                                                                         />
@@ -314,6 +316,42 @@
             </Chart:RadCartesianChart>            
         </FlipView>
 
+        <Popup x:Name="TimeRangeControl" IsOpen="False" IsLightDismissEnabled="True">
+            <Popup.ChildTransitions>
+                <TransitionCollection>
+                    <PopupThemeTransition />
+                </TransitionCollection>
+            </Popup.ChildTransitions>
+            <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" BorderThickness="2" Background="#f1f0f1" x:Name="RootPopupBorder">
+                <StackPanel Orientation="Vertical" Height="300"  x:Name="pop" >
+                    <StackPanel Orientation="Horizontal">
+                    <telerikInput:RadDatePicker 
+                            Header="Please select desired time range from:" 
+                            x:Name="datePicker1" 
+                            ItemLength="80" 
+                            Margin="20,20,20,0" 
+                            DisplayValueFormat="dddd, MMMM dd, yyyy" 
+                            Value="{Binding Date}"
+                            />
+                    <telerikInput:RadDatePicker 
+                            Header="To:" 
+                            x:Name="datePicker2" 
+                            ItemLength="80" 
+                            Margin="20,20,20,0" 
+                            DisplayValueFormat="dddd, MMMM dd, yyyy" 
+                            Value="{Binding Date}"
+                            />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,30" HorizontalAlignment="Center">
+                        <Button x:ConnectionId='2' x:Name="setClick"  Foreground="White"   Width="100" Content="Set"                         />
+                        <Button x:ConnectionId='3' x:Name="cancelClick"    Foreground="White"  Width="100" Content="Cancel"                             />
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+        </Popup>
+
     </Grid>
 
     <common:LayoutAwarePage.BottomAppBar>
@@ -322,7 +360,7 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Button x:ConnectionId='5' x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}"                                 />
+                    <Button x:ConnectionId='7' x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}"                                 />
                 </StackPanel>
             </Grid>
         </AppBar>

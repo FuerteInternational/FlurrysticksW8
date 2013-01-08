@@ -78,16 +78,16 @@
                 Grid.ColumnSpan="2"
                 />
             
-            <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
+            <Button x:ConnectionId='5' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
 
-            <StackPanel 
+            <StackPanel x:ConnectionId='6' 
                 Orientation="Horizontal" 
                 Grid.Column="1" 
                 Grid.Row="2"
                 HorizontalAlignment="Right"
                 IsTapEnabled="True"
-                Tapped="StackPanel_Tapped_1"
+                                            
                 >
                 <TextBlock 
                     x:Name="pageTitle2"                
@@ -107,9 +107,9 @@
 
         </Grid>
 
-        <FlipView x:Name="flipView1" 
+        <FlipView x:ConnectionId='1' x:Name="flipView1" 
                   Grid.Row="1" 
-                  SelectionChanged="flipView1_SelectionChanged_1">
+                                                                 >
 
             <Grid>
 
@@ -164,10 +164,10 @@
 
                     <Chart:RadCartesianChart.Behaviors>
                         <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
-                        <Chart:ChartTrackBallBehavior 
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='4' 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
-                            TrackInfoUpdated="ChartTrackBallBehavior_TrackInfoUpdated_1"/>
+                                                                                        />
                     </Chart:RadCartesianChart.Behaviors>
 
                 </Chart:RadCartesianChart>
@@ -319,33 +319,15 @@
         <Popup x:Name="TimeRangeControl" IsOpen="False" IsLightDismissEnabled="True">
             <Popup.ChildTransitions>
                 <TransitionCollection>
-                    <PopupThemeTransition />
+                    <PaneThemeTransition />
                 </TransitionCollection>
             </Popup.ChildTransitions>
             <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" BorderThickness="2" Background="#f1f0f1" x:Name="RootPopupBorder">
                 <StackPanel Orientation="Vertical" Height="300"  x:Name="pop" >
-                    <StackPanel Orientation="Horizontal">
-                    <telerikInput:RadDatePicker 
-                            Header="Or specify custom time range from:" 
-                            x:Name="datePicker1" 
-                            ItemLength="80" 
-                            Margin="20,20,20,0" 
-                            DisplayValueFormat="dddd, MMMM dd, yyyy" 
-                            Value="{Binding Date}"
-                            />
-                    <telerikInput:RadDatePicker 
-                            Header="To:" 
-                            x:Name="datePicker2" 
-                            ItemLength="80" 
-                            Margin="20,20,20,0" 
-                            DisplayValueFormat="dddd, MMMM dd, yyyy" 
-                            Value="{Binding Date}"
-                            />
-                    </StackPanel>
-
+                    <telerikInput:RadDatePicker Header="Date" Grid.Row="5" x:Name="datePicker" ItemLength="90" Margin="0,10,0,20" DisplayValueFormat="dddd, MMMM dd, yyyy" Value="{Binding Date}"/>
                     <StackPanel Orientation="Horizontal" Margin="0,30" HorizontalAlignment="Center">
-                        <Button x:Name="setClick"  Foreground="White"   Width="100" Content="Set" Click="setClick_Click_1"/>
-                        <Button x:Name="cancelClick"    Foreground="White"  Width="100" Content="Cancel" Click="cancelClick_Click_1" />
+                        <Button x:ConnectionId='2' x:Name="setClick"  Foreground="White"   Width="100" Content="Set"                         />
+                        <Button x:ConnectionId='3' x:Name="cancelClick"    Foreground="White"  Width="100" Content="Cancel"                             />
                     </StackPanel>
 
                 </StackPanel>
@@ -360,10 +342,11 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Button x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}" Click="TimeRangeButton_Click_1" />
+                    <Button x:ConnectionId='7' x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}"                                 />
                 </StackPanel>
             </Grid>
         </AppBar>
     </common:LayoutAwarePage.BottomAppBar>
 
 </common:LayoutAwarePage>
+

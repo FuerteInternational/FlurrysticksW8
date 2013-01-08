@@ -6,8 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Chart="using:Telerik.UI.Xaml.Controls.Chart"
-    xmlns:telerikInput="using:Telerik.UI.Xaml.Controls.Input"
-    xmlns:telerikCore="using:Telerik.Core"
     x:Name="pageRoot"
     x:Class="Flurrystics.AppMetrics"
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Mode=Self}}"
@@ -319,30 +317,12 @@
         <Popup x:Name="TimeRangeControl" IsOpen="False" IsLightDismissEnabled="True">
             <Popup.ChildTransitions>
                 <TransitionCollection>
-                    <PopupThemeTransition />
+                    <PaneThemeTransition />
                 </TransitionCollection>
             </Popup.ChildTransitions>
             <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" BorderThickness="2" Background="#f1f0f1" x:Name="RootPopupBorder">
                 <StackPanel Orientation="Vertical" Height="300"  x:Name="pop" >
-                    <StackPanel Orientation="Horizontal">
-                    <telerikInput:RadDatePicker 
-                            Header="Or specify custom time range from:" 
-                            x:Name="datePicker1" 
-                            ItemLength="80" 
-                            Margin="20,20,20,0" 
-                            DisplayValueFormat="dddd, MMMM dd, yyyy" 
-                            Value="{Binding Date}"
-                            />
-                    <telerikInput:RadDatePicker 
-                            Header="To:" 
-                            x:Name="datePicker2" 
-                            ItemLength="80" 
-                            Margin="20,20,20,0" 
-                            DisplayValueFormat="dddd, MMMM dd, yyyy" 
-                            Value="{Binding Date}"
-                            />
-                    </StackPanel>
-
+                    <telerikInput:RadDatePicker Header="Date" Grid.Row="5" x:Name="datePicker" ItemLength="90" Margin="0,10,0,20" DisplayValueFormat="dddd, MMMM dd, yyyy" Value="{Binding Date}"/>
                     <StackPanel Orientation="Horizontal" Margin="0,30" HorizontalAlignment="Center">
                         <Button x:Name="setClick"  Foreground="White"   Width="100" Content="Set" Click="setClick_Click_1"/>
                         <Button x:Name="cancelClick"    Foreground="White"  Width="100" Content="Cancel" Click="cancelClick_Click_1" />
