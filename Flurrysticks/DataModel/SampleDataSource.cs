@@ -23,7 +23,7 @@ using System.Runtime.Serialization;
 // Applications may use this model as a starting point and build on it, or discard it entirely and
 // replace it with something appropriate to their needs.
 
-namespace Flurrystics.Data
+namespace Flurrystics.Data 
 {
     /// <summary>
     /// Generic item data model.

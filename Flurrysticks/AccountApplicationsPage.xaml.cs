@@ -409,7 +409,7 @@ namespace Flurrystics
                             retry = true;
                             if (currentAccount > sampleAccounts.ToList().Count - 1)
                             { // if currentAccount pointer is after the last item
-                                currentAccount = currentAccount - 1;
+                                currentAccount = currentAccount - 1; 
                                 localSettings.Values["currentAccount"] = currentAccount;
                                 retry = true;
                             }

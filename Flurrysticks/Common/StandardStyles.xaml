@@ -1372,7 +1372,7 @@
     <Style x:Key="FourBarsAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
         <Setter Property="AutomationProperties.AutomationId" Value="FourBarsAppBarButton"/>
         <Setter Property="AutomationProperties.Name" Value="Four Bars"/>
-        <Setter Property="Content" Value="&#xE1E9;"/>
+        <Setter Property="Content" Value="&#xE1E9;"/> 
     </Style>
 
 
