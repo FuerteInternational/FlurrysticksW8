@@ -25,6 +25,10 @@
       <VisualElements DisplayName="Flurrystics" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Flurrystics" ForegroundText="dark" BackgroundColor="#eaeaea">
         <DefaultTile ShowName="noLogos" WideLogo="Assets\WideLogo.png" />
         <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#eaeaea" />
+        <InitialRotationPreference>
+          <Rotation Preference="portrait" />
+          <Rotation Preference="portraitFlipped" />
+        </InitialRotationPreference>
       </VisualElements>
     </Application>
   </Applications>
