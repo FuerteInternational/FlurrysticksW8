@@ -5,7 +5,7 @@
     <WindowsUser>fuerte</WindowsUser>
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
-    <RegisteredManifestChecksum>4D60EAF0580ADEBFF564F96DB967A7EFB2963B9F273F2BFF92E365D7A5875B7C</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>2D3B21AFB0110B017FF295220E3C829A0A749EB70C8EF87A38586537BBFDADCE</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>3a699d93-555f-439e-879a-96f992557b96_1.0.0.0_neutral__m162tqyk5q2fg</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>3a699d93-555f-439e-879a-96f992557b96_m162tqyk5q2fg!App</RegisteredUserModeAppID>
     <RegisteredPackageID>3a699d93-555f-439e-879a-96f992557b96</RegisteredPackageID>
@@ -16,17 +16,17 @@
     <AppXManifest Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-01-10T15:42:02.831</Modified>
+      <Modified>2013-01-10T17:19:22.093</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Flurrysticks.exe">
       <PackagePath>Flurrysticks.exe</PackagePath>
-      <Modified>2013-01-10T15:42:02.100</Modified>
+      <Modified>2013-01-10T17:19:21.988</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Flurrysticks.pdb">
       <PackagePath>Flurrysticks.pdb</PackagePath>
-      <Modified>2013-01-10T15:42:02.069</Modified>
+      <Modified>2013-01-10T17:19:21.961</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Callisto\1.2.6\References\CommonConfiguration\neutral\Callisto.dll">
       <PackagePath>Callisto.dll</PackagePath>
@@ -207,7 +207,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\AppMetrics.xaml">
       <PackagePath>AppMetrics.xaml</PackagePath>
-      <Modified>2013-01-08T16:58:52.759</Modified>
+      <Modified>2013-01-10T17:19:18.061</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Common\StandardStyles.xaml">
       <PackagePath>Common\StandardStyles.xaml</PackagePath>
@@ -255,7 +255,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2013-01-10T15:42:02.522</Modified>
+      <Modified>2013-01-10T15:55:29.025</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

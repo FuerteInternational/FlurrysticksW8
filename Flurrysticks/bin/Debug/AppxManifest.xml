@@ -26,8 +26,8 @@
         <DefaultTile ShowName="noLogos" WideLogo="Assets\WideLogo.png" />
         <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#eaeaea" />
         <InitialRotationPreference>
-          <Rotation Preference="portrait" />
-          <Rotation Preference="portraitFlipped" />
+          <Rotation Preference="landscape" />
+          <Rotation Preference="landscapeFlipped" />
         </InitialRotationPreference>
       </VisualElements>
     </Application>

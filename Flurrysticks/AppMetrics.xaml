@@ -331,7 +331,7 @@
                             ItemLength="80" 
                             Margin="20,20,20,0" 
                             DisplayValueFormat="dddd, MMMM dd, yyyy"
-                            Value="{Binding StartTime}"
+                            Value="{Binding StartTime, Mode = TwoWay}"
                             />
                     <telerikInput:RadDatePicker 
                             Header="To:" 
@@ -339,7 +339,7 @@
                             ItemLength="80" 
                             Margin="20,20,20,0" 
                             DisplayValueFormat="dddd, MMMM dd, yyyy" 
-                            Value="{Binding EndTime}"
+                            Value="{Binding EndTime, Mode = TwoWay}"
                             />
                     </StackPanel>
 

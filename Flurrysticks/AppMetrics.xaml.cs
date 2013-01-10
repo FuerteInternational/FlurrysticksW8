@@ -38,6 +38,7 @@ namespace Flurrystics
         int actualMetricsIndex = 0;
         DownloadHelper dh = new DownloadHelper();
         Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+        TimeRange myTimeRange = new TimeRange();
 
         public AppMetrics()
         {
@@ -116,7 +117,13 @@ namespace Flurrystics
                 StartDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddMonths(-1));
             }
 
-            var myTimeRange = new TimeRange();
+            if ((StartDate == null) || (EndDate == null))
+            {
+                EndDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1));
+                StartDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddMonths(-1));
+            }
+
+            
             myTimeRange.StartTime = DateTime.Parse(StartDate);
             myTimeRange.EndTime = DateTime.Parse(EndDate);
 
@@ -231,8 +238,13 @@ namespace Flurrystics
         private void setClick_Click_1(object sender, RoutedEventArgs e)
         { // set new timerange
             TimeRangeControl.IsOpen = false;
+            StartDate = String.Format("{0:yyyy-MM-dd}",myTimeRange.StartTime);
+            Debug.WriteLine("StartDate:" + StartDate);
+            EndDate = String.Format("{0:yyyy-MM-dd}",myTimeRange.EndTime);
+            Debug.WriteLine("EndDate:" + EndDate);
             localSettings.Values["StartDate"] = StartDate;
             localSettings.Values["EndDate"] = EndDate;
+            loadData(actualMetricsIndex); 
         }
 
         private void cancelClick_Click_1(object sender, RoutedEventArgs e)
