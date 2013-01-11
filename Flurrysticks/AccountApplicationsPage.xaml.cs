@@ -35,8 +35,6 @@ namespace Flurrystics
     /// </summary>
     public sealed partial class AccountApplicationsPage : Flurrystics.Common.LayoutAwarePage
     {
-        ObservableCollection<AppItem> sampleApps;
-        ObservableCollection<Account> sampleAccounts = new ObservableCollection<Account>();
         int currentAccount;
         DownloadHelper dh = new DownloadHelper();
         Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
@@ -105,11 +103,15 @@ namespace Flurrystics
 
         public async void LoadApiKeyData()
         {
-            //List<AccountItem> Accounts = new List<AccountItem>();
-            Debug.WriteLine("LoadApiKeyData()");
-            //AccountItem[] AccountsArray;
-            StorageFile x = await GetFile(ApiFileName);
-            
+
+            if (DataSource.getAccounts().Count() == 0)
+            { // if empty - try...
+
+                //List<AccountItem> Accounts = new List<AccountItem>();
+                Debug.WriteLine("LoadApiKeyData()");
+                //AccountItem[] AccountsArray;
+                StorageFile x = await GetFile(ApiFileName);
+
                 var file = x;
 
                 if (file == null)
@@ -122,37 +124,41 @@ namespace Flurrystics
                 var folder = ApplicationData.Current.LocalFolder;
                 Stream filevalue = await folder.OpenStreamForReadAsync(ApiFileName);
 
-                    Debug.WriteLine("OpenStreamForReadAsync()");
-                    using (var stream = filevalue)
+                Debug.WriteLine("OpenStreamForReadAsync()");
+                using (var stream = filevalue)
+                {
+                    Debug.WriteLine("filevalue.Result");
+                    DataContractSerializer serializer = new DataContractSerializer(typeof(AccountItem[]));
+                    var localCats = serializer.ReadObject(stream) as AccountItem[];
+                    Debug.WriteLine("localCats length:" + localCats.Length);
+                    if (localCats == null || localCats.Length == 0)
                     {
-                        Debug.WriteLine("filevalue.Result");
-                        DataContractSerializer serializer = new DataContractSerializer(typeof(AccountItem[]));
-                        var localCats = serializer.ReadObject(stream) as AccountItem[];
-                        Debug.WriteLine("localCats length:" + localCats.Length);
-                        if (localCats == null || localCats.Length == 0)
-                        {
-                            Debug.WriteLine("Empty XML");
-                            return;
-                        }
-                        //AccountsArray = localCats;
-                        //sampleAccounts = new ObservableCollection<Account>();
-                        foreach (AccountItem OneAccount in localCats)
-                        { 
-                            sampleAccounts.Add( 
-                                new Account(
-                                    OneAccount.Name,
-                                    false,
-                                    OneAccount.ApiKey
-                                    )
-                                );
-                        }
+                        Debug.WriteLine("Empty XML");
+                        return;
                     }
+                    //AccountsArray = localCats;
+                    //sampleAccounts = new ObservableCollection<Account>();
+                    DataSource.getAccounts().Clear();
+                    foreach (AccountItem OneAccount in localCats)
+                    {
+                        DataSource.getAccounts().Add(
+                            //sampleAccounts.Add( 
+                            new Account(
+                                OneAccount.Name,
+                                false,
+                                OneAccount.ApiKey
+                                )
+                            );
+                    }
+                }
 
-            Debug.WriteLine("After await");
+                Debug.WriteLine("After await");
+
+            }
 
             try
             {
-                switchData(sampleAccounts.ElementAt<Account>(currentAccount).Name);
+                switchData(DataSource.getAccounts().ElementAt<Account>(currentAccount).Name);
             }
             catch (System.ArgumentOutOfRangeException)
             {
@@ -165,8 +171,8 @@ namespace Flurrystics
         private void SaveApiKeyData()
         {
             List<AccountItem> Accounts = new List<AccountItem>();
-            if (sampleAccounts == null) { return; }
-            IEnumerator<Account> MyEnumerator = sampleAccounts.GetEnumerator();
+            if (DataSource.getAccounts() == null) { return; }
+            IEnumerator<Account> MyEnumerator = DataSource.getAccounts().GetEnumerator();
             while (MyEnumerator.MoveNext())
             {
                 Account processingAccount = MyEnumerator.Current;
@@ -215,7 +221,12 @@ namespace Flurrystics
             {
                 currentAccount = 0;
             }
-            LoadApiKeyData();
+
+            //if (DataSource.getAccounts().Count() == 0)
+            //{ // if no account then try to deserialize
+                LoadApiKeyData();
+            //}
+        
         }
        
         
@@ -273,7 +284,7 @@ namespace Flurrystics
             // Create a menu containing two items
             var menu = new Menu();
 
-            IEnumerator<Account> MyEnumerator = sampleAccounts.GetEnumerator();
+            IEnumerator<Account> MyEnumerator = DataSource.getAccounts().GetEnumerator();
             int i = 0;
             while (MyEnumerator.MoveNext())
             {
@@ -359,10 +370,10 @@ namespace Flurrystics
 
         private async void switchData(String title) {
 
-            if (sampleAccounts.ElementAt<Account>(currentAccount) == null) { return; }
+            if (DataSource.getAccounts().ElementAt<Account>(currentAccount) == null) { return; }
 
             Debug.WriteLine("switching to currentAccount:" + currentAccount);
-            Debug.WriteLine("switching to ApiKey:" + sampleAccounts.ElementAt<Account>(currentAccount).ApiKey);
+            Debug.WriteLine("switching to ApiKey:" + DataSource.getAccounts().ElementAt<Account>(currentAccount).ApiKey);
 
             ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
             pageTitle.IsTapEnabled = false;
@@ -375,9 +386,9 @@ namespace Flurrystics
             while (retry)
             {
 
-                if (!sampleAccounts.ElementAt<Account>(currentAccount).IsLoaded) // if not loaded
+                if (!DataSource.getAccounts().ElementAt<Account>(currentAccount).IsLoaded) // if not loaded
                 {
-                    string callURL = "http://api.flurry.com/appInfo/getAllApplications?apiAccessCode=" + sampleAccounts.ElementAt<Account>(currentAccount).ApiKey;
+                    string callURL = "http://api.flurry.com/appInfo/getAllApplications?apiAccessCode=" + DataSource.getAccounts().ElementAt<Account>(currentAccount).ApiKey;
                     try
                     {
                         result = await dh.DownloadXML(callURL); // load it   
@@ -390,10 +401,10 @@ namespace Flurrystics
 
                     if (success) // data OK
                     {
-                        sampleAccounts.ElementAt<Account>(currentAccount).xdoc = result; // if we will need it in future
-                        if (ParseXML(sampleAccounts.ElementAt<Account>(currentAccount)))
+                        DataSource.getAccounts().ElementAt<Account>(currentAccount).xdoc = result; // if we will need it in future
+                        if (ParseXML(DataSource.getAccounts().ElementAt<Account>(currentAccount)))
                         {
-                            sampleAccounts.ElementAt<Account>(currentAccount).IsLoaded = true;
+                            DataSource.getAccounts().ElementAt<Account>(currentAccount).IsLoaded = true;
                         }
                         else success = false;
                     }
@@ -403,17 +414,17 @@ namespace Flurrystics
                         var messageDialog = new Windows.UI.Popups.MessageDialog("Unable to fetch data; either API access key is incorrect or something's wrong with internet connection.", "Load data fail");
                         retry = false;
                         // clear all account, which weren't loaded EVER
-                        if (sampleAccounts.ElementAt<Account>(currentAccount).Name == "Loading...")
+                        if (DataSource.getAccounts().ElementAt<Account>(currentAccount).Name == "Loading...")
                         {
-                            sampleAccounts.RemoveAt(currentAccount);
+                            DataSource.getAccounts().RemoveAt(currentAccount);
                             retry = true;
-                            if (currentAccount > sampleAccounts.ToList().Count - 1)
+                            if (currentAccount > DataSource.getAccounts().ToList().Count - 1)
                             { // if currentAccount pointer is after the last item
                                 currentAccount = currentAccount - 1; 
                                 localSettings.Values["currentAccount"] = currentAccount;
                                 retry = true;
                             }
-                            title = sampleAccounts.ElementAt<Account>(currentAccount).Name; // update title for next round (retry=true) 
+                            title = DataSource.getAccounts().ElementAt<Account>(currentAccount).Name; // update title for next round (retry=true) 
                             SaveApiKeyData(); // we better save it if next account data is cached
                         }
                         await messageDialog.ShowAsync(); 
@@ -430,9 +441,9 @@ namespace Flurrystics
             } // retry
 
             // sampleApps = SampleDataSource.GetAppItems(SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).ApiKey);
-            sampleApps = sampleAccounts.ElementAt<Account>(currentAccount).Apps;
+            DataSource.setApps(DataSource.getAccounts().ElementAt<Account>(currentAccount).Apps);
 
-            this.DefaultViewModel["Items"] = sampleApps;
+            this.DefaultViewModel["Items"] = DataSource.getApps();
 
             /*
             List<GroupInfoList<object>> dataLetter = GetGroupsByCategory();
@@ -467,9 +478,9 @@ namespace Flurrystics
             try
             {
                 // switchData(sampleAccounts.ElementAt<Account>(currentAccount).Name);
-                if (sampleAccounts.ToList().Count > 0)
+                if (DataSource.getAccounts().ToList().Count > 0)
                 {
-                    ParseXML(sampleAccounts.ElementAt<Account>(currentAccount)); // -> REORDER
+                    ParseXML(DataSource.getAccounts().ElementAt<Account>(currentAccount)); // -> REORDER
                 }
             }
             catch (System.ArgumentOutOfRangeException)
@@ -492,7 +503,7 @@ namespace Flurrystics
         internal List<GroupInfoList<object>> GetGroupsByCategory()
         {
             List<GroupInfoList<object>> groups = new List<GroupInfoList<object>>();
-            var query = from item in sampleApps
+            var query = from item in DataSource.getApps()
                         orderby ((AppItem)item).Platform
                         group item by ((AppItem)item).Platform into g
                         select new { GroupName = g.Key, Items = g };
@@ -532,7 +543,7 @@ namespace Flurrystics
             Debug.WriteLine(((AppItem)e.ClickedItem).AppApiKey);
             CallApp what = new CallApp();
             what.AppApiKey = ((AppItem)e.ClickedItem).AppApiKey;
-            what.ApiKey = sampleAccounts.ElementAt<Account>(currentAccount).ApiKey;
+            what.ApiKey = DataSource.getAccounts().ElementAt<Account>(currentAccount).ApiKey;
             what.Name = ((AppItem)e.ClickedItem).Name;
             what.Platform = ((AppItem)e.ClickedItem).Platform;
             this.Frame.Navigate(typeof(AppMetrics), what);
@@ -540,7 +551,7 @@ namespace Flurrystics
 
         private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            var messageDialog = new Windows.UI.Popups.MessageDialog("Are you Sure you want to remove account \"" + sampleAccounts.ElementAt<Account>(currentAccount).Name + "\" ?","Please confirm");
+            var messageDialog = new Windows.UI.Popups.MessageDialog("Are you Sure you want to remove account \"" + DataSource.getAccounts().ElementAt<Account>(currentAccount).Name + "\" ?", "Please confirm");
 
             // Add commands and set their callbacks
 
@@ -549,13 +560,13 @@ namespace Flurrystics
                 // what happens when Yes is selected
                 // remove account
                 int removeAccount = currentAccount;
-                if (currentAccount > sampleAccounts.ToList().Count - 2)
+                if (currentAccount > DataSource.getAccounts().ToList().Count - 2)
                 { // if currentAccount pointer is after the last item
                     currentAccount = currentAccount - 1;
                     localSettings.Values["currentAccount"] = currentAccount;
                 }
-                sampleAccounts.RemoveAt(removeAccount);
-                switchData(sampleAccounts.ElementAt<Account>(currentAccount).Name);
+                DataSource.getAccounts().RemoveAt(removeAccount);
+                switchData(DataSource.getAccounts().ElementAt<Account>(currentAccount).Name);
 
             }));
 
@@ -628,7 +639,7 @@ namespace Flurrystics
                 {
 
                     Debug.WriteLine("Adding new API key");
-                    sampleAccounts.Add(
+                    DataSource.getAccounts().Add(
                         new Account(
                             "Loading...",
                             false,
@@ -637,9 +648,9 @@ namespace Flurrystics
                         );
                     logincontrol1.IsOpen = false;
                     flurry_api_access.Text = "";
-                    currentAccount = sampleAccounts.ToList<Account>().Count - 1;
+                    currentAccount = DataSource.getAccounts().ToList<Account>().Count - 1;
                     localSettings.Values["currentAccount"] = currentAccount;
-                    switchData(sampleAccounts.ElementAt<Account>(currentAccount).Name);
+                    switchData(DataSource.getAccounts().ElementAt<Account>(currentAccount).Name);
                 }
             } // logincontrol1.IsOpen
         }

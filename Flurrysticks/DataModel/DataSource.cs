@@ -147,10 +147,55 @@ namespace Flurrystics.Data
     /// data so that sample data is provided at both design-time and run-time.
     /// </summary>
     /// 
-    /*
-    public sealed class SampleDataSource
+    public sealed class DataSource
     {
+        private static DataSource _DataSource = new DataSource();
 
+        public static ObservableCollection<AppItem> getApps()
+        {
+            return _DataSource.sampleApps;
+        }
+
+        public static void setApps(ObservableCollection<AppItem> what)
+        {
+            _DataSource.sampleApps = what;
+        }
+
+        private ObservableCollection<AppItem> _sampleApps = new ObservableCollection<AppItem>();
+        public ObservableCollection<AppItem> sampleApps
+        {
+            get { return this._sampleApps; }
+            set { _sampleApps = value; }
+        }
+
+        public static ObservableCollection<Account> getAccounts()
+        {
+            return _DataSource.sampleAccounts;
+        }
+
+        public static void setAccounts(ObservableCollection<Account> what)
+        {
+            _DataSource.sampleAccounts = what;
+        }
+
+        private ObservableCollection<Account> _sampleAccounts = new ObservableCollection<Account>();
+        public ObservableCollection<Account> sampleAccounts
+        {
+            get { return this._sampleAccounts; }
+            set { _sampleAccounts = value; }
+        }
+        /*
+        private ObservableCollection<Account> _allAccounts = new ObservableCollection<Account>();
+        public ObservableCollection<Account> AllAccounts
+        {
+            get { return this._allAccounts; }
+        }
+         * */
+
+    }
+
+
+    /*
         public static int currentAccount = 0;
 
         private static SampleDataSource _sampleDataSource = new SampleDataSource();
@@ -199,7 +244,7 @@ namespace Flurrystics.Data
             // var matches = requestedAccount.Apps.SelectMany(group => group.Apps).Where((item) => item.AppApiKey.Equals(AppApiKey));
             return requestedAccount.Apps;
         }
-        */
+    */
 
      //public SampleDataSource()
      //{
@@ -303,4 +348,5 @@ namespace Flurrystics.Data
      //}
          
     //}
+
 }
