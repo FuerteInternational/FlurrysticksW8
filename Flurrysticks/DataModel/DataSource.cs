@@ -20,9 +20,6 @@ using Flurrysticks.DataModel;
 // The data model defined by this file serves as a representative example of a strongly-typed
 // model that supports notification when members are added, removed, or modified.  The property
 // names chosen coincide with data bindings in the standard item templates.
-//
-// Applications may use this model as a starting point and build on it, or discard it entirely and
-// replace it with something appropriate to their needs.
 
 namespace Flurrystics.Data 
 {
@@ -53,6 +50,8 @@ namespace Flurrystics.Data
             set { _sampleApps = value; }
         }
 
+
+
         public static ObservableCollection<Account> getAccounts()
         {
             return _DataSource.sampleAccounts;
@@ -69,16 +68,26 @@ namespace Flurrystics.Data
             get { return this._sampleAccounts; }
             set { _sampleAccounts = value; }
         }
-        /*
-        private ObservableCollection<Account> _allAccounts = new ObservableCollection<Account>();
-        public ObservableCollection<Account> AllAccounts
+
+
+        public static IEnumerable<ChartDataPoint>[] getChartData()
         {
-            get { return this._allAccounts; }
+            return _DataSource.ChartData;
         }
-         * */
+
+        public static void setChartData(IEnumerable<ChartDataPoint> what, int index)
+        {
+            _DataSource.ChartData[index] = what;
+        }
+
+        private IEnumerable<ChartDataPoint>[] _ChartData = new IEnumerable<ChartDataPoint>[8];
+        public IEnumerable<ChartDataPoint>[] ChartData
+        {
+            get { return this._ChartData; }
+            set { _ChartData = value; }
+        }
 
     }
-
 
     /*
         public static int currentAccount = 0;

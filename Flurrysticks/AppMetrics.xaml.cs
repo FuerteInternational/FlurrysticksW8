@@ -51,14 +51,15 @@ namespace Flurrystics
             Debug.WriteLine("Processing..." + what);
             RadCartesianChart[] targetCharts = { radChart1, radChart2, radChart3, radChart4, radChart5, radChart6, radChart7, radChart8 };
             bool result = false;
-                IEnumerable<ChartDataPoint> ChartData;
-                   ChartData = from query in what.Descendants("day")
+
+            DataSource.getChartData()[i] = from query in what.Descendants("day")
                                select new ChartDataPoint
                                {
                                    Value = (double)query.Attribute("value"),
                                    Label = (string)query.Attribute("date")
                                };
-           targetCharts[i].DataContext = ChartData;          
+
+            targetCharts[i].DataContext = DataSource.getChartData()[i];          
         } // ParseXML
 
         private async void loadData(int metricsIndex)
@@ -68,8 +69,12 @@ namespace Flurrystics
             if (ProgressBar1 == null) {return;}
             ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
             // check if it's loaded, if not - load it up
-            bool success;
-            XDocument result = null;
+
+            if (DataSource.getChartData()[metricsIndex] == null) // if no data present
+            {
+
+                bool success;
+                XDocument result = null;
                 string callURL = "http://api.flurry.com/appMetrics/" + metrics + "?apiAccessCode=" + apiKey + "&apiKey=" + appapikey + "&startDate=" + StartDate + "&endDate=" + EndDate;
                 Debug.WriteLine(callURL);
                 try
@@ -83,9 +88,14 @@ namespace Flurrystics
                 }
                 Debug.WriteLine("Success:" + success);
                 if (success) { ParseXML(result, metricsIndex); }
-                if (App.taskCount==0) {
-                    ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                }
+
+            }
+
+            if (App.taskCount == 0)
+            {
+                ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            }
+
 
         }
 
