@@ -24,6 +24,7 @@ using Windows.Storage;
 using System.Runtime.Serialization;
 using Flurrystics.DataModel;
 using Windows.UI.Popups;
+using Flurrysticks.DataModel;
 
 // The Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234233
 

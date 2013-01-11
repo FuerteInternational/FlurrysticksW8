@@ -16,6 +16,7 @@ using System.Xml.Linq;
 using Telerik.UI.Xaml.Controls.Chart;
 using Callisto.Controls;
 using Flurrystics.Data;
+using Flurrysticks.DataModel;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
@@ -159,16 +160,6 @@ namespace Flurrystics
         /// <param name="pageState">An empty dictionary to be populated with serializable state.</param>
         protected override void SaveState(Dictionary<String, Object> pageState)
         {
-        }
-
-        public class ChartDataPoint
-        {
-            public string Label { get; set; }
-            public double Value { get; set; } // appmetrics
-            public double Value1 { get; set; } // Unique Users
-            public double Value2 { get; set; } // Total Sessions
-            public double Value3 { get; set; } //
-            public double Value4 { get; set; }
         }
 
         private void changeMetrics(int index)

@@ -16,17 +16,17 @@
     <AppXManifest Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-01-11T11:11:43.935</Modified>
+      <Modified>2013-01-11T11:23:42.926</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Flurrysticks.exe">
       <PackagePath>Flurrysticks.exe</PackagePath>
-      <Modified>2013-01-11T11:11:43.828</Modified>
+      <Modified>2013-01-11T11:23:42.779</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Flurrysticks.pdb">
       <PackagePath>Flurrysticks.pdb</PackagePath>
-      <Modified>2013-01-11T11:11:43.801</Modified>
+      <Modified>2013-01-11T11:23:42.752</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Callisto\1.2.6\References\CommonConfiguration\neutral\Callisto.dll">
       <PackagePath>Callisto.dll</PackagePath>
