@@ -69,7 +69,6 @@ namespace Flurrystics.Data
             set { _sampleAccounts = value; }
         }
 
-
         public static IEnumerable<ChartDataPoint>[] getChartData()
         {
             return _DataSource.ChartData;
@@ -78,6 +77,11 @@ namespace Flurrystics.Data
         public static void setChartData(IEnumerable<ChartDataPoint> what, int index)
         {
             _DataSource.ChartData[index] = what;
+        }
+
+        public static void clearChartData()
+        {
+            Array.Clear(_DataSource.ChartData,0,_DataSource.ChartData.Length);
         }
 
         private IEnumerable<ChartDataPoint>[] _ChartData = new IEnumerable<ChartDataPoint>[8];

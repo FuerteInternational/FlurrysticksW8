@@ -30,8 +30,6 @@ namespace Flurrystics
 
         string apiKey;
         string appapikey = ""; // initial apikey of the app
-        string appName = "";   // appName
-        string platform = "";  // platform
         string[] AppMetricsNames = { "ActiveUsers", "ActiveUsersByWeek", "ActiveUsersByMonth", "NewUsers", "MedianSessionLength", "AvgSessionLength", "Sessions", "RetainedUsers" };
         string[] AppMetricsNamesFormatted = { "Active Users", "Active Users By Week", "Active Users By Month", "New Users", "Median Session Length", "Avg Session Length", "Sessions", "Retained Users" };
         string EndDate;
@@ -46,11 +44,10 @@ namespace Flurrystics
             this.InitializeComponent();
         }
 
-        private void ParseXML(XDocument what, int i)
+        private void ParseXML(XDocument what, int i, RadCartesianChart targetChart)
         {
             Debug.WriteLine("Processing..." + what);
-            RadCartesianChart[] targetCharts = { radChart1, radChart2, radChart3, radChart4, radChart5, radChart6, radChart7, radChart8 };
-            bool result = false;
+            //bool result = false;
 
             DataSource.getChartData()[i] = from query in what.Descendants("day")
                                select new ChartDataPoint
@@ -58,16 +55,19 @@ namespace Flurrystics
                                    Value = (double)query.Attribute("value"),
                                    Label = (string)query.Attribute("date")
                                };
-
-            targetCharts[i].DataContext = DataSource.getChartData()[i];          
+            Debug.WriteLine("Setting DataContext of loaded data");
+            targetChart.DataContext = DataSource.getChartData()[i];          
         } // ParseXML
 
         private async void loadData(int metricsIndex)
         {
             Debug.WriteLine("loadData() " + metricsIndex);
+            RadCartesianChart[] targetCharts = { radChart1, radChart2, radChart3, radChart4, radChart5, radChart6, radChart7, radChart8 };
             string metrics = AppMetricsNames[metricsIndex]; // this will be selectable
-            if (ProgressBar1 == null) {return;}
-            ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            if (ProgressBar1 != null)
+            {
+                ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            }
             // check if it's loaded, if not - load it up
 
             if (DataSource.getChartData()[metricsIndex] == null) // if no data present
@@ -87,15 +87,19 @@ namespace Flurrystics
                     success = false;
                 }
                 Debug.WriteLine("Success:" + success);
-                if (success) { ParseXML(result, metricsIndex); }
+                if (success) { ParseXML(result, metricsIndex, targetCharts[metricsIndex]); }
 
             }
-
-            if (App.taskCount == 0)
+            else
             {
-                ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                Debug.WriteLine("Setting DataContext of already loaded data:" + DataSource.getChartData()[metricsIndex].Count());
+                targetCharts[metricsIndex].DataContext = DataSource.getChartData()[metricsIndex];
             }
 
+            //if (App.taskCount == 0)
+            //{
+                ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            //}
 
         }
 
@@ -133,13 +137,14 @@ namespace Flurrystics
                 EndDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1));
                 StartDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddMonths(-1));
             }
-
             
             myTimeRange.StartTime = DateTime.Parse(StartDate);
             myTimeRange.EndTime = DateTime.Parse(EndDate);
 
             datePicker1.DataContext = myTimeRange;
             datePicker2.DataContext = myTimeRange;
+
+            DataSource.clearChartData();
 
             loadData(actualMetricsIndex); 
         }
@@ -189,7 +194,10 @@ namespace Flurrystics
         private void flipView1_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
             Debug.WriteLine("flipView1 SelectionChanged");
-            changeMetrics(((FlipView)sender).SelectedIndex);
+            if (flipView1 != null)
+            {
+                changeMetrics(((FlipView)sender).SelectedIndex);
+            }
         }
 
         private void ChartTrackBallBehavior_TrackInfoUpdated_1(object sender, TrackBallInfoEventArgs e)
@@ -245,6 +253,7 @@ namespace Flurrystics
             Debug.WriteLine("EndDate:" + EndDate);
             localSettings.Values["StartDate"] = StartDate;
             localSettings.Values["EndDate"] = EndDate;
+            DataSource.clearChartData();
             loadData(actualMetricsIndex); 
         }
 

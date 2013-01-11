@@ -17,7 +17,7 @@ namespace Flurrystics
         {
             App.taskCount++;
 
-            long waitTime = App.taskCount * 1000;
+            long waitTime = App.taskCount * 1250;
 
             Debug.WriteLine("Waiting " + waitTime);
             await Task.Delay((int)waitTime);

@@ -67,6 +67,12 @@
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageTitle" Storyboard.TargetProperty="Style">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedPageHeaderTextStyle}"/>
                         </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageDropDown" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedPageHeaderTextStyle}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="LogoGrid" Storyboard.TargetProperty="Margin">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="0,0,0,70"/>
+                        </ObjectAnimationUsingKeyFrames>
 
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemListView" Storyboard.TargetProperty="Visibility">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
@@ -129,17 +135,25 @@
                     <PaneThemeTransition />
                 </TransitionCollection>
             </Popup.ChildTransitions>
-            <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" BorderThickness="2" Background="#f1f0f1" x:Name="RootPopupBorder">
-                <StackPanel Orientation="Vertical" Height="300"  x:Name="pop" >
+            <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
+                    BorderThickness="2" 
+                    Background="#f1f0f1" 
+                    x:Name="RootPopupBorder" 
+                    Width="320">
+                <StackPanel Orientation="Vertical" Height="320"  x:Name="pop" >
                     <StackPanel>
                         <TextBlock Text="Add Flurry API "  HorizontalAlignment="Center" FontSize="25" Margin="0,20,0,0" />
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0,50" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Vertical" Margin="0,30" HorizontalAlignment="Center">
                         <TextBlock Text="Flurry API Access" Margin="10" FontSize="25" />
-                        <TextBox x:Name="flurry_api_access" IsSpellCheckEnabled="False" Height="40" Margin="13,1" Width="408" InputScope="Default" >
+                        <TextBox x:Name="flurry_api_access" IsSpellCheckEnabled="False" 
+                                 Height="40" 
+                                 Width="300" 
+                                 Margin="13,1" 
+                                 InputScope="Default" >
                         </TextBox>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0,30" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" Margin="0,10" HorizontalAlignment="Center">
                         <Button x:Name="addClick"  Foreground="White"   Width="100" Content="Add" Click="addClick_Click_1"/>
                         <Button x:Name="cancelClick"    Foreground="White"  Width="100" Content="Cancel" Click="cancelClick_Click_1" />
                     </StackPanel>
@@ -194,6 +208,7 @@
                     />
             
             <StackPanel
+                x:Name="LogoGrid"
                 Grid.Column="1" 
                 Grid.Row="2"
                 Orientation="Horizontal"

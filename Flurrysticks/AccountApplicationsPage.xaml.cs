@@ -94,8 +94,8 @@ namespace Flurrystics
 
             if (!logincontrol1.IsOpen) // if not open - start anim
             {
-                RootPopupBorder.Width = 646;
-                logincontrol1.HorizontalOffset = Window.Current.Bounds.Width - 650;
+                RootPopupBorder.Width = 320;
+                logincontrol1.HorizontalOffset = Window.Current.Bounds.Width - 320;
                 logincontrol1.VerticalOffset = Window.Current.Bounds.Height - 400;
                 logincontrol1.IsOpen = true;
             }    
@@ -587,8 +587,8 @@ namespace Flurrystics
         {
             if (!logincontrol1.IsOpen) // if not open - start anim
             {
-                RootPopupBorder.Width = 646;
-                logincontrol1.HorizontalOffset = Window.Current.Bounds.Width - 650;
+                RootPopupBorder.Width = 320;
+                logincontrol1.HorizontalOffset = Window.Current.Bounds.Width - 320;
                 logincontrol1.VerticalOffset = Window.Current.Bounds.Height - 400;
                 logincontrol1.IsOpen = true;
             }    
@@ -665,14 +665,6 @@ namespace Flurrystics
 
         private List<string> names = new List<string>();
         public List<string> Names { get { return names; } set { names = value; } }
-    }
-
-    public class CallApp
-    {
-        public string AppApiKey;
-        public string ApiKey;
-        public string Name;
-        public string Platform;
     }
 
     public class GroupInfoList<T> : List<object>
