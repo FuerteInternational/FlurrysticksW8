@@ -17,6 +17,7 @@ using Telerik.UI.Xaml.Controls.Chart;
 using Callisto.Controls;
 using Flurrystics.Data;
 using Flurrysticks.DataModel;
+using Flurrysticks;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
@@ -56,7 +57,8 @@ namespace Flurrystics
                                    Label = (string)query.Attribute("date")
                                };
             Debug.WriteLine("Setting DataContext of loaded data");
-            targetChart.DataContext = DataSource.getChartData()[i];    
+            targetChart.DataContext = DataSource.getChartData()[i];
+            targetChart.HorizontalAxis.LabelInterval = Util.getLabelIntervalByCount(DataSource.getChartData()[i].Count());
         } // ParseXML
 
         private async void loadData(int metricsIndex)

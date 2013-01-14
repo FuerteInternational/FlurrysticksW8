@@ -162,35 +162,42 @@
                     >
 
                     <Chart:RadCartesianChart.Grid>
-                        <Chart:CartesianChartGrid MajorLinesVisibility="Y" />
+                        <Chart:CartesianChartGrid 
+                            MajorXLinesRenderMode="Last"
+                            MajorLinesVisibility="XY" 
+                            MajorYLinesRenderMode="All"
+                            />
                     </Chart:RadCartesianChart.Grid>
 
                     <Chart:RadCartesianChart.HorizontalAxis>
-                        <Chart:DateTimeCategoricalAxis/>
+                        <Chart:DateTimeCategoricalAxis LabelFitMode="Rotate" LabelInterval="5" />
                     </Chart:RadCartesianChart.HorizontalAxis>
                     <Chart:RadCartesianChart.VerticalAxis>
                         <Chart:LinearAxis/>
                     </Chart:RadCartesianChart.VerticalAxis>
 
-                    <Chart:AreaSeries ItemsSource="{Binding}"
+                    <Chart:LineSeries ItemsSource="{Binding}"
+                                  Stroke="{StaticResource flurry_red}"
+                                  StrokeThickness="6"
                                   Chart:ChartTrackBallBehavior.TrackInfoTemplate="{StaticResource TrackInfoTemplate}" 
                                   Chart:ChartTrackBallBehavior.IntersectionTemplate="{StaticResource IntersectionPointTemplate}">
 
-                        <Chart:AreaSeries.ValueBinding>
+                        <Chart:LineSeries.ValueBinding>
                             <Chart:PropertyNameDataPointBinding PropertyName="Value" />
-                        </Chart:AreaSeries.ValueBinding>
-                        <Chart:AreaSeries.CategoryBinding>
+                        </Chart:LineSeries.ValueBinding>
+                        <Chart:LineSeries.CategoryBinding>
                             <Chart:PropertyNameDataPointBinding PropertyName="Label"/>
-                        </Chart:AreaSeries.CategoryBinding>
+                        </Chart:LineSeries.CategoryBinding>
 
-                    </Chart:AreaSeries>
+                    </Chart:LineSeries>
 
                     <Chart:RadCartesianChart.Behaviors>
                         <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
                         <Chart:ChartTrackBallBehavior x:ConnectionId='4' 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
-                                                                                        />
+                                                                                        
+                            ShowInfo="True"/>
                     </Chart:RadCartesianChart.Behaviors>
 
                 </Chart:RadCartesianChart>

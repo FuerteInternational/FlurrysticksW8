@@ -36,5 +36,22 @@ namespace Flurrysticks
             return null;
         }
 
+        public static int getLabelIntervalByCount(int c)
+        {
+            int result = c / 5;
+            if (result == 0) { result = 1; }
+            return result;
+        }
+
+        public static string shrinkString(String what)
+        {
+            String result = what;
+            if (what.Length > 14)
+            {
+                result = what.Substring(0, 14).Trim() + "...";
+            }
+            return result;
+        }
+
     }
 }

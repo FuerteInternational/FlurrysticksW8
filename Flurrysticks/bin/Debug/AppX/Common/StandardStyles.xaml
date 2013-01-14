@@ -28,6 +28,12 @@
 
     <x:String x:Key="ChevronGlyph">&#xE26B;</x:String>
 
+    <SolidColorBrush x:Key="flurry_green" Color="#66b240"/>
+    <SolidColorBrush x:Key="flurry_blue" Color="#15a5d8"/>
+    <SolidColorBrush x:Key="flurry_orange" Color="#fcaf17"/>
+    <SolidColorBrush x:Key="flurry_red" Color="#de2029" />
+    <SolidColorBrush x:Key="flurry_dimred" Color="#878787" />
+
     <!-- RichTextBlock styles -->
 
     <Style x:Key="BasicRichTextStyle" TargetType="RichTextBlock">
