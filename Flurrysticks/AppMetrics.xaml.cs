@@ -243,7 +243,7 @@ namespace Flurrystics
             {
                 RootPopupBorder.Width = 320;
                 TimeRangeControl.HorizontalOffset = 0;
-                TimeRangeControl.VerticalOffset = Window.Current.Bounds.Height - 420;
+                TimeRangeControl.VerticalOffset = Window.Current.Bounds.Height - 520;
                 TimeRangeControl.IsOpen = true;
             }    
         }
@@ -264,6 +264,50 @@ namespace Flurrystics
         private void cancelClick_Click_1(object sender, RoutedEventArgs e)
         { // cancel - just close timerange
             TimeRangeControl.IsOpen = false;
+        }
+
+        private void last14days_Click_1(object sender, RoutedEventArgs e)
+        {
+            TimeRangeControl.IsOpen = false;
+            EndDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1));
+            StartDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-15));
+            localSettings.Values["StartDate"] = StartDate;
+            localSettings.Values["EndDate"] = EndDate;
+            DataSource.clearChartData();
+            loadData(actualMetricsIndex); 
+        }
+
+        private void lastMonth_Click_1(object sender, RoutedEventArgs e)
+        {
+            TimeRangeControl.IsOpen = false;
+            EndDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1));
+            StartDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1).AddMonths(-1));
+            localSettings.Values["StartDate"] = StartDate;
+            localSettings.Values["EndDate"] = EndDate;
+            DataSource.clearChartData();
+            loadData(actualMetricsIndex); 
+        }
+
+        private void lastQuarter_Click_1(object sender, RoutedEventArgs e)
+        {
+            TimeRangeControl.IsOpen = false;
+            EndDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1));
+            StartDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1).AddMonths(-3));
+            localSettings.Values["StartDate"] = StartDate;
+            localSettings.Values["EndDate"] = EndDate;
+            DataSource.clearChartData();
+            loadData(actualMetricsIndex); 
+        }
+
+        private void lastSixMonths_Click_1(object sender, RoutedEventArgs e)
+        {
+            TimeRangeControl.IsOpen = false;
+            EndDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1));
+            StartDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1).AddMonths(-6));
+            localSettings.Values["StartDate"] = StartDate;
+            localSettings.Values["EndDate"] = EndDate;
+            DataSource.clearChartData();
+            loadData(actualMetricsIndex); 
         }
 
     }

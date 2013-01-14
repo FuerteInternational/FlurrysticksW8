@@ -99,10 +99,10 @@
                 Grid.ColumnSpan="2"
                 />
             
-            <Button x:ConnectionId='5' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
+            <Button x:ConnectionId='9' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
 
-            <StackPanel x:ConnectionId='6' 
+            <StackPanel x:ConnectionId='10' 
                 Orientation="Horizontal" 
                 Grid.Column="1" 
                 Grid.Row="2"
@@ -193,7 +193,7 @@
 
                     <Chart:RadCartesianChart.Behaviors>
                         <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
-                        <Chart:ChartTrackBallBehavior x:ConnectionId='4' 
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='8' 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                                                                                         
@@ -377,8 +377,20 @@
                     x:Name="RootPopupBorder"
                     Width="320"
                     >
-                <StackPanel Orientation="Vertical" Height="300"  x:Name="pop" >
+                <StackPanel Orientation="Vertical" Height="400"  x:Name="pop" >
                     <StackPanel Orientation="Vertical">
+
+                        <TextBlock Text="Please select desired time range:" Margin="20,20,20,10" FontSize="18" />
+
+                        <StackPanel Orientation="Horizontal" Margin="20,10,20,0" >
+                            <Button x:ConnectionId='6' x:Name="last14days" Width="140" Content="Last 14 Days"                            />
+                            <Button x:ConnectionId='7' x:Name="lastMonth" Width="140" Content="Last Month"                           />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="20,20,20,0" >
+                            <Button x:ConnectionId='4' x:Name="lastQuarter" Width="140" Content="Last Quarter"                             />
+                            <Button x:ConnectionId='5' x:Name="lastSixMonths" Width="140" Content="Last Six Months"                               />
+                        </StackPanel>
+                        
                     <telerikInput:RadDatePicker 
                             Header="Or specify custom time range from:" 
                             x:Name="datePicker1" 
@@ -416,7 +428,7 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Button x:ConnectionId='7' x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}"                                 />
+                    <Button x:ConnectionId='11' x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}"                                 />
                 </StackPanel>
             </Grid>
         </AppBar>

@@ -377,8 +377,20 @@
                     x:Name="RootPopupBorder"
                     Width="320"
                     >
-                <StackPanel Orientation="Vertical" Height="300"  x:Name="pop" >
+                <StackPanel Orientation="Vertical" Height="400"  x:Name="pop" >
                     <StackPanel Orientation="Vertical">
+
+                        <TextBlock Text="Please select desired time range:" Margin="20,20,20,10" FontSize="18" />
+
+                        <StackPanel Orientation="Horizontal" Margin="20,10,20,0" >
+                            <Button x:Name="last14days" Width="140" Content="Last 14 Days" Click="last14days_Click_1" />
+                            <Button x:Name="lastMonth" Width="140" Content="Last Month" Click="lastMonth_Click_1" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="20,20,20,0" >
+                            <Button x:Name="lastQuarter" Width="140" Content="Last Quarter" Click="lastQuarter_Click_1" />
+                            <Button x:Name="lastSixMonths" Width="140" Content="Last Six Months" Click="lastSixMonths_Click_1" />
+                        </StackPanel>
+                        
                     <telerikInput:RadDatePicker 
                             Header="Or specify custom time range from:" 
                             x:Name="datePicker1" 
