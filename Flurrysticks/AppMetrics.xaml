@@ -157,7 +157,9 @@
                     HorizontalAlignment="Stretch" 
                     Margin="10,0,0,0"           
                     MinZoom="1,1"
-                    VerticalAlignment="Stretch">
+                    VerticalAlignment="Stretch"
+                    EmptyContent="Loading..."
+                    >
 
                     <Chart:RadCartesianChart.Grid>
                         <Chart:CartesianChartGrid MajorLinesVisibility="Y" />
@@ -199,7 +201,9 @@
                 x:Name="radChart2"
                 HorizontalAlignment="Stretch" 
                 Margin="10,0,0,0"            
-                VerticalAlignment="Stretch">
+                VerticalAlignment="Stretch"
+                EmptyContent="Loading..."
+                >
                 <Chart:RadCartesianChart.HorizontalAxis>
                     <Chart:DateTimeCategoricalAxis/>
                 </Chart:RadCartesianChart.HorizontalAxis>
@@ -219,7 +223,9 @@
                 x:Name="radChart3"
                 HorizontalAlignment="Stretch" 
                 Margin="10,0,0,0"            
-                VerticalAlignment="Stretch">
+                VerticalAlignment="Stretch"
+                EmptyContent=""
+                >
                 <Chart:RadCartesianChart.HorizontalAxis>
                     <Chart:DateTimeCategoricalAxis/>
                 </Chart:RadCartesianChart.HorizontalAxis>
@@ -239,7 +245,9 @@
                 x:Name="radChart4"
                 HorizontalAlignment="Stretch" 
                 Margin="10,0,0,0"            
-                VerticalAlignment="Stretch">
+                VerticalAlignment="Stretch"
+                EmptyContent="Loading..."
+                >
                 <Chart:RadCartesianChart.HorizontalAxis>
                     <Chart:DateTimeCategoricalAxis/>
                 </Chart:RadCartesianChart.HorizontalAxis>
@@ -259,7 +267,9 @@
                 x:Name="radChart5"
                 HorizontalAlignment="Stretch" 
                 Margin="10,0,0,0"            
-                VerticalAlignment="Stretch">
+                VerticalAlignment="Stretch"
+                EmptyContent=""
+                >
                 <Chart:RadCartesianChart.HorizontalAxis>
                     <Chart:DateTimeCategoricalAxis/>
                 </Chart:RadCartesianChart.HorizontalAxis>
@@ -279,7 +289,9 @@
                 x:Name="radChart6"
                 HorizontalAlignment="Stretch" 
                 Margin="10,0,0,0"            
-                VerticalAlignment="Stretch">
+                VerticalAlignment="Stretch"
+                EmptyContent="Loading..."
+                >
                 <Chart:RadCartesianChart.HorizontalAxis>
                     <Chart:DateTimeCategoricalAxis/>
                 </Chart:RadCartesianChart.HorizontalAxis>
@@ -299,7 +311,9 @@
                 x:Name="radChart7"
                 HorizontalAlignment="Stretch" 
                 Margin="10,0,0,0"            
-                VerticalAlignment="Stretch">
+                VerticalAlignment="Stretch"
+                EmptyContent="Loading..."
+                >
                 <Chart:RadCartesianChart.HorizontalAxis>
                     <Chart:DateTimeCategoricalAxis/>
                 </Chart:RadCartesianChart.HorizontalAxis>
@@ -319,7 +333,9 @@
                 x:Name="radChart8"
                 HorizontalAlignment="Stretch" 
                 Margin="10,0,0,0"            
-                VerticalAlignment="Stretch">
+                VerticalAlignment="Stretch"
+                EmptyContent="Loading..."
+                >
                 <Chart:RadCartesianChart.HorizontalAxis>
                     <Chart:DateTimeCategoricalAxis/>
                 </Chart:RadCartesianChart.HorizontalAxis>
@@ -337,15 +353,25 @@
             </Chart:RadCartesianChart>            
         </FlipView>
 
-        <Popup x:Name="TimeRangeControl" IsOpen="False" IsLightDismissEnabled="True">
+        <Popup x:Name="TimeRangeControl" 
+               IsOpen="False" 
+               Width="320" 
+               IsLightDismissEnabled="True"
+               HorizontalAlignment="Left"
+               >
             <Popup.ChildTransitions>
                 <TransitionCollection>
                     <PopupThemeTransition />
                 </TransitionCollection>
             </Popup.ChildTransitions>
-            <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" BorderThickness="2" Background="#f1f0f1" x:Name="RootPopupBorder">
+            <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}"
+                    BorderThickness="2"
+                    Background="#f1f0f1"
+                    x:Name="RootPopupBorder"
+                    Width="320"
+                    >
                 <StackPanel Orientation="Vertical" Height="300"  x:Name="pop" >
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical">
                     <telerikInput:RadDatePicker 
                             Header="Or specify custom time range from:" 
                             x:Name="datePicker1" 
@@ -365,8 +391,10 @@
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="0,30" HorizontalAlignment="Center">
-                        <Button x:Name="setClick"  Foreground="White"   Width="100" Content="Set" Click="setClick_Click_1"/>
-                        <Button x:Name="cancelClick"    Foreground="White"  Width="100" Content="Cancel" Click="cancelClick_Click_1" />
+                        <Button x:Name="setClick"  Foreground="White"   
+                                Width="100" Content="Set" Click="setClick_Click_1"/>
+                        <Button x:Name="cancelClick"    Foreground="White"  
+                                Width="100" Content="Cancel" Click="cancelClick_Click_1" />
                     </StackPanel>
 
                 </StackPanel>

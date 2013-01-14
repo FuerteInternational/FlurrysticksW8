@@ -237,7 +237,7 @@ namespace Flurrystics
         { // AppMenu click on TimeRange
             if (!TimeRangeControl.IsOpen) // if not open - start anim
             {
-                RootPopupBorder.Width = 646;
+                RootPopupBorder.Width = 320;
                 TimeRangeControl.HorizontalOffset = 0;
                 TimeRangeControl.VerticalOffset = Window.Current.Bounds.Height - 400;
                 TimeRangeControl.IsOpen = true;
