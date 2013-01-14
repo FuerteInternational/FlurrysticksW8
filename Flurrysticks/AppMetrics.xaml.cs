@@ -56,7 +56,7 @@ namespace Flurrystics
                                    Label = (string)query.Attribute("date")
                                };
             Debug.WriteLine("Setting DataContext of loaded data");
-            targetChart.DataContext = DataSource.getChartData()[i];          
+            targetChart.DataContext = DataSource.getChartData()[i];    
         } // ParseXML
 
         private async void loadData(int metricsIndex)
@@ -87,7 +87,9 @@ namespace Flurrystics
                     success = false;
                 }
                 Debug.WriteLine("Success:" + success);
-                if (success) { ParseXML(result, metricsIndex, targetCharts[metricsIndex]); }
+                if (success) { 
+                                ParseXML(result, metricsIndex, targetCharts[metricsIndex]); 
+                             }
 
             }
             else
@@ -239,7 +241,7 @@ namespace Flurrystics
             {
                 RootPopupBorder.Width = 320;
                 TimeRangeControl.HorizontalOffset = 0;
-                TimeRangeControl.VerticalOffset = Window.Current.Bounds.Height - 400;
+                TimeRangeControl.VerticalOffset = Window.Current.Bounds.Height - 420;
                 TimeRangeControl.IsOpen = true;
             }    
         }

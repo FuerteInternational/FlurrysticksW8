@@ -96,7 +96,7 @@ namespace Flurrystics
             {
                 RootPopupBorder.Width = 320;
                 logincontrol1.HorizontalOffset = Window.Current.Bounds.Width - 320;
-                logincontrol1.VerticalOffset = Window.Current.Bounds.Height - 400;
+                logincontrol1.VerticalOffset = Window.Current.Bounds.Height - 420;
                 logincontrol1.IsOpen = true;
             }    
 
@@ -589,7 +589,7 @@ namespace Flurrystics
             {
                 RootPopupBorder.Width = 320;
                 logincontrol1.HorizontalOffset = Window.Current.Bounds.Width - 320;
-                logincontrol1.VerticalOffset = Window.Current.Bounds.Height - 400;
+                logincontrol1.VerticalOffset = Window.Current.Bounds.Height - 420;
                 logincontrol1.IsOpen = true;
             }    
         }

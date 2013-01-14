@@ -148,7 +148,7 @@
                         <TextBlock Text="Flurry API Access" Margin="10" FontSize="25" />
                         <TextBox x:Name="flurry_api_access" IsSpellCheckEnabled="False" 
                                  Height="40" 
-                                 Width="300" 
+                                 Width="280" 
                                  Margin="13,1" 
                                  InputScope="Default" >
                         </TextBox>

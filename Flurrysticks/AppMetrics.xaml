@@ -190,7 +190,7 @@
                         <Chart:ChartTrackBallBehavior 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
-                            TrackInfoUpdated="ChartTrackBallBehavior_TrackInfoUpdated_1"/>
+                            TrackInfoUpdated="ChartTrackBallBehavior_TrackInfoUpdated_1" ShowInfo="False"/>
                     </Chart:RadCartesianChart.Behaviors>
 
                 </Chart:RadCartesianChart>
