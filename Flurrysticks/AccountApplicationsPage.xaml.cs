@@ -48,7 +48,7 @@ namespace Flurrystics
 
         private async static Task<StorageFile> GetFile(string path)
         {
-            var folder = ApplicationData.Current.LocalFolder;
+            var folder = ApplicationData.Current.RoamingFolder;
             try
             {
                 return await folder.GetFileAsync(path);
@@ -61,7 +61,7 @@ namespace Flurrystics
 
         private async static Task<bool> FileExists(string path)
         {
-            var folder = ApplicationData.Current.LocalFolder;
+            var folder = ApplicationData.Current.RoamingFolder;
             try
             {
                 var file = await folder.GetFileAsync(path);
@@ -75,7 +75,7 @@ namespace Flurrystics
 
         private async static Task<Stream> WriteFile(string path)
         {
-            var folder = ApplicationData.Current.LocalFolder;
+            var folder = ApplicationData.Current.RoamingFolder;
             return await folder.OpenStreamForWriteAsync(path, CreationCollisionOption.ReplaceExisting);
         }
 
@@ -122,7 +122,7 @@ namespace Flurrystics
                     return;
                 }
 
-                var folder = ApplicationData.Current.LocalFolder;
+                var folder = ApplicationData.Current.RoamingFolder;
                 Stream filevalue = await folder.OpenStreamForReadAsync(ApiFileName);
 
                 Debug.WriteLine("OpenStreamForReadAsync()");
