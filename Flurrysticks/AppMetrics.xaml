@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Chart="using:Telerik.UI.Xaml.Controls.Chart"
     xmlns:telerikInput="using:Telerik.UI.Xaml.Controls.Input"
+    xmlns:telerikPrimitives="using:Telerik.UI.Xaml.Controls.Primitives"
     xmlns:telerikCore="using:Telerik.Core"
     x:Name="pageRoot"
     x:Class="Flurrystics.AppMetrics"
@@ -131,32 +132,113 @@
         <FlipView x:Name="flipView1" 
                   Grid.Row="1" 
                   SelectionChanged="flipView1_SelectionChanged_1">
+ 
+                <Grid>
 
-            <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
 
-                <Grid.Resources>
+                    <Grid.Resources>
 
-                    <DataTemplate x:Key="TrackInfoTemplate">
-                        <StackPanel Background="White">
-                            <Border Background="#FF1E98E4">
-                                <TextBlock Margin="4" 
+                        <DataTemplate x:Key="TrackInfoTemplate">
+                            <StackPanel Background="White">
+                                <Border Background="#FF1E98E4">
+                                    <TextBlock Margin="4" 
                                            Text="{Binding DataPoint.Value}" 
                                            FontSize="12" 
                                            Foreground="White"/>
-                            </Border>
-                        </StackPanel>
-                    </DataTemplate>
-                    <DataTemplate x:Key="IntersectionPointTemplate">
-                        <Ellipse Stroke="White"  StrokeThickness="2" Width="8" Height="8"/>
-                    </DataTemplate>
-                    <DataTemplate x:Key="EmptyTemplate"/>
-                </Grid.Resources>
+                                </Border>
+                            </StackPanel>
+                        </DataTemplate>
+                        <DataTemplate x:Key="IntersectionPointTemplate">
+                            <Ellipse Stroke="White"  StrokeThickness="2" Width="8" Height="8"/>
+                        </DataTemplate>
+                        <DataTemplate x:Key="EmptyTemplate"/>
+                    </Grid.Resources>
 
+                    <StackPanel Grid.Row="0" Margin="20,20,20,20"
+                                HorizontalAlignment="Right"
+                                Orientation="Horizontal"
+                                >
+                        
+                    <TextBlock Text="Test" />
+                        
+                    <telerikPrimitives:RadCustomHubTile Width="150" Height="150" UpdateInterval="0:0:4"
+                                                         telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                        <telerikPrimitives:RadCustomHubTile.FrontContent>
+                            <Border Background="{StaticResource flurry_green}">
+                                <StackPanel Margin="16,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock Text="12" FontSize="82.667" FontWeight="SemiLight" Foreground="White" />
+                                    <TextBlock Text="OPEN" FontSize="14.667" Margin="4,-12,0,0" Foreground="White"/>
+                                    <TextBlock Text="Opportunities" FontSize="12" Margin="4,14,0,0" Foreground="White"/>
+                                </StackPanel>
+                            </Border>
+                        </telerikPrimitives:RadCustomHubTile.FrontContent>
+                    <telerikPrimitives:RadCustomHubTile.BackContent>
+                            <Border Background="{StaticResource flurry_green}">
+                                <StackPanel Margin="16,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock Text="5" FontSize="82.667" FontWeight="SemiLight" Foreground="White" />
+                                    <TextBlock Text="OVERDUE" FontSize="14.667" Margin="4,-12,0,0" Foreground="White" />
+                                    <TextBlock Text="Opportunities" FontSize="12" Margin="4,14,0,0" Foreground="White" />
+                                </StackPanel>
+                            </Border>
+                        </telerikPrimitives:RadCustomHubTile.BackContent>
+                    </telerikPrimitives:RadCustomHubTile>
+
+                    <telerikPrimitives:RadCustomHubTile Width="150" Height="150" UpdateInterval="0:0:5"
+                                                         telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                        <telerikPrimitives:RadCustomHubTile.FrontContent>
+                            <Border Background="{StaticResource flurry_blue}">
+                                <StackPanel Margin="16,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock Text="12" FontSize="82.667" FontWeight="SemiLight" Foreground="White" />
+                                    <TextBlock Text="OPEN" FontSize="14.667" Margin="4,-12,0,0" Foreground="White"/>
+                                    <TextBlock Text="Opportunities" FontSize="12" Margin="4,14,0,0" Foreground="White"/>
+                                </StackPanel>
+                            </Border>
+                        </telerikPrimitives:RadCustomHubTile.FrontContent>
+                        <telerikPrimitives:RadCustomHubTile.BackContent>
+                            <Border Background="{StaticResource flurry_blue}">
+                                <StackPanel Margin="16,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock Text="5" FontSize="82.667" FontWeight="SemiLight" Foreground="White" />
+                                    <TextBlock Text="OVERDUE" FontSize="14.667" Margin="4,-12,0,0" Foreground="White" />
+                                    <TextBlock Text="Opportunities" FontSize="12" Margin="4,14,0,0" Foreground="White" />
+                                </StackPanel>
+                            </Border>
+                        </telerikPrimitives:RadCustomHubTile.BackContent>
+                    </telerikPrimitives:RadCustomHubTile>
+
+                    <telerikPrimitives:RadCustomHubTile Width="150" Height="150" UpdateInterval="0:0:6"
+                                                         telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                        <telerikPrimitives:RadCustomHubTile.FrontContent>
+                            <Border Background="{StaticResource flurry_orange}">
+                                <StackPanel Margin="16,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock Text="12" FontSize="82.667" FontWeight="SemiLight" Foreground="White" />
+                                    <TextBlock Text="OPEN" FontSize="14.667" Margin="4,-12,0,0" Foreground="White"/>
+                                    <TextBlock Text="Opportunities" FontSize="12" Margin="4,14,0,0" Foreground="White"/>
+                                </StackPanel>
+                            </Border>
+                        </telerikPrimitives:RadCustomHubTile.FrontContent>
+                        <telerikPrimitives:RadCustomHubTile.BackContent>
+                            <Border Background="{StaticResource flurry_orange}">
+                                <StackPanel Margin="16,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock Text="5" FontSize="82.667" FontWeight="SemiLight" Foreground="White" />
+                                    <TextBlock Text="OVERDUE" FontSize="14.667" Margin="4,-12,0,0" Foreground="White" />
+                                    <TextBlock Text="Opportunities" FontSize="12" Margin="4,14,0,0" Foreground="White" />
+                                </StackPanel>
+                            </Border>
+                        </telerikPrimitives:RadCustomHubTile.BackContent>
+                    </telerikPrimitives:RadCustomHubTile>
+
+                </StackPanel>
+                    
                 <Chart:RadCartesianChart 
                     x:Name="radChart1"
                     HorizontalAlignment="Stretch" 
                     Margin="10,0,0,0"           
                     MinZoom="1,1"
+                    Grid.Row="1"
                     VerticalAlignment="Stretch"
                     EmptyContent="Loading..."
                     >
@@ -201,8 +283,7 @@
                     </Chart:RadCartesianChart.Behaviors>
 
                 </Chart:RadCartesianChart>
-
-            </Grid>
+                </Grid>
 
             <Chart:RadCartesianChart 
                 x:Name="radChart2"
