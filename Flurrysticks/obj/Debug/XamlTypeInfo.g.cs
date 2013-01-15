@@ -152,21 +152,21 @@ namespace Flurrysticks.Flurrystics_XamlTypeInfo
 
         private object Activate_54_ChartPalette() { return new global::Telerik.UI.Xaml.Controls.Chart.ChartPalette(); }
 
-        private object Activate_56_DateTimeCategoricalAxis() { return new global::Telerik.UI.Xaml.Controls.Chart.DateTimeCategoricalAxis(); }
+        private object Activate_58_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::Windows.UI.Xaml.Media.Brush>(); }
 
-        private object Activate_57_CategoricalAxis() { return new global::Telerik.UI.Xaml.Controls.Chart.CategoricalAxis(); }
+        private object Activate_59_Collection() { return new global::System.Collections.ObjectModel.Collection<global::Windows.UI.Xaml.Media.Brush>(); }
 
-        private object Activate_65_LinearAxis() { return new global::Telerik.UI.Xaml.Controls.Chart.LinearAxis(); }
+        private object Activate_60_DateTimeCategoricalAxis() { return new global::Telerik.UI.Xaml.Controls.Chart.DateTimeCategoricalAxis(); }
 
-        private object Activate_69_LineSeries() { return new global::Telerik.UI.Xaml.Controls.Chart.LineSeries(); }
+        private object Activate_61_CategoricalAxis() { return new global::Telerik.UI.Xaml.Controls.Chart.CategoricalAxis(); }
 
-        private object Activate_73_PropertyNameDataPointBinding() { return new global::Telerik.UI.Xaml.Controls.Chart.PropertyNameDataPointBinding(); }
+        private object Activate_69_LinearAxis() { return new global::Telerik.UI.Xaml.Controls.Chart.LinearAxis(); }
 
-        private object Activate_76_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::Windows.UI.Xaml.Media.Brush>(); }
+        private object Activate_73_LineSeries() { return new global::Telerik.UI.Xaml.Controls.Chart.LineSeries(); }
 
-        private object Activate_77_Collection() { return new global::System.Collections.ObjectModel.Collection<global::Windows.UI.Xaml.Media.Brush>(); }
+        private object Activate_77_ChartTrackBallBehavior() { return new global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior(); }
 
-        private object Activate_78_ChartTrackBallBehavior() { return new global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior(); }
+        private object Activate_80_PropertyNameDataPointBinding() { return new global::Telerik.UI.Xaml.Controls.Chart.PropertyNameDataPointBinding(); }
 
         private object Activate_81_ChartPanAndZoomBehavior() { return new global::Telerik.UI.Xaml.Controls.Chart.ChartPanAndZoomBehavior(); }
 
@@ -281,14 +281,14 @@ namespace Flurrysticks.Flurrystics_XamlTypeInfo
             collection.Add(newItem);
         }
 
-        private void VectorAdd_76_ObservableCollection(object instance, object item)
+        private void VectorAdd_58_ObservableCollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Windows.UI.Xaml.Media.Brush>)instance;
             var newItem = (global::Windows.UI.Xaml.Media.Brush)item;
             collection.Add(newItem);
         }
 
-        private void VectorAdd_77_Collection(object instance, object item)
+        private void VectorAdd_59_Collection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Windows.UI.Xaml.Media.Brush>)instance;
             var newItem = (global::Windows.UI.Xaml.Media.Brush)item;
@@ -959,16 +959,55 @@ namespace Flurrysticks.Flurrystics_XamlTypeInfo
                 xamlType = userType;
                 break;
 
+            case "Telerik.UI.Xaml.Controls.Chart.GridLineRenderMode":
+                userType = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Telerik.UI.Xaml.Controls.Chart.GridLineRenderMode), GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("First", global::Telerik.UI.Xaml.Controls.Chart.GridLineRenderMode.First);
+                userType.AddEnumValue("Inner", global::Telerik.UI.Xaml.Controls.Chart.GridLineRenderMode.Inner);
+                userType.AddEnumValue("FirstAndInner", global::Telerik.UI.Xaml.Controls.Chart.GridLineRenderMode.FirstAndInner);
+                userType.AddEnumValue("Last", global::Telerik.UI.Xaml.Controls.Chart.GridLineRenderMode.Last);
+                userType.AddEnumValue("FirstAndLast", global::Telerik.UI.Xaml.Controls.Chart.GridLineRenderMode.FirstAndLast);
+                userType.AddEnumValue("InnerAndLast", global::Telerik.UI.Xaml.Controls.Chart.GridLineRenderMode.InnerAndLast);
+                userType.AddEnumValue("All", global::Telerik.UI.Xaml.Controls.Chart.GridLineRenderMode.All);
+                xamlType = userType;
+                break;
+
+            case "Telerik.UI.Xaml.Controls.Chart.GridLineVisibility":
+                userType = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Telerik.UI.Xaml.Controls.Chart.GridLineVisibility), GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("None", global::Telerik.UI.Xaml.Controls.Chart.GridLineVisibility.None);
+                userType.AddEnumValue("X", global::Telerik.UI.Xaml.Controls.Chart.GridLineVisibility.X);
+                userType.AddEnumValue("Y", global::Telerik.UI.Xaml.Controls.Chart.GridLineVisibility.Y);
+                userType.AddEnumValue("XY", global::Telerik.UI.Xaml.Controls.Chart.GridLineVisibility.XY);
+                xamlType = userType;
+                break;
+
+            case "System.Collections.ObjectModel.ObservableCollection<Windows.UI.Xaml.Media.Brush>":
+                userType = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::System.Collections.ObjectModel.ObservableCollection<global::Windows.UI.Xaml.Media.Brush>), GetXamlTypeByName("System.Collections.ObjectModel.Collection<Windows.UI.Xaml.Media.Brush>"));
+                AddToMapOfTypeToStandardName(typeof(global::System.Collections.ObjectModel.ObservableCollection<global::Windows.UI.Xaml.Media.Brush>),
+                                                   "System.Collections.ObjectModel.ObservableCollection<Windows.UI.Xaml.Media.Brush>");
+                userType.Activator = Activate_58_ObservableCollection;
+                userType.CollectionAdd = VectorAdd_58_ObservableCollection;
+                xamlType = userType;
+                break;
+
+            case "System.Collections.ObjectModel.Collection<Windows.UI.Xaml.Media.Brush>":
+                userType = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::System.Collections.ObjectModel.Collection<global::Windows.UI.Xaml.Media.Brush>), GetXamlTypeByName("Object"));
+                AddToMapOfTypeToStandardName(typeof(global::System.Collections.ObjectModel.Collection<global::Windows.UI.Xaml.Media.Brush>),
+                                                   "System.Collections.ObjectModel.Collection<Windows.UI.Xaml.Media.Brush>");
+                userType.Activator = Activate_59_Collection;
+                userType.CollectionAdd = VectorAdd_59_Collection;
+                xamlType = userType;
+                break;
+
             case "Telerik.UI.Xaml.Controls.Chart.DateTimeCategoricalAxis":
                 userType = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Telerik.UI.Xaml.Controls.Chart.DateTimeCategoricalAxis), GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalAxis"));
-                userType.Activator = Activate_56_DateTimeCategoricalAxis;
+                userType.Activator = Activate_60_DateTimeCategoricalAxis;
                 userType.AddMemberName("DateTimeComponent");
                 xamlType = userType;
                 break;
 
             case "Telerik.UI.Xaml.Controls.Chart.CategoricalAxis":
                 userType = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Telerik.UI.Xaml.Controls.Chart.CategoricalAxis), GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CartesianAxis"));
-                userType.Activator = Activate_57_CategoricalAxis;
+                userType.Activator = Activate_61_CategoricalAxis;
                 userType.AddMemberName("AutoGroup");
                 AddToMapOfTypeToStandardName(typeof(global::System.Boolean),
                                                    "Boolean");
@@ -1046,7 +1085,7 @@ namespace Flurrysticks.Flurrystics_XamlTypeInfo
 
             case "Telerik.UI.Xaml.Controls.Chart.LinearAxis":
                 userType = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Telerik.UI.Xaml.Controls.Chart.LinearAxis), GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.NumericalAxis"));
-                userType.Activator = Activate_65_LinearAxis;
+                userType.Activator = Activate_69_LinearAxis;
                 userType.AddMemberName("MajorStep");
                 AddToMapOfTypeToStandardName(typeof(global::System.Double),
                                                    "Double");
@@ -1089,7 +1128,7 @@ namespace Flurrysticks.Flurrystics_XamlTypeInfo
 
             case "Telerik.UI.Xaml.Controls.Chart.LineSeries":
                 userType = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Telerik.UI.Xaml.Controls.Chart.LineSeries), GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries"));
-                userType.Activator = Activate_69_LineSeries;
+                userType.Activator = Activate_73_LineSeries;
                 userType.SetContentPropertyName("Telerik.UI.Xaml.Controls.Chart.LineSeries.DataPoints");
                 xamlType = userType;
                 break;
@@ -1130,57 +1169,9 @@ namespace Flurrysticks.Flurrystics_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case "Telerik.UI.Xaml.Controls.Chart.PropertyNameDataPointBinding":
-                userType = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Telerik.UI.Xaml.Controls.Chart.PropertyNameDataPointBinding), GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.DataPointBinding"));
-                userType.Activator = Activate_73_PropertyNameDataPointBinding;
-                userType.AddMemberName("PropertyName");
-                AddToMapOfTypeToStandardName(typeof(global::System.String),
-                                                   "String");
-                xamlType = userType;
-                break;
-
-            case "Telerik.UI.Xaml.Controls.Chart.GridLineRenderMode":
-                userType = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Telerik.UI.Xaml.Controls.Chart.GridLineRenderMode), GetXamlTypeByName("System.Enum"));
-                userType.AddEnumValue("First", global::Telerik.UI.Xaml.Controls.Chart.GridLineRenderMode.First);
-                userType.AddEnumValue("Inner", global::Telerik.UI.Xaml.Controls.Chart.GridLineRenderMode.Inner);
-                userType.AddEnumValue("FirstAndInner", global::Telerik.UI.Xaml.Controls.Chart.GridLineRenderMode.FirstAndInner);
-                userType.AddEnumValue("Last", global::Telerik.UI.Xaml.Controls.Chart.GridLineRenderMode.Last);
-                userType.AddEnumValue("FirstAndLast", global::Telerik.UI.Xaml.Controls.Chart.GridLineRenderMode.FirstAndLast);
-                userType.AddEnumValue("InnerAndLast", global::Telerik.UI.Xaml.Controls.Chart.GridLineRenderMode.InnerAndLast);
-                userType.AddEnumValue("All", global::Telerik.UI.Xaml.Controls.Chart.GridLineRenderMode.All);
-                xamlType = userType;
-                break;
-
-            case "Telerik.UI.Xaml.Controls.Chart.GridLineVisibility":
-                userType = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Telerik.UI.Xaml.Controls.Chart.GridLineVisibility), GetXamlTypeByName("System.Enum"));
-                userType.AddEnumValue("None", global::Telerik.UI.Xaml.Controls.Chart.GridLineVisibility.None);
-                userType.AddEnumValue("X", global::Telerik.UI.Xaml.Controls.Chart.GridLineVisibility.X);
-                userType.AddEnumValue("Y", global::Telerik.UI.Xaml.Controls.Chart.GridLineVisibility.Y);
-                userType.AddEnumValue("XY", global::Telerik.UI.Xaml.Controls.Chart.GridLineVisibility.XY);
-                xamlType = userType;
-                break;
-
-            case "System.Collections.ObjectModel.ObservableCollection<Windows.UI.Xaml.Media.Brush>":
-                userType = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::System.Collections.ObjectModel.ObservableCollection<global::Windows.UI.Xaml.Media.Brush>), GetXamlTypeByName("System.Collections.ObjectModel.Collection<Windows.UI.Xaml.Media.Brush>"));
-                AddToMapOfTypeToStandardName(typeof(global::System.Collections.ObjectModel.ObservableCollection<global::Windows.UI.Xaml.Media.Brush>),
-                                                   "System.Collections.ObjectModel.ObservableCollection<Windows.UI.Xaml.Media.Brush>");
-                userType.Activator = Activate_76_ObservableCollection;
-                userType.CollectionAdd = VectorAdd_76_ObservableCollection;
-                xamlType = userType;
-                break;
-
-            case "System.Collections.ObjectModel.Collection<Windows.UI.Xaml.Media.Brush>":
-                userType = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::System.Collections.ObjectModel.Collection<global::Windows.UI.Xaml.Media.Brush>), GetXamlTypeByName("Object"));
-                AddToMapOfTypeToStandardName(typeof(global::System.Collections.ObjectModel.Collection<global::Windows.UI.Xaml.Media.Brush>),
-                                                   "System.Collections.ObjectModel.Collection<Windows.UI.Xaml.Media.Brush>");
-                userType.Activator = Activate_77_Collection;
-                userType.CollectionAdd = VectorAdd_77_Collection;
-                xamlType = userType;
-                break;
-
             case "Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior":
                 userType = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior), GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.ChartBehavior"));
-                userType.Activator = Activate_78_ChartTrackBallBehavior;
+                userType.Activator = Activate_77_ChartTrackBallBehavior;
                 userType.AddMemberName("ShowIntersectionPoints");
                 AddToMapOfTypeToStandardName(typeof(global::System.Boolean),
                                                    "Boolean");
@@ -1208,6 +1199,15 @@ namespace Flurrysticks.Flurrystics_XamlTypeInfo
                 userType.AddEnumValue("None", global::Telerik.UI.Xaml.Controls.Chart.TrackBallSnapMode.None);
                 userType.AddEnumValue("ClosestPoint", global::Telerik.UI.Xaml.Controls.Chart.TrackBallSnapMode.ClosestPoint);
                 userType.AddEnumValue("AllClosePoints", global::Telerik.UI.Xaml.Controls.Chart.TrackBallSnapMode.AllClosePoints);
+                xamlType = userType;
+                break;
+
+            case "Telerik.UI.Xaml.Controls.Chart.PropertyNameDataPointBinding":
+                userType = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Telerik.UI.Xaml.Controls.Chart.PropertyNameDataPointBinding), GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.DataPointBinding"));
+                userType.Activator = Activate_80_PropertyNameDataPointBinding;
+                userType.AddMemberName("PropertyName");
+                AddToMapOfTypeToStandardName(typeof(global::System.String),
+                                                   "String");
                 xamlType = userType;
                 break;
 
@@ -2144,552 +2144,552 @@ namespace Flurrysticks.Flurrystics_XamlTypeInfo
             var that = (global::Telerik.UI.Xaml.Controls.Chart.RadChartBase)instance;
             that.SelectionPaletteName = (global::Telerik.UI.Xaml.Controls.Chart.PredefinedPaletteName)Value;
         }
-        private object get_92_Axis_LabelFitMode(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            return that.LabelFitMode;
-        }
-        private void set_92_Axis_LabelFitMode(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            that.LabelFitMode = (global::Telerik.Charting.AxisLabelFitMode)Value;
-        }
-        private object get_93_Axis_LabelInterval(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            return that.LabelInterval;
-        }
-        private void set_93_Axis_LabelInterval(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            that.LabelInterval = (global::System.Int32)Value;
-        }
-        private object get_94_DateTimeCategoricalAxis_DateTimeComponent(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.DateTimeCategoricalAxis)instance;
-            return that.DateTimeComponent;
-        }
-        private void set_94_DateTimeCategoricalAxis_DateTimeComponent(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.DateTimeCategoricalAxis)instance;
-            that.DateTimeComponent = (global::Telerik.Charting.DateTimeComponent)Value;
-        }
-        private object get_95_CategoricalAxis_AutoGroup(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalAxis)instance;
-            return that.AutoGroup;
-        }
-        private void set_95_CategoricalAxis_AutoGroup(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalAxis)instance;
-            that.AutoGroup = (global::System.Boolean)Value;
-        }
-        private object get_96_CategoricalAxis_MajorTickInterval(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalAxis)instance;
-            return that.MajorTickInterval;
-        }
-        private void set_96_CategoricalAxis_MajorTickInterval(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalAxis)instance;
-            that.MajorTickInterval = (global::System.Int32)Value;
-        }
-        private object get_97_CategoricalAxis_PlotMode(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalAxis)instance;
-            return that.PlotMode;
-        }
-        private void set_97_CategoricalAxis_PlotMode(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalAxis)instance;
-            that.PlotMode = (global::Telerik.Charting.AxisPlotMode)Value;
-        }
-        private object get_98_CategoricalAxis_GapLength(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalAxis)instance;
-            return that.GapLength;
-        }
-        private void set_98_CategoricalAxis_GapLength(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalAxis)instance;
-            that.GapLength = (global::System.Double)Value;
-        }
-        private object get_99_CartesianAxis_HorizontalLocation(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CartesianAxis)instance;
-            return that.HorizontalLocation;
-        }
-        private void set_99_CartesianAxis_HorizontalLocation(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CartesianAxis)instance;
-            that.HorizontalLocation = (global::Telerik.Charting.AxisHorizontalLocation)Value;
-        }
-        private object get_100_CartesianAxis_VerticalLocation(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CartesianAxis)instance;
-            return that.VerticalLocation;
-        }
-        private void set_100_CartesianAxis_VerticalLocation(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CartesianAxis)instance;
-            that.VerticalLocation = (global::Telerik.Charting.AxisVerticalLocation)Value;
-        }
-        private object get_101_Axis_LabelFormatter(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            return that.LabelFormatter;
-        }
-        private void set_101_Axis_LabelFormatter(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            that.LabelFormatter = (global::Telerik.Charting.IContentFormatter)Value;
-        }
-        private object get_102_Axis_LabelRotationAngle(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            return that.LabelRotationAngle;
-        }
-        private void set_102_Axis_LabelRotationAngle(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            that.LabelRotationAngle = (global::System.Double)Value;
-        }
-        private object get_103_Axis_LineStyle(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            return that.LineStyle;
-        }
-        private void set_103_Axis_LineStyle(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            that.LineStyle = (global::Windows.UI.Xaml.Style)Value;
-        }
-        private object get_104_Axis_LastLabelVisibility(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            return that.LastLabelVisibility;
-        }
-        private void set_104_Axis_LastLabelVisibility(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            that.LastLabelVisibility = (global::Telerik.Charting.AxisLastLabelVisibility)Value;
-        }
-        private object get_105_Axis_LabelFormat(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            return that.LabelFormat;
-        }
-        private void set_105_Axis_LabelFormat(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            that.LabelFormat = (global::System.String)Value;
-        }
-        private object get_106_Axis_MajorTickOffset(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            return that.MajorTickOffset;
-        }
-        private void set_106_Axis_MajorTickOffset(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            that.MajorTickOffset = (global::System.Int32)Value;
-        }
-        private object get_107_Axis_LabelOffset(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            return that.LabelOffset;
-        }
-        private void set_107_Axis_LabelOffset(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            that.LabelOffset = (global::System.Int32)Value;
-        }
-        private object get_108_Axis_ShowLabels(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            return that.ShowLabels;
-        }
-        private void set_108_Axis_ShowLabels(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            that.ShowLabels = (global::System.Boolean)Value;
-        }
-        private object get_109_Axis_Title(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            return that.Title;
-        }
-        private void set_109_Axis_Title(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            that.Title = (global::System.Object)Value;
-        }
-        private object get_110_Axis_LabelTemplate(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            return that.LabelTemplate;
-        }
-        private void set_110_Axis_LabelTemplate(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            that.LabelTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
-        }
-        private object get_111_Axis_LabelTemplateSelector(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            return that.LabelTemplateSelector;
-        }
-        private void set_111_Axis_LabelTemplateSelector(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            that.LabelTemplateSelector = (global::Windows.UI.Xaml.Controls.DataTemplateSelector)Value;
-        }
-        private object get_112_Axis_LabelStyle(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            return that.LabelStyle;
-        }
-        private void set_112_Axis_LabelStyle(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            that.LabelStyle = (global::Windows.UI.Xaml.Style)Value;
-        }
-        private object get_113_Axis_TitleTemplate(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            return that.TitleTemplate;
-        }
-        private void set_113_Axis_TitleTemplate(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            that.TitleTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
-        }
-        private object get_114_Axis_MajorTickTemplate(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            return that.MajorTickTemplate;
-        }
-        private void set_114_Axis_MajorTickTemplate(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            that.MajorTickTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
-        }
-        private object get_115_Axis_MajorTickStyle(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            return that.MajorTickStyle;
-        }
-        private void set_115_Axis_MajorTickStyle(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            that.MajorTickStyle = (global::Windows.UI.Xaml.Style)Value;
-        }
-        private object get_116_Axis_TickThickness(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            return that.TickThickness;
-        }
-        private void set_116_Axis_TickThickness(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
-            that.TickThickness = (global::System.Double)Value;
-        }
-        private object get_117_LinearAxis_MajorStep(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.LinearAxis)instance;
-            return that.MajorStep;
-        }
-        private void set_117_LinearAxis_MajorStep(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.LinearAxis)instance;
-            that.MajorStep = (global::System.Double)Value;
-        }
-        private object get_118_NumericalAxis_Minimum(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.NumericalAxis)instance;
-            return that.Minimum;
-        }
-        private void set_118_NumericalAxis_Minimum(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.NumericalAxis)instance;
-            that.Minimum = (global::System.Double)Value;
-        }
-        private object get_119_NumericalAxis_Maximum(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.NumericalAxis)instance;
-            return that.Maximum;
-        }
-        private void set_119_NumericalAxis_Maximum(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.NumericalAxis)instance;
-            that.Maximum = (global::System.Double)Value;
-        }
-        private object get_120_NumericalAxis_RangeExtendDirection(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.NumericalAxis)instance;
-            return that.RangeExtendDirection;
-        }
-        private void set_120_NumericalAxis_RangeExtendDirection(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.NumericalAxis)instance;
-            that.RangeExtendDirection = (global::Telerik.Charting.NumericalAxisRangeExtendDirection)Value;
-        }
-        private object get_121_NumericalAxis_DesiredTickCount(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.NumericalAxis)instance;
-            return that.DesiredTickCount;
-        }
-        private void set_121_NumericalAxis_DesiredTickCount(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.NumericalAxis)instance;
-            that.DesiredTickCount = (global::System.Int32)Value;
-        }
-        private object get_122_NumericalAxis_ActualRange(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.NumericalAxis)instance;
-            return that.ActualRange;
-        }
-        private object get_123_CategoricalSeries_DataPoints(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalSeries)instance;
-            return that.DataPoints;
-        }
-        private object get_124_CategoricalStrokedSeries_Stroke(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries)instance;
-            return that.Stroke;
-        }
-        private void set_124_CategoricalStrokedSeries_Stroke(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries)instance;
-            that.Stroke = (global::Windows.UI.Xaml.Media.Brush)Value;
-        }
-        private object get_125_CategoricalStrokedSeries_StrokeThickness(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries)instance;
-            return that.StrokeThickness;
-        }
-        private void set_125_CategoricalStrokedSeries_StrokeThickness(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries)instance;
-            that.StrokeThickness = (global::System.Double)Value;
-        }
-        private object get_126_CategoricalSeries_ValueBinding(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalSeries)instance;
-            return that.ValueBinding;
-        }
-        private void set_126_CategoricalSeries_ValueBinding(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalSeries)instance;
-            that.ValueBinding = (global::Telerik.UI.Xaml.Controls.Chart.DataPointBinding)Value;
-        }
-        private object get_127_CategoricalSeries_CategoryBinding(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalSeries)instance;
-            return that.CategoryBinding;
-        }
-        private void set_127_CategoricalSeries_CategoryBinding(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalSeries)instance;
-            that.CategoryBinding = (global::Telerik.UI.Xaml.Controls.Chart.DataPointBinding)Value;
-        }
-        private object get_128_CategoricalStrokedSeries_StrokeDashArray(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries)instance;
-            return that.StrokeDashArray;
-        }
-        private void set_128_CategoricalStrokedSeries_StrokeDashArray(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries)instance;
-            that.StrokeDashArray = (global::Windows.UI.Xaml.Media.DoubleCollection)Value;
-        }
-        private object get_129_CategoricalStrokedSeries_StrokeLineJoin(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries)instance;
-            return that.StrokeLineJoin;
-        }
-        private void set_129_CategoricalStrokedSeries_StrokeLineJoin(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries)instance;
-            that.StrokeLineJoin = (global::Windows.UI.Xaml.Media.PenLineJoin)Value;
-        }
-        private object get_130_CategoricalSeries_CombineMode(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalSeries)instance;
-            return that.CombineMode;
-        }
-        private void set_130_CategoricalSeries_CombineMode(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalSeries)instance;
-            that.CombineMode = (global::Telerik.Charting.ChartSeriesCombineMode)Value;
-        }
-        private object get_131_CategoricalSeries_StackGroupKey(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalSeries)instance;
-            return that.StackGroupKey;
-        }
-        private void set_131_CategoricalSeries_StackGroupKey(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalSeries)instance;
-            that.StackGroupKey = (global::System.Object)Value;
-        }
-        private object get_132_PropertyNameDataPointBinding_PropertyName(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.PropertyNameDataPointBinding)instance;
-            return that.PropertyName;
-        }
-        private void set_132_PropertyNameDataPointBinding_PropertyName(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Chart.PropertyNameDataPointBinding)instance;
-            that.PropertyName = (global::System.String)Value;
-        }
-        private object get_133_CartesianChartGrid_MajorXLinesRenderMode(object instance)
+        private object get_92_CartesianChartGrid_MajorXLinesRenderMode(object instance)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid)instance;
             return that.MajorXLinesRenderMode;
         }
-        private void set_133_CartesianChartGrid_MajorXLinesRenderMode(object instance, object Value)
+        private void set_92_CartesianChartGrid_MajorXLinesRenderMode(object instance, object Value)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid)instance;
             that.MajorXLinesRenderMode = (global::Telerik.UI.Xaml.Controls.Chart.GridLineRenderMode)Value;
         }
-        private object get_134_CartesianChartGrid_MajorLinesVisibility(object instance)
+        private object get_93_CartesianChartGrid_MajorLinesVisibility(object instance)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid)instance;
             return that.MajorLinesVisibility;
         }
-        private void set_134_CartesianChartGrid_MajorLinesVisibility(object instance, object Value)
+        private void set_93_CartesianChartGrid_MajorLinesVisibility(object instance, object Value)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid)instance;
             that.MajorLinesVisibility = (global::Telerik.UI.Xaml.Controls.Chart.GridLineVisibility)Value;
         }
-        private object get_135_CartesianChartGrid_MajorYLinesRenderMode(object instance)
+        private object get_94_CartesianChartGrid_MajorYLinesRenderMode(object instance)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid)instance;
             return that.MajorYLinesRenderMode;
         }
-        private void set_135_CartesianChartGrid_MajorYLinesRenderMode(object instance, object Value)
+        private void set_94_CartesianChartGrid_MajorYLinesRenderMode(object instance, object Value)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid)instance;
             that.MajorYLinesRenderMode = (global::Telerik.UI.Xaml.Controls.Chart.GridLineRenderMode)Value;
         }
-        private object get_136_CartesianChartGrid_StripLinesVisibility(object instance)
+        private object get_95_CartesianChartGrid_StripLinesVisibility(object instance)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid)instance;
             return that.StripLinesVisibility;
         }
-        private void set_136_CartesianChartGrid_StripLinesVisibility(object instance, object Value)
+        private void set_95_CartesianChartGrid_StripLinesVisibility(object instance, object Value)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid)instance;
             that.StripLinesVisibility = (global::Telerik.UI.Xaml.Controls.Chart.GridLineVisibility)Value;
         }
-        private object get_137_CartesianChartGrid_XStripeBrushes(object instance)
+        private object get_96_CartesianChartGrid_XStripeBrushes(object instance)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid)instance;
             return that.XStripeBrushes;
         }
-        private object get_138_CartesianChartGrid_YStripeBrushes(object instance)
+        private object get_97_CartesianChartGrid_YStripeBrushes(object instance)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid)instance;
             return that.YStripeBrushes;
         }
-        private object get_139_CartesianChartGrid_MajorXLineStyle(object instance)
+        private object get_98_CartesianChartGrid_MajorXLineStyle(object instance)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid)instance;
             return that.MajorXLineStyle;
         }
-        private void set_139_CartesianChartGrid_MajorXLineStyle(object instance, object Value)
+        private void set_98_CartesianChartGrid_MajorXLineStyle(object instance, object Value)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid)instance;
             that.MajorXLineStyle = (global::Windows.UI.Xaml.Style)Value;
         }
-        private object get_140_CartesianChartGrid_MajorYLineStyle(object instance)
+        private object get_99_CartesianChartGrid_MajorYLineStyle(object instance)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid)instance;
             return that.MajorYLineStyle;
         }
-        private void set_140_CartesianChartGrid_MajorYLineStyle(object instance, object Value)
+        private void set_99_CartesianChartGrid_MajorYLineStyle(object instance, object Value)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid)instance;
             that.MajorYLineStyle = (global::Windows.UI.Xaml.Style)Value;
         }
-        private object get_141_ChartTrackBallBehavior_ShowIntersectionPoints(object instance)
+        private object get_100_Axis_LabelFitMode(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            return that.LabelFitMode;
+        }
+        private void set_100_Axis_LabelFitMode(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            that.LabelFitMode = (global::Telerik.Charting.AxisLabelFitMode)Value;
+        }
+        private object get_101_Axis_LabelInterval(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            return that.LabelInterval;
+        }
+        private void set_101_Axis_LabelInterval(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            that.LabelInterval = (global::System.Int32)Value;
+        }
+        private object get_102_DateTimeCategoricalAxis_DateTimeComponent(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.DateTimeCategoricalAxis)instance;
+            return that.DateTimeComponent;
+        }
+        private void set_102_DateTimeCategoricalAxis_DateTimeComponent(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.DateTimeCategoricalAxis)instance;
+            that.DateTimeComponent = (global::Telerik.Charting.DateTimeComponent)Value;
+        }
+        private object get_103_CategoricalAxis_AutoGroup(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalAxis)instance;
+            return that.AutoGroup;
+        }
+        private void set_103_CategoricalAxis_AutoGroup(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalAxis)instance;
+            that.AutoGroup = (global::System.Boolean)Value;
+        }
+        private object get_104_CategoricalAxis_MajorTickInterval(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalAxis)instance;
+            return that.MajorTickInterval;
+        }
+        private void set_104_CategoricalAxis_MajorTickInterval(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalAxis)instance;
+            that.MajorTickInterval = (global::System.Int32)Value;
+        }
+        private object get_105_CategoricalAxis_PlotMode(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalAxis)instance;
+            return that.PlotMode;
+        }
+        private void set_105_CategoricalAxis_PlotMode(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalAxis)instance;
+            that.PlotMode = (global::Telerik.Charting.AxisPlotMode)Value;
+        }
+        private object get_106_CategoricalAxis_GapLength(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalAxis)instance;
+            return that.GapLength;
+        }
+        private void set_106_CategoricalAxis_GapLength(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalAxis)instance;
+            that.GapLength = (global::System.Double)Value;
+        }
+        private object get_107_CartesianAxis_HorizontalLocation(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CartesianAxis)instance;
+            return that.HorizontalLocation;
+        }
+        private void set_107_CartesianAxis_HorizontalLocation(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CartesianAxis)instance;
+            that.HorizontalLocation = (global::Telerik.Charting.AxisHorizontalLocation)Value;
+        }
+        private object get_108_CartesianAxis_VerticalLocation(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CartesianAxis)instance;
+            return that.VerticalLocation;
+        }
+        private void set_108_CartesianAxis_VerticalLocation(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CartesianAxis)instance;
+            that.VerticalLocation = (global::Telerik.Charting.AxisVerticalLocation)Value;
+        }
+        private object get_109_Axis_LabelFormatter(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            return that.LabelFormatter;
+        }
+        private void set_109_Axis_LabelFormatter(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            that.LabelFormatter = (global::Telerik.Charting.IContentFormatter)Value;
+        }
+        private object get_110_Axis_LabelRotationAngle(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            return that.LabelRotationAngle;
+        }
+        private void set_110_Axis_LabelRotationAngle(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            that.LabelRotationAngle = (global::System.Double)Value;
+        }
+        private object get_111_Axis_LineStyle(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            return that.LineStyle;
+        }
+        private void set_111_Axis_LineStyle(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            that.LineStyle = (global::Windows.UI.Xaml.Style)Value;
+        }
+        private object get_112_Axis_LastLabelVisibility(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            return that.LastLabelVisibility;
+        }
+        private void set_112_Axis_LastLabelVisibility(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            that.LastLabelVisibility = (global::Telerik.Charting.AxisLastLabelVisibility)Value;
+        }
+        private object get_113_Axis_LabelFormat(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            return that.LabelFormat;
+        }
+        private void set_113_Axis_LabelFormat(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            that.LabelFormat = (global::System.String)Value;
+        }
+        private object get_114_Axis_MajorTickOffset(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            return that.MajorTickOffset;
+        }
+        private void set_114_Axis_MajorTickOffset(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            that.MajorTickOffset = (global::System.Int32)Value;
+        }
+        private object get_115_Axis_LabelOffset(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            return that.LabelOffset;
+        }
+        private void set_115_Axis_LabelOffset(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            that.LabelOffset = (global::System.Int32)Value;
+        }
+        private object get_116_Axis_ShowLabels(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            return that.ShowLabels;
+        }
+        private void set_116_Axis_ShowLabels(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            that.ShowLabels = (global::System.Boolean)Value;
+        }
+        private object get_117_Axis_Title(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            return that.Title;
+        }
+        private void set_117_Axis_Title(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            that.Title = (global::System.Object)Value;
+        }
+        private object get_118_Axis_LabelTemplate(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            return that.LabelTemplate;
+        }
+        private void set_118_Axis_LabelTemplate(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            that.LabelTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_119_Axis_LabelTemplateSelector(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            return that.LabelTemplateSelector;
+        }
+        private void set_119_Axis_LabelTemplateSelector(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            that.LabelTemplateSelector = (global::Windows.UI.Xaml.Controls.DataTemplateSelector)Value;
+        }
+        private object get_120_Axis_LabelStyle(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            return that.LabelStyle;
+        }
+        private void set_120_Axis_LabelStyle(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            that.LabelStyle = (global::Windows.UI.Xaml.Style)Value;
+        }
+        private object get_121_Axis_TitleTemplate(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            return that.TitleTemplate;
+        }
+        private void set_121_Axis_TitleTemplate(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            that.TitleTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_122_Axis_MajorTickTemplate(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            return that.MajorTickTemplate;
+        }
+        private void set_122_Axis_MajorTickTemplate(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            that.MajorTickTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_123_Axis_MajorTickStyle(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            return that.MajorTickStyle;
+        }
+        private void set_123_Axis_MajorTickStyle(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            that.MajorTickStyle = (global::Windows.UI.Xaml.Style)Value;
+        }
+        private object get_124_Axis_TickThickness(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            return that.TickThickness;
+        }
+        private void set_124_Axis_TickThickness(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.Axis)instance;
+            that.TickThickness = (global::System.Double)Value;
+        }
+        private object get_125_LinearAxis_MajorStep(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.LinearAxis)instance;
+            return that.MajorStep;
+        }
+        private void set_125_LinearAxis_MajorStep(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.LinearAxis)instance;
+            that.MajorStep = (global::System.Double)Value;
+        }
+        private object get_126_NumericalAxis_Minimum(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.NumericalAxis)instance;
+            return that.Minimum;
+        }
+        private void set_126_NumericalAxis_Minimum(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.NumericalAxis)instance;
+            that.Minimum = (global::System.Double)Value;
+        }
+        private object get_127_NumericalAxis_Maximum(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.NumericalAxis)instance;
+            return that.Maximum;
+        }
+        private void set_127_NumericalAxis_Maximum(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.NumericalAxis)instance;
+            that.Maximum = (global::System.Double)Value;
+        }
+        private object get_128_NumericalAxis_RangeExtendDirection(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.NumericalAxis)instance;
+            return that.RangeExtendDirection;
+        }
+        private void set_128_NumericalAxis_RangeExtendDirection(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.NumericalAxis)instance;
+            that.RangeExtendDirection = (global::Telerik.Charting.NumericalAxisRangeExtendDirection)Value;
+        }
+        private object get_129_NumericalAxis_DesiredTickCount(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.NumericalAxis)instance;
+            return that.DesiredTickCount;
+        }
+        private void set_129_NumericalAxis_DesiredTickCount(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.NumericalAxis)instance;
+            that.DesiredTickCount = (global::System.Int32)Value;
+        }
+        private object get_130_NumericalAxis_ActualRange(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.NumericalAxis)instance;
+            return that.ActualRange;
+        }
+        private object get_131_CategoricalSeries_DataPoints(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalSeries)instance;
+            return that.DataPoints;
+        }
+        private object get_132_CategoricalStrokedSeries_Stroke(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries)instance;
+            return that.Stroke;
+        }
+        private void set_132_CategoricalStrokedSeries_Stroke(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries)instance;
+            that.Stroke = (global::Windows.UI.Xaml.Media.Brush)Value;
+        }
+        private object get_133_CategoricalStrokedSeries_StrokeThickness(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries)instance;
+            return that.StrokeThickness;
+        }
+        private void set_133_CategoricalStrokedSeries_StrokeThickness(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries)instance;
+            that.StrokeThickness = (global::System.Double)Value;
+        }
+        private object get_134_CategoricalSeries_ValueBinding(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalSeries)instance;
+            return that.ValueBinding;
+        }
+        private void set_134_CategoricalSeries_ValueBinding(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalSeries)instance;
+            that.ValueBinding = (global::Telerik.UI.Xaml.Controls.Chart.DataPointBinding)Value;
+        }
+        private object get_135_CategoricalSeries_CategoryBinding(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalSeries)instance;
+            return that.CategoryBinding;
+        }
+        private void set_135_CategoricalSeries_CategoryBinding(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalSeries)instance;
+            that.CategoryBinding = (global::Telerik.UI.Xaml.Controls.Chart.DataPointBinding)Value;
+        }
+        private object get_136_CategoricalStrokedSeries_StrokeDashArray(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries)instance;
+            return that.StrokeDashArray;
+        }
+        private void set_136_CategoricalStrokedSeries_StrokeDashArray(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries)instance;
+            that.StrokeDashArray = (global::Windows.UI.Xaml.Media.DoubleCollection)Value;
+        }
+        private object get_137_CategoricalStrokedSeries_StrokeLineJoin(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries)instance;
+            return that.StrokeLineJoin;
+        }
+        private void set_137_CategoricalStrokedSeries_StrokeLineJoin(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries)instance;
+            that.StrokeLineJoin = (global::Windows.UI.Xaml.Media.PenLineJoin)Value;
+        }
+        private object get_138_CategoricalSeries_CombineMode(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalSeries)instance;
+            return that.CombineMode;
+        }
+        private void set_138_CategoricalSeries_CombineMode(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalSeries)instance;
+            that.CombineMode = (global::Telerik.Charting.ChartSeriesCombineMode)Value;
+        }
+        private object get_139_CategoricalSeries_StackGroupKey(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalSeries)instance;
+            return that.StackGroupKey;
+        }
+        private void set_139_CategoricalSeries_StackGroupKey(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.CategoricalSeries)instance;
+            that.StackGroupKey = (global::System.Object)Value;
+        }
+        private object get_140_ChartTrackBallBehavior_ShowIntersectionPoints(object instance)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
             return that.ShowIntersectionPoints;
         }
-        private void set_141_ChartTrackBallBehavior_ShowIntersectionPoints(object instance, object Value)
+        private void set_140_ChartTrackBallBehavior_ShowIntersectionPoints(object instance, object Value)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
             that.ShowIntersectionPoints = (global::System.Boolean)Value;
         }
-        private object get_142_ChartTrackBallBehavior_InfoMode(object instance)
+        private object get_141_ChartTrackBallBehavior_InfoMode(object instance)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
             return that.InfoMode;
         }
-        private void set_142_ChartTrackBallBehavior_InfoMode(object instance, object Value)
+        private void set_141_ChartTrackBallBehavior_InfoMode(object instance, object Value)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
             that.InfoMode = (global::Telerik.UI.Xaml.Controls.Chart.TrackInfoMode)Value;
         }
-        private object get_143_ChartTrackBallBehavior_ShowInfo(object instance)
+        private object get_142_ChartTrackBallBehavior_ShowInfo(object instance)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
             return that.ShowInfo;
         }
-        private void set_143_ChartTrackBallBehavior_ShowInfo(object instance, object Value)
+        private void set_142_ChartTrackBallBehavior_ShowInfo(object instance, object Value)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
             that.ShowInfo = (global::System.Boolean)Value;
         }
-        private object get_144_ChartTrackBallBehavior_LineStyle(object instance)
+        private object get_143_ChartTrackBallBehavior_LineStyle(object instance)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
             return that.LineStyle;
         }
-        private void set_144_ChartTrackBallBehavior_LineStyle(object instance, object Value)
+        private void set_143_ChartTrackBallBehavior_LineStyle(object instance, object Value)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
             that.LineStyle = (global::Windows.UI.Xaml.Style)Value;
         }
-        private object get_145_ChartTrackBallBehavior_InfoStyle(object instance)
+        private object get_144_ChartTrackBallBehavior_InfoStyle(object instance)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
             return that.InfoStyle;
         }
-        private void set_145_ChartTrackBallBehavior_InfoStyle(object instance, object Value)
+        private void set_144_ChartTrackBallBehavior_InfoStyle(object instance, object Value)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
             that.InfoStyle = (global::Windows.UI.Xaml.Style)Value;
         }
-        private object get_146_ChartTrackBallBehavior_SnapMode(object instance)
+        private object get_145_ChartTrackBallBehavior_SnapMode(object instance)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
             return that.SnapMode;
         }
-        private void set_146_ChartTrackBallBehavior_SnapMode(object instance, object Value)
+        private void set_145_ChartTrackBallBehavior_SnapMode(object instance, object Value)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior)instance;
             that.SnapMode = (global::Telerik.UI.Xaml.Controls.Chart.TrackBallSnapMode)Value;
         }
-        private object get_147_ChartTrackBallBehavior_TrackInfoTemplate(object instance)
+        private object get_146_ChartTrackBallBehavior_TrackInfoTemplate(object instance)
         {
             return global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior.GetTrackInfoTemplate((global::Windows.UI.Xaml.DependencyObject)instance);
         }
-        private void set_147_ChartTrackBallBehavior_TrackInfoTemplate(object instance, object Value)
+        private void set_146_ChartTrackBallBehavior_TrackInfoTemplate(object instance, object Value)
         {
             global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior.SetTrackInfoTemplate((global::Windows.UI.Xaml.DependencyObject)instance, (Windows.UI.Xaml.DataTemplate)Value);
                     }
-        private object get_148_ChartTrackBallBehavior_IntersectionTemplate(object instance)
+        private object get_147_ChartTrackBallBehavior_IntersectionTemplate(object instance)
         {
             return global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior.GetIntersectionTemplate((global::Windows.UI.Xaml.DependencyObject)instance);
         }
-        private void set_148_ChartTrackBallBehavior_IntersectionTemplate(object instance, object Value)
+        private void set_147_ChartTrackBallBehavior_IntersectionTemplate(object instance, object Value)
         {
             global::Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior.SetIntersectionTemplate((global::Windows.UI.Xaml.DependencyObject)instance, (Windows.UI.Xaml.DataTemplate)Value);
                     }
+        private object get_148_PropertyNameDataPointBinding_PropertyName(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.PropertyNameDataPointBinding)instance;
+            return that.PropertyName;
+        }
+        private void set_148_PropertyNameDataPointBinding_PropertyName(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Chart.PropertyNameDataPointBinding)instance;
+            that.PropertyName = (global::System.String)Value;
+        }
         private object get_149_ChartPanAndZoomBehavior_PanMode(object instance)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Chart.ChartPanAndZoomBehavior)instance;
@@ -3458,370 +3458,364 @@ namespace Flurrysticks.Flurrystics_XamlTypeInfo
                 xamlMember.Getter = get_91_RadChartBase_SelectionPaletteName;
                 xamlMember.Setter = set_91_RadChartBase_SelectionPaletteName;
                 break;
-            case "Telerik.UI.Xaml.Controls.Chart.Axis.LabelFitMode":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "LabelFitMode", "Telerik.Charting.AxisLabelFitMode");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_92_Axis_LabelFitMode;
-                xamlMember.Setter = set_92_Axis_LabelFitMode;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.Axis.LabelInterval":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "LabelInterval", "Int32");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_93_Axis_LabelInterval;
-                xamlMember.Setter = set_93_Axis_LabelInterval;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.DateTimeCategoricalAxis.DateTimeComponent":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.DateTimeCategoricalAxis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "DateTimeComponent", "Telerik.Charting.DateTimeComponent");
-                xamlMember.Getter = get_94_DateTimeCategoricalAxis_DateTimeComponent;
-                xamlMember.Setter = set_94_DateTimeCategoricalAxis_DateTimeComponent;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.CategoricalAxis.AutoGroup":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalAxis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "AutoGroup", "Boolean");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_95_CategoricalAxis_AutoGroup;
-                xamlMember.Setter = set_95_CategoricalAxis_AutoGroup;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.CategoricalAxis.MajorTickInterval":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalAxis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "MajorTickInterval", "Int32");
-                xamlMember.Getter = get_96_CategoricalAxis_MajorTickInterval;
-                xamlMember.Setter = set_96_CategoricalAxis_MajorTickInterval;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.CategoricalAxis.PlotMode":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalAxis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "PlotMode", "Telerik.Charting.AxisPlotMode");
-                xamlMember.Getter = get_97_CategoricalAxis_PlotMode;
-                xamlMember.Setter = set_97_CategoricalAxis_PlotMode;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.CategoricalAxis.GapLength":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalAxis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "GapLength", "Double");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_98_CategoricalAxis_GapLength;
-                xamlMember.Setter = set_98_CategoricalAxis_GapLength;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.CartesianAxis.HorizontalLocation":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CartesianAxis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "HorizontalLocation", "Telerik.Charting.AxisHorizontalLocation");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_99_CartesianAxis_HorizontalLocation;
-                xamlMember.Setter = set_99_CartesianAxis_HorizontalLocation;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.CartesianAxis.VerticalLocation":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CartesianAxis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "VerticalLocation", "Telerik.Charting.AxisVerticalLocation");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_100_CartesianAxis_VerticalLocation;
-                xamlMember.Setter = set_100_CartesianAxis_VerticalLocation;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.Axis.LabelFormatter":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "LabelFormatter", "Telerik.Charting.IContentFormatter");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_101_Axis_LabelFormatter;
-                xamlMember.Setter = set_101_Axis_LabelFormatter;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.Axis.LabelRotationAngle":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "LabelRotationAngle", "Double");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_102_Axis_LabelRotationAngle;
-                xamlMember.Setter = set_102_Axis_LabelRotationAngle;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.Axis.LineStyle":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "LineStyle", "Windows.UI.Xaml.Style");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_103_Axis_LineStyle;
-                xamlMember.Setter = set_103_Axis_LineStyle;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.Axis.LastLabelVisibility":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "LastLabelVisibility", "Telerik.Charting.AxisLastLabelVisibility");
-                xamlMember.Getter = get_104_Axis_LastLabelVisibility;
-                xamlMember.Setter = set_104_Axis_LastLabelVisibility;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.Axis.LabelFormat":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "LabelFormat", "String");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_105_Axis_LabelFormat;
-                xamlMember.Setter = set_105_Axis_LabelFormat;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.Axis.MajorTickOffset":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "MajorTickOffset", "Int32");
-                xamlMember.Getter = get_106_Axis_MajorTickOffset;
-                xamlMember.Setter = set_106_Axis_MajorTickOffset;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.Axis.LabelOffset":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "LabelOffset", "Int32");
-                xamlMember.Getter = get_107_Axis_LabelOffset;
-                xamlMember.Setter = set_107_Axis_LabelOffset;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.Axis.ShowLabels":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "ShowLabels", "Boolean");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_108_Axis_ShowLabels;
-                xamlMember.Setter = set_108_Axis_ShowLabels;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.Axis.Title":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "Title", "Object");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_109_Axis_Title;
-                xamlMember.Setter = set_109_Axis_Title;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.Axis.LabelTemplate":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "LabelTemplate", "Windows.UI.Xaml.DataTemplate");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_110_Axis_LabelTemplate;
-                xamlMember.Setter = set_110_Axis_LabelTemplate;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.Axis.LabelTemplateSelector":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "LabelTemplateSelector", "Windows.UI.Xaml.Controls.DataTemplateSelector");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_111_Axis_LabelTemplateSelector;
-                xamlMember.Setter = set_111_Axis_LabelTemplateSelector;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.Axis.LabelStyle":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "LabelStyle", "Windows.UI.Xaml.Style");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_112_Axis_LabelStyle;
-                xamlMember.Setter = set_112_Axis_LabelStyle;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.Axis.TitleTemplate":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "TitleTemplate", "Windows.UI.Xaml.DataTemplate");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_113_Axis_TitleTemplate;
-                xamlMember.Setter = set_113_Axis_TitleTemplate;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.Axis.MajorTickTemplate":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "MajorTickTemplate", "Windows.UI.Xaml.DataTemplate");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_114_Axis_MajorTickTemplate;
-                xamlMember.Setter = set_114_Axis_MajorTickTemplate;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.Axis.MajorTickStyle":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "MajorTickStyle", "Windows.UI.Xaml.Style");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_115_Axis_MajorTickStyle;
-                xamlMember.Setter = set_115_Axis_MajorTickStyle;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.Axis.TickThickness":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "TickThickness", "Double");
-                xamlMember.Getter = get_116_Axis_TickThickness;
-                xamlMember.Setter = set_116_Axis_TickThickness;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.LinearAxis.MajorStep":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.LinearAxis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "MajorStep", "Double");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_117_LinearAxis_MajorStep;
-                xamlMember.Setter = set_117_LinearAxis_MajorStep;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.NumericalAxis.Minimum":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.NumericalAxis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "Minimum", "Double");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_118_NumericalAxis_Minimum;
-                xamlMember.Setter = set_118_NumericalAxis_Minimum;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.NumericalAxis.Maximum":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.NumericalAxis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "Maximum", "Double");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_119_NumericalAxis_Maximum;
-                xamlMember.Setter = set_119_NumericalAxis_Maximum;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.NumericalAxis.RangeExtendDirection":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.NumericalAxis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "RangeExtendDirection", "Telerik.Charting.NumericalAxisRangeExtendDirection");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_120_NumericalAxis_RangeExtendDirection;
-                xamlMember.Setter = set_120_NumericalAxis_RangeExtendDirection;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.NumericalAxis.DesiredTickCount":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.NumericalAxis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "DesiredTickCount", "Int32");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_121_NumericalAxis_DesiredTickCount;
-                xamlMember.Setter = set_121_NumericalAxis_DesiredTickCount;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.NumericalAxis.ActualRange":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.NumericalAxis");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "ActualRange", "Telerik.Charting.ValueRange<Double>");
-                xamlMember.Getter = get_122_NumericalAxis_ActualRange;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.CategoricalSeries.DataPoints":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalSeries");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "DataPoints", "Telerik.Charting.DataPointCollection<Telerik.Charting.CategoricalDataPoint>");
-                xamlMember.Getter = get_123_CategoricalSeries_DataPoints;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries.Stroke":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "Stroke", "Windows.UI.Xaml.Media.Brush");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_124_CategoricalStrokedSeries_Stroke;
-                xamlMember.Setter = set_124_CategoricalStrokedSeries_Stroke;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries.StrokeThickness":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "StrokeThickness", "Double");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_125_CategoricalStrokedSeries_StrokeThickness;
-                xamlMember.Setter = set_125_CategoricalStrokedSeries_StrokeThickness;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.CategoricalSeries.ValueBinding":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalSeries");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "ValueBinding", "Telerik.UI.Xaml.Controls.Chart.DataPointBinding");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_126_CategoricalSeries_ValueBinding;
-                xamlMember.Setter = set_126_CategoricalSeries_ValueBinding;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.CategoricalSeries.CategoryBinding":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalSeries");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "CategoryBinding", "Telerik.UI.Xaml.Controls.Chart.DataPointBinding");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_127_CategoricalSeries_CategoryBinding;
-                xamlMember.Setter = set_127_CategoricalSeries_CategoryBinding;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries.StrokeDashArray":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "StrokeDashArray", "Windows.UI.Xaml.Media.DoubleCollection");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_128_CategoricalStrokedSeries_StrokeDashArray;
-                xamlMember.Setter = set_128_CategoricalStrokedSeries_StrokeDashArray;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries.StrokeLineJoin":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "StrokeLineJoin", "Windows.UI.Xaml.Media.PenLineJoin");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_129_CategoricalStrokedSeries_StrokeLineJoin;
-                xamlMember.Setter = set_129_CategoricalStrokedSeries_StrokeLineJoin;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.CategoricalSeries.CombineMode":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalSeries");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "CombineMode", "Telerik.Charting.ChartSeriesCombineMode");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_130_CategoricalSeries_CombineMode;
-                xamlMember.Setter = set_130_CategoricalSeries_CombineMode;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.CategoricalSeries.StackGroupKey":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalSeries");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "StackGroupKey", "Object");
-                xamlMember.Getter = get_131_CategoricalSeries_StackGroupKey;
-                xamlMember.Setter = set_131_CategoricalSeries_StackGroupKey;
-                break;
-            case "Telerik.UI.Xaml.Controls.Chart.PropertyNameDataPointBinding.PropertyName":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.PropertyNameDataPointBinding");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "PropertyName", "String");
-                xamlMember.Getter = get_132_PropertyNameDataPointBinding_PropertyName;
-                xamlMember.Setter = set_132_PropertyNameDataPointBinding_PropertyName;
-                break;
             case "Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid.MajorXLinesRenderMode":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid");
                 xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "MajorXLinesRenderMode", "Telerik.UI.Xaml.Controls.Chart.GridLineRenderMode");
-                xamlMember.Getter = get_133_CartesianChartGrid_MajorXLinesRenderMode;
-                xamlMember.Setter = set_133_CartesianChartGrid_MajorXLinesRenderMode;
+                xamlMember.Getter = get_92_CartesianChartGrid_MajorXLinesRenderMode;
+                xamlMember.Setter = set_92_CartesianChartGrid_MajorXLinesRenderMode;
                 break;
             case "Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid.MajorLinesVisibility":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid");
                 xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "MajorLinesVisibility", "Telerik.UI.Xaml.Controls.Chart.GridLineVisibility");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_134_CartesianChartGrid_MajorLinesVisibility;
-                xamlMember.Setter = set_134_CartesianChartGrid_MajorLinesVisibility;
+                xamlMember.Getter = get_93_CartesianChartGrid_MajorLinesVisibility;
+                xamlMember.Setter = set_93_CartesianChartGrid_MajorLinesVisibility;
                 break;
             case "Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid.MajorYLinesRenderMode":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid");
                 xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "MajorYLinesRenderMode", "Telerik.UI.Xaml.Controls.Chart.GridLineRenderMode");
-                xamlMember.Getter = get_135_CartesianChartGrid_MajorYLinesRenderMode;
-                xamlMember.Setter = set_135_CartesianChartGrid_MajorYLinesRenderMode;
+                xamlMember.Getter = get_94_CartesianChartGrid_MajorYLinesRenderMode;
+                xamlMember.Setter = set_94_CartesianChartGrid_MajorYLinesRenderMode;
                 break;
             case "Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid.StripLinesVisibility":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid");
                 xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "StripLinesVisibility", "Telerik.UI.Xaml.Controls.Chart.GridLineVisibility");
-                xamlMember.Getter = get_136_CartesianChartGrid_StripLinesVisibility;
-                xamlMember.Setter = set_136_CartesianChartGrid_StripLinesVisibility;
+                xamlMember.Getter = get_95_CartesianChartGrid_StripLinesVisibility;
+                xamlMember.Setter = set_95_CartesianChartGrid_StripLinesVisibility;
                 break;
             case "Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid.XStripeBrushes":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid");
                 xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "XStripeBrushes", "System.Collections.ObjectModel.ObservableCollection<Windows.UI.Xaml.Media.Brush>");
-                xamlMember.Getter = get_137_CartesianChartGrid_XStripeBrushes;
+                xamlMember.Getter = get_96_CartesianChartGrid_XStripeBrushes;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid.YStripeBrushes":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid");
                 xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "YStripeBrushes", "System.Collections.ObjectModel.ObservableCollection<Windows.UI.Xaml.Media.Brush>");
-                xamlMember.Getter = get_138_CartesianChartGrid_YStripeBrushes;
+                xamlMember.Getter = get_97_CartesianChartGrid_YStripeBrushes;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid.MajorXLineStyle":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid");
                 xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "MajorXLineStyle", "Windows.UI.Xaml.Style");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_139_CartesianChartGrid_MajorXLineStyle;
-                xamlMember.Setter = set_139_CartesianChartGrid_MajorXLineStyle;
+                xamlMember.Getter = get_98_CartesianChartGrid_MajorXLineStyle;
+                xamlMember.Setter = set_98_CartesianChartGrid_MajorXLineStyle;
                 break;
             case "Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid.MajorYLineStyle":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid");
                 xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "MajorYLineStyle", "Windows.UI.Xaml.Style");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_140_CartesianChartGrid_MajorYLineStyle;
-                xamlMember.Setter = set_140_CartesianChartGrid_MajorYLineStyle;
+                xamlMember.Getter = get_99_CartesianChartGrid_MajorYLineStyle;
+                xamlMember.Setter = set_99_CartesianChartGrid_MajorYLineStyle;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.Axis.LabelFitMode":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "LabelFitMode", "Telerik.Charting.AxisLabelFitMode");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_100_Axis_LabelFitMode;
+                xamlMember.Setter = set_100_Axis_LabelFitMode;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.Axis.LabelInterval":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "LabelInterval", "Int32");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_101_Axis_LabelInterval;
+                xamlMember.Setter = set_101_Axis_LabelInterval;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.DateTimeCategoricalAxis.DateTimeComponent":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.DateTimeCategoricalAxis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "DateTimeComponent", "Telerik.Charting.DateTimeComponent");
+                xamlMember.Getter = get_102_DateTimeCategoricalAxis_DateTimeComponent;
+                xamlMember.Setter = set_102_DateTimeCategoricalAxis_DateTimeComponent;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.CategoricalAxis.AutoGroup":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalAxis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "AutoGroup", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_103_CategoricalAxis_AutoGroup;
+                xamlMember.Setter = set_103_CategoricalAxis_AutoGroup;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.CategoricalAxis.MajorTickInterval":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalAxis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "MajorTickInterval", "Int32");
+                xamlMember.Getter = get_104_CategoricalAxis_MajorTickInterval;
+                xamlMember.Setter = set_104_CategoricalAxis_MajorTickInterval;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.CategoricalAxis.PlotMode":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalAxis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "PlotMode", "Telerik.Charting.AxisPlotMode");
+                xamlMember.Getter = get_105_CategoricalAxis_PlotMode;
+                xamlMember.Setter = set_105_CategoricalAxis_PlotMode;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.CategoricalAxis.GapLength":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalAxis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "GapLength", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_106_CategoricalAxis_GapLength;
+                xamlMember.Setter = set_106_CategoricalAxis_GapLength;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.CartesianAxis.HorizontalLocation":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CartesianAxis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "HorizontalLocation", "Telerik.Charting.AxisHorizontalLocation");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_107_CartesianAxis_HorizontalLocation;
+                xamlMember.Setter = set_107_CartesianAxis_HorizontalLocation;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.CartesianAxis.VerticalLocation":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CartesianAxis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "VerticalLocation", "Telerik.Charting.AxisVerticalLocation");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_108_CartesianAxis_VerticalLocation;
+                xamlMember.Setter = set_108_CartesianAxis_VerticalLocation;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.Axis.LabelFormatter":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "LabelFormatter", "Telerik.Charting.IContentFormatter");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_109_Axis_LabelFormatter;
+                xamlMember.Setter = set_109_Axis_LabelFormatter;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.Axis.LabelRotationAngle":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "LabelRotationAngle", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_110_Axis_LabelRotationAngle;
+                xamlMember.Setter = set_110_Axis_LabelRotationAngle;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.Axis.LineStyle":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "LineStyle", "Windows.UI.Xaml.Style");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_111_Axis_LineStyle;
+                xamlMember.Setter = set_111_Axis_LineStyle;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.Axis.LastLabelVisibility":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "LastLabelVisibility", "Telerik.Charting.AxisLastLabelVisibility");
+                xamlMember.Getter = get_112_Axis_LastLabelVisibility;
+                xamlMember.Setter = set_112_Axis_LastLabelVisibility;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.Axis.LabelFormat":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "LabelFormat", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_113_Axis_LabelFormat;
+                xamlMember.Setter = set_113_Axis_LabelFormat;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.Axis.MajorTickOffset":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "MajorTickOffset", "Int32");
+                xamlMember.Getter = get_114_Axis_MajorTickOffset;
+                xamlMember.Setter = set_114_Axis_MajorTickOffset;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.Axis.LabelOffset":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "LabelOffset", "Int32");
+                xamlMember.Getter = get_115_Axis_LabelOffset;
+                xamlMember.Setter = set_115_Axis_LabelOffset;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.Axis.ShowLabels":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "ShowLabels", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_116_Axis_ShowLabels;
+                xamlMember.Setter = set_116_Axis_ShowLabels;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.Axis.Title":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "Title", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_117_Axis_Title;
+                xamlMember.Setter = set_117_Axis_Title;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.Axis.LabelTemplate":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "LabelTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_118_Axis_LabelTemplate;
+                xamlMember.Setter = set_118_Axis_LabelTemplate;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.Axis.LabelTemplateSelector":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "LabelTemplateSelector", "Windows.UI.Xaml.Controls.DataTemplateSelector");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_119_Axis_LabelTemplateSelector;
+                xamlMember.Setter = set_119_Axis_LabelTemplateSelector;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.Axis.LabelStyle":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "LabelStyle", "Windows.UI.Xaml.Style");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_120_Axis_LabelStyle;
+                xamlMember.Setter = set_120_Axis_LabelStyle;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.Axis.TitleTemplate":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "TitleTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_121_Axis_TitleTemplate;
+                xamlMember.Setter = set_121_Axis_TitleTemplate;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.Axis.MajorTickTemplate":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "MajorTickTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_122_Axis_MajorTickTemplate;
+                xamlMember.Setter = set_122_Axis_MajorTickTemplate;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.Axis.MajorTickStyle":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "MajorTickStyle", "Windows.UI.Xaml.Style");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_123_Axis_MajorTickStyle;
+                xamlMember.Setter = set_123_Axis_MajorTickStyle;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.Axis.TickThickness":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.Axis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "TickThickness", "Double");
+                xamlMember.Getter = get_124_Axis_TickThickness;
+                xamlMember.Setter = set_124_Axis_TickThickness;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.LinearAxis.MajorStep":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.LinearAxis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "MajorStep", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_125_LinearAxis_MajorStep;
+                xamlMember.Setter = set_125_LinearAxis_MajorStep;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.NumericalAxis.Minimum":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.NumericalAxis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "Minimum", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_126_NumericalAxis_Minimum;
+                xamlMember.Setter = set_126_NumericalAxis_Minimum;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.NumericalAxis.Maximum":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.NumericalAxis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "Maximum", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_127_NumericalAxis_Maximum;
+                xamlMember.Setter = set_127_NumericalAxis_Maximum;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.NumericalAxis.RangeExtendDirection":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.NumericalAxis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "RangeExtendDirection", "Telerik.Charting.NumericalAxisRangeExtendDirection");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_128_NumericalAxis_RangeExtendDirection;
+                xamlMember.Setter = set_128_NumericalAxis_RangeExtendDirection;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.NumericalAxis.DesiredTickCount":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.NumericalAxis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "DesiredTickCount", "Int32");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_129_NumericalAxis_DesiredTickCount;
+                xamlMember.Setter = set_129_NumericalAxis_DesiredTickCount;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.NumericalAxis.ActualRange":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.NumericalAxis");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "ActualRange", "Telerik.Charting.ValueRange<Double>");
+                xamlMember.Getter = get_130_NumericalAxis_ActualRange;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.CategoricalSeries.DataPoints":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalSeries");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "DataPoints", "Telerik.Charting.DataPointCollection<Telerik.Charting.CategoricalDataPoint>");
+                xamlMember.Getter = get_131_CategoricalSeries_DataPoints;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries.Stroke":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "Stroke", "Windows.UI.Xaml.Media.Brush");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_132_CategoricalStrokedSeries_Stroke;
+                xamlMember.Setter = set_132_CategoricalStrokedSeries_Stroke;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries.StrokeThickness":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "StrokeThickness", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_133_CategoricalStrokedSeries_StrokeThickness;
+                xamlMember.Setter = set_133_CategoricalStrokedSeries_StrokeThickness;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.CategoricalSeries.ValueBinding":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalSeries");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "ValueBinding", "Telerik.UI.Xaml.Controls.Chart.DataPointBinding");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_134_CategoricalSeries_ValueBinding;
+                xamlMember.Setter = set_134_CategoricalSeries_ValueBinding;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.CategoricalSeries.CategoryBinding":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalSeries");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "CategoryBinding", "Telerik.UI.Xaml.Controls.Chart.DataPointBinding");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_135_CategoricalSeries_CategoryBinding;
+                xamlMember.Setter = set_135_CategoricalSeries_CategoryBinding;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries.StrokeDashArray":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "StrokeDashArray", "Windows.UI.Xaml.Media.DoubleCollection");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_136_CategoricalStrokedSeries_StrokeDashArray;
+                xamlMember.Setter = set_136_CategoricalStrokedSeries_StrokeDashArray;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries.StrokeLineJoin":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "StrokeLineJoin", "Windows.UI.Xaml.Media.PenLineJoin");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_137_CategoricalStrokedSeries_StrokeLineJoin;
+                xamlMember.Setter = set_137_CategoricalStrokedSeries_StrokeLineJoin;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.CategoricalSeries.CombineMode":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalSeries");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "CombineMode", "Telerik.Charting.ChartSeriesCombineMode");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_138_CategoricalSeries_CombineMode;
+                xamlMember.Setter = set_138_CategoricalSeries_CombineMode;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.CategoricalSeries.StackGroupKey":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.CategoricalSeries");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "StackGroupKey", "Object");
+                xamlMember.Getter = get_139_CategoricalSeries_StackGroupKey;
+                xamlMember.Setter = set_139_CategoricalSeries_StackGroupKey;
                 break;
             case "Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior.ShowIntersectionPoints":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior");
                 xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "ShowIntersectionPoints", "Boolean");
-                xamlMember.Getter = get_141_ChartTrackBallBehavior_ShowIntersectionPoints;
-                xamlMember.Setter = set_141_ChartTrackBallBehavior_ShowIntersectionPoints;
+                xamlMember.Getter = get_140_ChartTrackBallBehavior_ShowIntersectionPoints;
+                xamlMember.Setter = set_140_ChartTrackBallBehavior_ShowIntersectionPoints;
                 break;
             case "Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior.InfoMode":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior");
                 xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "InfoMode", "Telerik.UI.Xaml.Controls.Chart.TrackInfoMode");
-                xamlMember.Getter = get_142_ChartTrackBallBehavior_InfoMode;
-                xamlMember.Setter = set_142_ChartTrackBallBehavior_InfoMode;
+                xamlMember.Getter = get_141_ChartTrackBallBehavior_InfoMode;
+                xamlMember.Setter = set_141_ChartTrackBallBehavior_InfoMode;
                 break;
             case "Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior.ShowInfo":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior");
                 xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "ShowInfo", "Boolean");
-                xamlMember.Getter = get_143_ChartTrackBallBehavior_ShowInfo;
-                xamlMember.Setter = set_143_ChartTrackBallBehavior_ShowInfo;
+                xamlMember.Getter = get_142_ChartTrackBallBehavior_ShowInfo;
+                xamlMember.Setter = set_142_ChartTrackBallBehavior_ShowInfo;
                 break;
             case "Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior.LineStyle":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior");
                 xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "LineStyle", "Windows.UI.Xaml.Style");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_144_ChartTrackBallBehavior_LineStyle;
-                xamlMember.Setter = set_144_ChartTrackBallBehavior_LineStyle;
+                xamlMember.Getter = get_143_ChartTrackBallBehavior_LineStyle;
+                xamlMember.Setter = set_143_ChartTrackBallBehavior_LineStyle;
                 break;
             case "Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior.InfoStyle":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior");
                 xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "InfoStyle", "Windows.UI.Xaml.Style");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_145_ChartTrackBallBehavior_InfoStyle;
-                xamlMember.Setter = set_145_ChartTrackBallBehavior_InfoStyle;
+                xamlMember.Getter = get_144_ChartTrackBallBehavior_InfoStyle;
+                xamlMember.Setter = set_144_ChartTrackBallBehavior_InfoStyle;
                 break;
             case "Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior.SnapMode":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior");
                 xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "SnapMode", "Telerik.UI.Xaml.Controls.Chart.TrackBallSnapMode");
-                xamlMember.Getter = get_146_ChartTrackBallBehavior_SnapMode;
-                xamlMember.Setter = set_146_ChartTrackBallBehavior_SnapMode;
+                xamlMember.Getter = get_145_ChartTrackBallBehavior_SnapMode;
+                xamlMember.Setter = set_145_ChartTrackBallBehavior_SnapMode;
                 break;
             case "Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior.TrackInfoTemplate":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior");
@@ -3829,8 +3823,8 @@ namespace Flurrysticks.Flurrystics_XamlTypeInfo
                 xamlMember.SetTargetTypeName("Windows.UI.Xaml.DependencyObject");
                 xamlMember.SetIsDependencyProperty();
                 xamlMember.SetIsAttachable();
-                xamlMember.Getter = get_147_ChartTrackBallBehavior_TrackInfoTemplate;
-                xamlMember.Setter = set_147_ChartTrackBallBehavior_TrackInfoTemplate;
+                xamlMember.Getter = get_146_ChartTrackBallBehavior_TrackInfoTemplate;
+                xamlMember.Setter = set_146_ChartTrackBallBehavior_TrackInfoTemplate;
                 break;
             case "Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior.IntersectionTemplate":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior");
@@ -3838,8 +3832,14 @@ namespace Flurrysticks.Flurrystics_XamlTypeInfo
                 xamlMember.SetTargetTypeName("Windows.UI.Xaml.DependencyObject");
                 xamlMember.SetIsDependencyProperty();
                 xamlMember.SetIsAttachable();
-                xamlMember.Getter = get_148_ChartTrackBallBehavior_IntersectionTemplate;
-                xamlMember.Setter = set_148_ChartTrackBallBehavior_IntersectionTemplate;
+                xamlMember.Getter = get_147_ChartTrackBallBehavior_IntersectionTemplate;
+                xamlMember.Setter = set_147_ChartTrackBallBehavior_IntersectionTemplate;
+                break;
+            case "Telerik.UI.Xaml.Controls.Chart.PropertyNameDataPointBinding.PropertyName":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.PropertyNameDataPointBinding");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "PropertyName", "String");
+                xamlMember.Getter = get_148_PropertyNameDataPointBinding_PropertyName;
+                xamlMember.Setter = set_148_PropertyNameDataPointBinding_PropertyName;
                 break;
             case "Telerik.UI.Xaml.Controls.Chart.ChartPanAndZoomBehavior.PanMode":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Chart.ChartPanAndZoomBehavior");
