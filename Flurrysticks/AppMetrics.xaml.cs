@@ -18,6 +18,7 @@ using Callisto.Controls;
 using Flurrystics.Data;
 using Flurrysticks.DataModel;
 using Flurrysticks;
+using Telerik.UI.Xaml.Controls.Primitives;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
@@ -45,10 +46,27 @@ namespace Flurrystics
             this.InitializeComponent();
         }
 
-        private void ParseXML(XDocument what, int i, RadCartesianChart targetChart)
-        {
+        private void ParseXML(
+                                XDocument what, 
+                                int i, 
+                                RadCartesianChart targetChart,
+                                RadCustomHubTile rt1, RadCustomHubTile rt2, RadCustomHubTile rt3,
+                                TextBlock t1, TextBlock t2, TextBlock t3, // stats numbers
+                                TextBlock tb, // total info
+                                String sDate, String eDate,
+                                TextBlock tr1, // total info number
+                                TextBlock tr2, // total info date/time range
+                                int targetSeries // if it is basic or compare function
+            ) {
+            /*
+             * // old wp7 code
+            Telerik.Windows.Controls.RadCartesianChart targetChart, Microsoft.Phone.Controls.PerformanceProgressBar progressBar,
+                                        RadCustomHubTile rt1, RadCustomHubTile rt2, RadCustomHubTile rt3,
+                                        TextBlock t1, TextBlock t2, TextBlock t3, TextBlock tb, 
+                                        String sDate, String eDate, TextBlock tr1, TextBlock tr2,
+                                        int targetSeries
+            */
             Debug.WriteLine("Processing..." + what);
-            //bool result = false;
 
             DataSource.getChartData()[i] = from query in what.Descendants("day")
                                select new ChartDataPoint
@@ -57,14 +75,88 @@ namespace Flurrystics
                                    Label = (string)query.Attribute("date")
                                };
             Debug.WriteLine("Setting DataContext of loaded data");
+            /*
+            var mydate = new Windows.Globalization.DateTimeFormatting.DateTimeFormatter("month day");
+            var mydatepattern = mydate.Patterns[0];
+            sDate = String.Format(mydatepattern, DateTime.Parse(sDate));
+            eDate = String.Format(mydatepattern, DateTime.Parse(eDate));
+            */
+            if (targetSeries > 0)
+            {
+                // progressBar.Visibility = System.Windows.Visibility.Visible;
+                rt1.IsFrozen = false;
+                rt2.IsFrozen = false;
+                rt3.IsFrozen = false;
+                tr2.Visibility = Visibility.Visible;
+                tr2.Text = "(" +  sDate + " - " + eDate + ")";
+            }
+            else  // reset compare chart
+            {
+                TextBlock[] totals = { info4Text1, info4Text2, info4Text3, info4Text4, info4Text5, info4Text6, info4Text7, info4Text8 };
+                if (i < 8)
+                {
+                    totals[i].Visibility = Visibility.Collapsed;
+                }
+                // targetChart.Series[1].ItemsSource = null;
+                tr1.Visibility = Visibility.Visible;
+                tr2.Visibility = Visibility.Collapsed;
+                tr1.Text = "(" + sDate + " - " + eDate + ")";
+                VisualStateManager.GoToState(rt1, "NotFlipped", true);
+                VisualStateManager.GoToState(rt2, "NotFlipped", true);
+                VisualStateManager.GoToState(rt3, "NotFlipped", true);
+                rt1.IsFrozen = true;
+                rt2.IsFrozen = true;
+                rt3.IsFrozen = true;
+            }
+
             targetChart.DataContext = DataSource.getChartData()[i];
             targetChart.HorizontalAxis.LabelInterval = Util.getLabelIntervalByCount(DataSource.getChartData()[i].Count());
+
+            // count max,min,latest,total for display purposes
+            double latest = 0, minim = 9999999999999, maxim = 0, totalCount = 0;
+            IEnumerator<ChartDataPoint> Myenum = DataSource.getChartData()[i].GetEnumerator();
+            while (Myenum.MoveNext())
+            {
+                ChartDataPoint oneValue = Myenum.Current;
+                latest = oneValue.Value;
+                minim = Math.Min(minim, oneValue.Value);
+                maxim = Math.Max(maxim, oneValue.Value);
+                totalCount = totalCount + oneValue.Value;
+            }
+
+            t1.Text = latest.ToString();
+            t2.Text = minim.ToString();
+            t3.Text = maxim.ToString();
+            switch (AppMetricsNames[i])
+            {
+                case "MedianSessionLength":
+                case "AvgSessionLength":
+                    tb.Text = "N/A"; // makes no sense for these metrics
+                    break;
+                default:
+                    tb.Text = totalCount.ToString();
+                    break;
+            }
+
+            tb.Visibility = Visibility.Visible; 
+
+
         } // ParseXML
 
         private async void loadData(int metricsIndex)
         {
             Debug.WriteLine("loadData() " + metricsIndex);
             RadCartesianChart[] targetCharts = { radChart1, radChart2, radChart3, radChart4, radChart5, radChart6, radChart7, radChart8 };
+            RadCustomHubTile[] t1s = { tile1Text1, tile1Text2, tile1Text3, tile1Text4, tile1Text5, tile1Text6, tile1Text7, tile1Text8 };
+            RadCustomHubTile[] t2s = { tile2Text1, tile2Text2, tile2Text3, tile2Text4, tile2Text5, tile2Text6, tile2Text7, tile2Text8 };
+            RadCustomHubTile[] t3s = { tile3Text1, tile3Text2, tile3Text3, tile3Text4, tile3Text5, tile3Text6, tile3Text7, tile3Text8 };
+            TextBlock[] c1s = { tile1Number1Text1, tile1Number1Text2, tile1Number1Text3, tile1Number1Text4, tile1Number1Text5, tile1Number1Text6, tile1Number1Text7, tile1Number1Text8 };
+            TextBlock[] c2s = { tile2Number1Text1, tile2Number1Text2, tile2Number1Text3, tile2Number1Text4, tile2Number1Text5, tile2Number1Text6, tile2Number1Text7, tile2Number1Text8 };
+            TextBlock[] c3s = { tile3Number1Text1, tile3Number1Text2, tile3Number1Text3, tile3Number1Text4, tile3Number1Text5, tile3Number1Text6, tile3Number1Text7, tile3Number1Text8 };
+            TextBlock[] totals = { info2Text1, info2Text2, info2Text3, info2Text4, info2Text5, info2Text6, info2Text7, info2Text8 };
+            TextBlock[] d1s = { info3Text1, info3Text2, info3Text3, info3Text4, info3Text5, info3Text6, info3Text7, info3Text8 };
+            TextBlock[] d2s = { info5Text1, info5Text2, info5Text3, info5Text4, info5Text5, info5Text6, info5Text7, info5Text8 };
+
             string metrics = AppMetricsNames[metricsIndex]; // this will be selectable
             if (ProgressBar1 != null)
             {
@@ -90,7 +182,17 @@ namespace Flurrystics
                 }
                 Debug.WriteLine("Success:" + success);
                 if (success) { 
-                                ParseXML(result, metricsIndex, targetCharts[metricsIndex]); 
+                                int c = metricsIndex;
+                                ParseXML(result,c,targetCharts[c],t1s[c],t2s[c],t3s[c],c1s[c],c2s[c],c3s[c],totals[c],StartDate,EndDate,d1s[c],d2s[c],0);
+                                /*
+                                RadCustomHubTile rt1, RadCustomHubTile rt2, RadCustomHubTile rt3,
+                                TextBlock t1, TextBlock t2, TextBlock t3, // stats numbers
+                                TextBlock tb, // total info
+                                String sDate, String eDate,
+                                TextBlock tr1, // total info number
+                                TextBlock tr2, // total info date/time range
+                                int targetSeries // if it is basic or compare function
+                                 * */
                              }
 
             }
