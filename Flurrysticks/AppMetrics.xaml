@@ -50,33 +50,86 @@
                 <!-- The back button and title have different styles when snapped -->
                 <VisualState x:Name="Snapped">
                     <Storyboard>
+                        <!-- GENERAL -->
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton" Storyboard.TargetProperty="Style">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedBackButtonStyle}"/>
-                        </ObjectAnimationUsingKeyFrames>
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedBackButtonStyle}"/></ObjectAnimationUsingKeyFrames>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageTitle" Storyboard.TargetProperty="Style">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedPageHeaderTextStyle}"/>
-                        </ObjectAnimationUsingKeyFrames>
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedPageHeaderTextStyle}"/></ObjectAnimationUsingKeyFrames>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageTitle2" Storyboard.TargetProperty="Style">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedPageHeaderTextStyle}"/>
-                        </ObjectAnimationUsingKeyFrames>
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedPageHeaderTextStyle}"/></ObjectAnimationUsingKeyFrames>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageTitle2" Storyboard.TargetProperty="FontSize">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="20"/>
-                        </ObjectAnimationUsingKeyFrames>
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="20"/></ObjectAnimationUsingKeyFrames>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageDropDown" Storyboard.TargetProperty="Style">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedPageHeaderTextStyle}"/>
-                        </ObjectAnimationUsingKeyFrames>
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedPageHeaderTextStyle}"/></ObjectAnimationUsingKeyFrames>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton" Storyboard.TargetProperty="Margin">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="15,-16,0,50"/>
-                        </ObjectAnimationUsingKeyFrames>
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="15,-16,0,50"/></ObjectAnimationUsingKeyFrames>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageTitle" Storyboard.TargetProperty="Margin">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="0,0,30,90"/>
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="0,0,30,90"/> </ObjectAnimationUsingKeyFrames>
+                        
+                        <!-- PAGE 1 -->
+                        <!-- orientation changes -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="contextInfoText1" Storyboard.TargetProperty="Orientation">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Vertical"/></ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="contextInfoText1" Storyboard.TargetProperty="Margin">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="10,0,10,0"/>
                         </ObjectAnimationUsingKeyFrames>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="contextInfo" Storyboard.TargetProperty="Orientation">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="Vertical"/>
+
+                        <!-- context numbers -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="info1Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource InfoTextStyleSmaller}"/>
                         </ObjectAnimationUsingKeyFrames>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="contextNumbers" Storyboard.TargetProperty="Orientation">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="Horizontal"/>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="info2Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource InfoTextStyleRedSmaller}"/>
                         </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="info3Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource InfoTextStyleSmallRedSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="info4Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource InfoTextStyleGreySmaller}" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="info5Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource InfoTextStyleSmallGreySmaller}" />
+                        </ObjectAnimationUsingKeyFrames>
+                        
+                        <!-- tile sizes -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile1Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileSizeSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile2Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileSizeSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile3Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileSizeSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        
+                        <!-- tile1 text -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile1Number1Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile1Number2Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        
+                        <!-- tile2 text -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile2Number1Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile2Number2Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        
+                        <!-- tile3 text -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile3Number1Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile3Number2Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <!-- Chart1 -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="radChart1" Storyboard.TargetProperty="Height">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="320"/>
+                        </ObjectAnimationUsingKeyFrames>
+
                     </Storyboard>
                 </VisualState>
             </VisualStateGroup>
@@ -161,29 +214,35 @@
                     <StackPanel Grid.Row="0" Margin="20,20,20,20"
                                 HorizontalAlignment="Right"
                                 Orientation="Horizontal"
-                                x:Name="contextInfo"
+                                x:Name="contextInfoText1"
                                 >
 
-                    <StackPanel x:Name="contextNumbers" Orientation="Vertical">
+                    <StackPanel x:Name="contextNumbersText1" Orientation="Vertical" Margin="0,0,10,0">
+                        
                         <StackPanel Orientation="Vertical">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Total" Style="{StaticResource InfoTextStyle}" />
-                            <TextBlock Text="52456" Style="{StaticResource InfoTextStyleRed}" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock x:Name="info1Text1" Text="Total" Style="{StaticResource InfoTextStyle}" />
+                                <TextBlock x:Name="info2Text1" Text="52456" Style="{StaticResource InfoTextStyleRed}" />
+                            </StackPanel>
+                            <TextBlock x:Name="info3Text1" Text="(21/12/2012 - 21/1/2013)" Style="{StaticResource InfoTextStyleSmallRed}"/>
                         </StackPanel>
-                        <TextBlock Text="(21/12/2012 - 21/1/2013)" Style="{StaticResource InfoTextStyleSmallRed}"/>
-                        </StackPanel>
+                        
                         <StackPanel Orientation="Vertical">
-                            <TextBlock Text="52456" Style="{StaticResource InfoTextStyleGrey}" />
-                            <TextBlock Text="(21/12/2012 - 21/1/2013)" Style="{StaticResource InfoTextStyleSmallGrey}" VerticalAlignment="Top"/>
+                            <TextBlock x:Name="info4Text1" Text="52456" Style="{StaticResource InfoTextStyleGrey}" />
+                            <TextBlock x:Name="info5Text1" Text="(21/12/2012 - 21/1/2013)" Style="{StaticResource InfoTextStyleSmallGrey}" VerticalAlignment="Top"/>
                         </StackPanel>
+                    
                     </StackPanel>
-
-                    <telerikPrimitives:RadCustomHubTile Style="{StaticResource TileSize}" UpdateInterval="0:0:4"
-                                                         telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                        
+                    <StackPanel Orientation="Horizontal">
+                    <telerikPrimitives:RadCustomHubTile 
+                            x:Name="tile1Text1"
+                            Style="{StaticResource TileSize}" UpdateInterval="0:0:4"
+                            telerikPrimitives:HubTileService.GroupTag="FirstLook">
                         <telerikPrimitives:RadCustomHubTile.FrontContent>
                             <Border Background="{StaticResource flurry_green}">
                                 <Grid Style="{StaticResource Tile}">
-                                    <TextBlock Text="123456" Style="{StaticResource TileBigNumber}" />
+                                    <TextBlock x:Name="tile1Number1Text1" Text="123456" Style="{StaticResource TileBigNumber}" />
                                     <TextBlock Text="Latest" Style="{StaticResource TileSmallNumber}" />
                                 </Grid>
                             </Border>
@@ -191,19 +250,21 @@
                     <telerikPrimitives:RadCustomHubTile.BackContent>
                             <Border Background="{StaticResource flurry_green}">
                                 <Grid Style="{StaticResource Tile}">
-                                    <TextBlock Text="223456" Style="{StaticResource TileBigNumber}" />
+                                    <TextBlock x:Name="tile1Number2Text1" Text="223456" Style="{StaticResource TileBigNumber}" />
                                     <TextBlock Text="Prev. latest" Style="{StaticResource TileSmallNumber}" />
                                 </Grid>
                             </Border>
                         </telerikPrimitives:RadCustomHubTile.BackContent>
                     </telerikPrimitives:RadCustomHubTile>
 
-                    <telerikPrimitives:RadCustomHubTile Width="150" Height="150" UpdateInterval="0:0:5"
-                                                         telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                    <telerikPrimitives:RadCustomHubTile x:Name="tile2Text1" 
+                                                        Style="{StaticResource TileSize}"
+                                                        UpdateInterval="0:0:5"
+                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook">
                         <telerikPrimitives:RadCustomHubTile.FrontContent>
                             <Border Background="{StaticResource flurry_blue}">
                                 <Grid Style="{StaticResource Tile}">
-                                    <TextBlock Text="123456" Style="{StaticResource TileBigNumber}" />
+                                    <TextBlock x:Name="tile2Number1Text1" Text="123456" Style="{StaticResource TileBigNumber}" />
                                     <TextBlock Text="Min" Style="{StaticResource TileSmallNumber}" />
                                 </Grid>
                             </Border>
@@ -211,19 +272,21 @@
                         <telerikPrimitives:RadCustomHubTile.BackContent>
                             <Border Background="{StaticResource flurry_blue}">
                                 <Grid Style="{StaticResource Tile}">
-                                    <TextBlock Text="223456" Style="{StaticResource TileBigNumber}" />
+                                    <TextBlock x:Name="tile2Number2Text1" Text="223456" Style="{StaticResource TileBigNumber}" />
                                     <TextBlock Text="Prev. min" Style="{StaticResource TileSmallNumber}" />
                                 </Grid>
                             </Border>
                         </telerikPrimitives:RadCustomHubTile.BackContent>
                     </telerikPrimitives:RadCustomHubTile>
 
-                    <telerikPrimitives:RadCustomHubTile Width="150" Height="150" UpdateInterval="0:0:6"
-                                                         telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                    <telerikPrimitives:RadCustomHubTile x:Name="tile3Text1" 
+                                                        Style="{StaticResource TileSize}"
+                                                        UpdateInterval="0:0:6"
+                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook">
                         <telerikPrimitives:RadCustomHubTile.FrontContent>
                             <Border Background="{StaticResource flurry_orange}">
                                 <Grid Style="{StaticResource Tile}">
-                                    <TextBlock Text="123456" Style="{StaticResource TileBigNumber}" />
+                                    <TextBlock x:Name="tile3Number1Text1" Text="123456" Style="{StaticResource TileBigNumber}" />
                                     <TextBlock Text="Max" Style="{StaticResource TileSmallNumber}" />
                                 </Grid>
                             </Border>
@@ -231,13 +294,13 @@
                         <telerikPrimitives:RadCustomHubTile.BackContent>
                             <Border Background="{StaticResource flurry_orange}">
                                 <Grid Style="{StaticResource Tile}">
-                                    <TextBlock Text="223456" Style="{StaticResource TileBigNumber}" />
+                                    <TextBlock x:Name="tile3Number2Text1" Text="223456" Style="{StaticResource TileBigNumber}" />
                                     <TextBlock Text="Prev. max" Style="{StaticResource TileSmallNumber}" />
                                 </Grid>
                             </Border>
                         </telerikPrimitives:RadCustomHubTile.BackContent>
                     </telerikPrimitives:RadCustomHubTile>
-
+                    </StackPanel>
                 </StackPanel>
                     
                 <Chart:RadCartesianChart 
