@@ -71,11 +71,11 @@
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageTitle" Storyboard.TargetProperty="Margin">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="0,0,30,90"/>
                         </ObjectAnimationUsingKeyFrames>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="flipView1" Storyboard.TargetProperty="Height">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="320"/>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="contextInfo" Storyboard.TargetProperty="Orientation">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Vertical"/>
                         </ObjectAnimationUsingKeyFrames>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="flipView1" Storyboard.TargetProperty="VerticalAlignment">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="Top"/>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="contextNumbers" Storyboard.TargetProperty="Orientation">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Horizontal"/>
                         </ObjectAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
@@ -161,28 +161,39 @@
                     <StackPanel Grid.Row="0" Margin="20,20,20,20"
                                 HorizontalAlignment="Right"
                                 Orientation="Horizontal"
+                                x:Name="contextInfo"
                                 >
-                        
-                    <TextBlock Text="Test" />
-                        
-                    <telerikPrimitives:RadCustomHubTile Width="150" Height="150" UpdateInterval="0:0:4"
+
+                    <StackPanel x:Name="contextNumbers" Orientation="Vertical">
+                        <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Total" Style="{StaticResource InfoTextStyle}" />
+                            <TextBlock Text="52456" Style="{StaticResource InfoTextStyleRed}" />
+                        </StackPanel>
+                        <TextBlock Text="(21/12/2012 - 21/1/2013)" Style="{StaticResource InfoTextStyleSmallRed}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="52456" Style="{StaticResource InfoTextStyleGrey}" />
+                            <TextBlock Text="(21/12/2012 - 21/1/2013)" Style="{StaticResource InfoTextStyleSmallGrey}" VerticalAlignment="Top"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <telerikPrimitives:RadCustomHubTile Style="{StaticResource TileSize}" UpdateInterval="0:0:4"
                                                          telerikPrimitives:HubTileService.GroupTag="FirstLook">
                         <telerikPrimitives:RadCustomHubTile.FrontContent>
                             <Border Background="{StaticResource flurry_green}">
-                                <StackPanel Margin="16,0,0,0" VerticalAlignment="Center">
-                                    <TextBlock Text="12" FontSize="82.667" FontWeight="SemiLight" Foreground="White" />
-                                    <TextBlock Text="OPEN" FontSize="14.667" Margin="4,-12,0,0" Foreground="White"/>
-                                    <TextBlock Text="Opportunities" FontSize="12" Margin="4,14,0,0" Foreground="White"/>
-                                </StackPanel>
+                                <Grid Style="{StaticResource Tile}">
+                                    <TextBlock Text="123456" Style="{StaticResource TileBigNumber}" />
+                                    <TextBlock Text="Latest" Style="{StaticResource TileSmallNumber}" />
+                                </Grid>
                             </Border>
                         </telerikPrimitives:RadCustomHubTile.FrontContent>
                     <telerikPrimitives:RadCustomHubTile.BackContent>
                             <Border Background="{StaticResource flurry_green}">
-                                <StackPanel Margin="16,0,0,0" VerticalAlignment="Center">
-                                    <TextBlock Text="5" FontSize="82.667" FontWeight="SemiLight" Foreground="White" />
-                                    <TextBlock Text="OVERDUE" FontSize="14.667" Margin="4,-12,0,0" Foreground="White" />
-                                    <TextBlock Text="Opportunities" FontSize="12" Margin="4,14,0,0" Foreground="White" />
-                                </StackPanel>
+                                <Grid Style="{StaticResource Tile}">
+                                    <TextBlock Text="223456" Style="{StaticResource TileBigNumber}" />
+                                    <TextBlock Text="Prev. latest" Style="{StaticResource TileSmallNumber}" />
+                                </Grid>
                             </Border>
                         </telerikPrimitives:RadCustomHubTile.BackContent>
                     </telerikPrimitives:RadCustomHubTile>
@@ -191,20 +202,18 @@
                                                          telerikPrimitives:HubTileService.GroupTag="FirstLook">
                         <telerikPrimitives:RadCustomHubTile.FrontContent>
                             <Border Background="{StaticResource flurry_blue}">
-                                <StackPanel Margin="16,0,0,0" VerticalAlignment="Center">
-                                    <TextBlock Text="12" FontSize="82.667" FontWeight="SemiLight" Foreground="White" />
-                                    <TextBlock Text="OPEN" FontSize="14.667" Margin="4,-12,0,0" Foreground="White"/>
-                                    <TextBlock Text="Opportunities" FontSize="12" Margin="4,14,0,0" Foreground="White"/>
-                                </StackPanel>
+                                <Grid Style="{StaticResource Tile}">
+                                    <TextBlock Text="123456" Style="{StaticResource TileBigNumber}" />
+                                    <TextBlock Text="Min" Style="{StaticResource TileSmallNumber}" />
+                                </Grid>
                             </Border>
                         </telerikPrimitives:RadCustomHubTile.FrontContent>
                         <telerikPrimitives:RadCustomHubTile.BackContent>
                             <Border Background="{StaticResource flurry_blue}">
-                                <StackPanel Margin="16,0,0,0" VerticalAlignment="Center">
-                                    <TextBlock Text="5" FontSize="82.667" FontWeight="SemiLight" Foreground="White" />
-                                    <TextBlock Text="OVERDUE" FontSize="14.667" Margin="4,-12,0,0" Foreground="White" />
-                                    <TextBlock Text="Opportunities" FontSize="12" Margin="4,14,0,0" Foreground="White" />
-                                </StackPanel>
+                                <Grid Style="{StaticResource Tile}">
+                                    <TextBlock Text="223456" Style="{StaticResource TileBigNumber}" />
+                                    <TextBlock Text="Prev. min" Style="{StaticResource TileSmallNumber}" />
+                                </Grid>
                             </Border>
                         </telerikPrimitives:RadCustomHubTile.BackContent>
                     </telerikPrimitives:RadCustomHubTile>
@@ -213,20 +222,18 @@
                                                          telerikPrimitives:HubTileService.GroupTag="FirstLook">
                         <telerikPrimitives:RadCustomHubTile.FrontContent>
                             <Border Background="{StaticResource flurry_orange}">
-                                <StackPanel Margin="16,0,0,0" VerticalAlignment="Center">
-                                    <TextBlock Text="12" FontSize="82.667" FontWeight="SemiLight" Foreground="White" />
-                                    <TextBlock Text="OPEN" FontSize="14.667" Margin="4,-12,0,0" Foreground="White"/>
-                                    <TextBlock Text="Opportunities" FontSize="12" Margin="4,14,0,0" Foreground="White"/>
-                                </StackPanel>
+                                <Grid Style="{StaticResource Tile}">
+                                    <TextBlock Text="123456" Style="{StaticResource TileBigNumber}" />
+                                    <TextBlock Text="Max" Style="{StaticResource TileSmallNumber}" />
+                                </Grid>
                             </Border>
                         </telerikPrimitives:RadCustomHubTile.FrontContent>
                         <telerikPrimitives:RadCustomHubTile.BackContent>
                             <Border Background="{StaticResource flurry_orange}">
-                                <StackPanel Margin="16,0,0,0" VerticalAlignment="Center">
-                                    <TextBlock Text="5" FontSize="82.667" FontWeight="SemiLight" Foreground="White" />
-                                    <TextBlock Text="OVERDUE" FontSize="14.667" Margin="4,-12,0,0" Foreground="White" />
-                                    <TextBlock Text="Opportunities" FontSize="12" Margin="4,14,0,0" Foreground="White" />
-                                </StackPanel>
+                                <Grid Style="{StaticResource Tile}">
+                                    <TextBlock Text="223456" Style="{StaticResource TileBigNumber}" />
+                                    <TextBlock Text="Prev. max" Style="{StaticResource TileSmallNumber}" />
+                                </Grid>
                             </Border>
                         </telerikPrimitives:RadCustomHubTile.BackContent>
                     </telerikPrimitives:RadCustomHubTile>
