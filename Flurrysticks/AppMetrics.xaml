@@ -2255,6 +2255,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <Button x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}" Click="TimeRangeButton_Click_1" />
+                    <Button x:Name="CompareToggleButton" Style="{StaticResource CompareToggleAppBarButtonStyle}" Click="CompareToggleButton_Click_1" />
                 </StackPanel>
             </Grid>
         </AppBar>

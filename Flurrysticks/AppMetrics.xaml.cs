@@ -19,6 +19,7 @@ using Flurrystics.Data;
 using Flurrysticks.DataModel;
 using Flurrysticks;
 using Telerik.UI.Xaml.Controls.Primitives;
+using System.Collections.ObjectModel;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
@@ -58,17 +59,9 @@ namespace Flurrystics
                                 TextBlock tr2, // total info date/time range
                                 int targetSeries // if it is basic or compare function
             ) {
-            /*
-             * // old wp7 code
-            Telerik.Windows.Controls.RadCartesianChart targetChart, Microsoft.Phone.Controls.PerformanceProgressBar progressBar,
-                                        RadCustomHubTile rt1, RadCustomHubTile rt2, RadCustomHubTile rt3,
-                                        TextBlock t1, TextBlock t2, TextBlock t3, TextBlock tb, 
-                                        String sDate, String eDate, TextBlock tr1, TextBlock tr2,
-                                        int targetSeries
-            */
             Debug.WriteLine("Processing..." + what);
 
-            DataSource.getChartData()[i] = from query in what.Descendants("day")
+            DataSource.getChartData()[i,targetSeries] = from query in what.Descendants("day")
                                select new ChartDataPoint
                                {
                                    Value = (double)query.Attribute("value"),
@@ -97,13 +90,10 @@ namespace Flurrystics
                 {
                     totals[i].Visibility = Visibility.Collapsed;
                 }
-                // targetChart.Series[1].ItemsSource = null;
+                targetChart.Series[1].ItemsSource = null;
                 tr1.Visibility = Visibility.Visible;
                 tr2.Visibility = Visibility.Collapsed;
                 tr1.Text = "(" + sDate + " - " + eDate + ")";
-                //VisualStateManager.GoToState(rt1, "NotFlipped", true);
-                //VisualStateManager.GoToState(rt2, "NotFlipped", true);
-                //VisualStateManager.GoToState(rt3, "NotFlipped", true);
                 rt1.IsFlipped = false;
                 rt2.IsFlipped = false;
                 rt3.IsFlipped = false;
@@ -111,13 +101,34 @@ namespace Flurrystics
                 rt2.IsFrozen = true;
                 rt3.IsFrozen = true;
             }
+            Debug.WriteLine("Setting DataContext targetSeries:" + targetSeries);
 
-            targetChart.DataContext = DataSource.getChartData()[i];
-            targetChart.HorizontalAxis.LabelInterval = Util.getLabelIntervalByCount(DataSource.getChartData()[i].Count());
+            if (targetSeries > 0) // if it's compare we have to fake time
+            {
+                var previousData = DataSource.getChartData()[i, 0];
+                ObservableCollection<ChartDataPoint> newData = new ObservableCollection<ChartDataPoint>();
+                IEnumerator<ChartDataPoint> enumerator = previousData.GetEnumerator() as System.Collections.Generic.IEnumerator<ChartDataPoint>;
+                int p = 0;
+                while (enumerator.MoveNext())
+                {
+                    ChartDataPoint c = enumerator.Current;
+                    Debug.WriteLine("Old Label:" + DataSource.getChartData()[i, 1].ElementAt<ChartDataPoint>(p).Label + " New Label:" + c.Label);
+                    ChartDataPoint n = new ChartDataPoint { Value = DataSource.getChartData()[i, 1].ElementAt<ChartDataPoint>(p).Value, Label = c.Label };
+                    newData.Add(n);
+                    Debug.WriteLine("New label set:" + DataSource.getChartData()[i, 1].ElementAt<ChartDataPoint>(p).Label);
+                    p++;
+                }
+
+                DataSource.getChartData()[i, 1] = newData;
+
+            }
+
+            targetChart.Series[targetSeries].ItemsSource = DataSource.getChartData()[i, targetSeries];
+            targetChart.HorizontalAxis.LabelInterval = Util.getLabelIntervalByCount(DataSource.getChartData()[i, targetSeries].Count());
 
             // count max,min,latest,total for display purposes
             double latest = 0, minim = 9999999999999, maxim = 0, totalCount = 0;
-            IEnumerator<ChartDataPoint> Myenum = DataSource.getChartData()[i].GetEnumerator();
+            IEnumerator<ChartDataPoint> Myenum = DataSource.getChartData()[i,targetSeries].GetEnumerator();
             while (Myenum.MoveNext())
             {
                 ChartDataPoint oneValue = Myenum.Current;
@@ -146,19 +157,40 @@ namespace Flurrystics
 
         } // ParseXML
 
-        private async void loadData(int metricsIndex)
+        private async void loadData(int metricsIndex, string SDate, string EDate, int targetSeries)
         {
             Debug.WriteLine("loadData() " + metricsIndex);
             RadCartesianChart[] targetCharts = { radChart1, radChart2, radChart3, radChart4, radChart5, radChart6, radChart7, radChart8 };
             RadCustomHubTile[] t1s = { tile1Text1, tile1Text2, tile1Text3, tile1Text4, tile1Text5, tile1Text6, tile1Text7, tile1Text8 };
             RadCustomHubTile[] t2s = { tile2Text1, tile2Text2, tile2Text3, tile2Text4, tile2Text5, tile2Text6, tile2Text7, tile2Text8 };
             RadCustomHubTile[] t3s = { tile3Text1, tile3Text2, tile3Text3, tile3Text4, tile3Text5, tile3Text6, tile3Text7, tile3Text8 };
-            TextBlock[] c1s = { tile1Number1Text1, tile1Number1Text2, tile1Number1Text3, tile1Number1Text4, tile1Number1Text5, tile1Number1Text6, tile1Number1Text7, tile1Number1Text8 };
-            TextBlock[] c2s = { tile2Number1Text1, tile2Number1Text2, tile2Number1Text3, tile2Number1Text4, tile2Number1Text5, tile2Number1Text6, tile2Number1Text7, tile2Number1Text8 };
-            TextBlock[] c3s = { tile3Number1Text1, tile3Number1Text2, tile3Number1Text3, tile3Number1Text4, tile3Number1Text5, tile3Number1Text6, tile3Number1Text7, tile3Number1Text8 };
-            TextBlock[] totals = { info2Text1, info2Text2, info2Text3, info2Text4, info2Text5, info2Text6, info2Text7, info2Text8 };
+            
             TextBlock[] d1s = { info3Text1, info3Text2, info3Text3, info3Text4, info3Text5, info3Text6, info3Text7, info3Text8 };
             TextBlock[] d2s = { info5Text1, info5Text2, info5Text3, info5Text4, info5Text5, info5Text6, info5Text7, info5Text8 };
+
+            TextBlock[] totals;
+            TextBlock[] c1s;
+            TextBlock[] c2s;
+            TextBlock[] c3s;
+            if (targetSeries==0) {
+                TextBlock[] c1s_1 = { tile1Number1Text1, tile1Number1Text2, tile1Number1Text3, tile1Number1Text4, tile1Number1Text5, tile1Number1Text6, tile1Number1Text7, tile1Number1Text8 };
+                TextBlock[] c2s_1 = { tile2Number1Text1, tile2Number1Text2, tile2Number1Text3, tile2Number1Text4, tile2Number1Text5, tile2Number1Text6, tile2Number1Text7, tile2Number1Text8 };
+                TextBlock[] c3s_1 = { tile3Number1Text1, tile3Number1Text2, tile3Number1Text3, tile3Number1Text4, tile3Number1Text5, tile3Number1Text6, tile3Number1Text7, tile3Number1Text8 };
+                TextBlock[] totals_1 = { info2Text1, info2Text2, info2Text3, info2Text4, info2Text5, info2Text6, info2Text7, info2Text8 };
+                totals = totals_1;
+                c1s = c1s_1;
+                c2s = c2s_1;
+                c3s = c3s_1;
+            } else {
+                TextBlock[] c1s_2 = { tile1Number2Text1, tile1Number2Text2, tile1Number2Text3, tile1Number2Text4, tile1Number2Text5, tile1Number2Text6, tile1Number2Text7, tile1Number2Text8 };
+                TextBlock[] c2s_2 = { tile2Number2Text1, tile2Number2Text2, tile2Number2Text3, tile2Number2Text4, tile2Number2Text5, tile2Number2Text6, tile2Number2Text7, tile2Number2Text8 };
+                TextBlock[] c3s_2 = { tile3Number2Text1, tile3Number2Text2, tile3Number2Text3, tile3Number2Text4, tile3Number2Text5, tile3Number2Text6, tile3Number2Text7, tile3Number2Text8 };
+                TextBlock[] totals_2 = { info4Text1, info4Text2, info4Text3, info4Text4, info4Text5, info4Text6, info4Text7, info4Text8 };
+                totals = totals_2;
+                c1s = c1s_2;
+                c2s = c2s_2;
+                c3s = c3s_2;
+            }
 
             string metrics = AppMetricsNames[metricsIndex]; // this will be selectable
             if (ProgressBar1 != null)
@@ -167,12 +199,12 @@ namespace Flurrystics
             }
             // check if it's loaded, if not - load it up
 
-            if (DataSource.getChartData()[metricsIndex] == null) // if no data present
+            if (DataSource.getChartData()[metricsIndex,targetSeries] == null) // if no data present
             {
 
                 bool success;
                 XDocument result = null;
-                string callURL = "http://api.flurry.com/appMetrics/" + metrics + "?apiAccessCode=" + apiKey + "&apiKey=" + appapikey + "&startDate=" + StartDate + "&endDate=" + EndDate;
+                string callURL = "http://api.flurry.com/appMetrics/" + metrics + "?apiAccessCode=" + apiKey + "&apiKey=" + appapikey + "&startDate=" + SDate + "&endDate=" + EDate;
                 Debug.WriteLine(callURL);
                 try
                 {
@@ -186,23 +218,14 @@ namespace Flurrystics
                 Debug.WriteLine("Success:" + success);
                 if (success) { 
                                 int c = metricsIndex;
-                                ParseXML(result,c,targetCharts[c],t1s[c],t2s[c],t3s[c],c1s[c],c2s[c],c3s[c],totals[c],StartDate,EndDate,d1s[c],d2s[c],0);
-                                /*
-                                RadCustomHubTile rt1, RadCustomHubTile rt2, RadCustomHubTile rt3,
-                                TextBlock t1, TextBlock t2, TextBlock t3, // stats numbers
-                                TextBlock tb, // total info
-                                String sDate, String eDate,
-                                TextBlock tr1, // total info number
-                                TextBlock tr2, // total info date/time range
-                                int targetSeries // if it is basic or compare function
-                                 * */
+                                ParseXML(result,c,targetCharts[c],t1s[c],t2s[c],t3s[c],c1s[c],c2s[c],c3s[c],totals[c],SDate,EDate,d1s[c],d2s[c],targetSeries);
                              }
 
             }
             else
             {
-                Debug.WriteLine("Setting DataContext of already loaded data:" + DataSource.getChartData()[metricsIndex].Count());
-                targetCharts[metricsIndex].DataContext = DataSource.getChartData()[metricsIndex];
+                Debug.WriteLine("Setting DataContext of already loaded data:" + DataSource.getChartData()[metricsIndex,targetSeries].Count());
+                targetCharts[metricsIndex].Series[targetSeries].ItemsSource = DataSource.getChartData()[metricsIndex,targetSeries];
             }
 
             //if (App.taskCount == 0)
@@ -256,7 +279,7 @@ namespace Flurrystics
 
             DataSource.clearChartData();
 
-            loadData(actualMetricsIndex); 
+            loadData(actualMetricsIndex,StartDate,EndDate,0); 
         }
      
         /*
@@ -290,7 +313,7 @@ namespace Flurrystics
         private void changeMetrics(int index)
         {
             actualMetricsIndex = index;
-            loadData(actualMetricsIndex);
+            loadData(actualMetricsIndex,StartDate,EndDate,0);
             if (pageTitle2 != null)
             {
                 pageTitle2.Text = AppMetricsNamesFormatted[actualMetricsIndex];
@@ -364,7 +387,7 @@ namespace Flurrystics
             localSettings.Values["StartDate"] = StartDate;
             localSettings.Values["EndDate"] = EndDate;
             DataSource.clearChartData();
-            loadData(actualMetricsIndex); 
+            loadData(actualMetricsIndex,StartDate,EndDate,0); 
         }
 
         private void cancelClick_Click_1(object sender, RoutedEventArgs e)
@@ -380,7 +403,7 @@ namespace Flurrystics
             localSettings.Values["StartDate"] = StartDate;
             localSettings.Values["EndDate"] = EndDate;
             DataSource.clearChartData();
-            loadData(actualMetricsIndex); 
+            loadData(actualMetricsIndex, StartDate, EndDate, 0); 
         }
 
         private void lastMonth_Click_1(object sender, RoutedEventArgs e)
@@ -391,7 +414,7 @@ namespace Flurrystics
             localSettings.Values["StartDate"] = StartDate;
             localSettings.Values["EndDate"] = EndDate;
             DataSource.clearChartData();
-            loadData(actualMetricsIndex); 
+            loadData(actualMetricsIndex, StartDate, EndDate, 0);  
         }
 
         private void lastQuarter_Click_1(object sender, RoutedEventArgs e)
@@ -402,7 +425,7 @@ namespace Flurrystics
             localSettings.Values["StartDate"] = StartDate;
             localSettings.Values["EndDate"] = EndDate;
             DataSource.clearChartData();
-            loadData(actualMetricsIndex); 
+            loadData(actualMetricsIndex, StartDate, EndDate, 0); 
         }
 
         private void lastSixMonths_Click_1(object sender, RoutedEventArgs e)
@@ -413,7 +436,51 @@ namespace Flurrystics
             localSettings.Values["StartDate"] = StartDate;
             localSettings.Values["EndDate"] = EndDate;
             DataSource.clearChartData();
-            loadData(actualMetricsIndex); 
+            loadData(actualMetricsIndex, StartDate, EndDate, 0); 
+        }
+
+        private void CompareToggleButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine("Compare Toggle");
+            if (flipView1.SelectedIndex > 7) { return; } // do nothing for events - there's no compare
+            RadCartesianChart targetChart;
+            RadCartesianChart[] targetCharts = { radChart1, radChart2, radChart3, radChart4, radChart5, radChart6, radChart7, radChart8 };
+            RadCustomHubTile[] t1s = { tile1Text1, tile1Text2, tile1Text3, tile1Text4, tile1Text5, tile1Text6, tile1Text7, tile1Text8 };
+            RadCustomHubTile[] t2s = { tile2Text1, tile2Text2, tile2Text3, tile2Text4, tile2Text5, tile2Text6, tile2Text7, tile2Text8 };
+            RadCustomHubTile[] t3s = { tile3Text1, tile3Text2, tile3Text3, tile3Text4, tile3Text5, tile3Text6, tile3Text7, tile3Text8 };
+            TextBlock[] d1s = { info3Text1, info3Text2, info3Text3, info3Text4, info3Text5, info3Text6, info3Text7, info3Text8 };
+            TextBlock[] d2s = { info5Text1, info5Text2, info5Text3, info5Text4, info5Text5, info5Text6, info5Text7, info5Text8 };
+            TextBlock[] c1s = { tile1Number2Text1, tile1Number2Text2, tile1Number2Text3, tile1Number2Text4, tile1Number2Text5, tile1Number2Text6, tile1Number2Text7, tile1Number2Text8 };
+            TextBlock[] c2s = { tile2Number2Text1, tile2Number2Text2, tile2Number2Text3, tile2Number2Text4, tile2Number2Text5, tile2Number2Text6, tile2Number2Text7, tile2Number2Text8 };
+            TextBlock[] c3s = { tile3Number2Text1, tile3Number2Text2, tile3Number2Text3, tile3Number2Text4, tile3Number2Text5, tile3Number2Text6, tile3Number2Text7, tile3Number2Text8 };
+            TextBlock[] totals = { info4Text1, info4Text2, info4Text3, info4Text4, info4Text5, info4Text6, info4Text7, info4Text8 };
+
+            int s = flipView1.SelectedIndex;
+
+            targetChart = targetCharts[s];
+
+            TimeSpan timeRange = DateTime.Parse(EndDate) - DateTime.Parse(StartDate);
+
+            string StartDate2 = String.Format("{0:yyyy-MM-dd}", DateTime.Parse(StartDate).AddDays(-timeRange.TotalDays));
+            string EndDate2 = String.Format("{0:yyyy-MM-dd}", DateTime.Parse(EndDate).AddDays(-timeRange.TotalDays));
+
+            if (targetChart.Series[1].ItemsSource == null)
+            {
+                loadData(actualMetricsIndex, StartDate2, EndDate2, 1);     
+            }
+            else
+            {
+                targetChart.Series[1].ItemsSource = null;
+                totals[s].Visibility = Visibility.Collapsed;
+                d2s[s].Visibility = Visibility.Collapsed;
+                t1s[s].IsFlipped = false;
+                t2s[s].IsFlipped = false;
+                t3s[s].IsFlipped = false;
+                t1s[s].IsFrozen = true;
+                t2s[s].IsFrozen = true;
+                t3s[s].IsFrozen = true;
+            }
+
         }
 
     }
