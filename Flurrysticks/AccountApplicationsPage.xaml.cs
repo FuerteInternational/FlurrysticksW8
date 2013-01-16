@@ -84,8 +84,8 @@ namespace Flurrystics
         private void noAccountData()
         {
             ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            pageTitle.IsTapEnabled = false;
-            pageTitle.Text = "no account";
+            pageTitle2.IsTapEnabled = false;
+            pageTitle2.Text = "no account";
             pageDropDown.IsTapEnabled = false;
 
             // no account defined - let's open appbar and entry new api dialog
@@ -363,7 +363,7 @@ namespace Flurrystics
                                 getIconFileForPlatform(platform)
                                 ));
                 }
-                pageTitle.Text = what.Name;
+                pageTitle2.Text = what.Name;
                 result = true;
             }
             return result;
@@ -377,7 +377,7 @@ namespace Flurrystics
             Debug.WriteLine("switching to ApiKey:" + DataSource.getAccounts().ElementAt<Account>(currentAccount).ApiKey);
 
             ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            pageTitle.IsTapEnabled = false;
+            pageTitle2.IsTapEnabled = false;
             pageDropDown.IsTapEnabled = false;
             // check if it's loaded, if not - load it up
             bool success;
@@ -435,7 +435,7 @@ namespace Flurrystics
                 }
                 else
                 {
-                    pageTitle.Text = title;
+                    pageTitle2.Text = title;
                     retry = false;
                 }
 
@@ -452,7 +452,7 @@ namespace Flurrystics
             */
               
             ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            pageTitle.IsTapEnabled = true;
+            pageTitle2.IsTapEnabled = true;
             pageDropDown.IsTapEnabled = true;
             
         }

@@ -64,7 +64,7 @@
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton" Storyboard.TargetProperty="Style">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedBackButtonStyle}"/>
                         </ObjectAnimationUsingKeyFrames>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageTitle" Storyboard.TargetProperty="Style">
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageTitle2" Storyboard.TargetProperty="Style">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedPageHeaderTextStyle}"/>
                         </ObjectAnimationUsingKeyFrames>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageDropDown" Storyboard.TargetProperty="Style">
@@ -238,7 +238,7 @@
                 Tapped="headerMenuClicked"
                 >
             <TextBlock 
-                x:Name="pageTitle"                
+                x:Name="pageTitle2"                
                 Text="loading..." 
                 Style="{StaticResource PageHeaderTextStyle}" 
                  HorizontalAlignment="Left"

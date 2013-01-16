@@ -227,6 +227,7 @@ namespace Flurrystics
             Debug.WriteLine("AppMetrics - LoadState");
             CallApp what = (CallApp)navigationParameter;
             pageTitle.Text = what.Name;
+            platformTitle.Text = what.Platform;
             apiKey = what.ApiKey;
             appapikey = what.AppApiKey;
 
