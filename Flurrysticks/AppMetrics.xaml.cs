@@ -80,6 +80,7 @@ namespace Flurrystics
                 rt1.IsFrozen = false;
                 rt2.IsFrozen = false;
                 rt3.IsFrozen = false;
+                tb.Visibility = Visibility.Visible;
                 tr2.Visibility = Visibility.Visible;
                 tr2.Text = "(" +  sDate + " - " + eDate + ")";
             }
@@ -226,6 +227,15 @@ namespace Flurrystics
             {
                 Debug.WriteLine("Setting DataContext of already loaded data:" + DataSource.getChartData()[metricsIndex,targetSeries].Count());
                 targetCharts[metricsIndex].Series[targetSeries].ItemsSource = DataSource.getChartData()[metricsIndex,targetSeries];
+                if (targetSeries > 0)
+                {
+                    t1s[metricsIndex].IsFrozen = false;
+                    t2s[metricsIndex].IsFrozen = false;
+                    t3s[metricsIndex].IsFrozen = false;
+                    d2s[metricsIndex].Visibility = Visibility.Visible;
+                    totals[metricsIndex].Visibility = Visibility.Visible;
+                    d2s[metricsIndex].Text = "(" + SDate + " - " + EDate + ")";
+                }
             }
 
             //if (App.taskCount == 0)
