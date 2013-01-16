@@ -101,9 +101,12 @@ namespace Flurrystics
                 tr1.Visibility = Visibility.Visible;
                 tr2.Visibility = Visibility.Collapsed;
                 tr1.Text = "(" + sDate + " - " + eDate + ")";
-                VisualStateManager.GoToState(rt1, "NotFlipped", true);
-                VisualStateManager.GoToState(rt2, "NotFlipped", true);
-                VisualStateManager.GoToState(rt3, "NotFlipped", true);
+                //VisualStateManager.GoToState(rt1, "NotFlipped", true);
+                //VisualStateManager.GoToState(rt2, "NotFlipped", true);
+                //VisualStateManager.GoToState(rt3, "NotFlipped", true);
+                rt1.IsFlipped = false;
+                rt2.IsFlipped = false;
+                rt3.IsFlipped = false;
                 rt1.IsFrozen = true;
                 rt2.IsFrozen = true;
                 rt3.IsFrozen = true;

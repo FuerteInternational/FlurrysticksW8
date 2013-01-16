@@ -1248,6 +1248,9 @@ namespace Flurrysticks.Flurrystics_XamlTypeInfo
                 userType.AddMemberName("UpdateInterval");
                 AddToMapOfTypeToStandardName(typeof(global::System.TimeSpan),
                                                    "TimeSpan");
+                userType.AddMemberName("IsFrozen");
+                AddToMapOfTypeToStandardName(typeof(global::System.Boolean),
+                                                   "Boolean");
                 userType.AddMemberName("BackContent");
                 AddToMapOfTypeToStandardName(typeof(global::System.Object),
                                                    "Object");
@@ -1262,9 +1265,6 @@ namespace Flurrysticks.Flurrystics_XamlTypeInfo
                 AddToMapOfTypeToStandardName(typeof(global::System.Object),
                                                    "Object");
                 userType.AddMemberName("TitleTemplate");
-                userType.AddMemberName("IsFrozen");
-                AddToMapOfTypeToStandardName(typeof(global::System.Boolean),
-                                                   "Boolean");
                 userType.AddMemberName("BackContentTemplate");
                 xamlType = userType;
                 break;
@@ -2730,95 +2730,95 @@ namespace Flurrysticks.Flurrystics_XamlTypeInfo
             var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
             that.UpdateInterval = (global::System.TimeSpan)Value;
         }
-        private object get_153_RadCustomHubTile_FrontContent(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Primitives.RadCustomHubTile)instance;
-            return that.FrontContent;
-        }
-        private void set_153_RadCustomHubTile_FrontContent(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Primitives.RadCustomHubTile)instance;
-            that.FrontContent = (global::System.Object)Value;
-        }
-        private object get_154_HubTileBase_BackContent(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
-            return that.BackContent;
-        }
-        private void set_154_HubTileBase_BackContent(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
-            that.BackContent = (global::System.Object)Value;
-        }
-        private object get_155_RadCustomHubTile_FrontContentTemplate(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Primitives.RadCustomHubTile)instance;
-            return that.FrontContentTemplate;
-        }
-        private void set_155_RadCustomHubTile_FrontContentTemplate(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Primitives.RadCustomHubTile)instance;
-            that.FrontContentTemplate = (global::System.Object)Value;
-        }
-        private object get_156_HubTileBase_IsFlipped(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
-            return that.IsFlipped;
-        }
-        private void set_156_HubTileBase_IsFlipped(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
-            that.IsFlipped = (global::System.Boolean)Value;
-        }
-        private object get_157_HubTileBase_Command(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
-            return that.Command;
-        }
-        private void set_157_HubTileBase_Command(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
-            that.Command = (global::System.Windows.Input.ICommand)Value;
-        }
-        private object get_158_HubTileBase_CommandParameter(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
-            return that.CommandParameter;
-        }
-        private void set_158_HubTileBase_CommandParameter(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
-            that.CommandParameter = (global::System.Object)Value;
-        }
-        private object get_159_HubTileBase_Title(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
-            return that.Title;
-        }
-        private void set_159_HubTileBase_Title(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
-            that.Title = (global::System.Object)Value;
-        }
-        private object get_160_HubTileBase_TitleTemplate(object instance)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
-            return that.TitleTemplate;
-        }
-        private void set_160_HubTileBase_TitleTemplate(object instance, object Value)
-        {
-            var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
-            that.TitleTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
-        }
-        private object get_161_HubTileBase_IsFrozen(object instance)
+        private object get_153_HubTileBase_IsFrozen(object instance)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
             return that.IsFrozen;
         }
-        private void set_161_HubTileBase_IsFrozen(object instance, object Value)
+        private void set_153_HubTileBase_IsFrozen(object instance, object Value)
         {
             var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
             that.IsFrozen = (global::System.Boolean)Value;
+        }
+        private object get_154_RadCustomHubTile_FrontContent(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Primitives.RadCustomHubTile)instance;
+            return that.FrontContent;
+        }
+        private void set_154_RadCustomHubTile_FrontContent(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Primitives.RadCustomHubTile)instance;
+            that.FrontContent = (global::System.Object)Value;
+        }
+        private object get_155_HubTileBase_BackContent(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
+            return that.BackContent;
+        }
+        private void set_155_HubTileBase_BackContent(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
+            that.BackContent = (global::System.Object)Value;
+        }
+        private object get_156_RadCustomHubTile_FrontContentTemplate(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Primitives.RadCustomHubTile)instance;
+            return that.FrontContentTemplate;
+        }
+        private void set_156_RadCustomHubTile_FrontContentTemplate(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Primitives.RadCustomHubTile)instance;
+            that.FrontContentTemplate = (global::System.Object)Value;
+        }
+        private object get_157_HubTileBase_IsFlipped(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
+            return that.IsFlipped;
+        }
+        private void set_157_HubTileBase_IsFlipped(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
+            that.IsFlipped = (global::System.Boolean)Value;
+        }
+        private object get_158_HubTileBase_Command(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
+            return that.Command;
+        }
+        private void set_158_HubTileBase_Command(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
+            that.Command = (global::System.Windows.Input.ICommand)Value;
+        }
+        private object get_159_HubTileBase_CommandParameter(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
+            return that.CommandParameter;
+        }
+        private void set_159_HubTileBase_CommandParameter(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
+            that.CommandParameter = (global::System.Object)Value;
+        }
+        private object get_160_HubTileBase_Title(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
+            return that.Title;
+        }
+        private void set_160_HubTileBase_Title(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
+            that.Title = (global::System.Object)Value;
+        }
+        private object get_161_HubTileBase_TitleTemplate(object instance)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
+            return that.TitleTemplate;
+        }
+        private void set_161_HubTileBase_TitleTemplate(object instance, object Value)
+        {
+            var that = (global::Telerik.UI.Xaml.Controls.Primitives.HubTileBase)instance;
+            that.TitleTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
         }
         private object get_162_HubTileBase_BackContentTemplate(object instance)
         {
@@ -3866,68 +3866,68 @@ namespace Flurrysticks.Flurrystics_XamlTypeInfo
                 xamlMember.Getter = get_152_HubTileBase_UpdateInterval;
                 xamlMember.Setter = set_152_HubTileBase_UpdateInterval;
                 break;
+            case "Telerik.UI.Xaml.Controls.Primitives.HubTileBase.IsFrozen":
+                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Primitives.HubTileBase");
+                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "IsFrozen", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_153_HubTileBase_IsFrozen;
+                xamlMember.Setter = set_153_HubTileBase_IsFrozen;
+                break;
             case "Telerik.UI.Xaml.Controls.Primitives.RadCustomHubTile.FrontContent":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Primitives.RadCustomHubTile");
                 xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "FrontContent", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_153_RadCustomHubTile_FrontContent;
-                xamlMember.Setter = set_153_RadCustomHubTile_FrontContent;
+                xamlMember.Getter = get_154_RadCustomHubTile_FrontContent;
+                xamlMember.Setter = set_154_RadCustomHubTile_FrontContent;
                 break;
             case "Telerik.UI.Xaml.Controls.Primitives.HubTileBase.BackContent":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Primitives.HubTileBase");
                 xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "BackContent", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_154_HubTileBase_BackContent;
-                xamlMember.Setter = set_154_HubTileBase_BackContent;
+                xamlMember.Getter = get_155_HubTileBase_BackContent;
+                xamlMember.Setter = set_155_HubTileBase_BackContent;
                 break;
             case "Telerik.UI.Xaml.Controls.Primitives.RadCustomHubTile.FrontContentTemplate":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Primitives.RadCustomHubTile");
                 xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "FrontContentTemplate", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_155_RadCustomHubTile_FrontContentTemplate;
-                xamlMember.Setter = set_155_RadCustomHubTile_FrontContentTemplate;
+                xamlMember.Getter = get_156_RadCustomHubTile_FrontContentTemplate;
+                xamlMember.Setter = set_156_RadCustomHubTile_FrontContentTemplate;
                 break;
             case "Telerik.UI.Xaml.Controls.Primitives.HubTileBase.IsFlipped":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Primitives.HubTileBase");
                 xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "IsFlipped", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_156_HubTileBase_IsFlipped;
-                xamlMember.Setter = set_156_HubTileBase_IsFlipped;
+                xamlMember.Getter = get_157_HubTileBase_IsFlipped;
+                xamlMember.Setter = set_157_HubTileBase_IsFlipped;
                 break;
             case "Telerik.UI.Xaml.Controls.Primitives.HubTileBase.Command":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Primitives.HubTileBase");
                 xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "Command", "System.Windows.Input.ICommand");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_157_HubTileBase_Command;
-                xamlMember.Setter = set_157_HubTileBase_Command;
+                xamlMember.Getter = get_158_HubTileBase_Command;
+                xamlMember.Setter = set_158_HubTileBase_Command;
                 break;
             case "Telerik.UI.Xaml.Controls.Primitives.HubTileBase.CommandParameter":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Primitives.HubTileBase");
                 xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "CommandParameter", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_158_HubTileBase_CommandParameter;
-                xamlMember.Setter = set_158_HubTileBase_CommandParameter;
+                xamlMember.Getter = get_159_HubTileBase_CommandParameter;
+                xamlMember.Setter = set_159_HubTileBase_CommandParameter;
                 break;
             case "Telerik.UI.Xaml.Controls.Primitives.HubTileBase.Title":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Primitives.HubTileBase");
                 xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "Title", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_159_HubTileBase_Title;
-                xamlMember.Setter = set_159_HubTileBase_Title;
+                xamlMember.Getter = get_160_HubTileBase_Title;
+                xamlMember.Setter = set_160_HubTileBase_Title;
                 break;
             case "Telerik.UI.Xaml.Controls.Primitives.HubTileBase.TitleTemplate":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Primitives.HubTileBase");
                 xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "TitleTemplate", "Windows.UI.Xaml.DataTemplate");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_160_HubTileBase_TitleTemplate;
-                xamlMember.Setter = set_160_HubTileBase_TitleTemplate;
-                break;
-            case "Telerik.UI.Xaml.Controls.Primitives.HubTileBase.IsFrozen":
-                userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Primitives.HubTileBase");
-                xamlMember = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlMember(this, "IsFrozen", "Boolean");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_161_HubTileBase_IsFrozen;
-                xamlMember.Setter = set_161_HubTileBase_IsFrozen;
+                xamlMember.Getter = get_161_HubTileBase_TitleTemplate;
+                xamlMember.Setter = set_161_HubTileBase_TitleTemplate;
                 break;
             case "Telerik.UI.Xaml.Controls.Primitives.HubTileBase.BackContentTemplate":
                 userType = (global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Telerik.UI.Xaml.Controls.Primitives.HubTileBase");

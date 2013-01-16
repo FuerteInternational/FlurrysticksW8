@@ -126,8 +126,8 @@
                             <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
                         </ObjectAnimationUsingKeyFrames>
                         <!-- Chart1 -->
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="radChart1" Storyboard.TargetProperty="Height">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="320"/>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="radChart1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="SmallChart"/>
                         </ObjectAnimationUsingKeyFrames>
 
                         <!-- PAGE 2 -->
@@ -190,9 +190,9 @@
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile3Number2Text2" Storyboard.TargetProperty="Style">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
                         </ObjectAnimationUsingKeyFrames>
-                        <!-- Chart1 -->
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="radChart2" Storyboard.TargetProperty="Height">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="320"/>
+                        <!-- Chart2 -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="radChart2" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="SmallChart"/>
                         </ObjectAnimationUsingKeyFrames>
 
                         <!-- PAGE 3 -->
@@ -255,9 +255,9 @@
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile3Number2Text3" Storyboard.TargetProperty="Style">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
                         </ObjectAnimationUsingKeyFrames>
-                        <!-- Chart1 -->
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="radChart3" Storyboard.TargetProperty="Height">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="320"/>
+                        <!-- Chart3 -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="radChart3" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="SmallChart"/>
                         </ObjectAnimationUsingKeyFrames>
 
                         <!-- PAGE 4 -->
@@ -320,9 +320,9 @@
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile3Number2Text4" Storyboard.TargetProperty="Style">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
                         </ObjectAnimationUsingKeyFrames>
-                        <!-- Chart1 -->
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="radChart4" Storyboard.TargetProperty="Height">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="320"/>
+                        <!-- Chart4 -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="radChart4" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="SmallChart"/>
                         </ObjectAnimationUsingKeyFrames>
 
                         <!-- PAGE 5 -->
@@ -385,9 +385,9 @@
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile3Number2Text5" Storyboard.TargetProperty="Style">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
                         </ObjectAnimationUsingKeyFrames>
-                        <!-- Chart1 -->
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="radChart5" Storyboard.TargetProperty="Height">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="320"/>
+                        <!-- Chart5 -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="radChart5" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="SmallChart"/>
                         </ObjectAnimationUsingKeyFrames>
 
                         <!-- PAGE 6 -->
@@ -450,9 +450,9 @@
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile3Number2Text6" Storyboard.TargetProperty="Style">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
                         </ObjectAnimationUsingKeyFrames>
-                        <!-- Chart1 -->
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="radChart6" Storyboard.TargetProperty="Height">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="320"/>
+                        <!-- Chart6 -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="radChart6" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="SmallChart"/>
                         </ObjectAnimationUsingKeyFrames>
 
                         <!-- PAGE 7 -->
@@ -515,9 +515,9 @@
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile3Number2Text7" Storyboard.TargetProperty="Style">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
                         </ObjectAnimationUsingKeyFrames>
-                        <!-- Chart1 -->
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="radChart7" Storyboard.TargetProperty="Height">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="320"/>
+                        <!-- Chart7 -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="radChart7" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="SmallChart"/>
                         </ObjectAnimationUsingKeyFrames>
 
                         <!-- PAGE 8 -->
@@ -580,9 +580,9 @@
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile3Number2Text8" Storyboard.TargetProperty="Style">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
                         </ObjectAnimationUsingKeyFrames>
-                        <!-- Chart1 -->
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="radChart8" Storyboard.TargetProperty="Height">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="320"/>
+                        <!-- Chart8 -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="radChart8" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="SmallChart"/>
                         </ObjectAnimationUsingKeyFrames>
 
                     </Storyboard>
@@ -678,14 +678,14 @@
                         <StackPanel Orientation="Vertical">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock x:Name="info1Text1" Text="Total" Style="{StaticResource InfoTextStyle}" />
-                                <TextBlock x:Name="info2Text1" Text="52456" Style="{StaticResource InfoTextStyleRed}" />
+                                <TextBlock x:Name="info2Text1" Text="" Style="{StaticResource InfoTextStyleRed}" />
                             </StackPanel>
-                            <TextBlock x:Name="info3Text1" Text="(21/12/2012 - 21/1/2013)" Style="{StaticResource InfoTextStyleSmallRed}"/>
+                            <TextBlock x:Name="info3Text1" Text="" Style="{StaticResource InfoTextStyleSmallRed}"/>
                         </StackPanel>
                         
                         <StackPanel Orientation="Vertical">
-                            <TextBlock x:Name="info4Text1" Text="52456" Style="{StaticResource InfoTextStyleGrey}" />
-                            <TextBlock x:Name="info5Text1" Text="(21/12/2012 - 21/1/2013)" Style="{StaticResource InfoTextStyleSmallGrey}" VerticalAlignment="Top"/>
+                            <TextBlock x:Name="info4Text1" Text="" Style="{StaticResource InfoTextStyleGrey}" />
+                            <TextBlock x:Name="info5Text1" Text="" Style="{StaticResource InfoTextStyleSmallGrey}" VerticalAlignment="Top"/>
                         </StackPanel>
                     
                     </StackPanel>
@@ -694,11 +694,13 @@
                     <telerikPrimitives:RadCustomHubTile 
                             x:Name="tile1Text1"
                             Style="{StaticResource TileSize}" UpdateInterval="0:0:4"
-                            telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                            telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                            IsFrozen="True"
+                        >
                         <telerikPrimitives:RadCustomHubTile.FrontContent>
                             <Border Background="{StaticResource flurry_green}">
                                 <Grid Style="{StaticResource Tile}">
-                                    <TextBlock x:Name="tile1Number1Text1" Text="123456" Style="{StaticResource TileBigNumber}" />
+                                    <TextBlock x:Name="tile1Number1Text1" Text="" Style="{StaticResource TileBigNumber}" />
                                     <TextBlock Text="Latest" Style="{StaticResource TileSmallNumber}" />
                                 </Grid>
                             </Border>
@@ -706,7 +708,7 @@
                     <telerikPrimitives:RadCustomHubTile.BackContent>
                             <Border Background="{StaticResource flurry_green}">
                                 <Grid Style="{StaticResource Tile}">
-                                    <TextBlock x:Name="tile1Number2Text1" Text="223456" Style="{StaticResource TileBigNumber}" />
+                                    <TextBlock x:Name="tile1Number2Text1" Text="" Style="{StaticResource TileBigNumber}" />
                                     <TextBlock Text="Prev. latest" Style="{StaticResource TileSmallNumber}" />
                                 </Grid>
                             </Border>
@@ -716,11 +718,13 @@
                     <telerikPrimitives:RadCustomHubTile x:Name="tile2Text1" 
                                                         Style="{StaticResource TileSize}"
                                                         UpdateInterval="0:0:5"
-                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                                                        IsFrozen="True"
+                                                        >
                         <telerikPrimitives:RadCustomHubTile.FrontContent>
                             <Border Background="{StaticResource flurry_blue}">
                                 <Grid Style="{StaticResource Tile}">
-                                    <TextBlock x:Name="tile2Number1Text1" Text="123456" Style="{StaticResource TileBigNumber}" />
+                                    <TextBlock x:Name="tile2Number1Text1" Text="" Style="{StaticResource TileBigNumber}" />
                                     <TextBlock Text="Min" Style="{StaticResource TileSmallNumber}" />
                                 </Grid>
                             </Border>
@@ -728,7 +732,7 @@
                         <telerikPrimitives:RadCustomHubTile.BackContent>
                             <Border Background="{StaticResource flurry_blue}">
                                 <Grid Style="{StaticResource Tile}">
-                                    <TextBlock x:Name="tile2Number2Text1" Text="223456" Style="{StaticResource TileBigNumber}" />
+                                    <TextBlock x:Name="tile2Number2Text1" Text="" Style="{StaticResource TileBigNumber}" />
                                     <TextBlock Text="Prev. min" Style="{StaticResource TileSmallNumber}" />
                                 </Grid>
                             </Border>
@@ -738,11 +742,12 @@
                     <telerikPrimitives:RadCustomHubTile x:Name="tile3Text1" 
                                                         Style="{StaticResource TileSize}"
                                                         UpdateInterval="0:0:6"
-                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                                                        IsFrozen="True">
                         <telerikPrimitives:RadCustomHubTile.FrontContent>
                             <Border Background="{StaticResource flurry_orange}">
                                 <Grid Style="{StaticResource Tile}">
-                                    <TextBlock x:Name="tile3Number1Text1" Text="123456" Style="{StaticResource TileBigNumber}" />
+                                    <TextBlock x:Name="tile3Number1Text1" Text="" Style="{StaticResource TileBigNumber}" />
                                     <TextBlock Text="Max" Style="{StaticResource TileSmallNumber}" />
                                 </Grid>
                             </Border>
@@ -750,7 +755,7 @@
                         <telerikPrimitives:RadCustomHubTile.BackContent>
                             <Border Background="{StaticResource flurry_orange}">
                                 <Grid Style="{StaticResource Tile}">
-                                    <TextBlock x:Name="tile3Number2Text1" Text="223456" Style="{StaticResource TileBigNumber}" />
+                                    <TextBlock x:Name="tile3Number2Text1" Text="" Style="{StaticResource TileBigNumber}" />
                                     <TextBlock Text="Prev. max" Style="{StaticResource TileSmallNumber}" />
                                 </Grid>
                             </Border>
@@ -849,14 +854,14 @@
                         <StackPanel Orientation="Vertical">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock x:Name="info1Text2" Text="Total" Style="{StaticResource InfoTextStyle}" />
-                                <TextBlock x:Name="info2Text2" Text="52456" Style="{StaticResource InfoTextStyleRed}" />
+                                <TextBlock x:Name="info2Text2" Text="" Style="{StaticResource InfoTextStyleRed}" />
                             </StackPanel>
-                            <TextBlock x:Name="info3Text2" Text="(21/12/2012 - 21/1/2013)" Style="{StaticResource InfoTextStyleSmallRed}"/>
+                            <TextBlock x:Name="info3Text2" Text="" Style="{StaticResource InfoTextStyleSmallRed}"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Vertical">
-                            <TextBlock x:Name="info4Text2" Text="52456" Style="{StaticResource InfoTextStyleGrey}" />
-                            <TextBlock x:Name="info5Text2" Text="(21/12/2012 - 21/1/2013)" Style="{StaticResource InfoTextStyleSmallGrey}" VerticalAlignment="Top"/>
+                            <TextBlock x:Name="info4Text2" Text="" Style="{StaticResource InfoTextStyleGrey}" />
+                            <TextBlock x:Name="info5Text2" Text="" Style="{StaticResource InfoTextStyleSmallGrey}" VerticalAlignment="Top"/>
                         </StackPanel>
 
                     </StackPanel>
@@ -865,11 +870,13 @@
                         <telerikPrimitives:RadCustomHubTile 
                             x:Name="tile1Text2"
                             Style="{StaticResource TileSize}" UpdateInterval="0:0:4"
-                            telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                            telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                            IsFrozen="True"
+                            >
                             <telerikPrimitives:RadCustomHubTile.FrontContent>
                                 <Border Background="{StaticResource flurry_green}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile1Number1Text2" Text="123456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile1Number1Text2" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Latest" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -877,7 +884,7 @@
                             <telerikPrimitives:RadCustomHubTile.BackContent>
                                 <Border Background="{StaticResource flurry_green}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile1Number2Text2" Text="223456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile1Number2Text2" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Prev. latest" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -887,11 +894,12 @@
                         <telerikPrimitives:RadCustomHubTile x:Name="tile2Text2" 
                                                         Style="{StaticResource TileSize}"
                                                         UpdateInterval="0:0:5"
-                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                                                            IsFrozen="True">
                             <telerikPrimitives:RadCustomHubTile.FrontContent>
                                 <Border Background="{StaticResource flurry_blue}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile2Number1Text2" Text="123456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile2Number1Text2" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Min" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -899,7 +907,7 @@
                             <telerikPrimitives:RadCustomHubTile.BackContent>
                                 <Border Background="{StaticResource flurry_blue}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile2Number2Text2" Text="223456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile2Number2Text2" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Prev. min" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -909,11 +917,13 @@
                         <telerikPrimitives:RadCustomHubTile x:Name="tile3Text2" 
                                                         Style="{StaticResource TileSize}"
                                                         UpdateInterval="0:0:6"
-                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                                                            IsFrozen="True"
+                                                            >
                             <telerikPrimitives:RadCustomHubTile.FrontContent>
                                 <Border Background="{StaticResource flurry_orange}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile3Number1Text2" Text="123456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile3Number1Text2" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Max" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -921,7 +931,7 @@
                             <telerikPrimitives:RadCustomHubTile.BackContent>
                                 <Border Background="{StaticResource flurry_orange}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile3Number2Text2" Text="223456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile3Number2Text2" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Prev. max" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1019,14 +1029,14 @@
                         <StackPanel Orientation="Vertical">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock x:Name="info1Text3" Text="Total" Style="{StaticResource InfoTextStyle}" />
-                                <TextBlock x:Name="info2Text3" Text="52456" Style="{StaticResource InfoTextStyleRed}" />
+                                <TextBlock x:Name="info2Text3" Text="" Style="{StaticResource InfoTextStyleRed}" />
                             </StackPanel>
-                            <TextBlock x:Name="info3Text3" Text="(21/12/2012 - 21/1/2013)" Style="{StaticResource InfoTextStyleSmallRed}"/>
+                            <TextBlock x:Name="info3Text3" Text="" Style="{StaticResource InfoTextStyleSmallRed}"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Vertical">
-                            <TextBlock x:Name="info4Text3" Text="52456" Style="{StaticResource InfoTextStyleGrey}" />
-                            <TextBlock x:Name="info5Text3" Text="(21/12/2012 - 21/1/2013)" Style="{StaticResource InfoTextStyleSmallGrey}" VerticalAlignment="Top"/>
+                            <TextBlock x:Name="info4Text3" Text="" Style="{StaticResource InfoTextStyleGrey}" />
+                            <TextBlock x:Name="info5Text3" Text="" Style="{StaticResource InfoTextStyleSmallGrey}" VerticalAlignment="Top"/>
                         </StackPanel>
 
                     </StackPanel>
@@ -1035,11 +1045,13 @@
                         <telerikPrimitives:RadCustomHubTile 
                             x:Name="tile1Text3"
                             Style="{StaticResource TileSize}" UpdateInterval="0:0:4"
-                            telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                            telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                            IsFrozen="True"
+                            >
                             <telerikPrimitives:RadCustomHubTile.FrontContent>
                                 <Border Background="{StaticResource flurry_green}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile1Number1Text3" Text="123456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile1Number1Text3" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Latest" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1047,7 +1059,7 @@
                             <telerikPrimitives:RadCustomHubTile.BackContent>
                                 <Border Background="{StaticResource flurry_green}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile1Number2Text3" Text="223456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile1Number2Text3" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Prev. latest" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1057,11 +1069,13 @@
                         <telerikPrimitives:RadCustomHubTile x:Name="tile2Text3" 
                                                         Style="{StaticResource TileSize}"
                                                         UpdateInterval="0:0:5"
-                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                                                            IsFrozen="True"
+                                                            >
                             <telerikPrimitives:RadCustomHubTile.FrontContent>
                                 <Border Background="{StaticResource flurry_blue}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile2Number1Text3" Text="123456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile2Number1Text3" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Min" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1069,7 +1083,7 @@
                             <telerikPrimitives:RadCustomHubTile.BackContent>
                                 <Border Background="{StaticResource flurry_blue}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile2Number2Text3" Text="223456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile2Number2Text3" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Prev. min" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1079,11 +1093,13 @@
                         <telerikPrimitives:RadCustomHubTile x:Name="tile3Text3" 
                                                         Style="{StaticResource TileSize}"
                                                         UpdateInterval="0:0:6"
-                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                                                            IsFrozen="True"
+                                                            >
                             <telerikPrimitives:RadCustomHubTile.FrontContent>
                                 <Border Background="{StaticResource flurry_orange}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile3Number1Text3" Text="123456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile3Number1Text3" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Max" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1091,7 +1107,7 @@
                             <telerikPrimitives:RadCustomHubTile.BackContent>
                                 <Border Background="{StaticResource flurry_orange}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile3Number2Text3" Text="223456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile3Number2Text3" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Prev. max" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1189,14 +1205,14 @@
                         <StackPanel Orientation="Vertical">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock x:Name="info1Text4" Text="Total" Style="{StaticResource InfoTextStyle}" />
-                                <TextBlock x:Name="info2Text4" Text="52456" Style="{StaticResource InfoTextStyleRed}" />
+                                <TextBlock x:Name="info2Text4" Text="" Style="{StaticResource InfoTextStyleRed}" />
                             </StackPanel>
-                            <TextBlock x:Name="info3Text4" Text="(21/12/2012 - 21/1/2013)" Style="{StaticResource InfoTextStyleSmallRed}"/>
+                            <TextBlock x:Name="info3Text4" Text="" Style="{StaticResource InfoTextStyleSmallRed}"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Vertical">
-                            <TextBlock x:Name="info4Text4" Text="52456" Style="{StaticResource InfoTextStyleGrey}" />
-                            <TextBlock x:Name="info5Text4" Text="(21/12/2012 - 21/1/2013)" Style="{StaticResource InfoTextStyleSmallGrey}" VerticalAlignment="Top"/>
+                            <TextBlock x:Name="info4Text4" Text="" Style="{StaticResource InfoTextStyleGrey}" />
+                            <TextBlock x:Name="info5Text4" Text="" Style="{StaticResource InfoTextStyleSmallGrey}" VerticalAlignment="Top"/>
                         </StackPanel>
 
                     </StackPanel>
@@ -1205,11 +1221,13 @@
                         <telerikPrimitives:RadCustomHubTile 
                             x:Name="tile1Text4"
                             Style="{StaticResource TileSize}" UpdateInterval="0:0:4"
-                            telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                            telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                            IsFrozen="True"
+                            >
                             <telerikPrimitives:RadCustomHubTile.FrontContent>
                                 <Border Background="{StaticResource flurry_green}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile1Number1Text4" Text="123456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile1Number1Text4" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Latest" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1217,7 +1235,7 @@
                             <telerikPrimitives:RadCustomHubTile.BackContent>
                                 <Border Background="{StaticResource flurry_green}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile1Number2Text4" Text="223456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile1Number2Text4" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Prev. latest" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1227,11 +1245,13 @@
                         <telerikPrimitives:RadCustomHubTile x:Name="tile2Text4" 
                                                         Style="{StaticResource TileSize}"
                                                         UpdateInterval="0:0:5"
-                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                                                            IsFrozen="True"
+                                                            >
                             <telerikPrimitives:RadCustomHubTile.FrontContent>
                                 <Border Background="{StaticResource flurry_blue}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile2Number1Text4" Text="123456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile2Number1Text4" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Min" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1239,7 +1259,7 @@
                             <telerikPrimitives:RadCustomHubTile.BackContent>
                                 <Border Background="{StaticResource flurry_blue}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile2Number2Text4" Text="223456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile2Number2Text4" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Prev. min" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1249,11 +1269,13 @@
                         <telerikPrimitives:RadCustomHubTile x:Name="tile3Text4" 
                                                         Style="{StaticResource TileSize}"
                                                         UpdateInterval="0:0:6"
-                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                                                            IsFrozen="True"
+                                                            >
                             <telerikPrimitives:RadCustomHubTile.FrontContent>
                                 <Border Background="{StaticResource flurry_orange}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile3Number1Text4" Text="123456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile3Number1Text4" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Max" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1261,7 +1283,7 @@
                             <telerikPrimitives:RadCustomHubTile.BackContent>
                                 <Border Background="{StaticResource flurry_orange}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile3Number2Text4" Text="223456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile3Number2Text4" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Prev. max" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1359,14 +1381,14 @@
                         <StackPanel Orientation="Vertical">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock x:Name="info1Text5" Text="Total" Style="{StaticResource InfoTextStyle}" />
-                                <TextBlock x:Name="info2Text5" Text="52456" Style="{StaticResource InfoTextStyleRed}" />
+                                <TextBlock x:Name="info2Text5" Text="" Style="{StaticResource InfoTextStyleRed}" />
                             </StackPanel>
-                            <TextBlock x:Name="info3Text5" Text="(21/12/2012 - 21/1/2013)" Style="{StaticResource InfoTextStyleSmallRed}"/>
+                            <TextBlock x:Name="info3Text5" Text="" Style="{StaticResource InfoTextStyleSmallRed}"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Vertical">
-                            <TextBlock x:Name="info4Text5" Text="52456" Style="{StaticResource InfoTextStyleGrey}" />
-                            <TextBlock x:Name="info5Text5" Text="(21/12/2012 - 21/1/2013)" Style="{StaticResource InfoTextStyleSmallGrey}" VerticalAlignment="Top"/>
+                            <TextBlock x:Name="info4Text5" Text="" Style="{StaticResource InfoTextStyleGrey}" />
+                            <TextBlock x:Name="info5Text5" Text="" Style="{StaticResource InfoTextStyleSmallGrey}" VerticalAlignment="Top"/>
                         </StackPanel>
 
                     </StackPanel>
@@ -1375,11 +1397,13 @@
                         <telerikPrimitives:RadCustomHubTile 
                             x:Name="tile1Text5"
                             Style="{StaticResource TileSize}" UpdateInterval="0:0:4"
-                            telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                            telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                            IsFrozen="True"
+                            >
                             <telerikPrimitives:RadCustomHubTile.FrontContent>
                                 <Border Background="{StaticResource flurry_green}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile1Number1Text5" Text="123456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile1Number1Text5" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Latest" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1387,7 +1411,7 @@
                             <telerikPrimitives:RadCustomHubTile.BackContent>
                                 <Border Background="{StaticResource flurry_green}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile1Number2Text5" Text="223456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile1Number2Text5" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Prev. latest" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1397,11 +1421,13 @@
                         <telerikPrimitives:RadCustomHubTile x:Name="tile2Text5" 
                                                         Style="{StaticResource TileSize}"
                                                         UpdateInterval="0:0:5"
-                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                                                            IsFrozen="True"
+                                                            >
                             <telerikPrimitives:RadCustomHubTile.FrontContent>
                                 <Border Background="{StaticResource flurry_blue}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile2Number1Text5" Text="123456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile2Number1Text5" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Min" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1409,7 +1435,7 @@
                             <telerikPrimitives:RadCustomHubTile.BackContent>
                                 <Border Background="{StaticResource flurry_blue}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile2Number2Text5" Text="223456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile2Number2Text5" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Prev. min" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1419,11 +1445,13 @@
                         <telerikPrimitives:RadCustomHubTile x:Name="tile3Text5" 
                                                         Style="{StaticResource TileSize}"
                                                         UpdateInterval="0:0:6"
-                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                                                            IsFrozen="True"
+                                                            >
                             <telerikPrimitives:RadCustomHubTile.FrontContent>
                                 <Border Background="{StaticResource flurry_orange}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile3Number1Text5" Text="123456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile3Number1Text5" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Max" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1431,7 +1459,7 @@
                             <telerikPrimitives:RadCustomHubTile.BackContent>
                                 <Border Background="{StaticResource flurry_orange}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile3Number2Text5" Text="223456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile3Number2Text5" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Prev. max" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1529,14 +1557,14 @@
                         <StackPanel Orientation="Vertical">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock x:Name="info1Text6" Text="Total" Style="{StaticResource InfoTextStyle}" />
-                                <TextBlock x:Name="info2Text6" Text="52456" Style="{StaticResource InfoTextStyleRed}" />
+                                <TextBlock x:Name="info2Text6" Text="" Style="{StaticResource InfoTextStyleRed}" />
                             </StackPanel>
-                            <TextBlock x:Name="info3Text6" Text="(21/12/2012 - 21/1/2013)" Style="{StaticResource InfoTextStyleSmallRed}"/>
+                            <TextBlock x:Name="info3Text6" Text="" Style="{StaticResource InfoTextStyleSmallRed}"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Vertical">
-                            <TextBlock x:Name="info4Text6" Text="52456" Style="{StaticResource InfoTextStyleGrey}" />
-                            <TextBlock x:Name="info5Text6" Text="(21/12/2012 - 21/1/2013)" Style="{StaticResource InfoTextStyleSmallGrey}" VerticalAlignment="Top"/>
+                            <TextBlock x:Name="info4Text6" Text="" Style="{StaticResource InfoTextStyleGrey}" />
+                            <TextBlock x:Name="info5Text6" Text="" Style="{StaticResource InfoTextStyleSmallGrey}" VerticalAlignment="Top"/>
                         </StackPanel>
 
                     </StackPanel>
@@ -1545,11 +1573,13 @@
                         <telerikPrimitives:RadCustomHubTile 
                             x:Name="tile1Text6"
                             Style="{StaticResource TileSize}" UpdateInterval="0:0:4"
-                            telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                            telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                            IsFrozen="True"
+                            >
                             <telerikPrimitives:RadCustomHubTile.FrontContent>
                                 <Border Background="{StaticResource flurry_green}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile1Number1Text6" Text="123456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile1Number1Text6" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Latest" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1557,7 +1587,7 @@
                             <telerikPrimitives:RadCustomHubTile.BackContent>
                                 <Border Background="{StaticResource flurry_green}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile1Number2Text6" Text="223456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile1Number2Text6" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Prev. latest" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1567,11 +1597,13 @@
                         <telerikPrimitives:RadCustomHubTile x:Name="tile2Text6" 
                                                         Style="{StaticResource TileSize}"
                                                         UpdateInterval="0:0:5"
-                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                                                            IsFrozen="True"
+                                                            >
                             <telerikPrimitives:RadCustomHubTile.FrontContent>
                                 <Border Background="{StaticResource flurry_blue}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile2Number1Text6" Text="123456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile2Number1Text6" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Min" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1579,7 +1611,7 @@
                             <telerikPrimitives:RadCustomHubTile.BackContent>
                                 <Border Background="{StaticResource flurry_blue}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile2Number2Text6" Text="223456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile2Number2Text6" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Prev. min" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1589,11 +1621,13 @@
                         <telerikPrimitives:RadCustomHubTile x:Name="tile3Text6" 
                                                         Style="{StaticResource TileSize}"
                                                         UpdateInterval="0:0:6"
-                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                                                            IsFrozen="True"
+                                                            >
                             <telerikPrimitives:RadCustomHubTile.FrontContent>
                                 <Border Background="{StaticResource flurry_orange}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile3Number1Text6" Text="123456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile3Number1Text6" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Max" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1601,7 +1635,7 @@
                             <telerikPrimitives:RadCustomHubTile.BackContent>
                                 <Border Background="{StaticResource flurry_orange}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile3Number2Text6" Text="223456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile3Number2Text6" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Prev. max" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1699,14 +1733,14 @@
                         <StackPanel Orientation="Vertical">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock x:Name="info1Text7" Text="Total" Style="{StaticResource InfoTextStyle}" />
-                                <TextBlock x:Name="info2Text7" Text="52456" Style="{StaticResource InfoTextStyleRed}" />
+                                <TextBlock x:Name="info2Text7" Text="" Style="{StaticResource InfoTextStyleRed}" />
                             </StackPanel>
-                            <TextBlock x:Name="info3Text7" Text="(21/12/2012 - 21/1/2013)" Style="{StaticResource InfoTextStyleSmallRed}"/>
+                            <TextBlock x:Name="info3Text7" Text="" Style="{StaticResource InfoTextStyleSmallRed}"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Vertical">
-                            <TextBlock x:Name="info4Text7" Text="52456" Style="{StaticResource InfoTextStyleGrey}" />
-                            <TextBlock x:Name="info5Text7" Text="(21/12/2012 - 21/1/2013)" Style="{StaticResource InfoTextStyleSmallGrey}" VerticalAlignment="Top"/>
+                            <TextBlock x:Name="info4Text7" Text="" Style="{StaticResource InfoTextStyleGrey}" />
+                            <TextBlock x:Name="info5Text7" Text="" Style="{StaticResource InfoTextStyleSmallGrey}" VerticalAlignment="Top"/>
                         </StackPanel>
 
                     </StackPanel>
@@ -1715,11 +1749,13 @@
                         <telerikPrimitives:RadCustomHubTile 
                             x:Name="tile1Text7"
                             Style="{StaticResource TileSize}" UpdateInterval="0:0:4"
-                            telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                            telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                            IsFrozen="True"
+                            >
                             <telerikPrimitives:RadCustomHubTile.FrontContent>
                                 <Border Background="{StaticResource flurry_green}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile1Number1Text7" Text="123456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile1Number1Text7" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Latest" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1727,7 +1763,7 @@
                             <telerikPrimitives:RadCustomHubTile.BackContent>
                                 <Border Background="{StaticResource flurry_green}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile1Number2Text7" Text="223456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile1Number2Text7" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Prev. latest" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1737,11 +1773,13 @@
                         <telerikPrimitives:RadCustomHubTile x:Name="tile2Text7" 
                                                         Style="{StaticResource TileSize}"
                                                         UpdateInterval="0:0:5"
-                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                                                            
+                                                            IsFrozen="True">
                             <telerikPrimitives:RadCustomHubTile.FrontContent>
                                 <Border Background="{StaticResource flurry_blue}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile2Number1Text7" Text="123456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile2Number1Text7" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Min" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1749,7 +1787,7 @@
                             <telerikPrimitives:RadCustomHubTile.BackContent>
                                 <Border Background="{StaticResource flurry_blue}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile2Number2Text7" Text="223456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile2Number2Text7" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Prev. min" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1759,11 +1797,12 @@
                         <telerikPrimitives:RadCustomHubTile x:Name="tile3Text7" 
                                                         Style="{StaticResource TileSize}"
                                                         UpdateInterval="0:0:6"
-                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                                                            IsFrozen="True">
                             <telerikPrimitives:RadCustomHubTile.FrontContent>
                                 <Border Background="{StaticResource flurry_orange}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile3Number1Text7" Text="123456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile3Number1Text7" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Max" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1771,7 +1810,7 @@
                             <telerikPrimitives:RadCustomHubTile.BackContent>
                                 <Border Background="{StaticResource flurry_orange}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile3Number2Text7" Text="223456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile3Number2Text7" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Prev. max" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1869,14 +1908,14 @@
                         <StackPanel Orientation="Vertical">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock x:Name="info1Text8" Text="Total" Style="{StaticResource InfoTextStyle}" />
-                                <TextBlock x:Name="info2Text8" Text="52456" Style="{StaticResource InfoTextStyleRed}" />
+                                <TextBlock x:Name="info2Text8" Text="" Style="{StaticResource InfoTextStyleRed}" />
                             </StackPanel>
-                            <TextBlock x:Name="info3Text8" Text="(21/12/2012 - 21/1/2013)" Style="{StaticResource InfoTextStyleSmallRed}"/>
+                            <TextBlock x:Name="info3Text8" Text="" Style="{StaticResource InfoTextStyleSmallRed}"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Vertical">
-                            <TextBlock x:Name="info4Text8" Text="52456" Style="{StaticResource InfoTextStyleGrey}" />
-                            <TextBlock x:Name="info5Text8" Text="(21/12/2012 - 21/1/2013)" Style="{StaticResource InfoTextStyleSmallGrey}" VerticalAlignment="Top"/>
+                            <TextBlock x:Name="info4Text8" Text="" Style="{StaticResource InfoTextStyleGrey}" />
+                            <TextBlock x:Name="info5Text8" Text="" Style="{StaticResource InfoTextStyleSmallGrey}" VerticalAlignment="Top"/>
                         </StackPanel>
 
                     </StackPanel>
@@ -1885,11 +1924,12 @@
                         <telerikPrimitives:RadCustomHubTile 
                             x:Name="tile1Text8"
                             Style="{StaticResource TileSize}" UpdateInterval="0:0:4"
-                            telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                            telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                            IsFrozen="True">
                             <telerikPrimitives:RadCustomHubTile.FrontContent>
                                 <Border Background="{StaticResource flurry_green}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile1Number1Text8" Text="123456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile1Number1Text8" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Latest" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1897,7 +1937,7 @@
                             <telerikPrimitives:RadCustomHubTile.BackContent>
                                 <Border Background="{StaticResource flurry_green}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile1Number2Text8" Text="223456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile1Number2Text8" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Prev. latest" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1907,11 +1947,12 @@
                         <telerikPrimitives:RadCustomHubTile x:Name="tile2Text8" 
                                                         Style="{StaticResource TileSize}"
                                                         UpdateInterval="0:0:5"
-                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                                                            IsFrozen="True">
                             <telerikPrimitives:RadCustomHubTile.FrontContent>
                                 <Border Background="{StaticResource flurry_blue}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile2Number1Text8" Text="123456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile2Number1Text8" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Min" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1919,7 +1960,7 @@
                             <telerikPrimitives:RadCustomHubTile.BackContent>
                                 <Border Background="{StaticResource flurry_blue}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile2Number2Text8" Text="223456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile2Number2Text8" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Prev. min" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1929,11 +1970,12 @@
                         <telerikPrimitives:RadCustomHubTile x:Name="tile3Text8" 
                                                         Style="{StaticResource TileSize}"
                                                         UpdateInterval="0:0:6"
-                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook">
+                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                                                            IsFrozen="True">
                             <telerikPrimitives:RadCustomHubTile.FrontContent>
                                 <Border Background="{StaticResource flurry_orange}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile3Number1Text8" Text="123456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile3Number1Text8" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Max" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
@@ -1941,7 +1983,7 @@
                             <telerikPrimitives:RadCustomHubTile.BackContent>
                                 <Border Background="{StaticResource flurry_orange}">
                                     <Grid Style="{StaticResource Tile}">
-                                        <TextBlock x:Name="tile3Number2Text8" Text="223456" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock x:Name="tile3Number2Text8" Text="" Style="{StaticResource TileBigNumber}" />
                                         <TextBlock Text="Prev. max" Style="{StaticResource TileSmallNumber}" />
                                     </Grid>
                                 </Border>
