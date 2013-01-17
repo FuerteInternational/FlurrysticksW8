@@ -34,7 +34,8 @@ namespace Flurrystics
         string apiKey;
         string appapikey = ""; // initial apikey of the app
         string[] AppMetricsNames = { "ActiveUsers", "ActiveUsersByWeek", "ActiveUsersByMonth", "NewUsers", "MedianSessionLength", "AvgSessionLength", "Sessions", "RetainedUsers" };
-        string[] AppMetricsNamesFormatted = { "Active Users", "Active Users By Week", "Active Users By Month", "New Users", "Median Session Length", "Avg Session Length", "Sessions", "Retained Users" };
+        string[] AppMetricsNamesFormatted = { "Active Users", "Active Users By Week", "Active Users By Month", "New Users", "Median Session Length", "Avg Session Length", "Sessions", "Retained Users", "Events List" };
+        string[] EventMetrics = { "usersLastDay", "usersLastWeek", "usersLastMonth", "avgUsersLastDay", "avgUsersLastWeek", "avgUsersLastMonth", "totalSessions", "totalCount" };
         string EndDate;
         string StartDate;
         int actualMetricsIndex = 0;
@@ -160,6 +161,14 @@ namespace Flurrystics
 
         private async void loadData(int metricsIndex, string SDate, string EDate, int targetSeries)
         {
+
+            // events
+            if (metricsIndex == 8)
+            {
+                LoadUpXMLEvents(SDate, EDate);
+                return;
+            }
+
             Debug.WriteLine("loadData() " + metricsIndex);
             RadCartesianChart[] targetCharts = { radChart1, radChart2, radChart3, radChart4, radChart5, radChart6, radChart7, radChart8 };
             RadCustomHubTile[] t1s = { tile1Text1, tile1Text2, tile1Text3, tile1Text4, tile1Text5, tile1Text6, tile1Text7, tile1Text8 };
@@ -221,7 +230,6 @@ namespace Flurrystics
                                 int c = metricsIndex;
                                 ParseXML(result,c,targetCharts[c],t1s[c],t2s[c],t3s[c],c1s[c],c2s[c],c3s[c],totals[c],SDate,EDate,d1s[c],d2s[c],targetSeries);
                              }
-
             }
             else
             {
@@ -244,6 +252,48 @@ namespace Flurrystics
             //}
 
         }
+
+        private async void LoadUpXMLEvents(String SDate, String EDate)
+        {
+
+                bool success;
+                XDocument result = null;
+                IEnumerable<EventItem> data = null;
+                string callURL = "http://api.flurry.com/eventMetrics/Summary?apiAccessCode=" + apiKey + "&apiKey=" + appapikey + "&startDate=" + SDate + "&endDate=" + EDate;
+                Debug.WriteLine(callURL);
+                try
+                {
+                    result = await dh.DownloadXML(callURL); // load it   
+                    success = true;
+                }
+                catch (System.Net.Http.HttpRequestException)
+                {   // load failed
+                    success = false;
+                }
+                Debug.WriteLine("Success:" + success);
+                if (success) { 
+                            data = from query in result.Descendants("event")
+                               orderby (int)query.Attribute(EventMetrics[EventsMetricsListPicker.SelectedIndex]) descending
+                               select new EventItem
+                               {
+                                   eventName = (string)query.Attribute("eventName"),
+                                   usersLastDay = (string)query.Attribute(EventMetrics[0]),
+                                   usersLastWeek = (string)query.Attribute(EventMetrics[1]),
+                                   usersLastMonth = (string)query.Attribute(EventMetrics[2]),
+                                   avgUsersLastDay = (string)query.Attribute(EventMetrics[3]),
+                                   avgUsersLastWeek = (string)query.Attribute(EventMetrics[4]),
+                                   avgUsersLastMonth = (string)query.Attribute(EventMetrics[5]),
+                                   totalSessions = (string)query.Attribute(EventMetrics[6]),
+                                   totalCount = (string)query.Attribute(EventMetrics[7])
+                               };
+                                //int c = metricsIndex;
+                                //ParseXML(result,c,targetCharts[c],t1s[c],t2s[c],t3s[c],c1s[c],c2s[c],c3s[c],totals[c],SDate,EDate,d1s[c],d2s[c],targetSeries);
+                             } // success
+
+                EventsListBox.ItemsSource = data;
+
+            }
+
 
         /// <summary>
         /// Populates the page with content passed during navigation.  Any saved state is also
@@ -490,6 +540,11 @@ namespace Flurrystics
                 t2s[s].IsFrozen = true;
                 t3s[s].IsFrozen = true;
             }
+
+        }
+
+        private void EventsListBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
 
         }
 

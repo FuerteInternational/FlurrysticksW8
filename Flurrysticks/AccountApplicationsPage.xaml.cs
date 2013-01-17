@@ -336,7 +336,6 @@ namespace Flurrystics
                         apps = from node in what.xdoc.Descendants("application")
                                orderby node.Attribute(orderValue).Value ascending
                                select node;
-
                 }
                 else // descending
                 {

@@ -123,6 +123,7 @@
     <Compile Include="DataModel\ChartDataPoint.cs" />
     <Compile Include="DataModel\AppItem.cs" />
     <Compile Include="DataModel\CallApp.cs" />
+    <Compile Include="DataModel\EventItem.cs" />
     <Compile Include="DataModel\TimeRange.cs" />
     <Compile Include="DownloadHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

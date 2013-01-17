@@ -610,13 +610,13 @@
                 Grid.ColumnSpan="2"
                 />
             
-            <Button x:ConnectionId='16' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
+            <Button x:ConnectionId='17' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <StackPanel x:Name="titleArea" Orientation="Vertical" Grid.Column="1" VerticalAlignment="Bottom" Style="{StaticResource titleAreaStyle}">
                 <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle2}"/>
                 <TextBlock x:Name="platformTitle" Text="Android" Style="{StaticResource SubheaderTextStyle}" />
             </StackPanel>
             
-            <StackPanel x:ConnectionId='17' 
+            <StackPanel x:ConnectionId='18' 
                 Orientation="Horizontal" 
                 Grid.Column="1" 
                 Grid.Row="2"
@@ -841,7 +841,7 @@
 
                     <Chart:RadCartesianChart.Behaviors>
                         <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
-                        <Chart:ChartTrackBallBehavior x:ConnectionId='15' 
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='16' 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                                                                                         
@@ -1032,7 +1032,7 @@
 
                     <Chart:RadCartesianChart.Behaviors>
                         <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
-                        <Chart:ChartTrackBallBehavior x:ConnectionId='14' 
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='15' 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                                                                                         
@@ -1223,7 +1223,7 @@
 
                     <Chart:RadCartesianChart.Behaviors>
                         <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
-                        <Chart:ChartTrackBallBehavior x:ConnectionId='13' 
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='14' 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                                                                                         
@@ -1414,7 +1414,7 @@
 
                     <Chart:RadCartesianChart.Behaviors>
                         <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
-                        <Chart:ChartTrackBallBehavior x:ConnectionId='12' 
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='13' 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                                                                                         
@@ -1605,7 +1605,7 @@
 
                     <Chart:RadCartesianChart.Behaviors>
                         <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
-                        <Chart:ChartTrackBallBehavior x:ConnectionId='11' 
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='12' 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                                                                                         
@@ -1796,7 +1796,7 @@
 
                     <Chart:RadCartesianChart.Behaviors>
                         <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
-                        <Chart:ChartTrackBallBehavior x:ConnectionId='10' 
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='11' 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                                                                                         
@@ -1986,7 +1986,7 @@
 
                     <Chart:RadCartesianChart.Behaviors>
                         <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
-                        <Chart:ChartTrackBallBehavior x:ConnectionId='9' 
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='10' 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                                                                                         
@@ -2118,14 +2118,13 @@
                 </StackPanel>
 
                 <Chart:RadCartesianChart 
-                    x:Name="radChart8"
-                    HorizontalAlignment="Stretch" 
-                    Margin="10,0,0,0"           
-                    MinZoom="1,1"
-                    Grid.Row="1"
-                    VerticalAlignment="Stretch"
-                    EmptyContent="Loading..."
-                    >
+                        x:Name="radChart8"
+                        HorizontalAlignment="Stretch" 
+                        Margin="10,0,0,0"           
+                        MinZoom="1,1"
+                        Grid.Row="1"
+                        VerticalAlignment="Stretch"
+                        EmptyContent="Loading...">
 
                     <Chart:RadCartesianChart.Grid>
                         <Chart:CartesianChartGrid 
@@ -2174,7 +2173,7 @@
 
                     <Chart:RadCartesianChart.Behaviors>
                         <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
-                        <Chart:ChartTrackBallBehavior x:ConnectionId='8' 
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='9' 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                                                                                         
@@ -2182,6 +2181,40 @@
                     </Chart:RadCartesianChart.Behaviors>
 
                 </Chart:RadCartesianChart>
+            </Grid>
+            <Grid>
+            <StackPanel Orientation="Vertical" Margin="60,20,60,20">
+            <ComboBox x:Name="EventsMetricsListPicker" SelectedIndex="0" HorizontalAlignment="Stretch" Height="30"  Margin="0,5,0,0">
+
+                    <ComboBoxItem Content="Users Last Day" />
+                    <ComboBoxItem Content="Users Last Week" />
+                    <ComboBoxItem Content="Users Last Month" />
+                    <ComboBoxItem Content="Avg Users Last Day" />
+                    <ComboBoxItem Content="Avg Users Last Week" />
+                    <ComboBoxItem Content="Avg Users Last Month" />
+                    <ComboBoxItem Content="Total Counts" />
+                    <ComboBoxItem Content="Total Sessions" />
+
+            </ComboBox>
+
+            <ListView x:ConnectionId='8' x:Name="EventsListBox"  
+                     ItemsSource="{Binding}" 
+                                                                        
+                     VerticalAlignment="Stretch"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     Padding="10,0,0,60"
+                     >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,0,0,17" Width="432">
+                            <TextBlock Text="{Binding eventName}" TextWrapping="Wrap" Style="{StaticResource ItemTextStyle}"/>
+                            <TextBlock Text="{Binding usersLastDay}" TextWrapping="Wrap" Margin="0,0,12,0" HorizontalAlignment="Right" Style="{StaticResource ItemTextStyle}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </StackPanel>
             </Grid>
 
         </FlipView>
@@ -2254,8 +2287,8 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Button x:ConnectionId='18' x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}"                                 />
-                    <Button x:ConnectionId='19' x:Name="CompareToggleButton" Style="{StaticResource CompareToggleAppBarButtonStyle}"                                     />
+                    <Button x:ConnectionId='19' x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}"                                 />
+                    <Button x:ConnectionId='20' x:Name="CompareToggleButton" Style="{StaticResource CompareToggleAppBarButtonStyle}"                                     />
                 </StackPanel>
             </Grid>
         </AppBar>

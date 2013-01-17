@@ -2118,14 +2118,13 @@
                 </StackPanel>
 
                 <Chart:RadCartesianChart 
-                    x:Name="radChart8"
-                    HorizontalAlignment="Stretch" 
-                    Margin="10,0,0,0"           
-                    MinZoom="1,1"
-                    Grid.Row="1"
-                    VerticalAlignment="Stretch"
-                    EmptyContent="Loading..."
-                    >
+                        x:Name="radChart8"
+                        HorizontalAlignment="Stretch" 
+                        Margin="10,0,0,0"           
+                        MinZoom="1,1"
+                        Grid.Row="1"
+                        VerticalAlignment="Stretch"
+                        EmptyContent="Loading...">
 
                     <Chart:RadCartesianChart.Grid>
                         <Chart:CartesianChartGrid 
@@ -2182,6 +2181,40 @@
                     </Chart:RadCartesianChart.Behaviors>
 
                 </Chart:RadCartesianChart>
+            </Grid>
+            <Grid>
+            <StackPanel Orientation="Vertical" Margin="60,20,60,20">
+            <ComboBox x:Name="EventsMetricsListPicker" SelectedIndex="0" HorizontalAlignment="Stretch" Height="30"  Margin="0,5,0,0">
+
+                    <ComboBoxItem Content="Users Last Day" />
+                    <ComboBoxItem Content="Users Last Week" />
+                    <ComboBoxItem Content="Users Last Month" />
+                    <ComboBoxItem Content="Avg Users Last Day" />
+                    <ComboBoxItem Content="Avg Users Last Week" />
+                    <ComboBoxItem Content="Avg Users Last Month" />
+                    <ComboBoxItem Content="Total Counts" />
+                    <ComboBoxItem Content="Total Sessions" />
+
+            </ComboBox>
+
+            <ListView x:Name="EventsListBox"  
+                     ItemsSource="{Binding}" 
+                     SelectionChanged="EventsListBox_SelectionChanged_1"
+                     VerticalAlignment="Stretch"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     Padding="10,0,0,60"
+                     >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,0,0,17" Width="432">
+                            <TextBlock Text="{Binding eventName}" TextWrapping="Wrap" Style="{StaticResource ItemTextStyle}"/>
+                            <TextBlock Text="{Binding usersLastDay}" TextWrapping="Wrap" Margin="0,0,12,0" HorizontalAlignment="Right" Style="{StaticResource ItemTextStyle}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </StackPanel>
             </Grid>
 
         </FlipView>
