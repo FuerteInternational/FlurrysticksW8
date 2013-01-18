@@ -373,7 +373,6 @@ namespace Flurrystics
         private void changeMetrics(int index)
         {
             actualMetricsIndex = index;
-            loadData(actualMetricsIndex,StartDate,EndDate,0);
             if (pageTitle2 != null)
             {
                 pageTitle2.Text = AppMetricsNamesFormatted[actualMetricsIndex];
@@ -390,6 +389,7 @@ namespace Flurrystics
             if (flipView1 != null)
             {
                 changeMetrics(((FlipView)sender).SelectedIndex);
+                loadData(actualMetricsIndex, StartDate, EndDate, 0);
             }
         }
 

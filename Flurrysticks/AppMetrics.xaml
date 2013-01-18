@@ -2182,7 +2182,6 @@
 
                 </Chart:RadCartesianChart>
             </Grid>
-            <Grid>
             <StackPanel Orientation="Vertical" Margin="60,20,60,20">
             <ComboBox x:Name="EventsMetricsListPicker" SelectedIndex="0" HorizontalAlignment="Stretch" Height="30"  Margin="0,5,0,0">
 
@@ -2204,6 +2203,7 @@
                      Background="Transparent"
                      BorderThickness="0"
                      Padding="10,0,0,60"
+                     Grid.Row="1"                 
                      >
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -2215,7 +2215,6 @@
                 </ListView.ItemTemplate>
             </ListView>
             </StackPanel>
-            </Grid>
 
         </FlipView>
 
