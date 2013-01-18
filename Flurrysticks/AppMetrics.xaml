@@ -644,7 +644,8 @@
 
         <FlipView x:Name="flipView1" 
                   Grid.Row="1" 
-                  SelectionChanged="flipView1_SelectionChanged_1">
+                  SelectionChanged="flipView1_SelectionChanged_1"
+                  >
  
                 <!-- PAGE 1 -->
                 <Grid>
@@ -2182,8 +2183,20 @@
 
                 </Chart:RadCartesianChart>
             </Grid>
-            <StackPanel Orientation="Vertical" Margin="60,20,60,20">
-            <ComboBox x:Name="EventsMetricsListPicker" SelectedIndex="0" HorizontalAlignment="Stretch" Height="30"  Margin="0,5,0,0">
+            
+            <Grid Margin="40,20,20,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+            <ComboBox x:Name="EventsMetricsListPicker" 
+                      Grid.Row="0" 
+                      SelectedIndex="0" 
+                      HorizontalAlignment="Stretch" 
+                      Height="30"  
+                      Margin="0,5,0,0"
+                      SelectionChanged="EventsMetricsListPicker_SelectionChanged_1"
+                      >
 
                     <ComboBoxItem Content="Users Last Day" />
                     <ComboBoxItem Content="Users Last Week" />
@@ -2196,25 +2209,30 @@
 
             </ComboBox>
 
-            <ListView x:Name="EventsListBox"  
+                <ListView x:Name="EventsListBox"  
                      ItemsSource="{Binding}" 
                      SelectionChanged="EventsListBox_SelectionChanged_1"
-                     VerticalAlignment="Stretch"
+                     Grid.ColumnSpan="1" 
                      Background="Transparent"
                      BorderThickness="0"
-                     Padding="10,0,0,60"
-                     Grid.Row="1"                 
+                     Grid.Row="1"
+                     VerticalAlignment="Stretch"
+                     ScrollViewer.VerticalScrollBarVisibility="Visible"  
+                     SelectionMode="None"
+                     IsSwipeEnabled="false"
+                     IsItemClickEnabled="True"
                      >
+                    
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Margin="0,0,0,17" Width="432">
-                            <TextBlock Text="{Binding eventName}" TextWrapping="Wrap" Style="{StaticResource ItemTextStyle}"/>
-                            <TextBlock Text="{Binding usersLastDay}" TextWrapping="Wrap" Margin="0,0,12,0" HorizontalAlignment="Right" Style="{StaticResource ItemTextStyle}"/>
-                        </Grid>
+                        <StackPanel Orientation="Horizontal">
+                           <TextBlock Width="250" Text="{Binding eventName}" TextWrapping="Wrap" Style="{StaticResource ItemTextStyle}"/>
+                           <TextBlock Text="{Binding eventValue}" TextWrapping="Wrap" HorizontalAlignment="Right" Style="{StaticResource ItemTextStyle}"/>
+                        </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            </StackPanel>
+            </Grid>
 
         </FlipView>
 

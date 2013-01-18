@@ -13,6 +13,8 @@ namespace Flurrysticks.DataModel
 
         // "usersLastDay", "usersLastWeek", "usersLastMonth", "avgUsersLastDay", "avgUsersLastWeek", "avgUsersLastMonth", "totalSessions", "totalCount"
         public string eventName { get; set; }
+        public string eventValue { get; set; }
+        /*
         public string usersLastDay { get; set; }
         public string usersLastWeek { get; set; }
         public string usersLastMonth { get; set; }
@@ -21,7 +23,7 @@ namespace Flurrysticks.DataModel
         public string avgUsersLastMonth { get; set; }
         public string totalSessions { get; set; }
         public string totalCount { get; set; }
-
+        */
     }
 
 }

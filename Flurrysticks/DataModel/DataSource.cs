@@ -32,6 +32,7 @@ namespace Flurrystics.Data
     public sealed class DataSource
     {
         private static DataSource _DataSource = new DataSource();
+        public static XDocument dataEventsXML = null;
 
         public static ObservableCollection<AppItem> getApps()
         {
@@ -82,6 +83,7 @@ namespace Flurrystics.Data
         public static void clearChartData()
         {
             Array.Clear(_DataSource.ChartData,0,_DataSource.ChartData.Length);
+            dataEventsXML = null;
         }
 
         private IEnumerable<ChartDataPoint>[,] _ChartData = new IEnumerable<ChartDataPoint>[8,2];

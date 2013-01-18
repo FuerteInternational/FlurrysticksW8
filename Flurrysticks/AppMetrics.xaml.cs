@@ -165,7 +165,7 @@ namespace Flurrystics
             // events
             if (metricsIndex == 8)
             {
-                LoadUpXMLEvents(SDate, EDate);
+                LoadUpXMLEvents(SDate, EDate, EventsMetricsListPicker.SelectedIndex);
                 return;
             }
 
@@ -253,31 +253,46 @@ namespace Flurrystics
 
         }
 
-        private async void LoadUpXMLEvents(String SDate, String EDate)
+        private async void LoadUpXMLEvents(String SDate, String EDate, int orderByIndex)
         {
 
-                bool success;
-                XDocument result = null;
-                IEnumerable<EventItem> data = null;
+            bool success;
+            IEnumerable<EventItem> dataEvents = null;
+            if (ProgressBar1 != null) // display progressbar
+            {
+                ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            }
+            if (DataSource.dataEventsXML == null)
+            {
+
                 string callURL = "http://api.flurry.com/eventMetrics/Summary?apiAccessCode=" + apiKey + "&apiKey=" + appapikey + "&startDate=" + SDate + "&endDate=" + EDate;
                 Debug.WriteLine(callURL);
                 try
                 {
-                    result = await dh.DownloadXML(callURL); // load it   
+                    DataSource.dataEventsXML = await dh.DownloadXML(callURL); // load it 
                     success = true;
                 }
                 catch (System.Net.Http.HttpRequestException)
                 {   // load failed
                     success = false;
                 }
+
+            }
+            else // already loaded
+            {
+                success = true;
+            }
+
                 Debug.WriteLine("Success:" + success);
                 if (success) { 
-                            data = from query in result.Descendants("event")
-                               orderby (int)query.Attribute(EventMetrics[EventsMetricsListPicker.SelectedIndex]) descending
+                            dataEvents = from query in DataSource.dataEventsXML.Descendants("event")
+                               orderby (int)query.Attribute(EventMetrics[orderByIndex]) descending
                                select new EventItem
                                {
                                    eventName = (string)query.Attribute("eventName"),
-                                   usersLastDay = (string)query.Attribute(EventMetrics[0]),
+                                   eventValue = (string)query.Attribute(EventMetrics[orderByIndex])
+                                   /*
+                                   usersLastDay = ,
                                    usersLastWeek = (string)query.Attribute(EventMetrics[1]),
                                    usersLastMonth = (string)query.Attribute(EventMetrics[2]),
                                    avgUsersLastDay = (string)query.Attribute(EventMetrics[3]),
@@ -285,13 +300,17 @@ namespace Flurrystics
                                    avgUsersLastMonth = (string)query.Attribute(EventMetrics[5]),
                                    totalSessions = (string)query.Attribute(EventMetrics[6]),
                                    totalCount = (string)query.Attribute(EventMetrics[7])
+                                    * */
                                };
                                 //int c = metricsIndex;
                                 //ParseXML(result,c,targetCharts[c],t1s[c],t2s[c],t3s[c],c1s[c],c2s[c],c3s[c],totals[c],SDate,EDate,d1s[c],d2s[c],targetSeries);
                              } // success
 
-                EventsListBox.ItemsSource = data;
-
+                EventsListBox.ItemsSource = dataEvents;
+                if (ProgressBar1 != null)
+                {
+                    ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                }
             }
 
 
@@ -543,9 +562,17 @@ namespace Flurrystics
 
         }
 
-        private void EventsListBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        private void EventsListBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e) // clicking on event
         {
 
+        }
+
+        private void EventsMetricsListPicker_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            if (EventsMetricsListPicker != null)
+            {
+                LoadUpXMLEvents(StartDate, EndDate, EventsMetricsListPicker.SelectedIndex);
+            }
         }
 
     }
