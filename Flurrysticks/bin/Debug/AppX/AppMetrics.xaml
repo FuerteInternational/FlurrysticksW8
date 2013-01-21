@@ -67,6 +67,9 @@
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="platformTitle" Storyboard.TargetProperty="Style">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SubheaderTextStyleSmaller}"/>
                         </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EventsTableGrid" Storyboard.TargetProperty="Margin">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="10,20,0,0"/>
+                        </ObjectAnimationUsingKeyFrames>
 
                         <!-- PAGE 1 -->
                         <!-- orientation changes -->
@@ -2184,7 +2187,7 @@
                 </Chart:RadCartesianChart>
             </Grid>
             
-            <Grid Margin="40,20,20,20">
+            <Grid Margin="120,20,20,20" x:Name="EventsTableGrid">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40" />
                     <RowDefinition Height="*" />
@@ -2192,8 +2195,9 @@
             <ComboBox x:ConnectionId='8' x:Name="EventsMetricsListPicker" 
                       Grid.Row="0" 
                       SelectedIndex="0" 
-                      HorizontalAlignment="Stretch" 
+                      HorizontalAlignment="Left" 
                       Height="30"  
+                      Width="280"
                       Margin="0,5,0,0"
                                                                                    
                       >

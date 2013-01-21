@@ -1,1 +1,1 @@
-C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Flurrystics.csproj;neutral
+D:\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Flurrystics.csproj;neutral
