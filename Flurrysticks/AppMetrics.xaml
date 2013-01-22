@@ -2215,7 +2215,7 @@
 
                 <ListView x:Name="EventsListBox"  
                      ItemsSource="{Binding}" 
-                     SelectionChanged="EventsListBox_SelectionChanged_1"
+                     ItemClick="EventsListBox_ItemClick_1"
                      Grid.ColumnSpan="1" 
                      Background="Transparent"
                      BorderThickness="0"

@@ -2215,7 +2215,7 @@
 
                 <ListView x:ConnectionId='9' x:Name="EventsListBox"  
                      ItemsSource="{Binding}" 
-                                                                        
+                                                          
                      Grid.ColumnSpan="1" 
                      Background="Transparent"
                      BorderThickness="0"

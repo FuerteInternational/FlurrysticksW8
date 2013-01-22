@@ -1,0 +1,1040 @@
+﻿<common:LayoutAwarePage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Flurrystics"
+    xmlns:common="using:Flurrystics.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Chart="using:Telerik.UI.Xaml.Controls.Chart"
+    xmlns:telerikInput="using:Telerik.UI.Xaml.Controls.Input"
+    xmlns:telerikPrimitives="using:Telerik.UI.Xaml.Controls.Primitives"
+    xmlns:telerikCore="using:Telerik.Core"
+    x:Name="pageRoot"
+    x:Class="Flurrystics.EventMetrics"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Mode=Self}}"
+    mc:Ignorable="d">
+    
+    <common:LayoutAwarePage.Resources>
+    </common:LayoutAwarePage.Resources>
+
+    <!--
+        This grid acts as a root panel for the page that defines two rows:
+        * Row 0 contains the back button and page title
+        * Row 1 contains the rest of the page layout
+    -->
+    <Grid Style="{StaticResource LayoutRootStyle}">
+        <Grid.Background>
+            <ImageBrush x:Name="backgroundGrid" ImageSource="/Assets/flu_bg_2560.png" />
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <VisualStateManager.VisualStateGroups>
+
+            <!-- Visual states reflect the application's view state -->
+            <VisualStateGroup x:Name="ApplicationViewStates">
+                 <VisualState x:Name="FullScreenLandscape"/>
+                 <VisualState x:Name="Filled"/>
+
+                <!-- The entire page respects the narrower 100-pixel margin convention for portrait -->
+                <VisualState x:Name="FullScreenPortrait">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PortraitBackButtonStyle}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+
+                <!-- The back button and title have different styles when snapped -->
+                <VisualState x:Name="Snapped">
+                    <Storyboard>
+                        <!-- GENERAL -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedBackButtonStyle}"/></ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageTitle" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedPageHeaderTextStyle2}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageTitle2" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedPageHeaderTextStyle}"/></ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageDropDown" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedPageHeaderTextStyle}"/></ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton" Storyboard.TargetProperty="Margin">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="15,-16,0,50"/></ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="titleArea" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource titleAreaStyleSmaller}"/></ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="platformTitle" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SubheaderTextStyleSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EventsTableGrid" Storyboard.TargetProperty="Margin">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="10,20,0,0"/>
+                        </ObjectAnimationUsingKeyFrames>
+
+                        <!-- PAGE 1 -->
+                        <!-- orientation changes -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="contextInfoText1" Storyboard.TargetProperty="Orientation">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Vertical"/></ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="contextInfoText1" Storyboard.TargetProperty="Margin">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="10,0,10,0"/>
+                        </ObjectAnimationUsingKeyFrames>
+
+                        <!-- context numbers -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="info1Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource InfoTextStyleSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="info2Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource InfoTextStyleRedSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="info3Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource InfoTextStyleSmallRedSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="info4Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource InfoTextStyleGreySmaller}" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="info5Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource InfoTextStyleSmallGreySmaller}" />
+                        </ObjectAnimationUsingKeyFrames>
+                        
+                        <!-- tile sizes -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile1Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileSizeSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile2Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileSizeSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile3Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileSizeSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        
+                        <!-- tile1 text -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile1Number1Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile1Number2Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        
+                        <!-- tile2 text -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile2Number1Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile2Number2Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        
+                        <!-- tile3 text -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile3Number1Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile3Number2Text1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <!-- Chart1 -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="radChart1" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SmallChart}"/>
+                        </ObjectAnimationUsingKeyFrames>
+
+                        <!-- PAGE 2 -->
+                        <!-- orientation changes -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="contextInfoText2" Storyboard.TargetProperty="Orientation">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Vertical"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="contextInfoText2" Storyboard.TargetProperty="Margin">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="10,0,10,0"/>
+                        </ObjectAnimationUsingKeyFrames>
+
+                        <!-- context numbers -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="info1Text2" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource InfoTextStyleSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="info2Text2" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource InfoTextStyleRedSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="info3Text2" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource InfoTextStyleSmallRedSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="info4Text2" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource InfoTextStyleGreySmaller}" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="info5Text2" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource InfoTextStyleSmallGreySmaller}" />
+                        </ObjectAnimationUsingKeyFrames>
+
+                        <!-- tile sizes -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile1Text2" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileSizeSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile2Text2" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileSizeSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile3Text2" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileSizeSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+
+                        <!-- tile1 text -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile1Number1Text2" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile1Number2Text2" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+
+                        <!-- tile2 text -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile2Number1Text2" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile2Number2Text2" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+
+                        <!-- tile3 text -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile3Number1Text2" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile3Number2Text2" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <!-- Chart2 -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="radChart2" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SmallChart}"/>
+                        </ObjectAnimationUsingKeyFrames>
+
+                        <!-- PAGE 3 -->
+                        <!-- orientation changes -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="contextInfoText3" Storyboard.TargetProperty="Orientation">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Vertical"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="contextInfoText3" Storyboard.TargetProperty="Margin">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="10,0,10,0"/>
+                        </ObjectAnimationUsingKeyFrames>
+
+                        <!-- context numbers -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="info1Text3" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource InfoTextStyleSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="info2Text3" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource InfoTextStyleRedSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="info3Text3" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource InfoTextStyleSmallRedSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="info4Text3" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource InfoTextStyleGreySmaller}" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="info5Text3" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource InfoTextStyleSmallGreySmaller}" />
+                        </ObjectAnimationUsingKeyFrames>
+
+                        <!-- tile sizes -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile1Text3" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileSizeSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile2Text3" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileSizeSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile3Text3" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileSizeSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+
+                        <!-- tile1 text -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile1Number1Text3" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile1Number2Text3" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+
+                        <!-- tile2 text -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile2Number1Text3" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile2Number2Text3" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+
+                        <!-- tile3 text -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile3Number1Text3" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tile3Number2Text3" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TileBigNumberSmaller}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <!-- Chart3 -->
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="radChart3" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SmallChart}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <!-- Back button and page title -->
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <ProgressBar 
+                x:Name="ProgressBar1" 
+                IsIndeterminate="True"
+                Height="10" 
+                VerticalAlignment="Top" 
+                HorizontalContentAlignment="Stretch"  
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                />
+            
+            <Button x:ConnectionId='13' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
+            <StackPanel x:Name="titleArea" Orientation="Vertical" Grid.Column="1" VerticalAlignment="Bottom" Style="{StaticResource titleAreaStyle}">
+                <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle2}"/>
+                <TextBlock x:Name="platformTitle" Text="Android" Style="{StaticResource SubheaderTextStyle}" />
+            </StackPanel>
+            
+            <StackPanel x:ConnectionId='14' 
+                Orientation="Horizontal" 
+                Grid.Column="1" 
+                Grid.Row="2"
+                HorizontalAlignment="Right"
+                IsTapEnabled="True"
+                                            
+                >
+                <TextBlock 
+                    x:Name="pageTitle2"                
+                    Text="Active Users" 
+                    Style="{StaticResource PageHeaderTextStyle}" 
+                    HorizontalAlignment="Left"
+                />
+                <TextBlock 
+                    x:Name="pageDropDown"  
+                    FontFamily="Segoe UI Symbol" 
+                    Style="{StaticResource PageHeaderTextStyle}" 
+                    HorizontalAlignment="Left"
+                    Text=""
+                />
+
+            </StackPanel>
+
+        </Grid>
+
+        <FlipView x:ConnectionId='1' x:Name="flipView1" 
+                  Grid.Row="1" 
+                                                                 
+                  >
+ 
+                <!-- PAGE 1 -->
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.Resources>
+
+                        <DataTemplate x:Key="TrackInfoTemplate">
+                            <StackPanel Background="White">
+                                <Border Background="#FF1E98E4">
+                                    <TextBlock Margin="4" 
+                                           Text="{Binding DataPoint.Value}" 
+                                           FontSize="12" 
+                                           Foreground="White"/>
+                                </Border>
+                            </StackPanel>
+                        </DataTemplate>
+                        <DataTemplate x:Key="IntersectionPointTemplate">
+                            <Ellipse Stroke="White"  StrokeThickness="2" Width="8" Height="8"/>
+                        </DataTemplate>
+                        <DataTemplate x:Key="EmptyTemplate"/>
+                    </Grid.Resources>
+
+                    <StackPanel Grid.Row="0" Margin="20,20,20,20"
+                                HorizontalAlignment="Right"
+                                Orientation="Horizontal"
+                                x:Name="contextInfoText1"
+                                >
+
+                    <StackPanel x:Name="contextNumbersText1" Orientation="Vertical" Margin="0,0,10,0">
+                        
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock x:Name="info1Text1" Text="Total" Style="{StaticResource InfoTextStyle}" />
+                                <TextBlock x:Name="info2Text1" Text="" Style="{StaticResource InfoTextStyleRed}" />
+                            </StackPanel>
+                            <TextBlock x:Name="info3Text1" Text="" Style="{StaticResource InfoTextStyleSmallRed}"/>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock x:Name="info4Text1" Text="" Style="{StaticResource InfoTextStyleGrey}" />
+                            <TextBlock x:Name="info5Text1" Text="" Style="{StaticResource InfoTextStyleSmallGrey}" VerticalAlignment="Top"/>
+                        </StackPanel>
+                    
+                    </StackPanel>
+                        
+                    <StackPanel Orientation="Horizontal">
+                    <telerikPrimitives:RadCustomHubTile 
+                            x:Name="tile1Text1"
+                            Style="{StaticResource TileSize}" UpdateInterval="0:0:4"
+                            telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                            IsFrozen="True"
+                        >
+                        <telerikPrimitives:RadCustomHubTile.FrontContent>
+                            <Border Background="{StaticResource flurry_green}">
+                                <Grid Style="{StaticResource Tile}">
+                                    <TextBlock x:Name="tile1Number1Text1" Text="" Style="{StaticResource TileBigNumber}" />
+                                    <TextBlock Text="Latest" Style="{StaticResource TileSmallNumber}" />
+                                </Grid>
+                            </Border>
+                        </telerikPrimitives:RadCustomHubTile.FrontContent>
+                    <telerikPrimitives:RadCustomHubTile.BackContent>
+                            <Border Background="{StaticResource flurry_green}">
+                                <Grid Style="{StaticResource Tile}">
+                                    <TextBlock x:Name="tile1Number2Text1" Text="" Style="{StaticResource TileBigNumber}" />
+                                    <TextBlock Text="Prev. latest" Style="{StaticResource TileSmallNumber}" />
+                                </Grid>
+                            </Border>
+                        </telerikPrimitives:RadCustomHubTile.BackContent>
+                    </telerikPrimitives:RadCustomHubTile>
+
+                    <telerikPrimitives:RadCustomHubTile x:Name="tile2Text1" 
+                                                        Style="{StaticResource TileSize}"
+                                                        UpdateInterval="0:0:5"
+                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                                                        IsFrozen="True"
+                                                        >
+                        <telerikPrimitives:RadCustomHubTile.FrontContent>
+                            <Border Background="{StaticResource flurry_blue}">
+                                <Grid Style="{StaticResource Tile}">
+                                    <TextBlock x:Name="tile2Number1Text1" Text="" Style="{StaticResource TileBigNumber}" />
+                                    <TextBlock Text="Min" Style="{StaticResource TileSmallNumber}" />
+                                </Grid>
+                            </Border>
+                        </telerikPrimitives:RadCustomHubTile.FrontContent>
+                        <telerikPrimitives:RadCustomHubTile.BackContent>
+                            <Border Background="{StaticResource flurry_blue}">
+                                <Grid Style="{StaticResource Tile}">
+                                    <TextBlock x:Name="tile2Number2Text1" Text="" Style="{StaticResource TileBigNumber}" />
+                                    <TextBlock Text="Prev. min" Style="{StaticResource TileSmallNumber}" />
+                                </Grid>
+                            </Border>
+                        </telerikPrimitives:RadCustomHubTile.BackContent>
+                    </telerikPrimitives:RadCustomHubTile>
+
+                    <telerikPrimitives:RadCustomHubTile x:Name="tile3Text1" 
+                                                        Style="{StaticResource TileSize}"
+                                                        UpdateInterval="0:0:6"
+                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                                                        IsFrozen="True">
+                        <telerikPrimitives:RadCustomHubTile.FrontContent>
+                            <Border Background="{StaticResource flurry_orange}">
+                                <Grid Style="{StaticResource Tile}">
+                                    <TextBlock x:Name="tile3Number1Text1" Text="" Style="{StaticResource TileBigNumber}" />
+                                    <TextBlock Text="Max" Style="{StaticResource TileSmallNumber}" />
+                                </Grid>
+                            </Border>
+                        </telerikPrimitives:RadCustomHubTile.FrontContent>
+                        <telerikPrimitives:RadCustomHubTile.BackContent>
+                            <Border Background="{StaticResource flurry_orange}">
+                                <Grid Style="{StaticResource Tile}">
+                                    <TextBlock x:Name="tile3Number2Text1" Text="" Style="{StaticResource TileBigNumber}" />
+                                    <TextBlock Text="Prev. max" Style="{StaticResource TileSmallNumber}" />
+                                </Grid>
+                            </Border>
+                        </telerikPrimitives:RadCustomHubTile.BackContent>
+                    </telerikPrimitives:RadCustomHubTile>
+                    </StackPanel>
+                </StackPanel>
+                    
+                <Chart:RadCartesianChart 
+                    x:Name="radChart1"
+                    HorizontalAlignment="Stretch" 
+                    Margin="10,0,0,0"           
+                    MinZoom="1,1"
+                    Grid.Row="1"
+                    VerticalAlignment="Stretch"
+                    EmptyContent="Loading..."
+                    >
+
+                    <Chart:RadCartesianChart.Grid>
+                        <Chart:CartesianChartGrid 
+                            MajorXLinesRenderMode="Last"
+                            MajorLinesVisibility="XY" 
+                            MajorYLinesRenderMode="All"
+                            />
+                    </Chart:RadCartesianChart.Grid>
+
+                    <Chart:RadCartesianChart.HorizontalAxis>
+                        <Chart:DateTimeCategoricalAxis LabelFitMode="Rotate" LabelInterval="5" />
+                    </Chart:RadCartesianChart.HorizontalAxis>
+                    <Chart:RadCartesianChart.VerticalAxis>
+                        <Chart:LinearAxis/>
+                    </Chart:RadCartesianChart.VerticalAxis>
+
+                    <Chart:LineSeries ItemsSource="{Binding}"
+                                  Stroke="{StaticResource flurry_red}"
+                                  StrokeThickness="6"
+                                  Chart:ChartTrackBallBehavior.TrackInfoTemplate="{StaticResource TrackInfoTemplate}" 
+                                  Chart:ChartTrackBallBehavior.IntersectionTemplate="{StaticResource IntersectionPointTemplate}">
+
+                        <Chart:LineSeries.ValueBinding>
+                            <Chart:PropertyNameDataPointBinding PropertyName="Value" />
+                        </Chart:LineSeries.ValueBinding>
+                        <Chart:LineSeries.CategoryBinding>
+                            <Chart:PropertyNameDataPointBinding PropertyName="Label"/>
+                        </Chart:LineSeries.CategoryBinding>
+
+                    </Chart:LineSeries>
+
+                    <Chart:LineSeries ItemsSource="{Binding}"
+                                  Stroke="{StaticResource flurry_dimred}"
+                                  StrokeThickness="6"
+                                  Chart:ChartTrackBallBehavior.TrackInfoTemplate="{StaticResource TrackInfoTemplate}" 
+                                  Chart:ChartTrackBallBehavior.IntersectionTemplate="{StaticResource IntersectionPointTemplate}">
+
+                        <Chart:LineSeries.ValueBinding>
+                            <Chart:PropertyNameDataPointBinding PropertyName="Value" />
+                        </Chart:LineSeries.ValueBinding>
+                        <Chart:LineSeries.CategoryBinding>
+                            <Chart:PropertyNameDataPointBinding PropertyName="Label"/>
+                        </Chart:LineSeries.CategoryBinding>
+
+                    </Chart:LineSeries>
+
+                    <Chart:LineSeries ItemsSource="{Binding}"
+                                  Stroke="{StaticResource flurry_dimred}"
+                                  StrokeThickness="6"
+                                  Chart:ChartTrackBallBehavior.TrackInfoTemplate="{StaticResource TrackInfoTemplate}" 
+                                  Chart:ChartTrackBallBehavior.IntersectionTemplate="{StaticResource IntersectionPointTemplate}">
+
+                        <Chart:LineSeries.ValueBinding>
+                            <Chart:PropertyNameDataPointBinding PropertyName="Value" />
+                        </Chart:LineSeries.ValueBinding>
+                        <Chart:LineSeries.CategoryBinding>
+                            <Chart:PropertyNameDataPointBinding PropertyName="Label"/>
+                        </Chart:LineSeries.CategoryBinding>
+
+                    </Chart:LineSeries>
+
+                    <Chart:RadCartesianChart.Behaviors>
+                        <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='12' 
+                            ShowIntersectionPoints="True" 
+                            InfoMode="Multiple"
+                                                                                        
+                            ShowInfo="True"/>
+                    </Chart:RadCartesianChart.Behaviors>
+
+                </Chart:RadCartesianChart>
+                </Grid>
+
+
+            <!-- PAGE 2 -->
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.Resources>
+
+                    <DataTemplate x:Key="TrackInfoTemplate">
+                        <StackPanel Background="White">
+                            <Border Background="#FF1E98E4">
+                                <TextBlock Margin="4" 
+                                           Text="{Binding DataPoint.Value}" 
+                                           FontSize="12" 
+                                           Foreground="White"/>
+                            </Border>
+                        </StackPanel>
+                    </DataTemplate>
+                    <DataTemplate x:Key="IntersectionPointTemplate">
+                        <Ellipse Stroke="White"  StrokeThickness="2" Width="8" Height="8"/>
+                    </DataTemplate>
+                    <DataTemplate x:Key="EmptyTemplate"/>
+                </Grid.Resources>
+
+                <StackPanel Grid.Row="0" Margin="20,20,20,20"
+                                HorizontalAlignment="Right"
+                                Orientation="Horizontal"
+                                x:Name="contextInfoText2"
+                                >
+
+                    <StackPanel x:Name="contextNumbersText2" Orientation="Vertical" Margin="0,0,10,0">
+
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock x:Name="info1Text2" Text="Total" Style="{StaticResource InfoTextStyle}" />
+                                <TextBlock x:Name="info2Text2" Text="" Style="{StaticResource InfoTextStyleRed}" />
+                            </StackPanel>
+                            <TextBlock x:Name="info3Text2" Text="" Style="{StaticResource InfoTextStyleSmallRed}"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock x:Name="info4Text2" Text="" Style="{StaticResource InfoTextStyleGrey}" />
+                            <TextBlock x:Name="info5Text2" Text="" Style="{StaticResource InfoTextStyleSmallGrey}" VerticalAlignment="Top"/>
+                        </StackPanel>
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <telerikPrimitives:RadCustomHubTile 
+                            x:Name="tile1Text2"
+                            Style="{StaticResource TileSize}" UpdateInterval="0:0:4"
+                            telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                            IsFrozen="True"
+                            >
+                            <telerikPrimitives:RadCustomHubTile.FrontContent>
+                                <Border Background="{StaticResource flurry_green}">
+                                    <Grid Style="{StaticResource Tile}">
+                                        <TextBlock x:Name="tile1Number1Text2" Text="" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock Text="Latest" Style="{StaticResource TileSmallNumber}" />
+                                    </Grid>
+                                </Border>
+                            </telerikPrimitives:RadCustomHubTile.FrontContent>
+                            <telerikPrimitives:RadCustomHubTile.BackContent>
+                                <Border Background="{StaticResource flurry_green}">
+                                    <Grid Style="{StaticResource Tile}">
+                                        <TextBlock x:Name="tile1Number2Text2" Text="" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock Text="Prev. latest" Style="{StaticResource TileSmallNumber}" />
+                                    </Grid>
+                                </Border>
+                            </telerikPrimitives:RadCustomHubTile.BackContent>
+                        </telerikPrimitives:RadCustomHubTile>
+
+                        <telerikPrimitives:RadCustomHubTile x:Name="tile2Text2" 
+                                                        Style="{StaticResource TileSize}"
+                                                        UpdateInterval="0:0:5"
+                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                                                            IsFrozen="True">
+                            <telerikPrimitives:RadCustomHubTile.FrontContent>
+                                <Border Background="{StaticResource flurry_blue}">
+                                    <Grid Style="{StaticResource Tile}">
+                                        <TextBlock x:Name="tile2Number1Text2" Text="" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock Text="Min" Style="{StaticResource TileSmallNumber}" />
+                                    </Grid>
+                                </Border>
+                            </telerikPrimitives:RadCustomHubTile.FrontContent>
+                            <telerikPrimitives:RadCustomHubTile.BackContent>
+                                <Border Background="{StaticResource flurry_blue}">
+                                    <Grid Style="{StaticResource Tile}">
+                                        <TextBlock x:Name="tile2Number2Text2" Text="" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock Text="Prev. min" Style="{StaticResource TileSmallNumber}" />
+                                    </Grid>
+                                </Border>
+                            </telerikPrimitives:RadCustomHubTile.BackContent>
+                        </telerikPrimitives:RadCustomHubTile>
+
+                        <telerikPrimitives:RadCustomHubTile x:Name="tile3Text2" 
+                                                        Style="{StaticResource TileSize}"
+                                                        UpdateInterval="0:0:6"
+                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                                                            IsFrozen="True"
+                                                            >
+                            <telerikPrimitives:RadCustomHubTile.FrontContent>
+                                <Border Background="{StaticResource flurry_orange}">
+                                    <Grid Style="{StaticResource Tile}">
+                                        <TextBlock x:Name="tile3Number1Text2" Text="" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock Text="Max" Style="{StaticResource TileSmallNumber}" />
+                                    </Grid>
+                                </Border>
+                            </telerikPrimitives:RadCustomHubTile.FrontContent>
+                            <telerikPrimitives:RadCustomHubTile.BackContent>
+                                <Border Background="{StaticResource flurry_orange}">
+                                    <Grid Style="{StaticResource Tile}">
+                                        <TextBlock x:Name="tile3Number2Text2" Text="" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock Text="Prev. max" Style="{StaticResource TileSmallNumber}" />
+                                    </Grid>
+                                </Border>
+                            </telerikPrimitives:RadCustomHubTile.BackContent>
+                        </telerikPrimitives:RadCustomHubTile>
+                    </StackPanel>
+                </StackPanel>
+
+                <Chart:RadCartesianChart 
+                    x:Name="radChart2"
+                    HorizontalAlignment="Stretch" 
+                    Margin="10,0,0,0"           
+                    MinZoom="1,1"
+                    Grid.Row="1"
+                    VerticalAlignment="Stretch"
+                    EmptyContent="Loading..."
+                    >
+
+                    <Chart:RadCartesianChart.Grid>
+                        <Chart:CartesianChartGrid 
+                            MajorXLinesRenderMode="Last"
+                            MajorLinesVisibility="XY" 
+                            MajorYLinesRenderMode="All"
+                            />
+                    </Chart:RadCartesianChart.Grid>
+
+                    <Chart:RadCartesianChart.HorizontalAxis>
+                        <Chart:DateTimeCategoricalAxis LabelFitMode="Rotate" LabelInterval="5" />
+                    </Chart:RadCartesianChart.HorizontalAxis>
+                    <Chart:RadCartesianChart.VerticalAxis>
+                        <Chart:LinearAxis/>
+                    </Chart:RadCartesianChart.VerticalAxis>
+
+                    <Chart:LineSeries ItemsSource="{Binding}"
+                                  Stroke="{StaticResource flurry_red}"
+                                  StrokeThickness="6"
+                                  Chart:ChartTrackBallBehavior.TrackInfoTemplate="{StaticResource TrackInfoTemplate}" 
+                                  Chart:ChartTrackBallBehavior.IntersectionTemplate="{StaticResource IntersectionPointTemplate}">
+
+                        <Chart:LineSeries.ValueBinding>
+                            <Chart:PropertyNameDataPointBinding PropertyName="Value" />
+                        </Chart:LineSeries.ValueBinding>
+                        <Chart:LineSeries.CategoryBinding>
+                            <Chart:PropertyNameDataPointBinding PropertyName="Label"/>
+                        </Chart:LineSeries.CategoryBinding>
+
+                    </Chart:LineSeries>
+
+                    <Chart:LineSeries ItemsSource="{Binding}"
+                                  Stroke="{StaticResource flurry_dimred}"
+                                  StrokeThickness="6"
+                                  Chart:ChartTrackBallBehavior.TrackInfoTemplate="{StaticResource TrackInfoTemplate}" 
+                                  Chart:ChartTrackBallBehavior.IntersectionTemplate="{StaticResource IntersectionPointTemplate}">
+
+                        <Chart:LineSeries.ValueBinding>
+                            <Chart:PropertyNameDataPointBinding PropertyName="Value" />
+                        </Chart:LineSeries.ValueBinding>
+                        <Chart:LineSeries.CategoryBinding>
+                            <Chart:PropertyNameDataPointBinding PropertyName="Label"/>
+                        </Chart:LineSeries.CategoryBinding>
+
+                    </Chart:LineSeries>
+
+                    <Chart:RadCartesianChart.Behaviors>
+                        <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='11' 
+                            ShowIntersectionPoints="True" 
+                            InfoMode="Multiple"
+                                                                                        
+                            ShowInfo="True"/>
+                    </Chart:RadCartesianChart.Behaviors>
+
+                </Chart:RadCartesianChart>
+            </Grid>
+
+            <!-- PAGE 3 -->
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.Resources>
+
+                    <DataTemplate x:Key="TrackInfoTemplate">
+                        <StackPanel Background="White">
+                            <Border Background="#FF1E98E4">
+                                <TextBlock Margin="4" 
+                                           Text="{Binding DataPoint.Value}" 
+                                           FontSize="12" 
+                                           Foreground="White"/>
+                            </Border>
+                        </StackPanel>
+                    </DataTemplate>
+                    <DataTemplate x:Key="IntersectionPointTemplate">
+                        <Ellipse Stroke="White"  StrokeThickness="2" Width="8" Height="8"/>
+                    </DataTemplate>
+                    <DataTemplate x:Key="EmptyTemplate"/>
+                </Grid.Resources>
+
+                <StackPanel Grid.Row="0" Margin="20,20,20,20"
+                                HorizontalAlignment="Right"
+                                Orientation="Horizontal"
+                                x:Name="contextInfoText3"
+                                >
+
+                    <StackPanel x:Name="contextNumbersText3" Orientation="Vertical" Margin="0,0,10,0">
+
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock x:Name="info1Text3" Text="Total" Style="{StaticResource InfoTextStyle}" />
+                                <TextBlock x:Name="info2Text3" Text="" Style="{StaticResource InfoTextStyleRed}" />
+                            </StackPanel>
+                            <TextBlock x:Name="info3Text3" Text="" Style="{StaticResource InfoTextStyleSmallRed}"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock x:Name="info4Text3" Text="" Style="{StaticResource InfoTextStyleGrey}" />
+                            <TextBlock x:Name="info5Text3" Text="" Style="{StaticResource InfoTextStyleSmallGrey}" VerticalAlignment="Top"/>
+                        </StackPanel>
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <telerikPrimitives:RadCustomHubTile 
+                            x:Name="tile1Text3"
+                            Style="{StaticResource TileSize}" UpdateInterval="0:0:4"
+                            telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                            IsFrozen="True"
+                            >
+                            <telerikPrimitives:RadCustomHubTile.FrontContent>
+                                <Border Background="{StaticResource flurry_green}">
+                                    <Grid Style="{StaticResource Tile}">
+                                        <TextBlock x:Name="tile1Number1Text3" Text="" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock Text="Latest" Style="{StaticResource TileSmallNumber}" />
+                                    </Grid>
+                                </Border>
+                            </telerikPrimitives:RadCustomHubTile.FrontContent>
+                            <telerikPrimitives:RadCustomHubTile.BackContent>
+                                <Border Background="{StaticResource flurry_green}">
+                                    <Grid Style="{StaticResource Tile}">
+                                        <TextBlock x:Name="tile1Number2Text3" Text="" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock Text="Prev. latest" Style="{StaticResource TileSmallNumber}" />
+                                    </Grid>
+                                </Border>
+                            </telerikPrimitives:RadCustomHubTile.BackContent>
+                        </telerikPrimitives:RadCustomHubTile>
+
+                        <telerikPrimitives:RadCustomHubTile x:Name="tile2Text3" 
+                                                        Style="{StaticResource TileSize}"
+                                                        UpdateInterval="0:0:5"
+                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                                                            IsFrozen="True"
+                                                            >
+                            <telerikPrimitives:RadCustomHubTile.FrontContent>
+                                <Border Background="{StaticResource flurry_blue}">
+                                    <Grid Style="{StaticResource Tile}">
+                                        <TextBlock x:Name="tile2Number1Text3" Text="" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock Text="Min" Style="{StaticResource TileSmallNumber}" />
+                                    </Grid>
+                                </Border>
+                            </telerikPrimitives:RadCustomHubTile.FrontContent>
+                            <telerikPrimitives:RadCustomHubTile.BackContent>
+                                <Border Background="{StaticResource flurry_blue}">
+                                    <Grid Style="{StaticResource Tile}">
+                                        <TextBlock x:Name="tile2Number2Text3" Text="" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock Text="Prev. min" Style="{StaticResource TileSmallNumber}" />
+                                    </Grid>
+                                </Border>
+                            </telerikPrimitives:RadCustomHubTile.BackContent>
+                        </telerikPrimitives:RadCustomHubTile>
+
+                        <telerikPrimitives:RadCustomHubTile x:Name="tile3Text3" 
+                                                        Style="{StaticResource TileSize}"
+                                                        UpdateInterval="0:0:6"
+                                                        telerikPrimitives:HubTileService.GroupTag="FirstLook"
+                                                            IsFrozen="True"
+                                                            >
+                            <telerikPrimitives:RadCustomHubTile.FrontContent>
+                                <Border Background="{StaticResource flurry_orange}">
+                                    <Grid Style="{StaticResource Tile}">
+                                        <TextBlock x:Name="tile3Number1Text3" Text="" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock Text="Max" Style="{StaticResource TileSmallNumber}" />
+                                    </Grid>
+                                </Border>
+                            </telerikPrimitives:RadCustomHubTile.FrontContent>
+                            <telerikPrimitives:RadCustomHubTile.BackContent>
+                                <Border Background="{StaticResource flurry_orange}">
+                                    <Grid Style="{StaticResource Tile}">
+                                        <TextBlock x:Name="tile3Number2Text3" Text="" Style="{StaticResource TileBigNumber}" />
+                                        <TextBlock Text="Prev. max" Style="{StaticResource TileSmallNumber}" />
+                                    </Grid>
+                                </Border>
+                            </telerikPrimitives:RadCustomHubTile.BackContent>
+                        </telerikPrimitives:RadCustomHubTile>
+                    </StackPanel>
+                </StackPanel>
+
+                <Chart:RadCartesianChart 
+                    x:Name="radChart3"
+                    HorizontalAlignment="Stretch" 
+                    Margin="10,0,0,0"           
+                    MinZoom="1,1"
+                    Grid.Row="1"
+                    VerticalAlignment="Stretch"
+                    EmptyContent="Loading..."
+                    >
+
+                    <Chart:RadCartesianChart.Grid>
+                        <Chart:CartesianChartGrid 
+                            MajorXLinesRenderMode="Last"
+                            MajorLinesVisibility="XY" 
+                            MajorYLinesRenderMode="All"
+                            />
+                    </Chart:RadCartesianChart.Grid>
+
+                    <Chart:RadCartesianChart.HorizontalAxis>
+                        <Chart:DateTimeCategoricalAxis LabelFitMode="Rotate" LabelInterval="5" />
+                    </Chart:RadCartesianChart.HorizontalAxis>
+                    <Chart:RadCartesianChart.VerticalAxis>
+                        <Chart:LinearAxis/>
+                    </Chart:RadCartesianChart.VerticalAxis>
+
+                    <Chart:LineSeries ItemsSource="{Binding}"
+                                  Stroke="{StaticResource flurry_red}"
+                                  StrokeThickness="6"
+                                  Chart:ChartTrackBallBehavior.TrackInfoTemplate="{StaticResource TrackInfoTemplate}" 
+                                  Chart:ChartTrackBallBehavior.IntersectionTemplate="{StaticResource IntersectionPointTemplate}">
+
+                        <Chart:LineSeries.ValueBinding>
+                            <Chart:PropertyNameDataPointBinding PropertyName="Value" />
+                        </Chart:LineSeries.ValueBinding>
+                        <Chart:LineSeries.CategoryBinding>
+                            <Chart:PropertyNameDataPointBinding PropertyName="Label"/>
+                        </Chart:LineSeries.CategoryBinding>
+
+                    </Chart:LineSeries>
+
+                    <Chart:LineSeries ItemsSource="{Binding}"
+                                  Stroke="{StaticResource flurry_dimred}"
+                                  StrokeThickness="6"
+                                  Chart:ChartTrackBallBehavior.TrackInfoTemplate="{StaticResource TrackInfoTemplate}" 
+                                  Chart:ChartTrackBallBehavior.IntersectionTemplate="{StaticResource IntersectionPointTemplate}">
+
+                        <Chart:LineSeries.ValueBinding>
+                            <Chart:PropertyNameDataPointBinding PropertyName="Value" />
+                        </Chart:LineSeries.ValueBinding>
+                        <Chart:LineSeries.CategoryBinding>
+                            <Chart:PropertyNameDataPointBinding PropertyName="Label"/>
+                        </Chart:LineSeries.CategoryBinding>
+
+                    </Chart:LineSeries>
+
+                    <Chart:RadCartesianChart.Behaviors>
+                        <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='10' 
+                            ShowIntersectionPoints="True" 
+                            InfoMode="Multiple"
+                                                                                        
+                            ShowInfo="True"/>
+                    </Chart:RadCartesianChart.Behaviors>
+
+                </Chart:RadCartesianChart>
+            </Grid>
+            
+            <Grid Margin="120,20,20,20" x:Name="EventsTableGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+            <ComboBox x:ConnectionId='8' x:Name="EventsMetricsListPicker" 
+                      Grid.Row="0" 
+                      SelectedIndex="0" 
+                      HorizontalAlignment="Left" 
+                      Height="30"  
+                      Width="280"
+                      Margin="0,5,0,0"
+                                                                                   
+                      >
+
+                    <ComboBoxItem Content="Unique Users" />
+                    <ComboBoxItem Content="Total Sessions" />
+                    <ComboBoxItem Content="Total Count" />
+                    <ComboBoxItem Content="Parameters" />
+
+            </ComboBox>
+
+                <ListView x:ConnectionId='9' x:Name="EventsListBox"  
+                     ItemsSource="{Binding}" 
+                                                                        
+                     Grid.ColumnSpan="1" 
+                     Background="Transparent"
+                     BorderThickness="0"
+                     Grid.Row="1"
+                     VerticalAlignment="Stretch"
+                     ScrollViewer.VerticalScrollBarVisibility="Visible"  
+                     SelectionMode="None"
+                     IsSwipeEnabled="false"
+                     IsItemClickEnabled="True"
+                     >
+                    
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                           <TextBlock Width="250" Text="{Binding eventName}" TextWrapping="Wrap" Style="{StaticResource ItemTextStyle}"/>
+                           <TextBlock Text="{Binding eventValue}" TextWrapping="Wrap" HorizontalAlignment="Right" Style="{StaticResource ItemTextStyle}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </Grid>
+
+        </FlipView>
+
+        <Popup x:Name="TimeRangeControl" 
+               IsOpen="False" 
+               Width="320" 
+               IsLightDismissEnabled="True"
+               HorizontalAlignment="Left"
+               >
+            <Popup.ChildTransitions>
+                <TransitionCollection>
+                    <PopupThemeTransition />
+                </TransitionCollection>
+            </Popup.ChildTransitions>
+            <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}"
+                    BorderThickness="2"
+                    Background="#f1f0f1"
+                    x:Name="RootPopupBorder"
+                    Width="320"
+                    >
+                <StackPanel Orientation="Vertical" Height="400"  x:Name="pop" >
+                    <StackPanel Orientation="Vertical">
+
+                        <TextBlock Text="Please select desired time range:" Margin="20,20,20,10" FontSize="18" />
+
+                        <StackPanel Orientation="Horizontal" Margin="20,10,20,0" >
+                            <Button x:ConnectionId='6' x:Name="last14days" Width="140" Content="Last 14 Days"                            />
+                            <Button x:ConnectionId='7' x:Name="lastMonth" Width="140" Content="Last Month"                           />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="20,20,20,0" >
+                            <Button x:ConnectionId='4' x:Name="lastQuarter" Width="140" Content="Last Quarter"                             />
+                            <Button x:ConnectionId='5' x:Name="lastSixMonths" Width="140" Content="Last Six Months"                               />
+                        </StackPanel>
+                        
+                    <telerikInput:RadDatePicker 
+                            Header="Or specify custom time range from:" 
+                            x:Name="datePicker1" 
+                            ItemLength="80" 
+                            Margin="20,20,20,0" 
+                            DisplayValueFormat="dddd, MMMM dd, yyyy"
+                            Value="{Binding StartTime, Mode = TwoWay}"
+                            />
+                    <telerikInput:RadDatePicker 
+                            Header="To:" 
+                            x:Name="datePicker2" 
+                            ItemLength="80" 
+                            Margin="20,20,20,0" 
+                            DisplayValueFormat="dddd, MMMM dd, yyyy" 
+                            Value="{Binding EndTime, Mode = TwoWay}"
+                            />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,30" HorizontalAlignment="Center">
+                        <Button x:ConnectionId='2' x:Name="setClick"  Foreground="White"   
+                                Width="100" Content="Set"                         />
+                        <Button x:ConnectionId='3' x:Name="cancelClick"    Foreground="White"  
+                                Width="100" Content="Cancel"                             />
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+        </Popup>
+
+    </Grid>
+
+    <common:LayoutAwarePage.BottomAppBar>
+        <AppBar x:Name="bottomAppBar" Padding="10,0,10,0">
+            <Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Button x:ConnectionId='15' x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}"                                 />
+                    <Button x:ConnectionId='16' x:Name="CompareToggleButton" Style="{StaticResource CompareToggleAppBarButtonStyle}"                                     />
+                </StackPanel>
+            </Grid>
+        </AppBar>
+    </common:LayoutAwarePage.BottomAppBar>
+
+</common:LayoutAwarePage>
+

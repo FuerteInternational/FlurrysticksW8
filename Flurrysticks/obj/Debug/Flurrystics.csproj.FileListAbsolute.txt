@@ -98,3 +98,6 @@ D:\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\obj\Debug\pri.
 D:\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\obj\Debug\LanguageQualifiers.txt
 D:\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\obj\Debug\WinRTXamlToolkit.pri.xml
 D:\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\obj\Debug\ProjectArchitectures.txt
+C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\obj\Debug\EventMetrics.g.i.cs
+C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\obj\Debug\EventMetrics.g.cs
+C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\obj\Debug\EventMetrics.xaml

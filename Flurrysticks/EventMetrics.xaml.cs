@@ -28,24 +28,24 @@ namespace Flurrystics
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class AppMetrics : Flurrystics.Common.LayoutAwarePage
+    public sealed partial class EventMetrics : Flurrystics.Common.LayoutAwarePage
     {
 
         string apiKey;
         string appApiKey = ""; // initial apikey of the app
         string appName;
         string appPlatform;
-        string[] AppMetricsNames = { "ActiveUsers", "ActiveUsersByWeek", "ActiveUsersByMonth", "NewUsers", "MedianSessionLength", "AvgSessionLength", "Sessions", "RetainedUsers" };
-        string[] AppMetricsNamesFormatted = { "Active Users", "Active Users By Week", "Active Users By Month", "New Users", "Median Session Length", "Avg Session Length", "Sessions", "Retained Users", "Events List" };
-        string[] EventMetrics = { "usersLastDay", "usersLastWeek", "usersLastMonth", "avgUsersLastDay", "avgUsersLastWeek", "avgUsersLastMonth", "totalSessions", "totalCount" };
+        string eventName;
         string EndDate;
         string StartDate;
+        string[] EventMetricsNames = { "uniqueUsers", "totalSessions", "totalCount" };
+        string[] EventMetricsNamesFormatted = { "Unique Users", "Total Sessions", "Total Count", "Parameters" };
         int actualMetricsIndex = 0;
         DownloadHelper dh = new DownloadHelper();
         Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
         TimeRange myTimeRange = new TimeRange();
 
-        public AppMetrics()
+        public EventMetrics()
         {
             this.InitializeComponent();
         }
@@ -89,7 +89,7 @@ namespace Flurrystics
             }
             else  // reset compare chart
             {
-                TextBlock[] totals = { info4Text1, info4Text2, info4Text3, info4Text4, info4Text5, info4Text6, info4Text7, info4Text8 };
+                TextBlock[] totals = { info4Text1, info4Text2, info4Text3 };
                 if (i < 8)
                 {
                     totals[i].Visibility = Visibility.Collapsed;
@@ -145,17 +145,6 @@ namespace Flurrystics
             t1.Text = latest.ToString();
             t2.Text = minim.ToString();
             t3.Text = maxim.ToString();
-            switch (AppMetricsNames[i])
-            {
-                case "MedianSessionLength":
-                case "AvgSessionLength":
-                    tb.Text = "N/A"; // makes no sense for these metrics
-                    break;
-                default:
-                    tb.Text = totalCount.ToString();
-                    break;
-            }
-
             tb.Visibility = Visibility.Visible; 
 
 
@@ -172,39 +161,39 @@ namespace Flurrystics
             }
 
             Debug.WriteLine("loadData() " + metricsIndex);
-            RadCartesianChart[] targetCharts = { radChart1, radChart2, radChart3, radChart4, radChart5, radChart6, radChart7, radChart8 };
-            RadCustomHubTile[] t1s = { tile1Text1, tile1Text2, tile1Text3, tile1Text4, tile1Text5, tile1Text6, tile1Text7, tile1Text8 };
-            RadCustomHubTile[] t2s = { tile2Text1, tile2Text2, tile2Text3, tile2Text4, tile2Text5, tile2Text6, tile2Text7, tile2Text8 };
-            RadCustomHubTile[] t3s = { tile3Text1, tile3Text2, tile3Text3, tile3Text4, tile3Text5, tile3Text6, tile3Text7, tile3Text8 };
+            RadCartesianChart[] targetCharts = { radChart1, radChart2, radChart3 };
+            RadCustomHubTile[] t1s = { tile1Text1, tile1Text2, tile1Text3 };
+            RadCustomHubTile[] t2s = { tile2Text1, tile2Text2, tile2Text3 };
+            RadCustomHubTile[] t3s = { tile3Text1, tile3Text2, tile3Text3 };
             
-            TextBlock[] d1s = { info3Text1, info3Text2, info3Text3, info3Text4, info3Text5, info3Text6, info3Text7, info3Text8 };
-            TextBlock[] d2s = { info5Text1, info5Text2, info5Text3, info5Text4, info5Text5, info5Text6, info5Text7, info5Text8 };
+            TextBlock[] d1s = { info3Text1, info3Text2, info3Text3 };
+            TextBlock[] d2s = { info5Text1, info5Text2, info5Text3 };
 
             TextBlock[] totals;
             TextBlock[] c1s;
             TextBlock[] c2s;
             TextBlock[] c3s;
             if (targetSeries==0) {
-                TextBlock[] c1s_1 = { tile1Number1Text1, tile1Number1Text2, tile1Number1Text3, tile1Number1Text4, tile1Number1Text5, tile1Number1Text6, tile1Number1Text7, tile1Number1Text8 };
-                TextBlock[] c2s_1 = { tile2Number1Text1, tile2Number1Text2, tile2Number1Text3, tile2Number1Text4, tile2Number1Text5, tile2Number1Text6, tile2Number1Text7, tile2Number1Text8 };
-                TextBlock[] c3s_1 = { tile3Number1Text1, tile3Number1Text2, tile3Number1Text3, tile3Number1Text4, tile3Number1Text5, tile3Number1Text6, tile3Number1Text7, tile3Number1Text8 };
-                TextBlock[] totals_1 = { info2Text1, info2Text2, info2Text3, info2Text4, info2Text5, info2Text6, info2Text7, info2Text8 };
+                TextBlock[] c1s_1 = { tile1Number1Text1, tile1Number1Text2, tile1Number1Text3 };
+                TextBlock[] c2s_1 = { tile2Number1Text1, tile2Number1Text2, tile2Number1Text3 };
+                TextBlock[] c3s_1 = { tile3Number1Text1, tile3Number1Text2, tile3Number1Text3 };
+                TextBlock[] totals_1 = { info2Text1, info2Text2, info2Text3 };
                 totals = totals_1;
                 c1s = c1s_1;
                 c2s = c2s_1;
                 c3s = c3s_1;
             } else {
-                TextBlock[] c1s_2 = { tile1Number2Text1, tile1Number2Text2, tile1Number2Text3, tile1Number2Text4, tile1Number2Text5, tile1Number2Text6, tile1Number2Text7, tile1Number2Text8 };
-                TextBlock[] c2s_2 = { tile2Number2Text1, tile2Number2Text2, tile2Number2Text3, tile2Number2Text4, tile2Number2Text5, tile2Number2Text6, tile2Number2Text7, tile2Number2Text8 };
-                TextBlock[] c3s_2 = { tile3Number2Text1, tile3Number2Text2, tile3Number2Text3, tile3Number2Text4, tile3Number2Text5, tile3Number2Text6, tile3Number2Text7, tile3Number2Text8 };
-                TextBlock[] totals_2 = { info4Text1, info4Text2, info4Text3, info4Text4, info4Text5, info4Text6, info4Text7, info4Text8 };
+                TextBlock[] c1s_2 = { tile1Number2Text1, tile1Number2Text2, tile1Number2Text3 };
+                TextBlock[] c2s_2 = { tile2Number2Text1, tile2Number2Text2, tile2Number2Text3 };
+                TextBlock[] c3s_2 = { tile3Number2Text1, tile3Number2Text2, tile3Number2Text3 };
+                TextBlock[] totals_2 = { info4Text1, info4Text2, info4Text3 };
                 totals = totals_2;
                 c1s = c1s_2;
                 c2s = c2s_2;
                 c3s = c3s_2;
             }
 
-            string metrics = AppMetricsNames[metricsIndex]; // this will be selectable
+            string metrics = EventMetricsNames[metricsIndex]; // this will be selectable
             if (ProgressBar1 != null)
             {
                 ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
@@ -288,11 +277,11 @@ namespace Flurrystics
                 Debug.WriteLine("Success:" + success);
                 if (success) { 
                             dataEvents = from query in DataSource.dataEventsXML.Descendants("event")
-                               orderby (int)query.Attribute(EventMetrics[orderByIndex]) descending
+                               orderby (int)query.Attribute(EventMetricsNames[orderByIndex]) descending
                                select new EventItem
                                {
                                    eventName = (string)query.Attribute("eventName"),
-                                   eventValue = (string)query.Attribute(EventMetrics[orderByIndex])
+                                   eventValue = (string)query.Attribute(EventMetricsNames[orderByIndex])
                                    /*
                                    usersLastDay = ,
                                    usersLastWeek = (string)query.Attribute(EventMetrics[1]),
@@ -328,14 +317,15 @@ namespace Flurrystics
         
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
-            Debug.WriteLine("AppMetrics - LoadState");
+            Debug.WriteLine("EventMetrics - LoadState");
             CallApp what = (CallApp)navigationParameter;
             appName = what.Name;
-            pageTitle.Text = appName;
             appPlatform = what.Platform;
             platformTitle.Text = appPlatform;
             apiKey = what.ApiKey;
             appApiKey = what.AppApiKey;
+            eventName = what.Event;
+            pageTitle.Text = appName+": "+eventName;
 
             try
             {
@@ -360,9 +350,9 @@ namespace Flurrystics
             datePicker1.DataContext = myTimeRange;
             datePicker2.DataContext = myTimeRange;
 
-            DataSource.clearChartData();
-
-            loadData(actualMetricsIndex,StartDate,EndDate,0); 
+            // DataSource.clearChartData();
+            // loadData(actualMetricsIndex,StartDate,EndDate,0);
+ 
         }
      
         /*
@@ -398,7 +388,7 @@ namespace Flurrystics
             actualMetricsIndex = index;
             if (pageTitle2 != null)
             {
-                pageTitle2.Text = AppMetricsNamesFormatted[actualMetricsIndex];
+                pageTitle2.Text = EventMetricsNamesFormatted[actualMetricsIndex];
             }
             if (flipView1 != null)
             {
@@ -432,9 +422,9 @@ namespace Flurrystics
             Debug.WriteLine("headerMenuClicked");
             // Create a menu containing two items
             var menu = new Menu();
-            for (int i = 0; i <= AppMetricsNamesFormatted.Length-1; i++)
+            for (int i = 0; i <= EventMetricsNamesFormatted.Length-1; i++)
             {
-                var newItem = new MenuItem { Text = AppMetricsNamesFormatted[i], Tag = i /* processingAccount.ApiKey */ };
+                var newItem = new MenuItem { Text = EventMetricsNamesFormatted[i], Tag = i /* processingAccount.ApiKey */ };
                 newItem.Tapped += changeMetricsClicked;
                 menu.Items.Add(newItem);
             }
@@ -527,16 +517,16 @@ namespace Flurrystics
             Debug.WriteLine("Compare Toggle");
             if (flipView1.SelectedIndex > 7) { return; } // do nothing for events - there's no compare
             RadCartesianChart targetChart;
-            RadCartesianChart[] targetCharts = { radChart1, radChart2, radChart3, radChart4, radChart5, radChart6, radChart7, radChart8 };
-            RadCustomHubTile[] t1s = { tile1Text1, tile1Text2, tile1Text3, tile1Text4, tile1Text5, tile1Text6, tile1Text7, tile1Text8 };
-            RadCustomHubTile[] t2s = { tile2Text1, tile2Text2, tile2Text3, tile2Text4, tile2Text5, tile2Text6, tile2Text7, tile2Text8 };
-            RadCustomHubTile[] t3s = { tile3Text1, tile3Text2, tile3Text3, tile3Text4, tile3Text5, tile3Text6, tile3Text7, tile3Text8 };
-            TextBlock[] d1s = { info3Text1, info3Text2, info3Text3, info3Text4, info3Text5, info3Text6, info3Text7, info3Text8 };
-            TextBlock[] d2s = { info5Text1, info5Text2, info5Text3, info5Text4, info5Text5, info5Text6, info5Text7, info5Text8 };
-            TextBlock[] c1s = { tile1Number2Text1, tile1Number2Text2, tile1Number2Text3, tile1Number2Text4, tile1Number2Text5, tile1Number2Text6, tile1Number2Text7, tile1Number2Text8 };
-            TextBlock[] c2s = { tile2Number2Text1, tile2Number2Text2, tile2Number2Text3, tile2Number2Text4, tile2Number2Text5, tile2Number2Text6, tile2Number2Text7, tile2Number2Text8 };
-            TextBlock[] c3s = { tile3Number2Text1, tile3Number2Text2, tile3Number2Text3, tile3Number2Text4, tile3Number2Text5, tile3Number2Text6, tile3Number2Text7, tile3Number2Text8 };
-            TextBlock[] totals = { info4Text1, info4Text2, info4Text3, info4Text4, info4Text5, info4Text6, info4Text7, info4Text8 };
+            RadCartesianChart[] targetCharts = { radChart1, radChart2, radChart3 };
+            RadCustomHubTile[] t1s = { tile1Text1, tile1Text2, tile1Text3 };
+            RadCustomHubTile[] t2s = { tile2Text1, tile2Text2, tile2Text3 };
+            RadCustomHubTile[] t3s = { tile3Text1, tile3Text2, tile3Text3 };
+            TextBlock[] d1s = { info3Text1, info3Text2, info3Text3 };
+            TextBlock[] d2s = { info5Text1, info5Text2, info5Text3 };
+            TextBlock[] c1s = { tile1Number2Text1, tile1Number2Text2, tile1Number2Text3 };
+            TextBlock[] c2s = { tile2Number2Text1, tile2Number2Text2, tile2Number2Text3 };
+            TextBlock[] c3s = { tile3Number2Text1, tile3Number2Text2, tile3Number2Text3 };
+            TextBlock[] totals = { info4Text1, info4Text2, info4Text3 };
 
             int s = flipView1.SelectedIndex;
 
@@ -563,26 +553,20 @@ namespace Flurrystics
                 t2s[s].IsFrozen = true;
                 t3s[s].IsFrozen = true;
             }
+
+        }
+
+        private void EventsListBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e) // clicking on event
+        {
+
         }
 
         private void EventsMetricsListPicker_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
             if (EventsMetricsListPicker != null)
             {
-                LoadUpXMLEvents(StartDate, EndDate, EventsMetricsListPicker.SelectedIndex);
+                // LoadUpXMLEvents(StartDate, EndDate, EventsMetricsListPicker.SelectedIndex);
             }
-        }
-
-        private void EventsListBox_ItemClick_1(object sender, ItemClickEventArgs e)
-        {
-            // jump to EventMetrics
-            CallApp what = new CallApp();
-            what.AppApiKey = appApiKey;
-            what.ApiKey = apiKey;
-            what.Name = appName;
-            what.Platform = appPlatform;
-            what.Event = ((EventItem)e.ClickedItem).eventName;
-            this.Frame.Navigate(typeof(EventMetrics), what);
         }
 
     }

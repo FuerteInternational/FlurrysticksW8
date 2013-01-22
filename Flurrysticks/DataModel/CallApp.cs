@@ -12,5 +12,6 @@ namespace Flurrysticks.DataModel
         public string ApiKey;
         public string Name;
         public string Platform;
+        public string Event; // in case of jumping to EventMetrics
     }
 }

@@ -118,6 +118,9 @@
     <Compile Include="AppMetrics.xaml.cs">
       <DependentUpon>AppMetrics.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EventMetrics.xaml.cs">
+      <DependentUpon>EventMetrics.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataModel\AccountItem.cs" />
     <Compile Include="DataModel\Account.cs" />
     <Compile Include="DataModel\ChartDataPoint.cs" />
@@ -145,6 +148,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="EventMetrics.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="AppMetrics.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
