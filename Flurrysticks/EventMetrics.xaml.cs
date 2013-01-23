@@ -44,10 +44,75 @@ namespace Flurrystics
         DownloadHelper dh = new DownloadHelper();
         Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
         TimeRange myTimeRange = new TimeRange();
+        ObservableCollection<EventItem> ParamKeys = new ObservableCollection<EventItem>();
 
         public EventMetrics()
         {
             this.InitializeComponent();
+        }
+
+        private void LoadUpXMLEventParameters(XDocument loadedData, int selectedIndex, bool addParam)
+        {
+            // parse data for parameters
+            var dataParam = from query in loadedData.Descendants("key")
+                            select new ParamData
+                            {
+                                key = (string)query.Attribute("name"),
+                                content = (IEnumerable<XElement>)query.Descendants("value"),
+                            };
+            IEnumerator<ParamData> enumerator = dataParam.GetEnumerator();
+            int index = 0;
+            IEnumerable<EventItem> dataParams = null;
+            while (enumerator.MoveNext())
+            {
+                ParamData dataParamValues = enumerator.Current;
+                if (addParam)
+                {
+                    ParamKeys.Add(new EventItem { eventName = dataParamValues.key });
+                }
+                dataParams = from query in dataParamValues.content
+                             orderby (int)query.Attribute("totalCount") descending
+                             select new EventItem
+                             {
+                                 eventName = (string)query.Attribute("name"),
+                                 eventValue = (string)query.Attribute("totalCount")
+                             };
+                if (index == selectedIndex)
+                {
+                    Debug.WriteLine("Setting parameter values list");
+                    ParametersListBox.ItemsSource = dataParams; // dataParamValues.children;
+                }
+                Debug.WriteLine("Processing line: " + index);
+                index = index + 1;
+            }
+
+            Debug.WriteLine("ParamKeys.Count=" + ParamKeys.Count);
+
+            if (ParamKeys.Count > 0)
+            {
+                ParametersMetricsListPicker.ItemsSource = ParamKeys;
+                ParametersMetricsListPicker.IsEnabled = true;
+                //NoParameters.Visibility = System.Windows.Visibility.Collapsed;
+
+                List<EventItem> check = dataParams.ToList();
+                if (check.Count > 0)
+                {
+                    //NoParameters.Visibility = System.Windows.Visibility.Collapsed;
+                    ParametersMetricsListPicker.IsEnabled = true;
+                }
+                else // show no events available
+                {
+                    //NoParameters.Visibility = System.Windows.Visibility.Visible;
+                    ParametersMetricsListPicker.IsEnabled = false;
+                }
+
+            }
+            else
+            {
+                ParametersMetricsListPicker.IsEnabled = false;
+                //NoParameters.Visibility = System.Windows.Visibility.Visible;
+            }
+
         }
 
         private async void LoadUpXMLEventMetrics(String SDate, String EDate, int targetSeries)
@@ -135,7 +200,7 @@ namespace Flurrystics
 
                     if (!(targetSeries > 0))
                     { // process parameters only when not processing compare data
-                        // LoadUpXMLEventParameters(loadedData, 0, true);
+                        LoadUpXMLEventParameters(result, 0, true);
                     }
 
                     // count max,min,latest,total for display purposes
@@ -298,24 +363,6 @@ namespace Flurrystics
             LoadUpXMLEventMetrics(StartDate, EndDate, 0);
 
         }
-     
-        /*
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-            Debug.WriteLine("AppMetrics - OnNavigatedTo");
-            CallApp what = (CallApp)e.Parameter; // navigationParameter;
-            pageTitle.Text = what.Name;
-            apiKey = what.ApiKey;
-            appapikey = what.AppApiKey;
-            loadData(actualMetricsIndex);
-        }
-
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
-        {
-            base.OnNavigatedFrom(e);
-        }        
-        */
 
         /// <summary>
         /// Preserves state associated with this page in case the application is suspended or the
@@ -500,17 +547,14 @@ namespace Flurrystics
 
         }
 
-        private void EventsListBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e) // clicking on event
+        private void ParametersMetricsListPicker_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
 
-        }
-
-        private void EventsMetricsListPicker_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-            if (EventsMetricsListPicker != null)
+            if (ParametersMetricsListPicker != null)
             {
                 // LoadUpXMLEvents(StartDate, EndDate, EventsMetricsListPicker.SelectedIndex);
             }
+
         }
 
     }

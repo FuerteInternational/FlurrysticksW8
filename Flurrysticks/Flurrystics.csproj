@@ -118,6 +118,7 @@
     <Compile Include="AppMetrics.xaml.cs">
       <DependentUpon>AppMetrics.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataModel\ParamData.cs" />
     <Compile Include="EventMetrics.xaml.cs">
       <DependentUpon>EventMetrics.xaml</DependentUpon>
     </Compile>

@@ -2215,8 +2215,8 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                           <TextBlock Width="250" Text="{Binding eventName}" TextWrapping="Wrap" Style="{StaticResource ItemTextStyle}"/>
-                           <TextBlock Text="{Binding eventValue}" TextWrapping="Wrap" HorizontalAlignment="Right" Style="{StaticResource ItemTextStyle}"/>
+                           <TextBlock Width="230" Text="{Binding eventName}" TextWrapping="Wrap" Style="{StaticResource ItemTextStyle}"/>
+                           <TextBlock Text="{Binding eventValue}" TextWrapping="Wrap" TextAlignment="Right" HorizontalAlignment="Right" Style="{StaticResource ItemTextStyle}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>

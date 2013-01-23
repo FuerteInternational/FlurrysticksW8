@@ -288,13 +288,13 @@
                 Grid.ColumnSpan="2"
                 />
             
-            <Button x:ConnectionId='13' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
+            <Button x:ConnectionId='12' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <StackPanel x:Name="titleArea" Orientation="Vertical" Grid.Column="1" VerticalAlignment="Bottom" Style="{StaticResource titleAreaStyle}">
                 <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle2}"/>
                 <TextBlock x:Name="platformTitle" Text="Android" Style="{StaticResource SubheaderTextStyle}" />
             </StackPanel>
             
-            <StackPanel x:ConnectionId='14' 
+            <StackPanel x:ConnectionId='13' 
                 Orientation="Horizontal" 
                 Grid.Column="1" 
                 Grid.Row="2"
@@ -505,7 +505,7 @@
 
                     <Chart:RadCartesianChart.Behaviors>
                         <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
-                        <Chart:ChartTrackBallBehavior x:ConnectionId='12' 
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='11' 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                                                                                         
@@ -696,7 +696,7 @@
 
                     <Chart:RadCartesianChart.Behaviors>
                         <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
-                        <Chart:ChartTrackBallBehavior x:ConnectionId='11' 
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='10' 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                                                                                         
@@ -887,7 +887,7 @@
 
                     <Chart:RadCartesianChart.Behaviors>
                         <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
-                        <Chart:ChartTrackBallBehavior x:ConnectionId='10' 
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='9' 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                                                                                         
@@ -902,26 +902,19 @@
                     <RowDefinition Height="40" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-            <ComboBox x:ConnectionId='8' x:Name="EventsMetricsListPicker" 
+            <ComboBox x:ConnectionId='8' x:Name="ParametersMetricsListPicker" 
                       Grid.Row="0" 
-                      SelectedIndex="0" 
                       HorizontalAlignment="Left" 
                       Height="30"  
                       Width="280"
                       Margin="0,5,0,0"
-                                                                                   
+                                                                                       
                       >
-
-                    <ComboBoxItem Content="Unique Users" />
-                    <ComboBoxItem Content="Total Sessions" />
-                    <ComboBoxItem Content="Total Count" />
-                    <ComboBoxItem Content="Parameters" />
 
             </ComboBox>
 
-                <ListView x:ConnectionId='9' x:Name="EventsListBox"  
+                <ListView x:Name="ParametersListBox"  
                      ItemsSource="{Binding}" 
-                                                                        
                      Grid.ColumnSpan="1" 
                      Background="Transparent"
                      BorderThickness="0"
@@ -936,7 +929,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                           <TextBlock Width="250" Text="{Binding eventName}" TextWrapping="Wrap" Style="{StaticResource ItemTextStyle}"/>
+                           <TextBlock Width="230" Text="{Binding eventName}" TextWrapping="Wrap" Style="{StaticResource ItemTextStyle}"/>
                            <TextBlock Text="{Binding eventValue}" TextWrapping="Wrap" HorizontalAlignment="Right" Style="{StaticResource ItemTextStyle}"/>
                         </StackPanel>
                     </DataTemplate>
@@ -1014,8 +1007,8 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Button x:ConnectionId='15' x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}"                                 />
-                    <Button x:ConnectionId='16' x:Name="CompareToggleButton" Style="{StaticResource CompareToggleAppBarButtonStyle}"                                     />
+                    <Button x:ConnectionId='14' x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}"                                 />
+                    <Button x:ConnectionId='15' x:Name="CompareToggleButton" Style="{StaticResource CompareToggleAppBarButtonStyle}"                                     />
                 </StackPanel>
             </Grid>
         </AppBar>
