@@ -828,21 +828,6 @@
 
                     </Chart:LineSeries>
 
-                    <Chart:LineSeries ItemsSource="{Binding}"
-                                  Stroke="{StaticResource flurry_dimred}"
-                                  StrokeThickness="6"
-                                  Chart:ChartTrackBallBehavior.TrackInfoTemplate="{StaticResource TrackInfoTemplate}" 
-                                  Chart:ChartTrackBallBehavior.IntersectionTemplate="{StaticResource IntersectionPointTemplate}">
-
-                        <Chart:LineSeries.ValueBinding>
-                            <Chart:PropertyNameDataPointBinding PropertyName="Value" />
-                        </Chart:LineSeries.ValueBinding>
-                        <Chart:LineSeries.CategoryBinding>
-                            <Chart:PropertyNameDataPointBinding PropertyName="Label"/>
-                        </Chart:LineSeries.CategoryBinding>
-
-                    </Chart:LineSeries>
-
                     <Chart:RadCartesianChart.Behaviors>
                         <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
                         <Chart:ChartTrackBallBehavior 

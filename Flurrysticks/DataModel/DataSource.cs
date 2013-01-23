@@ -16,6 +16,7 @@ using System.Xml.Serialization;
 using System.IO;
 using System.Runtime.Serialization;
 using Flurrysticks.DataModel;
+using System.Diagnostics;
 
 // The data model defined by this file serves as a representative example of a strongly-typed
 // model that supports notification when members are added, removed, or modified.  The property
@@ -51,8 +52,6 @@ namespace Flurrystics.Data
             set { _sampleApps = value; }
         }
 
-
-
         public static ObservableCollection<Account> getAccounts()
         {
             return _DataSource.sampleAccounts;
@@ -86,7 +85,20 @@ namespace Flurrystics.Data
             dataEventsXML = null;
         }
 
-        private IEnumerable<ChartDataPoint>[,] _ChartData = new IEnumerable<ChartDataPoint>[8,2];
+        public static void clearChartDataEvents() // only clearing events-specific data
+        {
+            try
+            {
+                _DataSource.ChartData[8, 0] = null;
+                _DataSource.ChartData[8, 1] = null;
+            }
+            catch (System.IndexOutOfRangeException)
+            {
+                Debug.WriteLine("nothing to clear");
+            }
+        }
+
+        private IEnumerable<ChartDataPoint>[,] _ChartData = new IEnumerable<ChartDataPoint>[8+1, 2]; // first 8 = appmetrics; next 1 = eventmetrics Value1/Value2/Value3
         public IEnumerable<ChartDataPoint>[,] ChartData
         {
             get { return this._ChartData; }

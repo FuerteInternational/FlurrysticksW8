@@ -50,163 +50,66 @@ namespace Flurrystics
             this.InitializeComponent();
         }
 
-        private void ParseXML(
-                                XDocument what, 
-                                int i, 
-                                RadCartesianChart targetChart,
-                                RadCustomHubTile rt1, RadCustomHubTile rt2, RadCustomHubTile rt3,
-                                TextBlock t1, TextBlock t2, TextBlock t3, // stats numbers
-                                TextBlock tb, // total info
-                                String sDate, String eDate,
-                                TextBlock tr1, // total info number
-                                TextBlock tr2, // total info date/time range
-                                int targetSeries // if it is basic or compare function
-            ) {
-            Debug.WriteLine("Processing..." + what);
+        private async void LoadUpXMLEventMetrics(String SDate, String EDate, int targetSeries)
+        {
+            ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
 
-            DataSource.getChartData()[i,targetSeries] = from query in what.Descendants("day")
-                               select new ChartDataPoint
-                               {
-                                   Value = (double)query.Attribute("value"),
-                                   Label = (string)query.Attribute("date")
-                               };
-            Debug.WriteLine("Setting DataContext of loaded data");
-            /*
-            var mydate = new Windows.Globalization.DateTimeFormatting.DateTimeFormatter("month day");
-            var mydatepattern = mydate.Patterns[0];
-            sDate = String.Format(mydatepattern, DateTime.Parse(sDate));
-            eDate = String.Format(mydatepattern, DateTime.Parse(eDate));
-            */
+            RadCartesianChart[] targetCharts = { radChart1, radChart2, radChart3 };
+            RadCustomHubTile[] t1s = { tile1Text1, tile2Text1, tile3Text1 };
+            RadCustomHubTile[] t2s = { tile1Text2, tile2Text2, tile3Text2 };
+            RadCustomHubTile[] t3s = { tile1Text3, tile2Text3, tile3Text3 };
+            TextBlock[] n1s = { tile1Number1Text1, tile2Number1Text1, tile3Number1Text1 };
+            TextBlock[] n2s = { tile1Number1Text2, tile2Number1Text2, tile3Number1Text2 };
+            TextBlock[] n3s = { tile1Number1Text3, tile2Number1Text3, tile3Number1Text3 };
+            TextBlock[] c1s = { tile1Number2Text1, tile2Number2Text1, tile3Number2Text1 };
+            TextBlock[] c2s = { tile1Number2Text2, tile2Number2Text2, tile3Number2Text2 };
+            TextBlock[] c3s = { tile1Number2Text3, tile2Number2Text3, tile3Number2Text3 };
+            TextBlock[] totals = { info2Text1, info2Text2, info2Text3 };
+            TextBlock[] totals2 = { info4Text1, info4Text2, info4Text3 };            
+            TextBlock[] d1s = { info3Text1, info3Text2, info3Text3 };
+            TextBlock[] d2s = { info5Text1, info5Text2, info5Text3 };
+            //int s = MainPivot.SelectedIndex;
+            String queryURL = SDate + " - " + EDate;
+
             if (targetSeries > 0)
             {
                 // progressBar.Visibility = System.Windows.Visibility.Visible;
-                rt1.IsFrozen = false;
-                rt2.IsFrozen = false;
-                rt3.IsFrozen = false;
-                tb.Visibility = Visibility.Visible;
-                tr2.Visibility = Visibility.Visible;
-                tr2.Text = "(" +  sDate + " - " + eDate + ")";
+                for (int i = 0; i < 3; i++)
+                {
+                    t1s[i].IsFrozen = false;
+                    t2s[i].IsFrozen = false;
+                    t3s[i].IsFrozen = false;
+                    totals2[i].Visibility = Visibility.Visible;
+                    d2s[i].Text = "(" + SDate + " - " + EDate + ")";
+                    d2s[i].Visibility = Visibility.Visible;
+                }
             }
             else  // reset compare chart
             {
-                TextBlock[] totals = { info4Text1, info4Text2, info4Text3 };
-                if (i < 8)
+                for (int i = 0; i < 3; i++)
                 {
-                    totals[i].Visibility = Visibility.Collapsed;
+                    totals2[i].Visibility = Visibility.Collapsed;
+                    targetCharts[i].Series[1].ItemsSource = null;
+                    d1s[i].Visibility = Visibility.Visible;
+                    d2s[i].Visibility = Visibility.Collapsed;
+                    d1s[i].Text = "(" + SDate + " - " + EDate + ")";
+                    t1s[i].IsFrozen = true;
+                    t2s[i].IsFrozen = true;
+                    t3s[i].IsFrozen = true;
+                    t1s[i].IsFlipped = false;
+                    t2s[i].IsFlipped = false;
+                    t3s[i].IsFlipped = false;
                 }
-                targetChart.Series[1].ItemsSource = null;
-                tr1.Visibility = Visibility.Visible;
-                tr2.Visibility = Visibility.Collapsed;
-                tr1.Text = "(" + sDate + " - " + eDate + ")";
-                rt1.IsFlipped = false;
-                rt2.IsFlipped = false;
-                rt3.IsFlipped = false;
-                rt1.IsFrozen = true;
-                rt2.IsFrozen = true;
-                rt3.IsFrozen = true;
-            }
-            Debug.WriteLine("Setting DataContext targetSeries:" + targetSeries);
-
-            if (targetSeries > 0) // if it's compare we have to fake time
-            {
-                var previousData = DataSource.getChartData()[i, 0];
-                ObservableCollection<ChartDataPoint> newData = new ObservableCollection<ChartDataPoint>();
-                IEnumerator<ChartDataPoint> enumerator = previousData.GetEnumerator() as System.Collections.Generic.IEnumerator<ChartDataPoint>;
-                int p = 0;
-                while (enumerator.MoveNext())
-                {
-                    ChartDataPoint c = enumerator.Current;
-                    Debug.WriteLine("Old Label:" + DataSource.getChartData()[i, 1].ElementAt<ChartDataPoint>(p).Label + " New Label:" + c.Label);
-                    ChartDataPoint n = new ChartDataPoint { Value = DataSource.getChartData()[i, 1].ElementAt<ChartDataPoint>(p).Value, Label = c.Label };
-                    newData.Add(n);
-                    Debug.WriteLine("New label set:" + DataSource.getChartData()[i, 1].ElementAt<ChartDataPoint>(p).Label);
-                    p++;
-                }
-
-                DataSource.getChartData()[i, 1] = newData;
-
             }
 
-            targetChart.Series[targetSeries].ItemsSource = DataSource.getChartData()[i, targetSeries];
-            targetChart.HorizontalAxis.LabelInterval = Util.getLabelIntervalByCount(DataSource.getChartData()[i, targetSeries].Count());
-
-            // count max,min,latest,total for display purposes
-            double latest = 0, minim = 9999999999999, maxim = 0, totalCount = 0;
-            IEnumerator<ChartDataPoint> Myenum = DataSource.getChartData()[i,targetSeries].GetEnumerator();
-            while (Myenum.MoveNext())
-            {
-                ChartDataPoint oneValue = Myenum.Current;
-                latest = oneValue.Value;
-                minim = Math.Min(minim, oneValue.Value);
-                maxim = Math.Max(maxim, oneValue.Value);
-                totalCount = totalCount + oneValue.Value;
-            }
-
-            t1.Text = latest.ToString();
-            t2.Text = minim.ToString();
-            t3.Text = maxim.ToString();
-            tb.Visibility = Visibility.Visible; 
-
-
-        } // ParseXML
-
-        private async void loadData(int metricsIndex, string SDate, string EDate, int targetSeries)
-        {
-
-            // events
-            if (metricsIndex == 8)
-            {
-                LoadUpXMLEvents(SDate, EDate, EventsMetricsListPicker.SelectedIndex);
-                return;
-            }
-
-            Debug.WriteLine("loadData() " + metricsIndex);
-            RadCartesianChart[] targetCharts = { radChart1, radChart2, radChart3 };
-            RadCustomHubTile[] t1s = { tile1Text1, tile1Text2, tile1Text3 };
-            RadCustomHubTile[] t2s = { tile2Text1, tile2Text2, tile2Text3 };
-            RadCustomHubTile[] t3s = { tile3Text1, tile3Text2, tile3Text3 };
-            
-            TextBlock[] d1s = { info3Text1, info3Text2, info3Text3 };
-            TextBlock[] d2s = { info5Text1, info5Text2, info5Text3 };
-
-            TextBlock[] totals;
-            TextBlock[] c1s;
-            TextBlock[] c2s;
-            TextBlock[] c3s;
-            if (targetSeries==0) {
-                TextBlock[] c1s_1 = { tile1Number1Text1, tile1Number1Text2, tile1Number1Text3 };
-                TextBlock[] c2s_1 = { tile2Number1Text1, tile2Number1Text2, tile2Number1Text3 };
-                TextBlock[] c3s_1 = { tile3Number1Text1, tile3Number1Text2, tile3Number1Text3 };
-                TextBlock[] totals_1 = { info2Text1, info2Text2, info2Text3 };
-                totals = totals_1;
-                c1s = c1s_1;
-                c2s = c2s_1;
-                c3s = c3s_1;
-            } else {
-                TextBlock[] c1s_2 = { tile1Number2Text1, tile1Number2Text2, tile1Number2Text3 };
-                TextBlock[] c2s_2 = { tile2Number2Text1, tile2Number2Text2, tile2Number2Text3 };
-                TextBlock[] c3s_2 = { tile3Number2Text1, tile3Number2Text2, tile3Number2Text3 };
-                TextBlock[] totals_2 = { info4Text1, info4Text2, info4Text3 };
-                totals = totals_2;
-                c1s = c1s_2;
-                c2s = c2s_2;
-                c3s = c3s_2;
-            }
-
-            string metrics = EventMetricsNames[metricsIndex]; // this will be selectable
-            if (ProgressBar1 != null)
-            {
-                ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            }
-            // check if it's loaded, if not - load it up
-
-            if (DataSource.getChartData()[metricsIndex,targetSeries] == null) // if no data present
+            if (DataSource.getChartData()[8, targetSeries] == null) // if no data present
             {
 
                 bool success;
                 XDocument result = null;
-                string callURL = "http://api.flurry.com/appMetrics/" + metrics + "?apiAccessCode=" + apiKey + "&apiKey=" + appApiKey + "&startDate=" + SDate + "&endDate=" + EDate;
+                string callURL = "http://api.flurry.com/eventMetrics/Event?apiAccessCode=" + apiKey + "&apiKey=" + appApiKey + "&startDate=" + SDate + "&endDate=" + EDate + "&eventName=" + eventName;
                 Debug.WriteLine(callURL);
+
                 try
                 {
                     result = await dh.DownloadXML(callURL); // load it   
@@ -216,94 +119,135 @@ namespace Flurrystics
                 {   // load failed
                     success = false;
                 }
+
                 Debug.WriteLine("Success:" + success);
-                if (success) { 
-                                int c = metricsIndex;
-                                ParseXML(result,c,targetCharts[c],t1s[c],t2s[c],t3s[c],c1s[c],c2s[c],c3s[c],totals[c],SDate,EDate,d1s[c],d2s[c],targetSeries);
-                             }
-            }
-            else
-            {
-                Debug.WriteLine("Setting DataContext of already loaded data:" + DataSource.getChartData()[metricsIndex,targetSeries].Count());
-                targetCharts[metricsIndex].Series[targetSeries].ItemsSource = DataSource.getChartData()[metricsIndex,targetSeries];
-                if (targetSeries > 0)
-                {
-                    t1s[metricsIndex].IsFrozen = false;
-                    t2s[metricsIndex].IsFrozen = false;
-                    t3s[metricsIndex].IsFrozen = false;
-                    d2s[metricsIndex].Visibility = Visibility.Visible;
-                    totals[metricsIndex].Visibility = Visibility.Visible;
-                    d2s[metricsIndex].Text = "(" + SDate + " - " + EDate + ")";
-                }
-            }
+                if (success)
+                { // --------------------------------------------------------------------------------------------------------------------- now parse and bind data
+                    DataSource.getChartData()[8, targetSeries] = from query in result.Descendants("day")
+                                                                     select new ChartDataPoint
+                                                                     {
+                                                                         // <day uniqueUsers="378" totalSessions="3152" totalCount="6092" duration="0" date="2012-09-13"/>
+                                                                         Value1 = (double)query.Attribute("uniqueUsers"),
+                                                                         Value2 = (double)query.Attribute("totalSessions"),
+                                                                         Value3 = (double)query.Attribute("totalCount"),
+                                                                         Label = (string)query.Attribute("date")
+                                                                     };
 
-            //if (App.taskCount == 0)
-            //{
-                ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            //}
+                    if (!(targetSeries > 0))
+                    { // process parameters only when not processing compare data
+                        // LoadUpXMLEventParameters(loadedData, 0, true);
+                    }
 
+                    // count max,min,latest,total for display purposes
+                    double latest = 0, minim = 9999999999999, maxim = 0, totalCount = 0;
+                    double latest2 = 0, minim2 = 9999999999999, maxim2 = 0, totalCount2 = 0;
+                    double latest3 = 0, minim3 = 9999999999999, maxim3 = 0, totalCount3 = 0;
+                    IEnumerator<ChartDataPoint> enumerator = DataSource.getChartData()[8, targetSeries].GetEnumerator();
+                    while (enumerator.MoveNext())
+                    {
+                        ChartDataPoint oneValue = enumerator.Current;
+
+                        latest = oneValue.Value1;
+                        minim = Math.Min(minim, oneValue.Value1);
+                        maxim = Math.Max(maxim, oneValue.Value1);
+                        totalCount = totalCount + oneValue.Value1;
+
+                        latest2 = oneValue.Value2;
+                        minim2 = Math.Min(minim2, oneValue.Value2);
+                        maxim2 = Math.Max(maxim2, oneValue.Value2);
+                        totalCount2 = totalCount2 + oneValue.Value2;
+
+                        latest3 = oneValue.Value3;
+                        minim3 = Math.Min(minim, oneValue.Value3);
+                        maxim3 = Math.Max(maxim, oneValue.Value3);
+                        totalCount3 = totalCount3 + oneValue.Value3;
+
+                    }
+
+                    if (!(targetSeries > 0))
+                    {
+                        n1s[0].Text = latest.ToString();
+                        n2s[0].Text = minim.ToString();
+                        n3s[0].Text = maxim.ToString();
+                        totals[0].Text = totalCount.ToString();
+                        n1s[1].Text = latest2.ToString();
+                        n2s[1].Text = minim2.ToString();
+                        n3s[1].Text = maxim2.ToString();
+                        totals[1].Text = totalCount2.ToString();
+                        n1s[2].Text = latest3.ToString();
+                        n2s[2].Text = minim3.ToString();
+                        n3s[2].Text = maxim3.ToString();
+                        totals[2].Text = totalCount3.ToString();
+                    }
+                    else
+                    {
+                        c1s[0].Text = latest.ToString();
+                        c2s[0].Text = minim.ToString();
+                        c3s[0].Text = maxim.ToString();
+                        totals2[0].Text = totalCount.ToString();
+                        c1s[1].Text = latest2.ToString();
+                        c2s[1].Text = minim2.ToString();
+                        c3s[1].Text = maxim2.ToString();
+                        totals2[1].Text = totalCount2.ToString();
+                        c1s[2].Text = latest3.ToString();
+                        c2s[2].Text = minim3.ToString();
+                        c3s[2].Text = maxim3.ToString();
+                        totals2[2].Text = totalCount3.ToString();
+                    }
+
+                    List<ChartDataPoint> count = DataSource.getChartData()[8, targetSeries].ToList();
+
+                    int setInterval = 5; // default
+                    if (count != null)
+                    {
+                        setInterval = Util.getLabelIntervalByCount(count.Count);
+                    }
+                    else setInterval = Util.getLabelInterval(DateTime.Parse(StartDate), DateTime.Parse(EndDate));
+
+                    // re-assign time data if comparing
+
+                    // for processed data for comparison
+                    ObservableCollection<ChartDataPoint> newData = new ObservableCollection<ChartDataPoint>();
+
+                    if (targetSeries > 0) // if it's compare we have to fake time
+                    {
+                        var previousData = targetCharts[0].Series[0].ItemsSource;
+                        IEnumerator<ChartDataPoint> myenumerator = previousData.GetEnumerator() as System.Collections.Generic.IEnumerator<ChartDataPoint>;
+                        int p = 0;
+
+                        while (myenumerator.MoveNext())
+                        {
+                            ChartDataPoint c = myenumerator.Current;
+                            ChartDataPoint n = DataSource.getChartData()[8, targetSeries].ElementAt(p) as ChartDataPoint;
+                            n.Label = c.Label;
+                            newData.Add(new ChartDataPoint { Value1 = n.Value1, Value2 = n.Value2, Value3 = n.Value3, Label = c.Label });
+                            p++;
+                        }
+
+                    }
+                    if (!(targetSeries > 0))
+                    {
+                        for (int i = 0; i < 3; i++)
+                        {
+                            targetCharts[i].Series[0].ItemsSource = DataSource.getChartData()[8, targetSeries];
+                            targetCharts[i].HorizontalAxis.LabelInterval = setInterval;
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < 3; i++)
+                        {
+                            targetCharts[i].Series[1].ItemsSource = newData;
+                            targetCharts[i].HorizontalAxis.LabelInterval = setInterval;
+                        }
+                    }
+
+                } // if success
+
+            } // if noDataPresent
+
+            ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
         }
-
-        private async void LoadUpXMLEvents(String SDate, String EDate, int orderByIndex)
-        {
-
-            bool success;
-            IEnumerable<EventItem> dataEvents = null;
-            if (ProgressBar1 != null) // display progressbar
-            {
-                ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            }
-            if (DataSource.dataEventsXML == null)
-            {
-
-                string callURL = "http://api.flurry.com/eventMetrics/Summary?apiAccessCode=" + apiKey + "&apiKey=" + appApiKey + "&startDate=" + SDate + "&endDate=" + EDate;
-                Debug.WriteLine(callURL);
-                try
-                {
-                    DataSource.dataEventsXML = await dh.DownloadXML(callURL); // load it 
-                    success = true;
-                }
-                catch (System.Net.Http.HttpRequestException)
-                {   // load failed
-                    success = false;
-                }
-
-            }
-            else // already loaded
-            {
-                success = true;
-            }
-
-                Debug.WriteLine("Success:" + success);
-                if (success) { 
-                            dataEvents = from query in DataSource.dataEventsXML.Descendants("event")
-                               orderby (int)query.Attribute(EventMetricsNames[orderByIndex]) descending
-                               select new EventItem
-                               {
-                                   eventName = (string)query.Attribute("eventName"),
-                                   eventValue = (string)query.Attribute(EventMetricsNames[orderByIndex])
-                                   /*
-                                   usersLastDay = ,
-                                   usersLastWeek = (string)query.Attribute(EventMetrics[1]),
-                                   usersLastMonth = (string)query.Attribute(EventMetrics[2]),
-                                   avgUsersLastDay = (string)query.Attribute(EventMetrics[3]),
-                                   avgUsersLastWeek = (string)query.Attribute(EventMetrics[4]),
-                                   avgUsersLastMonth = (string)query.Attribute(EventMetrics[5]),
-                                   totalSessions = (string)query.Attribute(EventMetrics[6]),
-                                   totalCount = (string)query.Attribute(EventMetrics[7])
-                                    * */
-                               };
-                                //int c = metricsIndex;
-                                //ParseXML(result,c,targetCharts[c],t1s[c],t2s[c],t3s[c],c1s[c],c2s[c],c3s[c],totals[c],SDate,EDate,d1s[c],d2s[c],targetSeries);
-                             } // success
-
-                EventsListBox.ItemsSource = dataEvents;
-                if (ProgressBar1 != null)
-                {
-                    ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                }
-            }
-
 
         /// <summary>
         /// Populates the page with content passed during navigation.  Any saved state is also
@@ -350,9 +294,9 @@ namespace Flurrystics
             datePicker1.DataContext = myTimeRange;
             datePicker2.DataContext = myTimeRange;
 
-            // DataSource.clearChartData();
-            // loadData(actualMetricsIndex,StartDate,EndDate,0);
- 
+            DataSource.clearChartDataEvents();
+            LoadUpXMLEventMetrics(StartDate, EndDate, 0);
+
         }
      
         /*
@@ -402,7 +346,7 @@ namespace Flurrystics
             if (flipView1 != null)
             {
                 changeMetrics(((FlipView)sender).SelectedIndex);
-                loadData(actualMetricsIndex, StartDate, EndDate, 0);
+                //loadData(actualMetricsIndex, StartDate, EndDate, 0);
             }
         }
 
@@ -460,7 +404,7 @@ namespace Flurrystics
             localSettings.Values["StartDate"] = StartDate;
             localSettings.Values["EndDate"] = EndDate;
             DataSource.clearChartData();
-            loadData(actualMetricsIndex,StartDate,EndDate,0); 
+            //loadData(actualMetricsIndex,StartDate,EndDate,0); 
         }
 
         private void cancelClick_Click_1(object sender, RoutedEventArgs e)
@@ -476,7 +420,7 @@ namespace Flurrystics
             localSettings.Values["StartDate"] = StartDate;
             localSettings.Values["EndDate"] = EndDate;
             DataSource.clearChartData();
-            loadData(actualMetricsIndex, StartDate, EndDate, 0); 
+            LoadUpXMLEventMetrics(StartDate, EndDate, 0);
         }
 
         private void lastMonth_Click_1(object sender, RoutedEventArgs e)
@@ -487,7 +431,7 @@ namespace Flurrystics
             localSettings.Values["StartDate"] = StartDate;
             localSettings.Values["EndDate"] = EndDate;
             DataSource.clearChartData();
-            loadData(actualMetricsIndex, StartDate, EndDate, 0);  
+            LoadUpXMLEventMetrics(StartDate, EndDate, 0);  
         }
 
         private void lastQuarter_Click_1(object sender, RoutedEventArgs e)
@@ -498,7 +442,7 @@ namespace Flurrystics
             localSettings.Values["StartDate"] = StartDate;
             localSettings.Values["EndDate"] = EndDate;
             DataSource.clearChartData();
-            loadData(actualMetricsIndex, StartDate, EndDate, 0); 
+            LoadUpXMLEventMetrics(StartDate, EndDate, 0); 
         }
 
         private void lastSixMonths_Click_1(object sender, RoutedEventArgs e)
@@ -509,7 +453,7 @@ namespace Flurrystics
             localSettings.Values["StartDate"] = StartDate;
             localSettings.Values["EndDate"] = EndDate;
             DataSource.clearChartData();
-            loadData(actualMetricsIndex, StartDate, EndDate, 0); 
+            LoadUpXMLEventMetrics(StartDate, EndDate, 0);
         }
 
         private void CompareToggleButton_Click_1(object sender, RoutedEventArgs e)
@@ -539,7 +483,7 @@ namespace Flurrystics
 
             if (targetChart.Series[1].ItemsSource == null)
             {
-                loadData(actualMetricsIndex, StartDate2, EndDate2, 1);     
+                LoadUpXMLEventMetrics(StartDate2, EndDate2, 1);
             }
             else
             {

@@ -172,9 +172,11 @@ namespace Flurrysticks.Flurrystics_XamlTypeInfo
 
         private object Activate_83_RadCustomHubTile() { return new global::Telerik.UI.Xaml.Controls.Primitives.RadCustomHubTile(); }
 
-        private object Activate_88_AppMetrics() { return new global::Flurrystics.AppMetrics(); }
+        private object Activate_88_EventMetrics() { return new global::Flurrystics.EventMetrics(); }
 
-        private object Activate_89_AccountApplicationsPage() { return new global::Flurrystics.AccountApplicationsPage(); }
+        private object Activate_89_AppMetrics() { return new global::Flurrystics.AppMetrics(); }
+
+        private object Activate_90_AccountApplicationsPage() { return new global::Flurrystics.AccountApplicationsPage(); }
 
         private void VectorAdd_13_CartesianSeriesCollection(object instance, object item)
         {
@@ -1289,15 +1291,21 @@ namespace Flurrysticks.Flurrystics_XamlTypeInfo
                 xamlType = userType;
                 break;
 
+            case "Flurrystics.EventMetrics":
+                userType = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Flurrystics.EventMetrics), GetXamlTypeByName("Flurrystics.Common.LayoutAwarePage"));
+                userType.Activator = Activate_88_EventMetrics;
+                xamlType = userType;
+                break;
+
             case "Flurrystics.AppMetrics":
                 userType = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Flurrystics.AppMetrics), GetXamlTypeByName("Flurrystics.Common.LayoutAwarePage"));
-                userType.Activator = Activate_88_AppMetrics;
+                userType.Activator = Activate_89_AppMetrics;
                 xamlType = userType;
                 break;
 
             case "Flurrystics.AccountApplicationsPage":
                 userType = new global::Flurrysticks.Flurrystics_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::Flurrystics.AccountApplicationsPage), GetXamlTypeByName("Flurrystics.Common.LayoutAwarePage"));
-                userType.Activator = Activate_89_AccountApplicationsPage;
+                userType.Activator = Activate_90_AccountApplicationsPage;
                 xamlType = userType;
                 break;
 

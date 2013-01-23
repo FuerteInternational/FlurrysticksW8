@@ -43,6 +43,14 @@ namespace Flurrysticks
             return result;
         }
 
+        public static int getLabelInterval(DateTime startD, DateTime endD)
+        {
+            TimeSpan t = endD - startD;
+            int result = (int)t.TotalDays / 5;
+            if (result == 0) { result = 1; }
+            return result;
+        }
+
         public static string shrinkString(String what)
         {
             String result = what;
