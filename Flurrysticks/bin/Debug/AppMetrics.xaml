@@ -2300,7 +2300,7 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <Button x:ConnectionId='20' x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}"                                 />
                     <Button x:ConnectionId='21' x:Name="CompareToggleButton" Style="{StaticResource CompareToggleAppBarButtonStyle}"                                     />
-                    <Button x:ConnectionId='22' x:Name="ZoomToggleButton" Style="{StaticResource ZoomToggleAppBarButtonStyle}"                                  />
+                    <Button x:ConnectionId='22' x:Name="ZoomToggleButton" Style="{StaticResource ZoomToggleAppBarButtonStyle}"                                  Background="Black" />
                 </StackPanel>
             </Grid>
         </AppBar>

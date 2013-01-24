@@ -478,7 +478,7 @@
     </Style>
     <Style x:Key="CompareToggleAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
         <Setter Property="AutomationProperties.AutomationId" Value="CompareToggleAppBarButton"/>
-        <Setter Property="AutomationProperties.Name" Value="Zoom"/>
+        <Setter Property="AutomationProperties.Name" Value="Compare"/>
         <Setter Property="Content" Value="&#xE174;"/>
     </Style>
     
