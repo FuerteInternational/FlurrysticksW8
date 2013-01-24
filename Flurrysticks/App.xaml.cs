@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Diagnostics;
+using BugSense;
 
 // The Split App template is documented at http://go.microsoft.com/fwlink/?LinkId=234228
 
@@ -38,6 +39,11 @@ namespace Flurrystics
             Debug.WriteLine("init App");
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            // Initialize BugSense
+
+            //BugSenseHandler.Instance.Init(this, "w8c5d386");
+            BugSenseHandler.Instance.Init(this, "w8c5d386", new NotificationOptions() { HandleWhileDebugging = true });
         }
 
         /// <summary>
