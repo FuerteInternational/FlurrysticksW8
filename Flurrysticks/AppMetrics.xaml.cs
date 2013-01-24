@@ -309,6 +309,7 @@ namespace Flurrystics
                              } // success
 
                 EventsListBox.ItemsSource = dataEvents;
+                EventsListBoxShrinked.ItemsSource = dataEvents;
                 if (ProgressBar1 != null)
                 {
                     ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;

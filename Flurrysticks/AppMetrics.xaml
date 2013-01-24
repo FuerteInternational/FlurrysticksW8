@@ -73,6 +73,16 @@
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backgroundGrid" Storyboard.TargetProperty="ImageSource">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="/Assets/screen_shrinked.png"/>
                         </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EventsListBoxShrinked" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EventsListBox" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EventsMetricsListPicker" Storyboard.TargetProperty="Width">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="280"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        
 
                         <!-- PAGE 1 -->
                         <!-- orientation changes -->
@@ -2187,7 +2197,7 @@
                       SelectedIndex="0" 
                       HorizontalAlignment="Left" 
                       Height="30"  
-                      Width="280"
+                      Width="480"
                       Margin="0,5,0,0"
                       SelectionChanged="EventsMetricsListPicker_SelectionChanged_1"
                       >
@@ -2220,12 +2230,38 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                           <TextBlock Width="230" Text="{Binding eventName}" TextWrapping="Wrap" Style="{StaticResource ItemTextStyle}"/>
-                           <TextBlock Text="{Binding eventValue}" TextWrapping="Wrap" TextAlignment="Right" HorizontalAlignment="Right" Style="{StaticResource ItemTextStyle}"/>
+                           <TextBlock Width="430"  Text="{Binding eventName}" TextWrapping="Wrap" Style="{StaticResource ItemTextStyle}"/>
+                           <TextBlock Text="{Binding eventValue}" TextWrapping="Wrap" TextAlignment="Right" HorizontalAlignment="Right" Style="{StaticResource ItemTextStyle}" FontWeight="SemiBold"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+
+                <ListView x:Name="EventsListBoxShrinked"  
+                     ItemsSource="{Binding}" 
+                     ItemClick="EventsListBox_ItemClick_1"
+                     Grid.ColumnSpan="1" 
+                     Background="Transparent"
+                     BorderThickness="0"
+                     Grid.Row="1"
+                     VerticalAlignment="Stretch"
+                     ScrollViewer.VerticalScrollBarVisibility="Visible"  
+                     SelectionMode="None"
+                     IsSwipeEnabled="false"
+                     IsItemClickEnabled="True"
+                     Visibility="Collapsed"
+                     >
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Width="230"  Text="{Binding eventName}" TextWrapping="Wrap" Style="{StaticResource ItemTextStyle}"/>
+                                <TextBlock Text="{Binding eventValue}" TextWrapping="Wrap" TextAlignment="Right" HorizontalAlignment="Right" Style="{StaticResource ItemTextStyle}" FontWeight="SemiBold"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
             </Grid>
 
         </FlipView>

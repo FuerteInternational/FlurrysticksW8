@@ -34,6 +34,8 @@ namespace Flurrystics.Data
     {
         private static DataSource _DataSource = new DataSource();
         public static XDocument dataEventsXML = null;
+        public static ObservableCollection<EventItem> ParamKeys = new ObservableCollection<EventItem>();
+        public static XDocument dataParametersXML = null;
 
         public static ObservableCollection<AppItem> getApps()
         {
@@ -82,6 +84,8 @@ namespace Flurrystics.Data
         public static void clearChartData()
         {
             Array.Clear(_DataSource.ChartData,0,_DataSource.ChartData.Length);
+            //dataParametersXML = null;
+            ParamKeys.Clear();
             dataEventsXML = null;
         }
 
@@ -106,159 +110,5 @@ namespace Flurrystics.Data
         }
 
     }
-
-    /*
-        public static int currentAccount = 0;
-
-        private static SampleDataSource _sampleDataSource = new SampleDataSource();
-
-        private ObservableCollection<Account> _allAccounts = new ObservableCollection<Account>();
-        public ObservableCollection<Account> AllAccounts
-        {
-            get { return this._allAccounts; }
-        }
-
-        public static IEnumerable<Account> GetAccounts()
-        {           
-            return _sampleDataSource.AllAccounts;
-        }
-
-        public static Account GetAccount(string ApiKey)
-        {
-            // Simple linear search is acceptable for small data sets
-            var matches = _sampleDataSource.AllAccounts.Where((group) => group.ApiKey.Equals(ApiKey));
-            if (matches.Count() == 1) return matches.First();
-            return null;
-        }
-
-        public static Account GetAccountByIndex(int i)
-        {
-            if (_sampleDataSource.AllAccounts.Count > 0)
-            {
-                return _sampleDataSource.AllAccounts.ElementAt<Account>(i);
-            }
-            else return null;
-        }
-
-        public static AppItem GetAppItem(string AppApiKey)
-        {
-            // Simple linear search is acceptable for small data sets
-            var matches = _sampleDataSource.AllAccounts.SelectMany(group => group.Apps).Where((item) => item.AppApiKey.Equals(AppApiKey));
-            if (matches.Count() == 1) return matches.First();
-            return null;
-        }
-
-
-        public static ObservableCollection<AppItem> GetAppItems(string ApiKey)
-        {
-            Account requestedAccount = GetAccount(ApiKey);
-            // Simple linear search is acceptable for small data sets
-            // var matches = requestedAccount.Apps.SelectMany(group => group.Apps).Where((item) => item.AppApiKey.Equals(AppApiKey));
-            return requestedAccount.Apps;
-        }
-    */
-
-     //public SampleDataSource()
-     //{
-         /*
-                  var account1 = new Account(
-                          "loading...",
-                          false,
-                          "DJBUBP9NE5YBQB5CQKH3"
-                          );
-         
-                  // String Name, String Platform, DateTime createdDate, String AppApiKey
-                  account1.Apps.Add(
-                      new AppItem(
-                          "Test App 1",
-                          "Android",
-                          DateTime.Now,
-                          "HXCWZ1L3CWMVGQM68JPI"));
-                  account1.Apps.Add(
-                      new AppItem(
-                          "Test App 2",
-                          "Android",
-                          DateTime.Now,
-                          "HXCWZ1L3CWMVGQM68JPI"));
-                  account1.Apps.Add(
-                      new AppItem(
-                          "Test App 3",
-                          "Android",
-                          DateTime.Now,
-                          "HXCWZ1L3CWMVGQM68JPI"));
-                              account1.Apps.Add(
-                      new AppItem(
-                          "Test App 4",
-                          "Android",
-                          DateTime.Now,
-                          "HXCWZ1L3CWMVGQM68JPI"));
-                   * */
-        /*
-         this.AllAccounts.Add(account1);
-
-         var account2 = new Account(
-                 "loading...",
-                 false,
-                 "WSN22PRKRZH4B6RKFPZN"
-                 );
-         */
-         /*
-         // String Name, String Platform, DateTime createdDate, String AppApiKey
-         account2.Apps.Add(
-             new AppItem(
-                 "Test2 App 1",
-                 "Android",
-                 DateTime.Now,
-                 "HXCWZ1L3CWMVGQM68JPI"));
-         account2.Apps.Add(
-             new AppItem(
-                 "Test2 App 2",
-                 "Android",
-                 DateTime.Now,
-                 "HXCWZ1L3CWMVGQM68JPI"));
-         account2.Apps.Add(
-             new AppItem(
-                 "Test2 App 3",
-                 "Android",
-                 DateTime.Now,
-                 "HXCWZ1L3CWMVGQM68JPI"));
-         account2.Apps.Add(
-             new AppItem(
-                 "Test2 App 4",
-                 "Android",
-                 DateTime.Now,
-                 "HXCWZ1L3CWMVGQM68JPI"));
-         account2.Apps.Add(
-              new AppItem(
-                  "Test2 App 5",
-                  "Android",
-                  DateTime.Now,
-                  "HXCWZ1L3CWMVGQM68JPI"));
-         account2.Apps.Add(
-             new AppItem(
-                 "Test2 App 6",
-                 "Android",
-                 DateTime.Now,
-                 "HXCWZ1L3CWMVGQM68JPI"));
-         account2.Apps.Add(
-             new AppItem(
-                 "Test2 App 7",
-                 "Android",
-                 DateTime.Now,
-                 "HXCWZ1L3CWMVGQM68JPI"));
-         account2.Apps.Add(
-             new AppItem(
-                 "Test2 App 8",
-                 "Android",
-                 DateTime.Now,
-                 "HXCWZ1L3CWMVGQM68JPI"));
-          * */
-         //this.AllAccounts.Add(account2);
-
-            
-
-     //}
-         
-    //}
 
 }

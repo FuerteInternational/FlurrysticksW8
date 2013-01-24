@@ -44,7 +44,6 @@ namespace Flurrystics
         DownloadHelper dh = new DownloadHelper();
         Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
         TimeRange myTimeRange = new TimeRange();
-        ObservableCollection<EventItem> ParamKeys = new ObservableCollection<EventItem>();
 
         public EventMetrics()
         {
@@ -68,7 +67,7 @@ namespace Flurrystics
                 ParamData dataParamValues = enumerator.Current;
                 if (addParam)
                 {
-                    ParamKeys.Add(new EventItem { eventName = dataParamValues.key });
+                    DataSource.ParamKeys.Add(new EventItem { eventName = dataParamValues.key });
                 }
                 dataParams = from query in dataParamValues.content
                              orderby (int)query.Attribute("totalCount") descending
@@ -81,17 +80,19 @@ namespace Flurrystics
                 {
                     Debug.WriteLine("Setting parameter values list");
                     ParametersListBox.ItemsSource = dataParams; // dataParamValues.children;
+                    ParametersListBoxShrinked.ItemsSource = dataParams; // dataParamValues.children;
                 }
                 Debug.WriteLine("Processing line: " + index);
                 index = index + 1;
             }
 
-            Debug.WriteLine("ParamKeys.Count=" + ParamKeys.Count);
+            Debug.WriteLine("ParamKeys.Count=" + DataSource.ParamKeys.Count);
 
-            if (ParamKeys.Count > 0)
+            if (DataSource.ParamKeys.Count > 0)
             {
-                ParametersMetricsListPicker.ItemsSource = ParamKeys;
+                ParametersMetricsListPicker.ItemsSource = DataSource.ParamKeys;
                 ParametersMetricsListPicker.IsEnabled = true;
+                ParametersMetricsListPicker.SelectedIndex = selectedIndex;
                 //NoParameters.Visibility = System.Windows.Visibility.Collapsed;
 
                 List<EventItem> check = dataParams.ToList();
@@ -171,13 +172,12 @@ namespace Flurrystics
             {
 
                 bool success;
-                XDocument result = null;
                 string callURL = "http://api.flurry.com/eventMetrics/Event?apiAccessCode=" + apiKey + "&apiKey=" + appApiKey + "&startDate=" + SDate + "&endDate=" + EDate + "&eventName=" + eventName;
                 Debug.WriteLine(callURL);
 
                 try
                 {
-                    result = await dh.DownloadXML(callURL); // load it   
+                    DataSource.dataParametersXML = await dh.DownloadXML(callURL); // load it   
                     success = true;
                 }
                 catch (System.Net.Http.HttpRequestException)
@@ -188,7 +188,7 @@ namespace Flurrystics
                 Debug.WriteLine("Success:" + success);
                 if (success)
                 { // --------------------------------------------------------------------------------------------------------------------- now parse and bind data
-                    DataSource.getChartData()[8, targetSeries] = from query in result.Descendants("day")
+                    DataSource.getChartData()[8, targetSeries] = from query in DataSource.dataParametersXML.Descendants("day")
                                                                      select new ChartDataPoint
                                                                      {
                                                                          // <day uniqueUsers="378" totalSessions="3152" totalCount="6092" duration="0" date="2012-09-13"/>
@@ -200,7 +200,7 @@ namespace Flurrystics
 
                     if (!(targetSeries > 0))
                     { // process parameters only when not processing compare data
-                        LoadUpXMLEventParameters(result, 0, true);
+                        LoadUpXMLEventParameters(DataSource.dataParametersXML, 0, true);
                     }
 
                     // count max,min,latest,total for display purposes
@@ -552,8 +552,13 @@ namespace Flurrystics
 
             if (ParametersMetricsListPicker != null)
             {
-                // LoadUpXMLEvents(StartDate, EndDate, EventsMetricsListPicker.SelectedIndex);
+                LoadUpXMLEventParameters(DataSource.dataParametersXML, ParametersMetricsListPicker.SelectedIndex, false);
             }
+
+        }
+
+        private void ZoomToggleButton_Click_1(object sender, RoutedEventArgs e)
+        {
 
         }
 

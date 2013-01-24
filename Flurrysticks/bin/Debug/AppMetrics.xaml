@@ -73,6 +73,16 @@
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backgroundGrid" Storyboard.TargetProperty="ImageSource">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="/Assets/screen_shrinked.png"/>
                         </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EventsListBoxShrinked" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EventsListBox" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EventsMetricsListPicker" Storyboard.TargetProperty="Width">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="280"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        
 
                         <!-- PAGE 1 -->
                         <!-- orientation changes -->
@@ -616,13 +626,13 @@
                 Grid.ColumnSpan="2"
                 />
             
-            <Button x:ConnectionId='18' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
+            <Button x:ConnectionId='19' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <StackPanel x:Name="titleArea" Orientation="Vertical" Grid.Column="1" VerticalAlignment="Bottom" Style="{StaticResource titleAreaStyle}">
                 <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle2}"/>
                 <TextBlock x:Name="platformTitle" Text="Android" Style="{StaticResource SubheaderTextStyle}" />
             </StackPanel>
             
-            <StackPanel x:ConnectionId='19' 
+            <StackPanel x:ConnectionId='20' 
                 Orientation="Horizontal" 
                 Grid.Column="1" 
                 Grid.Row="2"
@@ -834,7 +844,7 @@
 
                     <Chart:RadCartesianChart.Behaviors>
                         <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/> 
-                        <Chart:ChartTrackBallBehavior x:ConnectionId='17'
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='18'
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                                                                                         
@@ -1026,7 +1036,7 @@
 
                     <Chart:RadCartesianChart.Behaviors>
                         <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
-                        <Chart:ChartTrackBallBehavior x:ConnectionId='16' 
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='17' 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                                                                                         
@@ -1217,7 +1227,7 @@
 
                     <Chart:RadCartesianChart.Behaviors>
                         <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
-                        <Chart:ChartTrackBallBehavior x:ConnectionId='15' 
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='16' 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                                                                                         
@@ -1408,7 +1418,7 @@
 
                     <Chart:RadCartesianChart.Behaviors>
                         <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
-                        <Chart:ChartTrackBallBehavior x:ConnectionId='14' 
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='15' 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                                                                                         
@@ -1599,7 +1609,7 @@
 
                     <Chart:RadCartesianChart.Behaviors>
                         <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
-                        <Chart:ChartTrackBallBehavior x:ConnectionId='13' 
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='14' 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                                                                                         
@@ -1790,7 +1800,7 @@
 
                     <Chart:RadCartesianChart.Behaviors>
                         <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
-                        <Chart:ChartTrackBallBehavior x:ConnectionId='12' 
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='13' 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                                                                                         
@@ -1980,7 +1990,7 @@
 
                     <Chart:RadCartesianChart.Behaviors>
                         <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
-                        <Chart:ChartTrackBallBehavior x:ConnectionId='11' 
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='12' 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                                                                                         
@@ -2167,7 +2177,7 @@
 
                     <Chart:RadCartesianChart.Behaviors>
                         <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
-                        <Chart:ChartTrackBallBehavior x:ConnectionId='10' 
+                        <Chart:ChartTrackBallBehavior x:ConnectionId='11' 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                                                                                         
@@ -2187,7 +2197,7 @@
                       SelectedIndex="0" 
                       HorizontalAlignment="Left" 
                       Height="30"  
-                      Width="280"
+                      Width="480"
                       Margin="0,5,0,0"
                                                                                    
                       >
@@ -2220,12 +2230,38 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                           <TextBlock Width="230" Text="{Binding eventName}" TextWrapping="Wrap" Style="{StaticResource ItemTextStyle}"/>
-                           <TextBlock Text="{Binding eventValue}" TextWrapping="Wrap" TextAlignment="Right" HorizontalAlignment="Right" Style="{StaticResource ItemTextStyle}"/>
+                           <TextBlock Width="430"  Text="{Binding eventName}" TextWrapping="Wrap" Style="{StaticResource ItemTextStyle}"/>
+                           <TextBlock Text="{Binding eventValue}" TextWrapping="Wrap" TextAlignment="Right" HorizontalAlignment="Right" Style="{StaticResource ItemTextStyle}" FontWeight="SemiBold"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+
+                <ListView x:ConnectionId='10' x:Name="EventsListBoxShrinked"  
+                     ItemsSource="{Binding}" 
+                                                          
+                     Grid.ColumnSpan="1" 
+                     Background="Transparent"
+                     BorderThickness="0"
+                     Grid.Row="1"
+                     VerticalAlignment="Stretch"
+                     ScrollViewer.VerticalScrollBarVisibility="Visible"  
+                     SelectionMode="None"
+                     IsSwipeEnabled="false"
+                     IsItemClickEnabled="True"
+                     Visibility="Collapsed"
+                     >
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Width="230"  Text="{Binding eventName}" TextWrapping="Wrap" Style="{StaticResource ItemTextStyle}"/>
+                                <TextBlock Text="{Binding eventValue}" TextWrapping="Wrap" TextAlignment="Right" HorizontalAlignment="Right" Style="{StaticResource ItemTextStyle}" FontWeight="SemiBold"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
             </Grid>
 
         </FlipView>
@@ -2298,9 +2334,9 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Button x:ConnectionId='20' x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}"                                 />
-                    <Button x:ConnectionId='21' x:Name="CompareToggleButton" Style="{StaticResource CompareToggleAppBarButtonStyle}"                                     />
-                    <Button x:ConnectionId='22' x:Name="ZoomToggleButton" Style="{StaticResource ZoomToggleAppBarButtonStyle}"                                  Background="Black" />
+                    <Button x:ConnectionId='21' x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}"                                 />
+                    <Button x:ConnectionId='22' x:Name="CompareToggleButton" Style="{StaticResource CompareToggleAppBarButtonStyle}"                                     />
+                    <Button x:ConnectionId='23' x:Name="ZoomToggleButton" Style="{StaticResource ZoomToggleAppBarButtonStyle}"                                  />
                 </StackPanel>
             </Grid>
         </AppBar>
