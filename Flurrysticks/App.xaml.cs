@@ -1,5 +1,4 @@
 ﻿using Flurrystics.Common;
-
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,8 +16,12 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Diagnostics;
 using BugSense;
+using Windows.UI.ApplicationSettings;
+using Windows.System;
 
 // The Split App template is documented at http://go.microsoft.com/fwlink/?LinkId=234228
+
+// TO:DO - implement Flurry analytics when becomes available
 
 namespace Flurrystics
 {
@@ -44,6 +47,7 @@ namespace Flurrystics
 
             //BugSenseHandler.Instance.Init(this, "w8c5d386");
             BugSenseHandler.Instance.Init(this, "w8c5d386", new NotificationOptions() { HandleWhileDebugging = true });
+     
         }
 
         /// <summary>
@@ -97,6 +101,31 @@ namespace Flurrystics
             
             // Ensure the current window is active
             Window.Current.Activate();
+
+            // integrate mandatory settings items
+
+            SettingsPane.GetForCurrentView().CommandsRequested += OnSettingsPaneCommandRequested;
+
+        }
+
+        private void OnSettingsPaneCommandRequested(SettingsPane sender, SettingsPaneCommandsRequestedEventArgs args)
+        {
+            // Add the commands one by one to the settings panel
+
+            args.Request.ApplicationCommands.Add(new SettingsCommand("support", "Support e-mail", SupportEmailOperation));
+            args.Request.ApplicationCommands.Add(new SettingsCommand("privacy", "Privacy statement", PrivacyPolicyOperation));
+        }
+
+        private async void PrivacyPolicyOperation(Windows.UI.Popups.IUICommand command)
+        {
+            Uri uri = new Uri("http://www.fuerteint.com/mobile-project-16-flurrystics-windows-8/");
+            await Launcher.LaunchUriAsync(uri);
+        }
+
+        private async void SupportEmailOperation(Windows.UI.Popups.IUICommand command)
+        {
+            var mailto = new Uri("mailto:info@fuerteint.com");
+            await Windows.System.Launcher.LaunchUriAsync(mailto);
         }
 
         /// <summary>
