@@ -266,13 +266,13 @@ namespace Flurrystics
                     output = "Assets/flu_device_8_android.png";
                     break;
                 case "WindowsPhone":
-                    output = "Assets/flu_device_8_android.png";
+                    output = "Assets/flurryst_icon_windows.png";
                     break;
                 case "BlackberrySDK":
-                    output = "Assets/flu_device_8_android.png";
+                    output = "Assets/flurryst_icon_blackberry.png";
                     break;
                 case "JavaMESDK":
-                    output = "Assets/flu_device_8_android.png";
+                    output = "Assets/flurryst_icon_java.png";
                     break;
 
             }

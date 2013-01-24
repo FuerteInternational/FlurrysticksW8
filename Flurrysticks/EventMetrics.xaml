@@ -24,7 +24,7 @@
     -->
     <Grid Style="{StaticResource LayoutRootStyle}">
         <Grid.Background>
-            <ImageBrush x:Name="backgroundGrid" ImageSource="/Assets/flu_bg_2560.png" />
+            <ImageBrush x:Name="backgroundGrid" ImageSource="/Assets/flu_bg.png" />
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="140"/>
@@ -69,6 +69,9 @@
                         </ObjectAnimationUsingKeyFrames>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EventsTableGrid" Storyboard.TargetProperty="Margin">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="10,20,0,0"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backgroundGrid" Storyboard.TargetProperty="ImageSource">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="/Assets/screen_shrinked.png"/>
                         </ObjectAnimationUsingKeyFrames>
 
                         <!-- PAGE 1 -->

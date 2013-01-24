@@ -24,7 +24,7 @@
     -->
     <Grid Style="{StaticResource LayoutRootStyle}">
         <Grid.Background>
-            <ImageBrush x:Name="backgroundGrid" ImageSource="/Assets/flu_bg_2560.png" />
+            <ImageBrush x:Name="backgroundGrid" ImageSource="/Assets/flu_bg.png" />
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="140"/>
@@ -69,6 +69,9 @@
                         </ObjectAnimationUsingKeyFrames>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EventsTableGrid" Storyboard.TargetProperty="Margin">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="10,20,0,0"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backgroundGrid" Storyboard.TargetProperty="ImageSource">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="/Assets/screen_shrinked.png"/>
                         </ObjectAnimationUsingKeyFrames>
 
                         <!-- PAGE 1 -->
@@ -778,6 +781,7 @@
                     HorizontalAlignment="Stretch" 
                     Margin="10,0,0,0"           
                     MinZoom="1,1"
+                    MaxZoom="4,4"
                     Grid.Row="1"
                     VerticalAlignment="Stretch"
                     EmptyContent="Loading..."
@@ -829,13 +833,14 @@
                     </Chart:LineSeries>
 
                     <Chart:RadCartesianChart.Behaviors>
-                        <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
-                        <Chart:ChartTrackBallBehavior 
+                        <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/> 
+                        <Chart:ChartTrackBallBehavior
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                             TrackInfoUpdated="ChartTrackBallBehavior_TrackInfoUpdated_1"
                             ShowInfo="True"/>
                     </Chart:RadCartesianChart.Behaviors>
+                       
 
                 </Chart:RadCartesianChart>
                 </Grid>
@@ -2295,6 +2300,7 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <Button x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}" Click="TimeRangeButton_Click_1" />
                     <Button x:Name="CompareToggleButton" Style="{StaticResource CompareToggleAppBarButtonStyle}" Click="CompareToggleButton_Click_1" />
+                    <Button x:Name="ZoomToggleButton" Style="{StaticResource ZoomToggleAppBarButtonStyle}" Click="ZoomToggleButton_Click_1" />
                 </StackPanel>
             </Grid>
         </AppBar>

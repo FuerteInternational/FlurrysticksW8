@@ -30,7 +30,7 @@
     -->
     <Grid Style="{StaticResource LayoutRootStyle}">
         <Grid.Background>
-            <ImageBrush x:Name="backgroundGrid" ImageSource="/Assets/flu_bg_2560.png" />
+            <ImageBrush x:Name="backgroundGrid" ImageSource="/Assets/flu_bg.png" />
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="140"/>
@@ -53,6 +53,7 @@
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemGridView" Storyboard.TargetProperty="Padding">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="96,136,86,56"/>
                         </ObjectAnimationUsingKeyFrames>
+
                     </Storyboard>
                 </VisualState>
                 <!--
@@ -79,6 +80,9 @@
                         </ObjectAnimationUsingKeyFrames>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemGridView" Storyboard.TargetProperty="Visibility">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backgroundGrid" Storyboard.TargetProperty="ImageSource">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="/Assets/screen_shrinked.png"/>
                         </ObjectAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>

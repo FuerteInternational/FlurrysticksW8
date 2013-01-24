@@ -478,9 +478,16 @@
     </Style>
     <Style x:Key="CompareToggleAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
         <Setter Property="AutomationProperties.AutomationId" Value="CompareToggleAppBarButton"/>
-        <Setter Property="AutomationProperties.Name" Value="Compare"/>
+        <Setter Property="AutomationProperties.Name" Value="Zoom"/>
         <Setter Property="Content" Value="&#xE174;"/>
     </Style>
+    
+    <Style x:Key="ZoomToggleAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+        <Setter Property="AutomationProperties.AutomationId" Value="CompareToggleAppBarButton"/>
+        <Setter Property="AutomationProperties.Name" Value="Zoom toggle"/>
+        <Setter Property="Content" Value="&#xE1E3;"/>
+    </Style>
+    
     <Style x:Key="NoAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
         <Setter Property="AutomationProperties.AutomationId" Value="NoAppBarButton"/>
         <Setter Property="AutomationProperties.Name" Value="No"/>
@@ -488,7 +495,7 @@
     </Style>
     <Style x:Key="YesAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
         <Setter Property="AutomationProperties.AutomationId" Value="YesAppBarButton"/>
-        <Setter Property="AutomationProperties.Name" Value="Yes"/>
+        <Setter Property="AutomationProperties.Name" Value="Yes"/> 
         <Setter Property="Content" Value="&#xE10B;"/>
     </Style>
     <Style x:Key="MoreAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">

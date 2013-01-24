@@ -149,6 +149,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\screen_shrinked.scale-140.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\screen_shrinked.scale-180.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Page Include="EventMetrics.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -157,9 +163,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Content Include="Assets\flu_bg_1024.png" />
-    <Content Include="Assets\flu_bg_1366.png" />
-    <Content Include="Assets\flu_bg_2560.png" />
+    <Content Include="Assets\flurryst_icon_blackberry.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\flurryst_icon_java.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\flurryst_icon_windows.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\flu_bg.scale-80.png" />
+    <Content Include="Assets\flu_bg.png" />
+    <Content Include="Assets\flu_bg.scale-180.png" />
     <Content Include="Assets\flu_device_8_android.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -171,6 +186,9 @@
     </Content>
     <Content Include="Assets\Logo.png" />
     <Content Include="Assets\PageLogo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\screen_shrinked.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\SmallLogo.png" />

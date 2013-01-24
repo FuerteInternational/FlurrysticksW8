@@ -585,5 +585,10 @@ namespace Flurrystics
             this.Frame.Navigate(typeof(EventMetrics), what);
         }
 
+        private void ZoomToggleButton_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
