@@ -4,4 +4,9 @@
     <UseSimulator>False</UseSimulator>
     <DoNotLaunchApp>True</DoNotLaunchApp>
   </PropertyGroup>
+  <PropertyGroup>
+    <AppxPackageIsForStore>False</AppxPackageIsForStore>
+    <AppxShowAllApps>False</AppxShowAllApps>
+    <AppxBuildConfigurationSelection>neutral</AppxBuildConfigurationSelection>
+  </PropertyGroup>
 </Project>

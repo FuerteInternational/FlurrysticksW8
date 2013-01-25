@@ -1048,12 +1048,12 @@
         <AppBar x:Name="bottomAppBar" Padding="10,0,10,0">
             <Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:ConnectionId='13' x:Name="pinButton" Style="{StaticResource PinAppBarButtonStyle}"                           />
+                    <Button x:ConnectionId='14' x:Name="pinButton" Style="{StaticResource PinAppBarButtonStyle}"                           />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <Button x:ConnectionId='11' x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}"                                 />
                     <Button x:ConnectionId='12' x:Name="CompareToggleButton" Style="{StaticResource CompareToggleAppBarButtonStyle}"                                     />
-                    <!-- <Button x:Name="ZoomToggleButton" Style="{StaticResource ZoomToggleAppBarButtonStyle}" Click="ZoomToggleButton_Click_1" /> -->
+                    <Button x:ConnectionId='13' x:Name="ZoomToggleButton" Style="{StaticResource ZoomToggleAppBarButtonStyle}"                                  />
                 </StackPanel>
             </Grid>
         </AppBar>

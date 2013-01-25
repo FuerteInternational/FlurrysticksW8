@@ -589,23 +589,18 @@ namespace Flurrystics
 
         private void ZoomToggleButton_Click_1(object sender, RoutedEventArgs e)
         {
-            RadCartesianChart[] targetCharts = { radChart1 }; //, radChart2, radChart3, radChart4, radChart5, radChart6, radChart7, radChart8 };
+            RadCartesianChart[] targetCharts = { radChart1 , radChart2, radChart3, radChart4, radChart5, radChart6, radChart7, radChart8 };
             foreach (RadCartesianChart targetChart in targetCharts)
             {
                 if (targetChart.Behaviors.Count > 0)
                 { // disable chart behaviour
                     Debug.WriteLine("Disable chart behaviour");
-                    // targetChart.Behaviors.RemoveAt(0);
-                    ChartPanAndZoomBehavior tb = targetChart.Behaviors[0] as ChartPanAndZoomBehavior;
-                    targetChart.Behaviors.Remove(tb);
-                    ChartPanAndZoomBehavior item1 = new ChartPanAndZoomBehavior();
-                    item1.ZoomMode = ChartPanZoomMode.None;
-                    item1.PanMode = ChartPanZoomMode.None;
-                    targetChart.Behaviors.Add(item1);
-                    targetChart.ManipulationMode = ManipulationModes.None;
-                    targetChart.IsTapEnabled = false;
-                    targetChart.InvalidateUI();
-                    
+                    ChartPanAndZoomBehavior item1 = targetChart.Behaviors[0] as ChartPanAndZoomBehavior;
+                    ChartTrackBallBehavior item2 = targetChart.Behaviors[1] as ChartTrackBallBehavior;
+                    targetChart.Behaviors.Remove(item1);
+                    targetChart.Behaviors.Remove(item2);
+                    targetChart.IsHitTestVisible = false;
+                    targetChart.Zoom = new Size(1, 1);                    
                 }
                 else
                 { // enable
@@ -614,12 +609,12 @@ namespace Flurrystics
                     item1.ZoomMode = ChartPanZoomMode.Horizontal;
                     item1.PanMode = ChartPanZoomMode.Horizontal;
                     targetChart.Behaviors.Add(item1);
-                    //targetChart.Behaviors.RemoveAt(0);
-                    //targetChart.Behaviors.RemoveAt(1);
-                    //ChartPanAndZoomBehavior b1 = targetChart.Behaviors.ElementAt(0) as ChartPanAndZoomBehavior;
-                    //b1.PanMode = ChartPanZoomMode.None;
-                    //b1.ZoomMode = ChartPanZoomMode.None;
-                    //ChartTrackBallBehavior b2 = targetChart.Behaviors.ElementAt(1) as ChartTrackBallBehavior;
+                    ChartTrackBallBehavior item2 = new ChartTrackBallBehavior();
+                    item2.ShowIntersectionPoints=true;
+                    item2.InfoMode = TrackInfoMode.Multiple;
+                    item2.TrackInfoUpdated += ChartTrackBallBehavior_TrackInfoUpdated_1;
+                    item2.ShowInfo = true;
+                    targetChart.Behaviors.Add(item2);
                 } // enabling chart behaviours
             }
 
