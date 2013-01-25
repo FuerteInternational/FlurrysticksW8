@@ -843,12 +843,14 @@
                     </Chart:LineSeries>
 
                     <Chart:RadCartesianChart.Behaviors>
-                        <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/> 
+                        <!--
+                        <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
                         <Chart:ChartTrackBallBehavior
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                             TrackInfoUpdated="ChartTrackBallBehavior_TrackInfoUpdated_1"
                             ShowInfo="True"/>
+                        -->
                     </Chart:RadCartesianChart.Behaviors>
                        
 
@@ -1035,12 +1037,12 @@
                     </Chart:LineSeries>
 
                     <Chart:RadCartesianChart.Behaviors>
-                        <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
+                    <!--    <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
                         <Chart:ChartTrackBallBehavior 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                             TrackInfoUpdated="ChartTrackBallBehavior_TrackInfoUpdated_1"
-                            ShowInfo="True"/>
+                            ShowInfo="True"/> -->
                     </Chart:RadCartesianChart.Behaviors>
 
                 </Chart:RadCartesianChart>
@@ -1226,12 +1228,12 @@
                     </Chart:LineSeries>
 
                     <Chart:RadCartesianChart.Behaviors>
-                        <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
+                        <!--<Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
                         <Chart:ChartTrackBallBehavior 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                             TrackInfoUpdated="ChartTrackBallBehavior_TrackInfoUpdated_1"
-                            ShowInfo="True"/>
+                            ShowInfo="True"/>-->
                     </Chart:RadCartesianChart.Behaviors>
 
                 </Chart:RadCartesianChart>
@@ -1417,12 +1419,12 @@
                     </Chart:LineSeries>
 
                     <Chart:RadCartesianChart.Behaviors>
-                        <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
+                        <!--<Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
                         <Chart:ChartTrackBallBehavior 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                             TrackInfoUpdated="ChartTrackBallBehavior_TrackInfoUpdated_1"
-                            ShowInfo="True"/>
+                            ShowInfo="True"/>-->
                     </Chart:RadCartesianChart.Behaviors>
 
                 </Chart:RadCartesianChart>
@@ -1608,12 +1610,12 @@
                     </Chart:LineSeries>
 
                     <Chart:RadCartesianChart.Behaviors>
-                        <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
+                        <!--<Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
                         <Chart:ChartTrackBallBehavior 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                             TrackInfoUpdated="ChartTrackBallBehavior_TrackInfoUpdated_1"
-                            ShowInfo="True"/>
+                            ShowInfo="True"/>-->
                     </Chart:RadCartesianChart.Behaviors>
 
                 </Chart:RadCartesianChart>
@@ -1799,12 +1801,12 @@
                     </Chart:LineSeries>
 
                     <Chart:RadCartesianChart.Behaviors>
-                        <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
+                        <!--<Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
                         <Chart:ChartTrackBallBehavior 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                             TrackInfoUpdated="ChartTrackBallBehavior_TrackInfoUpdated_1"
-                            ShowInfo="True"/>
+                            ShowInfo="True"/>-->
                     </Chart:RadCartesianChart.Behaviors>
 
                 </Chart:RadCartesianChart>
@@ -1989,12 +1991,12 @@
                     </Chart:LineSeries>
 
                     <Chart:RadCartesianChart.Behaviors>
-                        <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
+                        <!--<Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
                         <Chart:ChartTrackBallBehavior 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                             TrackInfoUpdated="ChartTrackBallBehavior_TrackInfoUpdated_1"
-                            ShowInfo="True"/>
+                            ShowInfo="True"/>-->
                     </Chart:RadCartesianChart.Behaviors>
 
                 </Chart:RadCartesianChart>
@@ -2176,12 +2178,12 @@
                     </Chart:LineSeries>
 
                     <Chart:RadCartesianChart.Behaviors>
-                        <Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
+                        <!--<Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
                         <Chart:ChartTrackBallBehavior 
                             ShowIntersectionPoints="True" 
                             InfoMode="Multiple"
                             TrackInfoUpdated="ChartTrackBallBehavior_TrackInfoUpdated_1"
-                            ShowInfo="True"/>
+                            ShowInfo="True"/>-->
                     </Chart:RadCartesianChart.Behaviors>
 
                 </Chart:RadCartesianChart>
@@ -2303,15 +2305,15 @@
                             ItemLength="80" 
                             Margin="20,20,20,0" 
                             DisplayValueFormat="dddd, MMMM dd, yyyy"
-                            Value="{Binding StartTime, Mode = TwoWay}"
+                            ValueChanged="datePicker1_ValueChanged_1"
                             />
                     <telerikInput:RadDatePicker 
                             Header="To:" 
                             x:Name="datePicker2" 
                             ItemLength="80" 
+                            ValueChanged="datePicker2_ValueChanged_1"
                             Margin="20,20,20,0" 
                             DisplayValueFormat="dddd, MMMM dd, yyyy" 
-                            Value="{Binding EndTime, Mode = TwoWay}"
                             />
                     </StackPanel>
 
@@ -2336,7 +2338,7 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <Button x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}" Click="TimeRangeButton_Click_1" />
                     <Button x:Name="CompareToggleButton" Style="{StaticResource CompareToggleAppBarButtonStyle}" Click="CompareToggleButton_Click_1" />
-                    <Button x:Name="ZoomToggleButton" Style="{StaticResource ZoomToggleAppBarButtonStyle}" Click="ZoomToggleButton_Click_1" />
+                    <!--<Button x:Name="ZoomToggleButton" Style="{StaticResource ZoomToggleAppBarButtonStyle}" Click="ZoomToggleButton_Click_1" />-->
                 </StackPanel>
             </Grid>
         </AppBar>

@@ -43,7 +43,6 @@ namespace Flurrystics
         int actualMetricsIndex = 0;
         DownloadHelper dh = new DownloadHelper();
         Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-        TimeRange myTimeRange = new TimeRange();
 
         public AppMetrics()
         {
@@ -354,14 +353,10 @@ namespace Flurrystics
                 EndDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1));
                 StartDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddMonths(-1));
             }
-            
-            myTimeRange.StartTime = DateTime.Parse(StartDate);
-            myTimeRange.EndTime = DateTime.Parse(EndDate);
 
-            datePicker1.DataContext = myTimeRange;
-            datePicker2.DataContext = myTimeRange;
-
-            DataSource.clearChartData();
+            datePicker1.Value = DateTime.Parse(StartDate);
+            datePicker2.Value = DateTime.Parse(EndDate);
+            updateButtons();
 
             loadData(actualMetricsIndex,StartDate,EndDate,0); 
         }
@@ -464,13 +459,11 @@ namespace Flurrystics
         private void setClick_Click_1(object sender, RoutedEventArgs e)
         { // set new timerange
             TimeRangeControl.IsOpen = false;
-            StartDate = String.Format("{0:yyyy-MM-dd}",myTimeRange.StartTime);
+            StartDate = String.Format("{0:yyyy-MM-dd}",datePicker1.Value);
             Debug.WriteLine("StartDate:" + StartDate);
-            EndDate = String.Format("{0:yyyy-MM-dd}",myTimeRange.EndTime);
+            EndDate = String.Format("{0:yyyy-MM-dd}",datePicker2.Value);
             Debug.WriteLine("EndDate:" + EndDate);
-            localSettings.Values["StartDate"] = StartDate;
-            localSettings.Values["EndDate"] = EndDate;
-            DataSource.clearChartData();
+            updateButtons();
             loadData(actualMetricsIndex,StartDate,EndDate,0); 
         }
 
@@ -484,9 +477,9 @@ namespace Flurrystics
             TimeRangeControl.IsOpen = false;
             EndDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1));
             StartDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-15));
-            localSettings.Values["StartDate"] = StartDate;
-            localSettings.Values["EndDate"] = EndDate;
-            DataSource.clearChartData();
+            datePicker1.Value = DateTime.Parse(StartDate);
+            datePicker2.Value = DateTime.Parse(EndDate);
+            updateButtons();
             loadData(actualMetricsIndex, StartDate, EndDate, 0); 
         }
 
@@ -495,9 +488,9 @@ namespace Flurrystics
             TimeRangeControl.IsOpen = false;
             EndDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1));
             StartDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1).AddMonths(-1));
-            localSettings.Values["StartDate"] = StartDate;
-            localSettings.Values["EndDate"] = EndDate;
-            DataSource.clearChartData();
+            datePicker1.Value = DateTime.Parse(StartDate);
+            datePicker2.Value = DateTime.Parse(EndDate);
+            updateButtons();
             loadData(actualMetricsIndex, StartDate, EndDate, 0);  
         }
 
@@ -506,9 +499,9 @@ namespace Flurrystics
             TimeRangeControl.IsOpen = false;
             EndDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1));
             StartDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1).AddMonths(-3));
-            localSettings.Values["StartDate"] = StartDate;
-            localSettings.Values["EndDate"] = EndDate;
-            DataSource.clearChartData();
+            datePicker1.Value = DateTime.Parse(StartDate);
+            datePicker2.Value = DateTime.Parse(EndDate);
+            updateButtons();
             loadData(actualMetricsIndex, StartDate, EndDate, 0); 
         }
 
@@ -517,9 +510,9 @@ namespace Flurrystics
             TimeRangeControl.IsOpen = false;
             EndDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1));
             StartDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1).AddMonths(-6));
-            localSettings.Values["StartDate"] = StartDate;
-            localSettings.Values["EndDate"] = EndDate;
-            DataSource.clearChartData();
+            datePicker1.Value = DateTime.Parse(StartDate);
+            datePicker2.Value = DateTime.Parse(EndDate);
+            updateButtons();
             loadData(actualMetricsIndex, StartDate, EndDate, 0); 
         }
 
@@ -588,8 +581,67 @@ namespace Flurrystics
 
         private void ZoomToggleButton_Click_1(object sender, RoutedEventArgs e)
         {
+            RadCartesianChart[] targetCharts = { radChart1 }; //, radChart2, radChart3, radChart4, radChart5, radChart6, radChart7, radChart8 };
+            foreach (RadCartesianChart targetChart in targetCharts)
+            {
+                if (targetChart.Behaviors.Count > 0)
+                { // disable chart behaviour
+                    Debug.WriteLine("Disable chart behaviour");
+                    // targetChart.Behaviors.RemoveAt(0);
+                    ChartPanAndZoomBehavior tb = targetChart.Behaviors[0] as ChartPanAndZoomBehavior;
+                    targetChart.Behaviors.Remove(tb);
+                    ChartPanAndZoomBehavior item1 = new ChartPanAndZoomBehavior();
+                    item1.ZoomMode = ChartPanZoomMode.None;
+                    item1.PanMode = ChartPanZoomMode.None;
+                    targetChart.Behaviors.Add(item1);
+                    targetChart.ManipulationMode = ManipulationModes.None;
+                    targetChart.IsTapEnabled = false;
+                    targetChart.InvalidateUI();
+                    
+                }
+                else
+                { // enable
+                    Debug.WriteLine("Enable chart behaviour");
+                    ChartPanAndZoomBehavior item1 = new ChartPanAndZoomBehavior();
+                    item1.ZoomMode = ChartPanZoomMode.Horizontal;
+                    item1.PanMode = ChartPanZoomMode.Horizontal;
+                    targetChart.Behaviors.Add(item1);
+                    //targetChart.Behaviors.RemoveAt(0);
+                    //targetChart.Behaviors.RemoveAt(1);
+                    //ChartPanAndZoomBehavior b1 = targetChart.Behaviors.ElementAt(0) as ChartPanAndZoomBehavior;
+                    //b1.PanMode = ChartPanZoomMode.None;
+                    //b1.ZoomMode = ChartPanZoomMode.None;
+                    //ChartTrackBallBehavior b2 = targetChart.Behaviors.ElementAt(1) as ChartTrackBallBehavior;
+                } // enabling chart behaviours
+            }
 
         }
 
+        private void updateButtons()
+        {
+
+            localSettings.Values["StartDate"] = StartDate;
+            localSettings.Values["EndDate"] = EndDate;
+
+            datePicker1.MaxValue = DateTime.Parse(EndDate).AddDays(-1);
+            datePicker1.MinValue = DateTime.Parse(EndDate).AddDays(-1).AddYears(-1);
+            datePicker2.MinValue = DateTime.Parse(StartDate);
+            datePicker2.MaxValue = DateTime.Now;
+
+            DataSource.clearChartData(); // after setting new timerange clear data to force new loadUp
+
+        }
+
+        private void datePicker2_ValueChanged_1(object sender, EventArgs e)
+        {
+            EndDate = String.Format("{0:yyyy-MM-dd}", datePicker2.Value);
+            updateButtons();
+        }
+
+        private void datePicker1_ValueChanged_1(object sender, EventArgs e)
+        {          
+            StartDate = String.Format("{0:yyyy-MM-dd}", datePicker1.Value);
+            updateButtons();
+        }
     }
 }

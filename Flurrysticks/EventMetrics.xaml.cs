@@ -43,7 +43,6 @@ namespace Flurrystics
         int actualMetricsIndex = 0;
         DownloadHelper dh = new DownloadHelper();
         Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-        TimeRange myTimeRange = new TimeRange();
 
         public EventMetrics()
         {
@@ -352,14 +351,11 @@ namespace Flurrystics
                 EndDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1));
                 StartDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddMonths(-1));
             }
-            
-            myTimeRange.StartTime = DateTime.Parse(StartDate);
-            myTimeRange.EndTime = DateTime.Parse(EndDate);
 
-            datePicker1.DataContext = myTimeRange;
-            datePicker2.DataContext = myTimeRange;
+            datePicker1.Value = DateTime.Parse(StartDate);
+            datePicker2.Value = DateTime.Parse(EndDate);
+            updateButtons();
 
-            DataSource.clearChartDataEvents();
             LoadUpXMLEventMetrics(StartDate, EndDate, 0);
 
         }
@@ -438,20 +434,18 @@ namespace Flurrystics
                 TimeRangeControl.HorizontalOffset = 0;
                 TimeRangeControl.VerticalOffset = Window.Current.Bounds.Height - 520;
                 TimeRangeControl.IsOpen = true;
-            }    
+            }
         }
 
         private void setClick_Click_1(object sender, RoutedEventArgs e)
         { // set new timerange
             TimeRangeControl.IsOpen = false;
-            StartDate = String.Format("{0:yyyy-MM-dd}",myTimeRange.StartTime);
+            StartDate = String.Format("{0:yyyy-MM-dd}", datePicker1.Value);
             Debug.WriteLine("StartDate:" + StartDate);
-            EndDate = String.Format("{0:yyyy-MM-dd}",myTimeRange.EndTime);
+            EndDate = String.Format("{0:yyyy-MM-dd}", datePicker2.Value);
             Debug.WriteLine("EndDate:" + EndDate);
-            localSettings.Values["StartDate"] = StartDate;
-            localSettings.Values["EndDate"] = EndDate;
-            DataSource.clearChartData();
-            //loadData(actualMetricsIndex,StartDate,EndDate,0); 
+            updateButtons();
+            LoadUpXMLEventMetrics(StartDate, EndDate, 0); 
         }
 
         private void cancelClick_Click_1(object sender, RoutedEventArgs e)
@@ -464,10 +458,10 @@ namespace Flurrystics
             TimeRangeControl.IsOpen = false;
             EndDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1));
             StartDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-15));
-            localSettings.Values["StartDate"] = StartDate;
-            localSettings.Values["EndDate"] = EndDate;
-            DataSource.clearChartData();
-            LoadUpXMLEventMetrics(StartDate, EndDate, 0);
+            datePicker1.Value = DateTime.Parse(StartDate);
+            datePicker2.Value = DateTime.Parse(EndDate);
+            updateButtons();
+            LoadUpXMLEventMetrics(StartDate, EndDate, 0); 
         }
 
         private void lastMonth_Click_1(object sender, RoutedEventArgs e)
@@ -475,10 +469,10 @@ namespace Flurrystics
             TimeRangeControl.IsOpen = false;
             EndDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1));
             StartDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1).AddMonths(-1));
-            localSettings.Values["StartDate"] = StartDate;
-            localSettings.Values["EndDate"] = EndDate;
-            DataSource.clearChartData();
-            LoadUpXMLEventMetrics(StartDate, EndDate, 0);  
+            datePicker1.Value = DateTime.Parse(StartDate);
+            datePicker2.Value = DateTime.Parse(EndDate);
+            updateButtons();
+            LoadUpXMLEventMetrics(StartDate, EndDate, 0); 
         }
 
         private void lastQuarter_Click_1(object sender, RoutedEventArgs e)
@@ -486,9 +480,9 @@ namespace Flurrystics
             TimeRangeControl.IsOpen = false;
             EndDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1));
             StartDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1).AddMonths(-3));
-            localSettings.Values["StartDate"] = StartDate;
-            localSettings.Values["EndDate"] = EndDate;
-            DataSource.clearChartData();
+            datePicker1.Value = DateTime.Parse(StartDate);
+            datePicker2.Value = DateTime.Parse(EndDate);
+            updateButtons();
             LoadUpXMLEventMetrics(StartDate, EndDate, 0); 
         }
 
@@ -497,10 +491,10 @@ namespace Flurrystics
             TimeRangeControl.IsOpen = false;
             EndDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1));
             StartDate = String.Format("{0:yyyy-MM-dd}", DateTime.Now.AddDays(-1).AddMonths(-6));
-            localSettings.Values["StartDate"] = StartDate;
-            localSettings.Values["EndDate"] = EndDate;
-            DataSource.clearChartData();
-            LoadUpXMLEventMetrics(StartDate, EndDate, 0);
+            datePicker1.Value = DateTime.Parse(StartDate);
+            datePicker2.Value = DateTime.Parse(EndDate);
+            updateButtons();
+            LoadUpXMLEventMetrics(StartDate, EndDate, 0); 
         }
 
         private void CompareToggleButton_Click_1(object sender, RoutedEventArgs e)
@@ -560,6 +554,33 @@ namespace Flurrystics
         private void ZoomToggleButton_Click_1(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void updateButtons()
+        {
+
+            localSettings.Values["StartDate"] = StartDate;
+            localSettings.Values["EndDate"] = EndDate;
+
+            datePicker1.MaxValue = DateTime.Parse(EndDate).AddDays(-1);
+            datePicker1.MinValue = DateTime.Parse(EndDate).AddDays(-1).AddYears(-1);
+            datePicker2.MinValue = DateTime.Parse(StartDate);
+            datePicker2.MaxValue = DateTime.Now;
+
+            DataSource.clearChartData(); // after setting new timerange clear data to force new loadUp
+
+        }
+
+        private void datePicker2_ValueChanged_1(object sender, EventArgs e)
+        {
+            EndDate = String.Format("{0:yyyy-MM-dd}", datePicker2.Value);
+            updateButtons();
+        }
+
+        private void datePicker1_ValueChanged_1(object sender, EventArgs e)
+        {
+            StartDate = String.Format("{0:yyyy-MM-dd}", datePicker1.Value);
+            updateButtons();
         }
 
     }
