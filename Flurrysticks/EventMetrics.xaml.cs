@@ -445,6 +445,7 @@ namespace Flurrystics
             EndDate = String.Format("{0:yyyy-MM-dd}", datePicker2.Value);
             Debug.WriteLine("EndDate:" + EndDate);
             updateButtons();
+            pageRoot.BottomAppBar.IsOpen = false;
             LoadUpXMLEventMetrics(StartDate, EndDate, 0); 
         }
 
@@ -461,6 +462,7 @@ namespace Flurrystics
             datePicker1.Value = DateTime.Parse(StartDate);
             datePicker2.Value = DateTime.Parse(EndDate);
             updateButtons();
+            pageRoot.BottomAppBar.IsOpen = false;
             LoadUpXMLEventMetrics(StartDate, EndDate, 0); 
         }
 
@@ -472,6 +474,7 @@ namespace Flurrystics
             datePicker1.Value = DateTime.Parse(StartDate);
             datePicker2.Value = DateTime.Parse(EndDate);
             updateButtons();
+            pageRoot.BottomAppBar.IsOpen = false;
             LoadUpXMLEventMetrics(StartDate, EndDate, 0); 
         }
 
@@ -483,6 +486,7 @@ namespace Flurrystics
             datePicker1.Value = DateTime.Parse(StartDate);
             datePicker2.Value = DateTime.Parse(EndDate);
             updateButtons();
+            pageRoot.BottomAppBar.IsOpen = false;
             LoadUpXMLEventMetrics(StartDate, EndDate, 0); 
         }
 
@@ -494,6 +498,7 @@ namespace Flurrystics
             datePicker1.Value = DateTime.Parse(StartDate);
             datePicker2.Value = DateTime.Parse(EndDate);
             updateButtons();
+            pageRoot.BottomAppBar.IsOpen = false;
             LoadUpXMLEventMetrics(StartDate, EndDate, 0); 
         }
 

@@ -99,7 +99,7 @@
                 Grid.Row="2"
                 Padding="116,19,116,36"
                 SelectionMode="None"
-                IsSwipeEnabled="false"
+                IsSwipeEnabled="True"
                 IsItemClickEnabled="True"
                 ItemClick="ItemView_ItemClick"
                 VerticalContentAlignment="Stretch">
@@ -179,7 +179,7 @@
             ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
             ItemTemplate="{StaticResource Standard80ItemTemplate}"
             SelectionMode="None"
-            IsSwipeEnabled="false"
+            IsSwipeEnabled="True"
             IsItemClickEnabled="True"
             ItemClick="ItemView_ItemClick"/>
 

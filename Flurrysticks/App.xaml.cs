@@ -18,6 +18,7 @@ using System.Diagnostics;
 using BugSense;
 using Windows.UI.ApplicationSettings;
 using Windows.System;
+using Flurrysticks.DataModel;
 
 // The Split App template is documented at http://go.microsoft.com/fwlink/?LinkId=234228
 
@@ -89,11 +90,26 @@ namespace Flurrystics
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
+
+                    if (args.Arguments.Contains("|"))
+                    { // called from secondary tile
+                        string[] p = args.Arguments.Split('|'); // appName + "|" + appPlatform + "|" + apiKey + "|" + appApiKey;
+                        CallApp what = new CallApp();
+                        what.AppApiKey = p[3];
+                        what.ApiKey = p[2];
+                        what.Name = p[0];
+                        what.Platform = p[1];
+                        rootFrame.Navigate(typeof(AppMetrics), what);
+                    } else                    
                     if (!rootFrame.Navigate(typeof(AccountApplicationsPage), args.Arguments))
                     {
                         throw new Exception("Failed to create initial page");
                     }
+
+
+
                 }
+
 
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;

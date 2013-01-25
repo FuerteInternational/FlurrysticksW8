@@ -40,6 +40,9 @@ namespace Flurrystics
         DownloadHelper dh = new DownloadHelper();
         Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
         String settingsOrderBy = "name1";
+        public Windows.ApplicationModel.Activation.LaunchActivatedEventArgs LaunchArgs;
+        public static AccountApplicationsPage Current;
+        static readonly string ApiFileName = "apikeys.xml";
 
         public AccountApplicationsPage()
         {
@@ -78,8 +81,6 @@ namespace Flurrystics
             var folder = ApplicationData.Current.RoamingFolder;
             return await folder.OpenStreamForWriteAsync(path, CreationCollisionOption.ReplaceExisting);
         }
-
-        static readonly string ApiFileName = "apikeys.xml";
 
         private void noAccountData()
         {
@@ -192,6 +193,14 @@ namespace Flurrystics
 
         }
 
+        // Navigates to the Scenario "Show Activation Arguments"
+        
+        public void NavigateToLaunchedFromSecondaryTile()
+        {
+            Debug.WriteLine("NavigateToLaunchedFromSecondaryTile");
+        }
+         
+
         /// <summary>
         /// Populates the page with content passed during navigation.  Any saved state is also
         /// provided when recreating a page from a prior session.
@@ -229,7 +238,8 @@ namespace Flurrystics
             //}
         
         }
-       
+  
+     
         
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
@@ -654,6 +664,7 @@ namespace Flurrystics
                 }
             } // logincontrol1.IsOpen
         }
+
     }
 
     [XmlRoot]
