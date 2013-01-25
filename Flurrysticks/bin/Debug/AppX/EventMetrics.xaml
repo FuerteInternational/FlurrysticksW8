@@ -1048,7 +1048,7 @@
         <AppBar x:Name="bottomAppBar" Padding="10,0,10,0">
             <Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:Name="pinButton" Style="{StaticResource PinAppBarButtonStyle}" />
+                    <Button x:ConnectionId='13' x:Name="pinButton" Style="{StaticResource PinAppBarButtonStyle}"                           />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <Button x:ConnectionId='11' x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}"                                 />

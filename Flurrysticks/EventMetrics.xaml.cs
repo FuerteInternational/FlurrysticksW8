@@ -20,6 +20,7 @@ using Flurrysticks.DataModel;
 using Flurrysticks;
 using Telerik.UI.Xaml.Controls.Primitives;
 using System.Collections.ObjectModel;
+using Windows.UI.StartScreen;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
@@ -586,6 +587,41 @@ namespace Flurrystics
         {
             StartDate = String.Format("{0:yyyy-MM-dd}", datePicker1.Value);
             updateButtons();
+        }
+
+        private async void pinButton_Click_1(object sender, RoutedEventArgs e)
+        {
+
+            string shortName = appName;
+            string displayName = appName;
+            string tileActivationArguments = appName + "|" + appPlatform + "|" + apiKey + "|" + appApiKey;
+            Uri logo = new Uri("ms-appx:///Assets/Logo.png");
+
+            SecondaryTile secondaryTile = new SecondaryTile(appApiKey,
+                                                            shortName,
+                                                            displayName,
+                                                            tileActivationArguments,
+                                                            TileOptions.ShowNameOnLogo,
+                                                            logo);
+
+            secondaryTile.ForegroundText = ForegroundText.Dark;
+            secondaryTile.SmallLogo = new Uri("ms-appx:///Assets/SmallLogo.png");
+
+            bool x = await secondaryTile.RequestCreateAsync();
+            Debug.WriteLine("secondaryTile creation: " + x);
+
+            /*
+            XmlDocument tileXml = TileUpdateManager.GetTemplateContent(TileTemplateType.TileSquareText02);
+            XmlNodeList tileTextAttributes = tileXml.GetElementsByTagName("text");
+            tileTextAttributes[0].InnerText = appName;
+            tileTextAttributes[1].InnerText = appPlatform;
+
+            // create a tile notification
+            TileNotification tile = new TileNotification(tileXml);
+
+            TileUpdateManager.CreateTileUpdaterForSecondaryTile("1").Update(tile);
+           */
+
         }
 
     }
