@@ -1052,8 +1052,26 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <Button x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}" Click="TimeRangeButton_Click_1" />
-                    <Button x:Name="CompareToggleButton" Style="{StaticResource CompareToggleAppBarButtonStyle}" Click="CompareToggleButton_Click_1" />
-                    <Button x:Name="ZoomToggleButton" Style="{StaticResource ZoomToggleAppBarButtonStyle}" Click="ZoomToggleButton_Click_1" />
+                    <Button x:Name="CompareToggleButton" Style="{StaticResource CompareToggleAppBarButtonStyle}" Click="CompareToggleButton_Click_1" >
+                        <Button.Content>
+                            <Image Source="Assets/compare.png" Margin="7,7,7,7"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="UnCompareToggleButton" Visibility="Collapsed" Style="{StaticResource UnCompareToggleAppBarButtonStyle}" Click="CompareToggleButton_Click_1" >
+                        <Button.Content>
+                            <Image Source="Assets/comparedisable.png" Margin="7,7,7,7"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="ZoomToggleButton" Style="{StaticResource ZoomToggleAppBarButtonStyle}" Click="ZoomToggleButton_Click_1" >
+                        <Button.Content>
+                            <Image Source="Assets/touch.png" Margin="7,7,7,7"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="UnZoomToggleButton" Visibility="Collapsed" Style="{StaticResource UnZoomToggleAppBarButtonStyle}" Click="ZoomToggleButton_Click_1" >
+                        <Button.Content>
+                            <Image Source="Assets/touchdisable.png" Margin="7,7,7,7"/>
+                        </Button.Content>
+                    </Button>
                 </StackPanel>
             </Grid>
         </AppBar>

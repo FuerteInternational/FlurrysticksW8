@@ -254,7 +254,7 @@ namespace Flurrystics
             //{
                 ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             //}
-
+                CompareToggleSetVisibility(flipView1.SelectedIndex);
         }
 
         private async void LoadUpXMLEvents(String SDate, String EDate, int orderByIndex)
@@ -361,6 +361,8 @@ namespace Flurrystics
             datePicker2.Value = DateTime.Parse(EndDate);
             updateButtons();
 
+            ToggleAppBarButton(!SecondaryTile.Exists(appApiKey));
+
             loadData(actualMetricsIndex,StartDate,EndDate,0); 
         }
      
@@ -405,13 +407,39 @@ namespace Flurrystics
             }
         }
 
+        private void ZoomToggleSetVisibility(int position)
+        {
+            RadCartesianChart[] targetCharts = { radChart1, radChart2, radChart3, radChart4, radChart5, radChart6, radChart7, radChart8 };
+            if (position < 8)
+            {
+                if (targetCharts[position].Behaviors.Count > 0)
+                { // show disable
+                    ZoomToggleButton.Visibility = Visibility.Collapsed;
+                    UnZoomToggleButton.Visibility = Visibility.Visible;   
+                }
+                else
+                { // show enable
+                    ZoomToggleButton.Visibility = Visibility.Visible;
+                    UnZoomToggleButton.Visibility = Visibility.Collapsed;
+                }
+            }
+            else
+            {
+                ZoomToggleButton.Visibility = Visibility.Collapsed;
+                UnZoomToggleButton.Visibility = Visibility.Collapsed;
+            }
+        }
+
         private void flipView1_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
+            
             Debug.WriteLine("flipView1 SelectionChanged");
             if (flipView1 != null)
             {
                 changeMetrics(((FlipView)sender).SelectedIndex);
                 loadData(actualMetricsIndex, StartDate, EndDate, 0);
+                ZoomToggleSetVisibility(flipView1.SelectedIndex);
+                CompareToggleSetVisibility(flipView1.SelectedIndex);
             }
         }
 
@@ -471,6 +499,24 @@ namespace Flurrystics
             loadData(actualMetricsIndex,StartDate,EndDate,0); 
         }
 
+        private void ToggleAppBarButton(bool showPinButton)
+        {
+            if (pinButton != null)
+            {
+
+                if (showPinButton) 
+                {
+                    pinButton.Style = App.Current.Resources.MergedDictionaries[0]["PinAppBarButtonStyle"] as Style; 
+                }
+                else
+                {
+                    pinButton.Style = App.Current.Resources.MergedDictionaries[0]["UnPinAppBarButtonStyle"] as Style;
+                }
+
+                //pinButton.Style = (showPinButton) ? (this.Resources["PinAppBarButtonStyle"] as Style) : (this.Resources["UnPinAppBarButtonStyle"] as Style);
+            }
+        }
+
         private void cancelClick_Click_1(object sender, RoutedEventArgs e)
         { // cancel - just close timerange
             TimeRangeControl.IsOpen = false;
@@ -524,6 +570,29 @@ namespace Flurrystics
             loadData(actualMetricsIndex, StartDate, EndDate, 0); 
         }
 
+        private void CompareToggleSetVisibility(int position)
+        {
+            RadCartesianChart[] targetCharts = { radChart1, radChart2, radChart3, radChart4, radChart5, radChart6, radChart7, radChart8 };
+            if (position < 8)
+            {
+                if (targetCharts[flipView1.SelectedIndex].Series[1].ItemsSource != null)
+                { // show disable
+                    CompareToggleButton.Visibility = Visibility.Collapsed;
+                    UnCompareToggleButton.Visibility = Visibility.Visible;
+                }
+                else
+                { // show enable
+                    CompareToggleButton.Visibility = Visibility.Visible;
+                    UnCompareToggleButton.Visibility = Visibility.Collapsed;
+                }
+            }
+            else
+            {
+                CompareToggleButton.Visibility = Visibility.Collapsed;
+                UnCompareToggleButton.Visibility = Visibility.Collapsed;
+            }
+        }
+
         private void CompareToggleButton_Click_1(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("Compare Toggle");
@@ -565,6 +634,8 @@ namespace Flurrystics
                 t2s[s].IsFrozen = true;
                 t3s[s].IsFrozen = true;
             }
+            CompareToggleSetVisibility(flipView1.SelectedIndex);
+            pageRoot.BottomAppBar.IsOpen = false;
         }
 
         private void EventsMetricsListPicker_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
@@ -589,35 +660,48 @@ namespace Flurrystics
 
         private void ZoomToggleButton_Click_1(object sender, RoutedEventArgs e)
         {
-            RadCartesianChart[] targetCharts = { radChart1 , radChart2, radChart3, radChart4, radChart5, radChart6, radChart7, radChart8 };
-            foreach (RadCartesianChart targetChart in targetCharts)
+            RadCartesianChart[] targetCharts = { radChart1, radChart2, radChart3, radChart4 , radChart5, radChart6, radChart7, radChart8 };
+            if (flipView1.SelectedIndex < 8)
             {
-                if (targetChart.Behaviors.Count > 0)
-                { // disable chart behaviour
-                    Debug.WriteLine("Disable chart behaviour");
-                    ChartPanAndZoomBehavior item1 = targetChart.Behaviors[0] as ChartPanAndZoomBehavior;
-                    ChartTrackBallBehavior item2 = targetChart.Behaviors[1] as ChartTrackBallBehavior;
-                    targetChart.Behaviors.Remove(item1);
-                    targetChart.Behaviors.Remove(item2);
-                    targetChart.IsHitTestVisible = false;
-                    targetChart.Zoom = new Size(1, 1);                    
-                }
-                else
-                { // enable
-                    Debug.WriteLine("Enable chart behaviour");
-                    ChartPanAndZoomBehavior item1 = new ChartPanAndZoomBehavior();
-                    item1.ZoomMode = ChartPanZoomMode.Horizontal;
-                    item1.PanMode = ChartPanZoomMode.Horizontal;
-                    targetChart.Behaviors.Add(item1);
-                    ChartTrackBallBehavior item2 = new ChartTrackBallBehavior();
-                    item2.ShowIntersectionPoints=true;
-                    item2.InfoMode = TrackInfoMode.Multiple;
-                    item2.TrackInfoUpdated += ChartTrackBallBehavior_TrackInfoUpdated_1;
-                    item2.ShowInfo = true;
-                    targetChart.Behaviors.Add(item2);
-                } // enabling chart behaviours
+                RadCartesianChart targetChart = targetCharts[flipView1.SelectedIndex];
+                //foreach (RadCartesianChart targetChart in targetCharts)
+               // {
+                    if (targetChart.Behaviors.Count > 0)
+                    { // disable chart behaviour
+                        Debug.WriteLine("Disable chart behaviour: " + targetChart.Behaviors.Count);
+                        //ChartPanAndZoomBehavior item1 = targetChart.Behaviors[0] as ChartPanAndZoomBehavior;
+                        //ChartTrackBallBehavior item2 = targetChart.Behaviors[1] as ChartTrackBallBehavior;
+                        try
+                        {
+                            targetChart.Behaviors.Clear();
+                        }
+                        catch (System.ArgumentException)
+                        {
+                            Debug.WriteLine("ArgumentException");
+                        }
+                        //if (item2 != null) { targetChart.Behaviors.Remove(item2); }
+                        //if (item1 != null) { targetChart.Behaviors.Remove(item1); }                  
+                        targetChart.IsHitTestVisible = false;
+                        targetChart.Zoom = new Size(1, 1);
+                    }
+                    else
+                    { // enable
+                        Debug.WriteLine("Enable chart behaviour: " + targetChart.Behaviors.Count);
+                        ChartPanAndZoomBehavior item1 = new ChartPanAndZoomBehavior();
+                        item1.ZoomMode = ChartPanZoomMode.Horizontal;
+                        item1.PanMode = ChartPanZoomMode.Horizontal;
+                        targetChart.Behaviors.Add(item1);
+                        ChartTrackBallBehavior item2 = new ChartTrackBallBehavior();
+                        item2.ShowIntersectionPoints = true;
+                        item2.InfoMode = TrackInfoMode.Multiple;
+                        item2.TrackInfoUpdated += ChartTrackBallBehavior_TrackInfoUpdated_1;
+                        item2.ShowInfo = true;
+                        targetChart.Behaviors.Add(item2);
+                    } // enabling chart behaviours
+                //}
+                    pageRoot.BottomAppBar.IsOpen = false; // close it
+                    ZoomToggleSetVisibility(flipView1.SelectedIndex);
             }
-
         }
 
         private void updateButtons()
@@ -650,10 +734,12 @@ namespace Flurrystics
         private async void pinButton_Click_1(object sender, RoutedEventArgs e)
         {
 
+            pageRoot.BottomAppBar.IsSticky = true;
             string shortName = appName;
             string displayName = appName;
             string tileActivationArguments = appName + "|" + appPlatform + "|" + apiKey + "|" + appApiKey;
             Uri logo = new Uri("ms-appx:///Assets/Logo.png");
+
 
             SecondaryTile secondaryTile = new SecondaryTile(appApiKey,
                                                             shortName,
@@ -665,8 +751,20 @@ namespace Flurrystics
             secondaryTile.ForegroundText = ForegroundText.Dark;
             secondaryTile.SmallLogo = new Uri("ms-appx:///Assets/SmallLogo.png");
 
-            bool x = await secondaryTile.RequestCreateAsync();
-            Debug.WriteLine("secondaryTile creation: " + x);
+            if (!SecondaryTile.Exists(appApiKey))
+            { // add
+                bool x = await secondaryTile.RequestCreateAsync();
+                Debug.WriteLine("secondaryTile creation: " + x);
+                
+            }
+            else
+            { // remove
+                bool x = await secondaryTile.RequestDeleteAsync();
+                Debug.WriteLine("secondaryTile removal: " + x);
+            }
+            pageRoot.BottomAppBar.IsSticky = false;
+            pageRoot.BottomAppBar.IsOpen = false;
+            ToggleAppBarButton(!SecondaryTile.Exists(appApiKey));
 
             /*
             XmlDocument tileXml = TileUpdateManager.GetTemplateContent(TileTemplateType.TileSquareText02);

@@ -103,6 +103,12 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives\Themes\PaletteLight.xaml">
       <PackagePath>Telerik.UI.Xaml.Primitives\Themes\PaletteLight.xaml</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\compare.png">
+      <PackagePath>Assets\compare.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\comparedisable.png">
+      <PackagePath>Assets\comparedisable.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\screen_shrinked.scale-140.png">
       <PackagePath>Assets\screen_shrinked.scale-140.png</PackagePath>
     </AppxPackagedFile>
@@ -166,6 +172,12 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\DarkGray.png">
       <PackagePath>Assets\DarkGray.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\touch.png">
+      <PackagePath>Assets\touch.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\touchdisable.png">
+      <PackagePath>Assets\touchdisable.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\WideLogo.png">
       <PackagePath>Assets\WideLogo.png</PackagePath>

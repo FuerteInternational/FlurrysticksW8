@@ -40,8 +40,6 @@ namespace Flurrystics
         DownloadHelper dh = new DownloadHelper();
         Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
         String settingsOrderBy = "name1";
-        public Windows.ApplicationModel.Activation.LaunchActivatedEventArgs LaunchArgs;
-        public static AccountApplicationsPage Current;
         static readonly string ApiFileName = "apikeys.xml";
 
         public AccountApplicationsPage()
@@ -237,9 +235,7 @@ namespace Flurrystics
                 LoadApiKeyData();
             //}
         
-        }
-  
-     
+        }   
         
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {

@@ -1,3 +1,5 @@
+Assets\compare.png
+Assets\comparedisable.png
 Assets\DarkGray.png
 Assets\flu_bg.png
 Assets\flu_bg.scale-180.png
@@ -18,6 +20,8 @@ Assets\screen_shrinked.scale-180.png
 Assets\SmallLogo.png
 Assets\SplashScreen.png
 Assets\StoreLogo.png
+Assets\touch.png
+Assets\touchdisable.png
 Assets\WideLogo.png
 AccountApplicationsPage.xaml
 App.xaml

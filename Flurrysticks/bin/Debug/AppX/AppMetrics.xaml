@@ -1416,6 +1416,7 @@
 
                     </Chart:LineSeries>
 
+
                     <Chart:RadCartesianChart.Behaviors>
                         <!--<Chart:ChartPanAndZoomBehavior PanMode="Horizontal" ZoomMode="Horizontal"/>
                         <Chart:ChartTrackBallBehavior 
@@ -2332,12 +2333,30 @@
         <AppBar x:Name="bottomAppBar" Padding="10,0,10,0">
             <Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:ConnectionId='18' x:Name="pinButton" Style="{StaticResource PinAppBarButtonStyle}"                          />
+                    <Button x:ConnectionId='20' x:Name="pinButton" Style="{StaticResource PinAppBarButtonStyle}"                          />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Button x:ConnectionId='15' x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}"                                 />
-                    <Button x:ConnectionId='16' x:Name="CompareToggleButton" Style="{StaticResource CompareToggleAppBarButtonStyle}"                                     />
-                    <Button x:ConnectionId='17' x:Name="ZoomToggleButton" Style="{StaticResource ZoomToggleAppBarButtonStyle}"                                  />
+                    <Button x:ConnectionId='15' x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}"                                  />
+                    <Button x:ConnectionId='16' x:Name="CompareToggleButton" Style="{StaticResource CompareToggleAppBarButtonStyle}"                                     >
+                        <Button.Content>
+                            <Image Source="Assets/compare.png" Margin="7,7,7,7"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:ConnectionId='17' x:Name="UnCompareToggleButton" Visibility="Collapsed" Style="{StaticResource UnCompareToggleAppBarButtonStyle}"                                     >
+                        <Button.Content>
+                            <Image Source="Assets/comparedisable.png" Margin="7,7,7,7"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:ConnectionId='18' x:Name="ZoomToggleButton" Style="{StaticResource ZoomToggleAppBarButtonStyle}"                                  >
+                        <Button.Content>
+                            <Image Source="Assets/touch.png" Margin="7,7,7,7"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:ConnectionId='19' x:Name="UnZoomToggleButton" Visibility="Collapsed" Style="{StaticResource UnZoomToggleAppBarButtonStyle}"                                  >
+                        <Button.Content>
+                            <Image Source="Assets/touchdisable.png" Margin="7,7,7,7"/>
+                        </Button.Content>
+                    </Button>
                 </StackPanel>
             </Grid>
         </AppBar>
