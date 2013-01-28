@@ -12,9 +12,9 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>Flurrystics_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>Flurrystics_StoreKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
-    <PackageCertificateThumbprint>463B1F2F588853B59796ACD3EF4077F8D68CD9F8</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>8EF93A415F5AECC563F629E0EA08DBEA4CD55579</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -147,6 +147,7 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="Common\ReadMe.txt" />
+    <None Include="Flurrystics_StoreKey.pfx" />
     <None Include="Flurrystics_TemporaryKey.pfx" />
     <None Include="packages.config" />
   </ItemGroup>
@@ -163,6 +164,7 @@
     <Content Include="Assets\screen_shrinked.scale-180.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Package.StoreAssociation.xml" />
     <Page Include="EventMetrics.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
