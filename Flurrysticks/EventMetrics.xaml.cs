@@ -721,16 +721,19 @@ namespace Flurrystics
 
             secondaryTile.ForegroundText = ForegroundText.Dark;
             secondaryTile.SmallLogo = new Uri("ms-appx:///Assets/SmallLogo.png");
+            Windows.UI.Xaml.Media.GeneralTransform buttonTransform = ((FrameworkElement)sender).TransformToVisual(null);
+            Windows.Foundation.Point point = buttonTransform.TransformPoint(new Point());
+            Windows.Foundation.Rect rect = new Rect(point, new Size(((FrameworkElement)sender).ActualWidth, ((FrameworkElement)sender).ActualHeight));
 
             if (!SecondaryTile.Exists(appApiKey))
             { // add
-                bool x = await secondaryTile.RequestCreateAsync();
+                bool x = await secondaryTile.RequestCreateForSelectionAsync(rect, Windows.UI.Popups.Placement.Above);
                 Debug.WriteLine("secondaryTile creation: " + x);
 
             }
             else
             { // remove
-                bool x = await secondaryTile.RequestDeleteAsync();
+                bool x = await secondaryTile.RequestDeleteForSelectionAsync(rect);
                 Debug.WriteLine("secondaryTile removal: " + x);
             }
             pageRoot.BottomAppBar.IsSticky = false;
