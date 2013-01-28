@@ -162,6 +162,7 @@
     <Content Include="Assets\screen_shrinked.scale-180.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Package.StoreAssociation.xml" />
     <Page Include="EventMetrics.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -1,0 +1,277 @@
+﻿<common:LayoutAwarePage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Flurrystics"
+    xmlns:data="using:Flurrystics.Data"
+    xmlns:common="using:Flurrystics.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Controls="using:Callisto.Controls"
+    xmlns:XAMLcontrols="using:WinRTXamlToolkit.Controls"
+    x:Name="pageRoot"
+    x:Class="Flurrystics.AccountApplicationsPage"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Mode=Self}}"
+    mc:Ignorable="d"> 
+
+    <common:LayoutAwarePage.Resources>
+
+        <!-- Collection of items displayed by this page -->
+        <CollectionViewSource
+            x:Name="itemsViewSource"
+            Source="{Binding Items}"     
+            IsSourceGrouped="False"
+            />
+
+    </common:LayoutAwarePage.Resources>
+    <!--
+        This grid acts as a root panel for the page that defines two rows:
+        * Row 0 contains the back button and page title
+        * Row 1 contains the rest of the page layout
+    -->
+    <Grid Style="{StaticResource LayoutRootStyle}">
+        <Grid.Background>
+            <ImageBrush x:Name="backgroundGrid" ImageSource="/Assets/flu_bg.png" />
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <VisualStateManager.VisualStateGroups>
+
+            <!-- Visual states reflect the application's view state -->
+            <VisualStateGroup x:Name="ApplicationViewStates">
+                <VisualState  x:Name="FullScreenLandscape"/>
+                <VisualState  x:Name="Filled"/>
+
+                <!-- The entire page respects the narrower 100-pixel margin convention for portrait -->
+                <VisualState x:Name="FullScreenPortrait">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PortraitBackButtonStyle}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemGridView" Storyboard.TargetProperty="Padding">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="96,136,86,56"/>
+                        </ObjectAnimationUsingKeyFrames>
+
+                    </Storyboard>
+                </VisualState>
+                <!--
+                    The back button and title have different styles when snapped, and the list representation is substituted
+                    for the grid displayed in all other view states
+                -->
+                <VisualState x:Name="Snapped">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedBackButtonStyle}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageTitle2" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedPageHeaderTextStyle}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageDropDown" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedPageHeaderTextStyle}"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="LogoGrid" Storyboard.TargetProperty="Margin">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="0,0,0,70"/>
+                        </ObjectAnimationUsingKeyFrames>
+
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemListView" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="itemGridView" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backgroundGrid" Storyboard.TargetProperty="ImageSource">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="/Assets/screen_shrinked.png"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <!-- Horizontal scrolling grid used in most view states -->
+        <GridView x:ConnectionId='1'
+                x:Name="itemGridView"
+                AutomationProperties.AutomationId="ItemsGridView"
+                ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
+                ItemTemplate="{StaticResource Standard250x250ItemTemplate}"
+                TabIndex="1"
+                Grid.Row="2"
+                Padding="116,19,116,36"
+                SelectionMode="None"
+                IsSwipeEnabled="True"
+                IsItemClickEnabled="True"
+                                              
+                VerticalContentAlignment="Stretch">
+            <!--
+            <GridView.GroupStyle>
+                <GroupStyle HidesIfEmpty="True">
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0">
+                                <TextBlock Text='{Binding Key}' 
+                                   Foreground="Black" Margin="5,5,5,15"
+                                   Style="{StaticResource SubheaderTextStyle}" />
+                            </Grid>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+
+                    <GroupStyle.ContainerStyle>
+                        <Style TargetType="GroupItem">
+                            <Setter Property="Margin" Value="30,0"/>
+                        </Style>
+                    </GroupStyle.ContainerStyle>
+
+                    <GroupStyle.Panel>
+                        <ItemsPanelTemplate>
+                            <VariableSizedWrapGrid />
+                        </ItemsPanelTemplate>
+                    </GroupStyle.Panel>
+                    
+                </GroupStyle>
+            </GridView.GroupStyle>
+           -->
+        </GridView>
+
+        <Popup x:Name="logincontrol1" IsOpen="False" IsLightDismissEnabled="True">
+            <Popup.ChildTransitions>
+                <TransitionCollection>
+                    <PaneThemeTransition />
+                </TransitionCollection>
+            </Popup.ChildTransitions>
+            <Border BorderBrush="{StaticResource ApplicationForegroundThemeBrush}" 
+                    BorderThickness="2" 
+                    Background="#f1f0f1" 
+                    x:Name="RootPopupBorder" 
+                    Width="320">
+                <StackPanel Orientation="Vertical" Height="320"  x:Name="pop" >
+                    <StackPanel>
+                        <TextBlock Text="Add Flurry API "  HorizontalAlignment="Center" FontSize="25" Margin="0,20,0,0" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="0,30" HorizontalAlignment="Center">
+                        <TextBlock Text="Flurry API Access" Margin="10" FontSize="25" />
+                        <TextBox x:Name="flurry_api_access" IsSpellCheckEnabled="False" 
+                                 Height="40" 
+                                 Width="280" 
+                                 Margin="13,1" 
+                                 InputScope="Default" >
+                        </TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10" HorizontalAlignment="Center">
+                        <Button x:ConnectionId='5' x:Name="addClick"  Foreground="White"   Width="100" Content="Add"                         />
+                        <Button x:ConnectionId='6' x:Name="cancelClick"    Foreground="White"  Width="100" Content="Cancel"                             />
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+        </Popup>
+
+        <!-- Vertical scrolling list only used when snapped -->
+        <ListView x:ConnectionId='2'
+            x:Name="itemListView"
+            AutomationProperties.AutomationId="ItemsListView"
+            AutomationProperties.Name="Items"
+            TabIndex="1"
+            Grid.Row="1"
+            Visibility="Collapsed"
+            Margin="0,-10,0,0"
+            Padding="10,0,0,60"
+            ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
+            ItemTemplate="{StaticResource Standard80ItemTemplate}"
+            SelectionMode="None"
+            IsSwipeEnabled="True"
+            IsItemClickEnabled="True"
+                                          />
+
+        <!-- Back button and page title -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <ProgressBar 
+                x:Name="ProgressBar1" 
+                IsIndeterminate="True"
+                Height="10" 
+                VerticalAlignment="Top" 
+                HorizontalContentAlignment="Stretch"  
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+            />
+
+            <Button x:ConnectionId='3' x:Name="backButton" 
+                                   
+                    IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" 
+                    Style="{StaticResource BackButtonStyle}" 
+                    Grid.Row="2"
+                    />
+            
+            <StackPanel
+                x:Name="LogoGrid"
+                Grid.Column="1" 
+                Grid.Row="2"
+                Orientation="Horizontal"
+                Margin="0,0,0,30"
+                > 
+                
+            <Image Source="Assets/flu_home_logo.png"
+                   Stretch="UniformToFill"
+                   Width="50" Height="60"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom"
+                   />
+                
+            <TextBlock Text="Flurrystics"
+                       Style="{StaticResource PageHeaderTextStyleBold}" 
+                       Margin="15,0,0,15"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Bottom"
+                       />
+            </StackPanel>
+            <StackPanel x:ConnectionId='4' 
+                Orientation="Horizontal" 
+                Grid.Column="1" 
+                Grid.Row="2"
+                HorizontalAlignment="Right"
+                IsTapEnabled="True"
+                                          
+                >
+            <TextBlock 
+                x:Name="pageTitle2"                
+                Text="loading..." 
+                Style="{StaticResource PageHeaderTextStyle}" 
+                 HorizontalAlignment="Left"
+                />
+            <TextBlock 
+                x:Name="pageDropDown"  
+                FontFamily="Segoe UI Symbol" 
+                Style="{StaticResource PageHeaderTextStyle}" 
+                HorizontalAlignment="Left"
+                Text=""
+                />
+                
+            </StackPanel>
+        </Grid>
+    </Grid>
+
+    <common:LayoutAwarePage.BottomAppBar>
+        <AppBar x:Name="bottomAppBar" Padding="10,0,10,0">
+            <Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:ConnectionId='8' Style="{StaticResource RemoveAppBarButtonStyle}"                       />
+                    <Button x:ConnectionId='9' Style="{StaticResource AddAppBarButtonStyle}"                       />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Button x:ConnectionId='7' x:Name="sortButton" Style="{StaticResource SortAppBarButtonStyle}"                       />
+                </StackPanel>
+            </Grid>
+        </AppBar>
+    </common:LayoutAwarePage.BottomAppBar>
+
+</common:LayoutAwarePage>
+

@@ -7,10 +7,10 @@
 
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="3a699d93-555f-439e-879a-96f992557b96" Publisher="CN=fuerte" Version="1.0.0.0" ProcessorArchitecture="neutral" />
+  <Identity Name="BF25C769.Flurrystics" Publisher="CN=6867FAC2-F556-4432-9FD3-5336C97AD025" Version="1.0.0.2" ProcessorArchitecture="neutral" />
   <Properties>
     <DisplayName>Flurrystics</DisplayName>
-    <PublisherDisplayName>fuerte</PublisherDisplayName>
+    <PublisherDisplayName>Fuerte International Ltd.</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Prerequisites>
