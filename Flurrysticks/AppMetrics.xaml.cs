@@ -779,5 +779,13 @@ namespace Flurrystics
            */
 
         }
+
+        private void Grid_KeyUp_1(object sender, KeyRoutedEventArgs e)
+        {
+            if ((e.Key == Windows.System.VirtualKey.Escape) || (e.Key == Windows.System.VirtualKey.Back))
+            {
+                this.GoBack(sender,e);
+            }
+        }
     }
 }

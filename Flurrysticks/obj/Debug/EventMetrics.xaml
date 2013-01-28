@@ -22,7 +22,7 @@
         * Row 0 contains the back button and page title
         * Row 1 contains the rest of the page layout
     -->
-    <Grid Style="{StaticResource LayoutRootStyle}">
+    <Grid x:ConnectionId='1' Style="{StaticResource LayoutRootStyle}"                     >
         <Grid.Background>
             <ImageBrush x:Name="backgroundGrid" ImageSource="/Assets/flu_bg.png" />
         </Grid.Background>
@@ -82,7 +82,9 @@
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ParametersMetricsListPicker" Storyboard.TargetProperty="Width">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="280"/>
                         </ObjectAnimationUsingKeyFrames>
-
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RightAppBar" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                        </ObjectAnimationUsingKeyFrames>
 
                         <!-- PAGE 1 -->
                         <!-- orientation changes -->
@@ -301,13 +303,13 @@
                 Grid.ColumnSpan="2"
                 />
             
-            <Button x:ConnectionId='9' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
+            <Button x:ConnectionId='10' x:Name="backButton"                IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <StackPanel x:Name="titleArea" Orientation="Vertical" Grid.Column="1" VerticalAlignment="Bottom" Style="{StaticResource titleAreaStyle}">
                 <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle2}"/>
                 <TextBlock x:Name="platformTitle" Text="Android" Style="{StaticResource SubheaderTextStyle}" />
             </StackPanel>
             
-            <StackPanel x:ConnectionId='10' 
+            <StackPanel x:ConnectionId='11' 
                 Orientation="Horizontal" 
                 Grid.Column="1" 
                 Grid.Row="2"
@@ -333,7 +335,7 @@
 
         </Grid>
 
-        <FlipView x:ConnectionId='1' x:Name="flipView1" 
+        <FlipView x:ConnectionId='2' x:Name="flipView1" 
                   Grid.Row="1" 
                                                                  
                   >
@@ -916,7 +918,7 @@
                     <RowDefinition Height="40" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-            <ComboBox x:ConnectionId='8' x:Name="ParametersMetricsListPicker" 
+            <ComboBox x:ConnectionId='9' x:Name="ParametersMetricsListPicker" 
                       Grid.Row="0" 
                       HorizontalAlignment="Left" 
                       Height="30"  
@@ -1007,12 +1009,12 @@
                         <TextBlock Text="Please select desired time range:" Margin="20,20,20,10" FontSize="18" />
 
                         <StackPanel Orientation="Horizontal" Margin="20,10,20,0" >
-                            <Button x:ConnectionId='6' x:Name="last14days" Width="140" Content="Last 14 Days"                            />
-                            <Button x:ConnectionId='7' x:Name="lastMonth" Width="140" Content="Last Month"                           />
+                            <Button x:ConnectionId='7' x:Name="last14days" Width="140" Content="Last 14 Days"                            />
+                            <Button x:ConnectionId='8' x:Name="lastMonth" Width="140" Content="Last Month"                           />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="20,20,20,0" >
-                            <Button x:ConnectionId='4' x:Name="lastQuarter" Width="140" Content="Last Quarter"                             />
-                            <Button x:ConnectionId='5' x:Name="lastSixMonths" Width="140" Content="Last Six Months"                               />
+                            <Button x:ConnectionId='5' x:Name="lastQuarter" Width="140" Content="Last Quarter"                             />
+                            <Button x:ConnectionId='6' x:Name="lastSixMonths" Width="140" Content="Last Six Months"                               />
                         </StackPanel>
                         
                     <telerikInput:RadDatePicker 
@@ -1032,9 +1034,9 @@
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="0,30" HorizontalAlignment="Center">
-                        <Button x:ConnectionId='2' x:Name="setClick"  Foreground="White"   
+                        <Button x:ConnectionId='3' x:Name="setClick"  Foreground="White"   
                                 Width="100" Content="Set"                         />
-                        <Button x:ConnectionId='3' x:Name="cancelClick"    Foreground="White"  
+                        <Button x:ConnectionId='4' x:Name="cancelClick"    Foreground="White"  
                                 Width="100" Content="Cancel"                             />
                     </StackPanel>
 
@@ -1047,27 +1049,27 @@
     <common:LayoutAwarePage.BottomAppBar>
         <AppBar x:Name="bottomAppBar" Padding="10,0,10,0">
             <Grid>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:ConnectionId='16' x:Name="pinButton" Style="{StaticResource PinAppBarButtonStyle}"                           />
+                <StackPanel x:Name="RightAppBar" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:ConnectionId='17' x:Name="pinButton" Style="{StaticResource PinAppBarButtonStyle}"                           />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Button x:ConnectionId='11' x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}"                                 />
-                    <Button x:ConnectionId='12' x:Name="CompareToggleButton" Style="{StaticResource CompareToggleAppBarButtonStyle}"                                     >
+                    <Button x:ConnectionId='12' x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}"                                 />
+                    <Button x:ConnectionId='13' x:Name="CompareToggleButton" Style="{StaticResource CompareToggleAppBarButtonStyle}"                                     >
                         <Button.Content>
                             <Image Source="Assets/compare.png" Margin="7,7,7,7"/>
                         </Button.Content>
                     </Button>
-                    <Button x:ConnectionId='13' x:Name="UnCompareToggleButton" Visibility="Collapsed" Style="{StaticResource UnCompareToggleAppBarButtonStyle}"                                     >
+                    <Button x:ConnectionId='14' x:Name="UnCompareToggleButton" Visibility="Collapsed" Style="{StaticResource UnCompareToggleAppBarButtonStyle}"                                     >
                         <Button.Content>
                             <Image Source="Assets/comparedisable.png" Margin="7,7,7,7"/>
                         </Button.Content>
                     </Button>
-                    <Button x:ConnectionId='14' x:Name="ZoomToggleButton" Style="{StaticResource ZoomToggleAppBarButtonStyle}"                                  >
+                    <Button x:ConnectionId='15' x:Name="ZoomToggleButton" Style="{StaticResource ZoomToggleAppBarButtonStyle}"                                  >
                         <Button.Content>
                             <Image Source="Assets/touch.png" Margin="7,7,7,7"/>
                         </Button.Content>
                     </Button>
-                    <Button x:ConnectionId='15' x:Name="UnZoomToggleButton" Visibility="Collapsed" Style="{StaticResource UnZoomToggleAppBarButtonStyle}"                                  >
+                    <Button x:ConnectionId='16' x:Name="UnZoomToggleButton" Visibility="Collapsed" Style="{StaticResource UnZoomToggleAppBarButtonStyle}"                                  >
                         <Button.Content>
                             <Image Source="Assets/touchdisable.png" Margin="7,7,7,7"/>
                         </Button.Content>
