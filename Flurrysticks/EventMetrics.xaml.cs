@@ -93,25 +93,25 @@ namespace Flurrystics
                 ParametersMetricsListPicker.ItemsSource = DataSource.ParamKeys;
                 ParametersMetricsListPicker.IsEnabled = true;
                 ParametersMetricsListPicker.SelectedIndex = selectedIndex;
-                //NoParameters.Visibility = System.Windows.Visibility.Collapsed;
+                noData.Visibility = Visibility.Collapsed;
 
                 List<EventItem> check = dataParams.ToList();
                 if (check.Count > 0)
                 {
-                    //NoParameters.Visibility = System.Windows.Visibility.Collapsed;
                     ParametersMetricsListPicker.IsEnabled = true;
+                    noData.Visibility = Visibility.Collapsed;
                 }
-                else // show no events available
+                else // no params
                 {
-                    //NoParameters.Visibility = System.Windows.Visibility.Visible;
                     ParametersMetricsListPicker.IsEnabled = false;
+                    noData.Visibility = Visibility.Visible;
                 }
 
             }
             else
             {
                 ParametersMetricsListPicker.IsEnabled = false;
-                //NoParameters.Visibility = System.Windows.Visibility.Visible;
+                noData.Visibility = Visibility.Visible;
             }
 
         }
@@ -390,7 +390,7 @@ namespace Flurrystics
         private void ZoomToggleSetVisibility(int position)
         {
             RadCartesianChart[] targetCharts = { radChart1, radChart2, radChart3};
-            if (position < 8)
+            if (position < 3)
             {
                 if (targetCharts[position].Behaviors.Count > 0)
                 { // show disable

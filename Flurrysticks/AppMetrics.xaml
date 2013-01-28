@@ -628,8 +628,9 @@
                 Grid.Row="1"
                 Grid.ColumnSpan="2"
                 />
-            
-            <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
+
+            <Button x:Name="backButton" Click="GoBack" IsEnabled="True" Style="{StaticResource BackButtonStyle}"/>
+            <!-- IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}"-->
             <StackPanel x:Name="titleArea" Orientation="Vertical" Grid.Column="1" VerticalAlignment="Bottom" Style="{StaticResource titleAreaStyle}">
                 <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle2}"/>
                 <TextBlock x:Name="platformTitle" Text="Android" Style="{StaticResource SubheaderTextStyle}" />
@@ -2217,6 +2218,8 @@
 
             </ComboBox>
 
+                <TextBlock x:Name="noData" Grid.Row="1" Text="No Events available."  Margin="0,20,0,0" Visibility="Collapsed"/>
+
                 <ListView x:Name="EventsListBox"  
                      ItemsSource="{Binding}" 
                      ItemClick="EventsListBox_ItemClick_1"
@@ -2228,14 +2231,15 @@
                      ScrollViewer.VerticalScrollBarVisibility="Visible"  
                      SelectionMode="None"
                      IsSwipeEnabled="false"
-                     IsItemClickEnabled="True"
+                     IsItemClickEnabled="True"     
+                     
                      >
                     
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                           <TextBlock Width="430"  Text="{Binding eventName}" TextWrapping="Wrap" Style="{StaticResource ItemTextStyle}"/>
-                           <TextBlock Text="{Binding eventValue}" TextWrapping="Wrap" TextAlignment="Right" HorizontalAlignment="Right" Style="{StaticResource ItemTextStyle}" FontWeight="SemiBold"/>
+                           <TextBlock Width="430"  Text="{Binding eventName}" TextWrapping="Wrap" />
+                           <TextBlock Text="{Binding eventValue}" TextWrapping="Wrap" TextAlignment="Right" HorizontalAlignment="Right" FontWeight="SemiBold"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -2259,8 +2263,8 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Width="230"  Text="{Binding eventName}" TextWrapping="Wrap" Style="{StaticResource ItemTextStyle}"/>
-                                <TextBlock Text="{Binding eventValue}" TextWrapping="Wrap" TextAlignment="Right" HorizontalAlignment="Right" Style="{StaticResource ItemTextStyle}" FontWeight="SemiBold"/>
+                                <TextBlock Width="230"  Text="{Binding eventName}" TextWrapping="Wrap" />
+                                <TextBlock Text="{Binding eventValue}" TextWrapping="Wrap" TextAlignment="Right" HorizontalAlignment="Right" FontWeight="SemiBold"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -2332,30 +2336,52 @@
 
     </Grid>
 
-    <common:LayoutAwarePage.BottomAppBar>
-        <AppBar x:Name="bottomAppBar" Padding="10,0,10,0">
+    <!--<Page.BottomAppBar>
+        <AppBar x:Name="BottomAppBar1" Padding="10,0,10,0" AutomationProperties.Name="Bottom App Bar">
             <Grid>
-                <StackPanel x:Name="RightAppBar"  Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:Name="pinButton" Style="{StaticResource PinAppBarButtonStyle}" Click="pinButton_Click_1"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="50*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel x:Name="LeftPanel" Orientation="Horizontal" Grid.Column="0" HorizontalAlignment="Left">
+                    <Button x:Name="Edit" Style="{StaticResource EditAppBarButtonStyle}" Tag="Edit"/>
+                    <Button x:Name="Save" Style="{StaticResource SaveAppBarButtonStyle}" Tag="Save"/>
+                    <Button x:Name="Delete" Style="{StaticResource DeleteAppBarButtonStyle}" Tag="Delete"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Button x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}" Click="TimeRangeButton_Click_1"  />
-                    <Button x:Name="CompareToggleButton" Style="{StaticResource CompareToggleAppBarButtonStyle}" Click="CompareToggleButton_Click_1" >
+                <StackPanel x:Name="RightPanel" Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right">
+                    <Button x:Name="Refresh" Style="{StaticResource RefreshAppBarButtonStyle}" Tag="Refresh"/>
+                    <Button x:Name="Previous" Style="{StaticResource PreviousAppBarButtonStyle}" Tag="Previous"/>
+                    <Button x:Name="Next" Style="{StaticResource NextAppBarButtonStyle}" Tag="Next"/>
+                    <Button x:Name="Help" Style="{StaticResource HelpAppBarButtonStyle}" Tag="Help"/>
+                </StackPanel>
+            </Grid>
+        </AppBar>
+    </Page.BottomAppBar>-->
+
+    <common:LayoutAwarePage.BottomAppBar>
+        <AppBar x:Name="bottomAppBar" Padding="10,0,10,0" AutomationProperties.Name="Bottom App Bar">
+            <Grid>
+                <StackPanel x:Name="RightAppBar"  Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
+                    <Button x:Name="pinButton" Style="{StaticResource PinAppBarButtonStyle}" Click="pinButton_Click_1" Tag="Pin"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Column="0">
+                    <Button x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}" Click="TimeRangeButton_Click_1" Tag="TimeRange" />
+                    <Button x:Name="CompareToggleButton" Style="{StaticResource CompareToggleAppBarButtonStyle}" Click="CompareToggleButton_Click_1" Tag="CompareOn">
                         <Button.Content>
                             <Image Source="Assets/compare.png" Margin="7,7,7,7"/>
                         </Button.Content>
                     </Button>
-                    <Button x:Name="UnCompareToggleButton" Visibility="Collapsed" Style="{StaticResource UnCompareToggleAppBarButtonStyle}" Click="CompareToggleButton_Click_1" >
+                    <Button x:Name="UnCompareToggleButton" Visibility="Collapsed" Style="{StaticResource UnCompareToggleAppBarButtonStyle}" Tag="CompareOff" Click="CompareToggleButton_Click_1" >
                         <Button.Content>
                             <Image Source="Assets/comparedisable.png" Margin="7,7,7,7"/>
                         </Button.Content>
                     </Button>
-                    <Button x:Name="ZoomToggleButton" Style="{StaticResource ZoomToggleAppBarButtonStyle}" Click="ZoomToggleButton_Click_1" >
+                    <Button x:Name="ZoomToggleButton" Style="{StaticResource ZoomToggleAppBarButtonStyle}" Click="ZoomToggleButton_Click_1" Tag="Zoom">
                         <Button.Content>
                             <Image Source="Assets/touch.png" Margin="7,7,7,7"/>
                         </Button.Content>
                     </Button>
-                    <Button x:Name="UnZoomToggleButton" Visibility="Collapsed" Style="{StaticResource UnZoomToggleAppBarButtonStyle}" Click="ZoomToggleButton_Click_1" >
+                    <Button x:Name="UnZoomToggleButton" Visibility="Collapsed" Style="{StaticResource UnZoomToggleAppBarButtonStyle}" Tag="UnZoom" Click="ZoomToggleButton_Click_1" >
                         <Button.Content>
                             <Image Source="Assets/touchdisable.png" Margin="7,7,7,7"/>
                         </Button.Content>

@@ -195,15 +195,7 @@ namespace Flurrystics
                 }
             });
 
-        }
-
-        // Navigates to the Scenario "Show Activation Arguments"
-        
-        public void NavigateToLaunchedFromSecondaryTile()
-        {
-            Debug.WriteLine("NavigateToLaunchedFromSecondaryTile");
-        }
-         
+        }         
 
         /// <summary>
         /// Populates the page with content passed during navigation.  Any saved state is also
@@ -246,7 +238,7 @@ namespace Flurrystics
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
             Debug.WriteLine("AccountApplicationsPage - LoadState");
-            initApp();
+            initApp();           
         }
          /*
         protected override void OnNavigatedTo(NavigationEventArgs e)

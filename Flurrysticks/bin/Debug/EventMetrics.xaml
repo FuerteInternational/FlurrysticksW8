@@ -935,6 +935,8 @@
 
                 </ComboBox>
 
+                <TextBlock x:Name="noData" Grid.Row="1" Text="No Parameters available."  Margin="0,20,0,0" Visibility="Collapsed"/>
+
                 <ListView x:Name="ParametersListBox"  
                      ItemsSource="{Binding}" 
                      Grid.ColumnSpan="1" 

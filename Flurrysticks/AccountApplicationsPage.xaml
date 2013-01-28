@@ -11,7 +11,8 @@
     x:Name="pageRoot"
     x:Class="Flurrystics.AccountApplicationsPage"
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Mode=Self}}"
-    mc:Ignorable="d"> 
+    mc:Ignorable="d"
+    > 
 
     <common:LayoutAwarePage.Resources>
 
@@ -206,7 +207,7 @@
 
             <Button x:Name="backButton" 
                     Click="GoBack" 
-                    IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" 
+                    IsEnabled="False" 
                     Style="{StaticResource BackButtonStyle}" 
                     Grid.Row="2"
                     />

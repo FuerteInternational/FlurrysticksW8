@@ -130,6 +130,10 @@ namespace Flurrystics.Common
         {
             // Use the navigation frame to return to the previous page
             if (this.Frame != null && this.Frame.CanGoBack) this.Frame.GoBack();
+            if (this.Frame != null && !this.Frame.CanGoBack)
+            {
+                this.Frame.Navigate(typeof(AccountApplicationsPage), null); // return to home
+            }
         }
 
         /// <summary>

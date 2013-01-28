@@ -310,8 +310,19 @@ namespace Flurrystics
                                 //ParseXML(result,c,targetCharts[c],t1s[c],t2s[c],t3s[c],c1s[c],c2s[c],c3s[c],totals[c],SDate,EDate,d1s[c],d2s[c],targetSeries);
                              } // success
 
-                EventsListBox.ItemsSource = dataEvents;
-                EventsListBoxShrinked.ItemsSource = dataEvents;
+                if (dataEvents.Count() > 0)
+                {
+                    EventsListBox.ItemsSource = dataEvents;
+                    EventsListBoxShrinked.ItemsSource = dataEvents;
+                    noData.Visibility = Visibility.Collapsed;
+                    EventsMetricsListPicker.IsEnabled = true;
+                }
+                else
+                {
+                    noData.Visibility = Visibility.Visible;
+                    EventsMetricsListPicker.IsEnabled = false;
+                }
+                
                 if (ProgressBar1 != null)
                 {
                     ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
