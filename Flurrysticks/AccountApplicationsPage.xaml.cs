@@ -80,17 +80,8 @@ namespace Flurrystics
             return await folder.OpenStreamForWriteAsync(path, CreationCollisionOption.ReplaceExisting);
         }
 
-        private void noAccountData()
+        private void OpenInsertAccountFlyout()
         {
-            ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            pageTitle2.IsTapEnabled = false;
-            pageTitle2.Text = "no account";
-            pageDropDown.IsTapEnabled = false;
-
-            // no account defined - let's open appbar and entry new api dialog
-
-            bottomAppBar.IsOpen = true;
-
             if (!logincontrol1.IsOpen) // if not open - start anim
             {
                 RootPopupBorder.Width = 320;
@@ -98,7 +89,21 @@ namespace Flurrystics
                 logincontrol1.VerticalOffset = Window.Current.Bounds.Height - 420;
                 logincontrol1.IsOpen = true;
             }    
+        }
 
+        private void noAccountData()
+        {
+            Debug.WriteLine("noAccountData");
+            if (!(DataSource.getApps().Count > 0))
+            {
+                ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                //pageTitle2.IsTapEnabled = false;
+                pageTitle2.Text = "no account";
+                //pageDropDown.IsTapEnabled = false;
+                // no account defined - let's open appbar and entry new api dialog
+                bottomAppBar.IsOpen = false;
+                OpenInsertAccountFlyout();
+            }
         }
 
         public async void LoadApiKeyData()
@@ -134,6 +139,7 @@ namespace Flurrystics
                     if (localCats == null || localCats.Length == 0)
                     {
                         Debug.WriteLine("Empty XML");
+                        noAccountData();
                         return;
                     }
                     //AccountsArray = localCats;
@@ -289,27 +295,33 @@ namespace Flurrystics
         {
             Debug.WriteLine("headerMenuClicked");
             // Create a menu containing two items
-            var menu = new Menu();
+            if (DataSource.getAccounts().Count > 0)
+            { // if any account is present
+                var menu = new Menu();
+                IEnumerator<Account> MyEnumerator = DataSource.getAccounts().GetEnumerator();
+                int i = 0;
+                while (MyEnumerator.MoveNext())
+                {
+                    Account processingAccount = MyEnumerator.Current;
+                    var newItem = new MenuItem { Text = processingAccount.Name, Tag = i /* processingAccount.ApiKey */ };
+                    newItem.Tapped += homeNavClicked;
+                    menu.Items.Add(newItem);
+                    i++;
+                }
 
-            IEnumerator<Account> MyEnumerator = DataSource.getAccounts().GetEnumerator();
-            int i = 0;
-            while (MyEnumerator.MoveNext())
-            {
-                Account processingAccount = MyEnumerator.Current;   
-                var newItem = new MenuItem { Text = processingAccount.Name, Tag = i /* processingAccount.ApiKey */ };
-                newItem.Tapped += homeNavClicked;
-                menu.Items.Add(newItem);
-                i++;
+                // Show the menu in a flyout anchored to the header title
+                var flyout = new Flyout();
+                flyout.Placement = PlacementMode.Bottom;
+                flyout.HorizontalAlignment = HorizontalAlignment.Right;
+                flyout.HorizontalContentAlignment = HorizontalAlignment.Left;
+                flyout.PlacementTarget = pageDropDown;
+                flyout.Content = menu;
+                flyout.IsOpen = true;
             }
- 
-            // Show the menu in a flyout anchored to the header title
-            var flyout = new Flyout();
-            flyout.Placement = PlacementMode.Bottom;
-            flyout.HorizontalAlignment = HorizontalAlignment.Right;
-            flyout.HorizontalContentAlignment = HorizontalAlignment.Left;
-            flyout.PlacementTarget = pageDropDown;
-            flyout.Content = menu;
-            flyout.IsOpen = true;
+            else
+            { // no account present - display flyout instead
+                OpenInsertAccountFlyout();
+            }
         }
 
         private bool ParseXML(Account what)
@@ -382,8 +394,6 @@ namespace Flurrystics
             Debug.WriteLine("switching to ApiKey:" + DataSource.getAccounts().ElementAt<Account>(currentAccount).ApiKey);
 
             ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            pageTitle2.IsTapEnabled = false;
-            pageDropDown.IsTapEnabled = false;
             // check if it's loaded, if not - load it up
             bool success;
             bool retry = true;
@@ -410,14 +420,17 @@ namespace Flurrystics
                         DataSource.getAccounts().ElementAt<Account>(currentAccount).xdoc = result; // if we will need it in future
                         if (ParseXML(DataSource.getAccounts().ElementAt<Account>(currentAccount)))
                         {
+                            Debug.WriteLine("Data parsed OK");
                             DataSource.getAccounts().ElementAt<Account>(currentAccount).IsLoaded = true;
+                            logincontrol1.IsOpen = false;
+                            flurry_api_access.Text = "";
                         }
                         else success = false;
                     }
 
                     if (!success)  // data not OK
                     {
-                        var messageDialog = new Windows.UI.Popups.MessageDialog("Unable to fetch data; either API access key is incorrect or something's wrong with internet connection.", "Load data fail");
+                        var messageDialog = new Windows.UI.Popups.MessageDialog("Unable to fetch data; either API access key is incorrect or something's wrong with your internet connection.", "Load data fail");
                         retry = false;
                         // clear all account, which weren't loaded EVER
                         if (DataSource.getAccounts().ElementAt<Account>(currentAccount).Name == "Loading...")
@@ -430,7 +443,16 @@ namespace Flurrystics
                                 localSettings.Values["currentAccount"] = currentAccount;
                                 retry = true;
                             }
-                            title = DataSource.getAccounts().ElementAt<Account>(currentAccount).Name; // update title for next round (retry=true) 
+                            try
+                            {
+                                title = DataSource.getAccounts().ElementAt<Account>(currentAccount).Name; // update title for next round (retry=true) 
+                            }
+                            catch (System.ArgumentOutOfRangeException)
+                            {
+                                Debug.WriteLine("no account");
+                                retry = false;
+                            }
+
                             SaveApiKeyData(); // we better save it if next account data is cached
                         }
                         await messageDialog.ShowAsync(); 
@@ -447,7 +469,14 @@ namespace Flurrystics
             } // retry
 
             // sampleApps = SampleDataSource.GetAppItems(SampleDataSource.GetAccountByIndex(SampleDataSource.currentAccount).ApiKey);
-            DataSource.setApps(DataSource.getAccounts().ElementAt<Account>(currentAccount).Apps);
+            try
+            {
+                DataSource.setApps(DataSource.getAccounts().ElementAt<Account>(currentAccount).Apps);
+            }
+            catch
+            {
+                Debug.WriteLine("no account");
+            }
 
             this.DefaultViewModel["Items"] = DataSource.getApps();
 
@@ -457,8 +486,7 @@ namespace Flurrystics
             */
               
             ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            pageTitle2.IsTapEnabled = true;
-            pageDropDown.IsTapEnabled = true;
+            noAccountData();
             
         }
 
@@ -557,46 +585,45 @@ namespace Flurrystics
 
         private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            var messageDialog = new Windows.UI.Popups.MessageDialog("Are you Sure you want to remove account \"" + DataSource.getAccounts().ElementAt<Account>(currentAccount).Name + "\" ?", "Please confirm");
 
-            // Add commands and set their callbacks
-
-            messageDialog.Commands.Add(new UICommand("Yes", (command) =>
+            if (DataSource.getAccounts().Count > 0) // only deal w/ when some accounts exists!
             {
-                // what happens when Yes is selected
-                // remove account
-                int removeAccount = currentAccount;
-                if (currentAccount > DataSource.getAccounts().ToList().Count - 2)
-                { // if currentAccount pointer is after the last item
-                    currentAccount = currentAccount - 1;
-                    localSettings.Values["currentAccount"] = currentAccount;
-                }
-                DataSource.getAccounts().RemoveAt(removeAccount);
-                switchData(DataSource.getAccounts().ElementAt<Account>(currentAccount).Name);
 
-            }));
+                var messageDialog = new Windows.UI.Popups.MessageDialog("Are you Sure you want to remove account \"" + DataSource.getAccounts().ElementAt<Account>(currentAccount).Name + "\" ?", "Please confirm");
 
-            messageDialog.Commands.Add(new UICommand("No", (command) =>
-            {
-                // what happens when No is selected
-                // - nothing
-            }));
+                // Add commands and set their callbacks
 
-            // Set the command that will be invoked by default
-            messageDialog.DefaultCommandIndex = 1;
-            // Show the message dialog
-            await messageDialog.ShowAsync();
+                messageDialog.Commands.Add(new UICommand("Yes", (command) =>
+                {
+                    // what happens when Yes is selected
+                    // remove account
+                    int removeAccount = currentAccount;
+                    if (currentAccount > DataSource.getAccounts().ToList().Count - 2)
+                    { // if currentAccount pointer is after the last item
+                        currentAccount = currentAccount - 1;
+                        localSettings.Values["currentAccount"] = currentAccount;
+                    }
+                    DataSource.getAccounts().RemoveAt(removeAccount);
+                    switchData(DataSource.getAccounts().ElementAt<Account>(currentAccount).Name);
+
+                }));
+
+                messageDialog.Commands.Add(new UICommand("No", (command) =>
+                {
+                    // what happens when No is selected
+                    // - nothing
+                }));
+
+                // Set the command that will be invoked by default
+                messageDialog.DefaultCommandIndex = 1;
+                // Show the message dialog
+                await messageDialog.ShowAsync();
+            }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e) // hitting adding new account
         {
-            if (!logincontrol1.IsOpen) // if not open - start anim
-            {
-                RootPopupBorder.Width = 320;
-                logincontrol1.HorizontalOffset = Window.Current.Bounds.Width - 320;
-                logincontrol1.VerticalOffset = Window.Current.Bounds.Height - 420;
-                logincontrol1.IsOpen = true;
-            }    
+            OpenInsertAccountFlyout();  
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e) // filter
@@ -640,6 +667,7 @@ namespace Flurrystics
                 {
                     var messageDialog = new Windows.UI.Popups.MessageDialog("Please enter valid Flurry API access key", "Flurry API access key incorrect");
                     await messageDialog.ShowAsync();
+                    noAccountData();
                 }
                 else // it's 20-char string - PROCEEED
                 {
@@ -652,13 +680,26 @@ namespace Flurrystics
                             flurry_api_access.Text
                             )
                         );
-                    logincontrol1.IsOpen = false;
-                    flurry_api_access.Text = "";
+                    
                     currentAccount = DataSource.getAccounts().ToList<Account>().Count - 1;
                     localSettings.Values["currentAccount"] = currentAccount;
                     switchData(DataSource.getAccounts().ElementAt<Account>(currentAccount).Name);
                 }
             } // logincontrol1.IsOpen
+        }
+
+        private void bottomAppBar_Opened_1(object sender, object e)
+        {
+            if (!(DataSource.getAccounts().Count() > 0))
+            {
+                RemoveAppBarButton.Visibility = Visibility.Collapsed;
+                sortButton.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                RemoveAppBarButton.Visibility = Visibility.Visible;
+                sortButton.Visibility = Visibility.Visible;
+            }
         }
 
     }

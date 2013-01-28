@@ -146,10 +146,10 @@
                     Width="320">
                 <StackPanel Orientation="Vertical" Height="320"  x:Name="pop" >
                     <StackPanel>
-                        <TextBlock Text="Add Flurry API "  HorizontalAlignment="Center" FontSize="25" Margin="0,20,0,0" />
+                        <TextBlock Text="Add Flurry API"  HorizontalAlignment="Center" FontSize="25" Margin="0,20,0,0" />
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Margin="0,30" HorizontalAlignment="Center">
-                        <TextBlock Text="Flurry API Access" Margin="10" FontSize="25" />
+                        <TextBlock Text="Flurry API Access Key:" Margin="10" FontSize="25" />
                         <TextBox x:Name="flurry_api_access" IsSpellCheckEnabled="False" 
                                  Height="40" 
                                  Width="280" 
@@ -260,14 +260,14 @@
     </Grid>
 
     <common:LayoutAwarePage.BottomAppBar>
-        <AppBar x:Name="bottomAppBar" Padding="10,0,10,0">
+        <AppBar x:ConnectionId='7' x:Name="bottomAppBar" Padding="10,0,10,0"                               >
             <Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:ConnectionId='8' Style="{StaticResource RemoveAppBarButtonStyle}"                       />
-                    <Button x:ConnectionId='9' Style="{StaticResource AddAppBarButtonStyle}"                       />
+                    <Button x:ConnectionId='9' x:Name="RemoveAppBarButton" Style="{StaticResource RemoveAppBarButtonStyle}"                       />
+                    <Button x:ConnectionId='10' Style="{StaticResource AddAppBarButtonStyle}"                       />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Button x:ConnectionId='7' x:Name="sortButton" Style="{StaticResource SortAppBarButtonStyle}"                       />
+                    <Button x:ConnectionId='8' x:Name="sortButton" Style="{StaticResource SortAppBarButtonStyle}"                       />
                 </StackPanel>
             </Grid>
         </AppBar>
