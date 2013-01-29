@@ -104,7 +104,7 @@
                 IsItemClickEnabled="True"
                 ItemClick="ItemView_ItemClick"
                 VerticalContentAlignment="Stretch">
-            <!--
+<!--
             <GridView.GroupStyle>
                 <GroupStyle HidesIfEmpty="True">
                     <GroupStyle.HeaderTemplate>
@@ -131,7 +131,7 @@
                     
                 </GroupStyle>
             </GridView.GroupStyle>
-           -->
+            -->
         </GridView>
 
         <Popup x:Name="logincontrol1" IsOpen="False" IsLightDismissEnabled="True">

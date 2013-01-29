@@ -85,6 +85,9 @@
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RightAppBar" Storyboard.TargetProperty="Visibility">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
                         </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="titleArea" Storyboard.TargetProperty="(Grid.ColumnSpan)">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="2"/>
+                        </ObjectAnimationUsingKeyFrames>
 
                         <!-- PAGE 1 -->
                         <!-- orientation changes -->
@@ -291,6 +294,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             
             <ProgressBar 
@@ -311,7 +315,7 @@
             
             <StackPanel x:ConnectionId='11' 
                 Orientation="Horizontal" 
-                Grid.Column="1" 
+                Grid.Column="2" 
                 Grid.Row="2"
                 HorizontalAlignment="Right"
                 IsTapEnabled="True"

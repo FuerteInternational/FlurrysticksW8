@@ -471,7 +471,7 @@ namespace Flurrystics
             }
 
             this.DefaultViewModel["Items"] = DataSource.getApps();
-
+            
             /*
             List<GroupInfoList<object>> dataLetter = GetGroupsByCategory();
             this.DefaultViewModel["Items"] = dataLetter;

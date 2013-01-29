@@ -85,6 +85,10 @@
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RightAppBar" Storyboard.TargetProperty="Visibility">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
                         </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="titleArea" Storyboard.TargetProperty="(Grid.ColumnSpan)">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="2"/>
+                        </ObjectAnimationUsingKeyFrames>
+                        
                         
 
                         <!-- PAGE 1 -->
@@ -617,6 +621,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             
             <ProgressBar 
@@ -631,6 +636,7 @@
 
             <Button x:Name="backButton" Click="GoBack" IsEnabled="True" Style="{StaticResource BackButtonStyle}"/>
             <!-- IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}"-->
+
             <StackPanel x:Name="titleArea" Orientation="Vertical" Grid.Column="1" VerticalAlignment="Bottom" Style="{StaticResource titleAreaStyle}">
                 <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle2}"/>
                 <TextBlock x:Name="platformTitle" Text="Android" Style="{StaticResource SubheaderTextStyle}" />
@@ -638,26 +644,22 @@
             
             <StackPanel 
                 Orientation="Horizontal" 
-                Grid.Column="1" 
+                Grid.Column="2" 
                 Grid.Row="2"
                 HorizontalAlignment="Right"
                 IsTapEnabled="True"
-                Tapped="StackPanel_Tapped_1"
-                >
+                Tapped="StackPanel_Tapped_1">
                 <TextBlock 
                     x:Name="pageTitle2"                
                     Text="Active Users" 
                     Style="{StaticResource PageHeaderTextStyle}" 
-                    HorizontalAlignment="Left"
-                />
+                    HorizontalAlignment="Left" />
                 <TextBlock 
                     x:Name="pageDropDown"  
                     FontFamily="Segoe UI Symbol" 
                     Style="{StaticResource PageHeaderTextStyle}" 
                     HorizontalAlignment="Left"
-                    Text=""
-                />
-
+                    Text="" />
             </StackPanel>
 
         </Grid>
