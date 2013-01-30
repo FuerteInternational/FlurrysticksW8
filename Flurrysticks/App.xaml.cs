@@ -19,6 +19,7 @@ using BugSense;
 using Windows.UI.ApplicationSettings;
 using Windows.System;
 using Flurrysticks.DataModel;
+using Windows.ApplicationModel.Background;
 
 // The Split App template is documented at http://go.microsoft.com/fwlink/?LinkId=234228
 
@@ -31,6 +32,9 @@ namespace Flurrystics
     /// </summary>
     sealed partial class App : Application
     {
+
+        private const string TASK_NAME = "Flurrystics Secondary tiles updater";
+        private const string TASK_ENTRY = "FlurrysticsBackgroundTask.BackgroundTask";
 
         public static int taskCount = 0;
 
@@ -51,6 +55,39 @@ namespace Flurrystics
      
         }
 
+        public static void CheckIfBackgroundTaskExist()
+        {
+            if (BackgroundTaskRegistration.AllTasks.Count < 1)
+            {
+                RegisterBackgroundTask();
+            }
+        }
+
+        //Registering the maintenance trigger background task      
+        public async static void RegisterBackgroundTask()
+        {
+
+            var result = await BackgroundExecutionManager.RequestAccessAsync();
+            if (result == BackgroundAccessStatus.AllowedMayUseActiveRealTimeConnectivity ||
+                result == BackgroundAccessStatus.AllowedWithAlwaysOnRealTimeConnectivity)
+            {
+
+                foreach (var task in BackgroundTaskRegistration.AllTasks)
+                {
+                    if (task.Value.Name == TASK_NAME)
+                        task.Value.Unregister(true);
+                }
+
+                BackgroundTaskBuilder builder = new BackgroundTaskBuilder();
+                builder.Name = TASK_NAME;
+                builder.TaskEntryPoint = TASK_ENTRY;
+                builder.SetTrigger(new TimeTrigger(15, false));
+                var registration = builder.Register();
+
+            }
+        }
+
+
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
         /// will be used when the application is launched to open a specific file, to display
@@ -59,6 +96,10 @@ namespace Flurrystics
         /// <param name="args">Details about the launch request and process.</param>
         protected override async void OnLaunched(LaunchActivatedEventArgs args)
         {
+
+            // try to register background task
+            CheckIfBackgroundTaskExist();
+
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,

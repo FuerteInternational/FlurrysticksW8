@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-  <Identity Name="BF25C769.Flurrystics" Publisher="CN=6867FAC2-F556-4432-9FD3-5336C97AD025" Version="1.0.0.12" />
+  <Identity Name="BF25C769.Flurrystics" Publisher="CN=6867FAC2-F556-4432-9FD3-5336C97AD025" Version="1.0.0.17" />
   <Properties>
     <DisplayName>Flurrystics</DisplayName>
     <PublisherDisplayName>Fuerte International Ltd.</PublisherDisplayName>
@@ -16,6 +16,7 @@
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Flurrystics.App">
       <VisualElements DisplayName="Flurrystics" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Flurrystics" ForegroundText="dark" BackgroundColor="#eaeaea">
+        <LockScreen Notification="badge" BadgeLogo="Assets\BadgeLogo.png" />
         <DefaultTile ShowName="noLogos" WideLogo="Assets\WideLogo.png" />
         <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#eaeaea" />
         <InitialRotationPreference>
@@ -23,6 +24,13 @@
           <Rotation Preference="landscapeFlipped" />
         </InitialRotationPreference>
       </VisualElements>
+      <Extensions>
+        <Extension Category="windows.backgroundTasks" EntryPoint="FlurrysticsBackgroundTask.BackgroundTask">
+          <BackgroundTasks>
+            <Task Type="timer" />
+          </BackgroundTasks>
+        </Extension>
+      </Extensions>
     </Application>
   </Applications>
   <Capabilities>

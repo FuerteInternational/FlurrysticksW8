@@ -85,6 +85,9 @@
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RightAppBar" Storyboard.TargetProperty="Visibility">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
                         </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="titleArea" Storyboard.TargetProperty="(Grid.ColumnSpan)">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="2"/>
+                        </ObjectAnimationUsingKeyFrames>
 
                         <!-- PAGE 1 -->
                         <!-- orientation changes -->
@@ -291,6 +294,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             
             <ProgressBar 
@@ -311,7 +315,7 @@
             
             <StackPanel x:ConnectionId='11' 
                 Orientation="Horizontal" 
-                Grid.Column="1" 
+                Grid.Column="2" 
                 Grid.Row="2"
                 HorizontalAlignment="Right"
                 IsTapEnabled="True"
@@ -943,22 +947,28 @@
                      Background="Transparent"
                      BorderThickness="0"
                      Grid.Row="1"
+                     Width="495"
                      VerticalAlignment="Stretch"
                      ScrollViewer.VerticalScrollBarVisibility="Visible"  
                      SelectionMode="None"
-                     IsSwipeEnabled="false"
-                     IsItemClickEnabled="False"                    
+                     IsSwipeEnabled="True"
+                     IsItemClickEnabled="False" 
+                     HorizontalAlignment="Left"
                      >
-                    
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                           <TextBlock Width="430" Text="{Binding eventName}" TextWrapping="Wrap" Style="{StaticResource ItemTextStyle}"/>
-                                <TextBlock Text="{Binding eventValue}" TextWrapping="Wrap" HorizontalAlignment="Right" Style="{StaticResource ItemTextStyle}" FontWeight="SemiBold"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Width="470">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="400"/>
+                                    <ColumnDefinition Width="70"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Margin="10,10,0,10" Text="{Binding eventName}" TextWrapping="NoWrap" />
+                                <TextBlock Grid.Column="1" Margin="0,10,10,10" HorizontalAlignment="Stretch" Text="{Binding eventValue}" TextWrapping="NoWrap" TextAlignment="Right" FontWeight="SemiBold"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
                 <ListView x:Name="ParametersListBoxShrinked"  
                      ItemsSource="{Binding}" 
@@ -969,17 +979,21 @@
                      VerticalAlignment="Stretch"
                      ScrollViewer.VerticalScrollBarVisibility="Visible"  
                      SelectionMode="None"
-                     IsSwipeEnabled="false"
+                     IsSwipeEnabled="True"
                      IsItemClickEnabled="False"
                      Visibility="Collapsed"
                      >
 
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Width="230"  Text="{Binding eventName}" TextWrapping="Wrap" Style="{StaticResource ItemTextStyle}"/>
-                                <TextBlock Text="{Binding eventValue}" TextWrapping="Wrap" TextAlignment="Right" HorizontalAlignment="Right" Style="{StaticResource ItemTextStyle}" FontWeight="SemiBold"/>
-                            </StackPanel>
+                            <Grid HorizontalAlignment="Stretch">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="210"/>
+                                    <ColumnDefinition Width="70"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Margin="10,10,0,10" Text="{Binding eventName}" TextWrapping="NoWrap" />
+                                <TextBlock Grid.Column="1" Margin="0,10,10,10" HorizontalAlignment="Stretch" Text="{Binding eventValue}" TextWrapping="NoWrap" TextAlignment="Right" FontWeight="SemiBold"/>
+                            </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

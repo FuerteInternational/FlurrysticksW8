@@ -80,12 +80,14 @@
                             <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
                         </ObjectAnimationUsingKeyFrames>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EventsMetricsListPicker" Storyboard.TargetProperty="Width">
-                            <DiscreteObjectKeyFrame KeyTime="0" Value="280"/>
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="290"/>
                         </ObjectAnimationUsingKeyFrames>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RightAppBar" Storyboard.TargetProperty="Visibility">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
                         </ObjectAnimationUsingKeyFrames>
-                        
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="titleArea" Storyboard.TargetProperty="(Grid.ColumnSpan)">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="2"/>
+                        </ObjectAnimationUsingKeyFrames>       
 
                         <!-- PAGE 1 -->
                         <!-- orientation changes -->
@@ -617,6 +619,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             
             <ProgressBar 
@@ -631,6 +634,7 @@
 
             <Button x:ConnectionId='14' x:Name="backButton"                IsEnabled="True" Style="{StaticResource BackButtonStyle}"/>
             <!-- IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}"-->
+
             <StackPanel x:Name="titleArea" Orientation="Vertical" Grid.Column="1" VerticalAlignment="Bottom" Style="{StaticResource titleAreaStyle}">
                 <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle2}"/>
                 <TextBlock x:Name="platformTitle" Text="Android" Style="{StaticResource SubheaderTextStyle}" />
@@ -638,26 +642,22 @@
             
             <StackPanel x:ConnectionId='15' 
                 Orientation="Horizontal" 
-                Grid.Column="1" 
+                Grid.Column="2" 
                 Grid.Row="2"
                 HorizontalAlignment="Right"
                 IsTapEnabled="True"
-                                            
-                >
+                                            >
                 <TextBlock 
                     x:Name="pageTitle2"                
                     Text="Active Users" 
                     Style="{StaticResource PageHeaderTextStyle}" 
-                    HorizontalAlignment="Left"
-                />
+                    HorizontalAlignment="Left" />
                 <TextBlock 
                     x:Name="pageDropDown"  
                     FontFamily="Segoe UI Symbol" 
                     Style="{StaticResource PageHeaderTextStyle}" 
                     HorizontalAlignment="Left"
-                    Text=""
-                />
-
+                    Text="" />
             </StackPanel>
 
         </Grid>
@@ -2194,7 +2194,7 @@
             
             <Grid Margin="120,20,20,20" x:Name="EventsTableGrid">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="40" />
+                    <RowDefinition Height="50" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
             <ComboBox x:ConnectionId='11' x:Name="EventsMetricsListPicker" 
@@ -2227,21 +2227,26 @@
                      Background="Transparent"
                      BorderThickness="0"
                      Grid.Row="1"
+                     Width="495"
                      VerticalAlignment="Stretch"
                      ScrollViewer.VerticalScrollBarVisibility="Visible"  
                      SelectionMode="None"
-                     IsSwipeEnabled="false"
-                     IsItemClickEnabled="True"     
-                     
+                     IsSwipeEnabled="True"
+                     IsItemClickEnabled="True" 
+                     HorizontalAlignment="Left"
                      >
                     
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                           <TextBlock Width="430"  Text="{Binding eventName}" TextWrapping="Wrap" />
-                           <TextBlock Text="{Binding eventValue}" TextWrapping="Wrap" TextAlignment="Right" HorizontalAlignment="Right" FontWeight="SemiBold"/>
-                        </StackPanel>
-                    </DataTemplate>
+                            <Grid Width="470" Background="{StaticResource flurry_blue}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="400"/>
+                                    <ColumnDefinition Width="70"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Margin="10,10,0,10" Foreground="White" Text="{Binding eventName}" TextWrapping="NoWrap" />
+                                <TextBlock Grid.Column="1" Margin="0,10,10,10" Foreground="White" HorizontalAlignment="Stretch" Text="{Binding eventValue}" TextWrapping="NoWrap" TextAlignment="Right" FontWeight="SemiBold"/>
+                            </Grid>
+                        </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
@@ -2255,17 +2260,21 @@
                      VerticalAlignment="Stretch"
                      ScrollViewer.VerticalScrollBarVisibility="Visible"  
                      SelectionMode="None"
-                     IsSwipeEnabled="false"
+                     IsSwipeEnabled="True"
                      IsItemClickEnabled="True"
                      Visibility="Collapsed"
                      >
 
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Width="230"  Text="{Binding eventName}" TextWrapping="Wrap" />
-                                <TextBlock Text="{Binding eventValue}" TextWrapping="Wrap" TextAlignment="Right" HorizontalAlignment="Right" FontWeight="SemiBold"/>
-                            </StackPanel>
+                            <Grid HorizontalAlignment="Stretch" Background="{StaticResource flurry_blue}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="210"/>
+                                    <ColumnDefinition Width="70"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Margin="10,10,0,10" Foreground="White" Text="{Binding eventName}" TextWrapping="NoWrap" />
+                                <TextBlock Grid.Column="1" Margin="0,10,10,10" Foreground="White" HorizontalAlignment="Stretch" Text="{Binding eventValue}" TextWrapping="NoWrap" TextAlignment="Right" FontWeight="SemiBold"/>
+                            </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

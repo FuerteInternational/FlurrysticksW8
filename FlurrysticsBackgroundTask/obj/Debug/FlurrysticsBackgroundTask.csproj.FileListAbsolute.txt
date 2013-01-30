@@ -1,0 +1,12 @@
+C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\FlurrysticsBackgroundTask\obj\Debug\FlurrysticsBackgroundTask.winmd
+C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\FlurrysticsBackgroundTask\obj\Debug\FlurrysticsBackgroundTask.winmdobj
+C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\FlurrysticsBackgroundTask\obj\Debug\FlurrysticsBackgroundTask.compile.pdb
+C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\FlurrysticsBackgroundTask\bin\Debug\FlurrysticsBackgroundTask.winmd
+C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\FlurrysticsBackgroundTask\bin\Debug\FlurrysticsBackgroundTask.pdb
+C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\FlurrysticsBackgroundTask\bin\Debug\FlurrysticsBackgroundTask.pri
+C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\FlurrysticsBackgroundTask\obj\Debug\FlurrysticsBackgroundTask.pdb
+C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\FlurrysticsBackgroundTask\obj\Debug\priconfig.xml
+C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\FlurrysticsBackgroundTask\obj\Debug\layout.resfiles
+C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\FlurrysticsBackgroundTask\obj\Debug\resources.resfiles
+C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\FlurrysticsBackgroundTask\obj\Debug\pri.resfiles
+C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\FlurrysticsBackgroundTask\obj\Debug\LanguageQualifiers.txt

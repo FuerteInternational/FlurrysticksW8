@@ -310,18 +310,27 @@ namespace Flurrystics
                                 //ParseXML(result,c,targetCharts[c],t1s[c],t2s[c],t3s[c],c1s[c],c2s[c],c3s[c],totals[c],SDate,EDate,d1s[c],d2s[c],targetSeries);
                              } // success
 
-                if (dataEvents.Count() > 0)
+                if (success)
                 {
-                    EventsListBox.ItemsSource = dataEvents;
-                    EventsListBoxShrinked.ItemsSource = dataEvents;
-                    noData.Visibility = Visibility.Collapsed;
-                    EventsMetricsListPicker.IsEnabled = true;
+                    if (dataEvents.Count() > 0)
+                    {
+                        EventsListBox.ItemsSource = dataEvents;
+                        EventsListBoxShrinked.ItemsSource = dataEvents;
+                        noData.Visibility = Visibility.Collapsed;
+                        EventsMetricsListPicker.IsEnabled = true;
+                    }
+                    else
+                    {
+                        noData.Visibility = Visibility.Visible;
+                        EventsMetricsListPicker.IsEnabled = false;
+                    }
                 }
                 else
                 {
                     noData.Visibility = Visibility.Visible;
                     EventsMetricsListPicker.IsEnabled = false;
                 }
+                
                 
                 if (ProgressBar1 != null)
                 {
@@ -374,6 +383,10 @@ namespace Flurrystics
 
             ToggleAppBarButton(!SecondaryTile.Exists(appApiKey));
 
+            if (DataSource.flipViewPosition > 0) { flipView1.SelectedIndex = DataSource.flipViewPosition; }
+
+            else
+
             loadData(actualMetricsIndex,StartDate,EndDate,0); 
         }
      
@@ -408,6 +421,7 @@ namespace Flurrystics
         private void changeMetrics(int index)
         {
             actualMetricsIndex = index;
+            DataSource.flipViewPosition = actualMetricsIndex;
             if (pageTitle2 != null)
             {
                 pageTitle2.Text = AppMetricsNamesFormatted[actualMetricsIndex];

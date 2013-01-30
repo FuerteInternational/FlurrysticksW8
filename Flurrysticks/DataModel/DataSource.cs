@@ -36,6 +36,7 @@ namespace Flurrystics.Data
         public static XDocument dataEventsXML = null;
         public static ObservableCollection<EventItem> ParamKeys = new ObservableCollection<EventItem>();
         public static XDocument dataParametersXML = null;
+        public static int flipViewPosition = 0;
 
         public static ObservableCollection<AppItem> getApps()
         {

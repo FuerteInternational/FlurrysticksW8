@@ -25,6 +25,7 @@ using System.Runtime.Serialization;
 using Flurrystics.DataModel;
 using Windows.UI.Popups;
 using Flurrysticks.DataModel;
+using Windows.UI.Input;
 
 // The Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234233
 
@@ -38,10 +39,17 @@ namespace Flurrystics
     {
         int currentAccount;
         DownloadHelper dh = new DownloadHelper();
-        Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+        ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
         String settingsOrderBy = "name1";
         static readonly string ApiFileName = "apikeys.xml";
-
+        /*
+        int fingerCount = 0;
+        int currentOffset;
+        PointerPoint fingerStart, fingerMove;
+        bool isTwoFinger = false;
+        ScrollViewer scrollViewer;
+        */
+          
         public AccountApplicationsPage()
         {
             this.InitializeComponent();
@@ -195,19 +203,78 @@ namespace Flurrystics
                 }
             });
 
-        }         
+        }
+/*
+        protected override void OnPointerPressed(PointerRoutedEventArgs e)
+        {
+            Debug.WriteLine("OnPointerPressed");
+            itemGridView.CapturePointer(e.Pointer);
+            Debug.WriteLine("PointerID:" + e.Pointer.PointerId);
+            fingerCount++;
 
-        /// <summary>
-        /// Populates the page with content passed during navigation.  Any saved state is also
-        /// provided when recreating a page from a prior session.
-        /// </summary>
-        /// <param name="navigationParameter">The parameter value passed to
-        /// <see cref="Frame.Navigate(Type, Object)"/> when this page was initially requested.
-        /// </param>
-        /// <param name="pageState">A dictionary of state preserved by this page during an earlier
-        /// session.  This will be null the first time a page is visited.</param>
-        /// 
+            isTwoFinger = fingerCount == 1;
 
+            
+            if (!isTwoFinger)
+            {
+                Debug.WriteLine("NOT two finger");
+                return;
+            }
+            
+
+            Debug.WriteLine("Is two finger");
+
+            fingerStart = e.GetCurrentPoint(itemGridView);
+            scrollViewer = GetVisualChild<ScrollViewer>(itemGridView);
+        }
+
+        private T GetVisualChild<T>(DependencyObject parent) where T : DependencyObject
+        {
+            T child = default(T);
+            int numVisuals = VisualTreeHelper.GetChildrenCount(parent);
+            for (int i = 0; i < numVisuals; i++)
+            {
+                DependencyObject v = (DependencyObject)VisualTreeHelper.GetChild(parent, i);
+                child = v as T;
+                if (child == null)
+                    child = GetVisualChild<T>(v);
+                if (child != null)
+                    break;
+            }
+            return child;
+        } 
+
+        protected override void OnPointerMoved(PointerRoutedEventArgs e)
+        {
+            if (!isTwoFinger) return;
+
+            fingerMove = e.GetCurrentPoint(itemGridView);
+
+            double fingerMovement = fingerStart.Position.X - fingerMove.Position.Y;
+
+            Debug.WriteLine("fingerMovement is " + fingerMovement);
+
+            scrollViewer.UpdateLayout();
+            scrollViewer.ScrollToVerticalOffset(currentOffset + fingerMovement);
+
+        }
+
+        protected override void OnPointerReleased(PointerRoutedEventArgs e)
+        {
+            Debug.WriteLine("OnPointerReleased");
+            fingerCount = 0;
+        }
+
+        protected override void OnPointerCanceled(PointerRoutedEventArgs e)
+        {
+            OnPointerReleased(e);
+        }
+
+        protected override void OnPointerCaptureLost(PointerRoutedEventArgs e)
+        {
+            OnPointerReleased(e);
+        }
+        */
         private void initApp()
         {
             try
@@ -566,6 +633,7 @@ namespace Flurrystics
             // by passing required information as a navigation parameter
             // var groupId = ((SampleDataGroup)e.ClickedItem).UniqueId;
             // this.Frame.Navigate(typeof(SplitPage), groupId);
+            DataSource.flipViewPosition = 0;
             Debug.WriteLine(((AppItem)e.ClickedItem).AppApiKey);
             CallApp what = new CallApp();
             what.AppApiKey = ((AppItem)e.ClickedItem).AppApiKey;

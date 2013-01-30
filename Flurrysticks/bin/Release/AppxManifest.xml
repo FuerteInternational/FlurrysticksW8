@@ -7,7 +7,7 @@
 
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="BF25C769.Flurrystics" Publisher="CN=6867FAC2-F556-4432-9FD3-5336C97AD025" Version="1.0.0.12" ProcessorArchitecture="neutral" />
+  <Identity Name="BF25C769.Flurrystics" Publisher="CN=6867FAC2-F556-4432-9FD3-5336C97AD025" Version="1.0.0.17" ProcessorArchitecture="neutral" />
   <Properties>
     <DisplayName>Flurrystics</DisplayName>
     <PublisherDisplayName>Fuerte International Ltd.</PublisherDisplayName>
@@ -23,6 +23,7 @@
   <Applications>
     <Application Id="App" Executable="Flurrysticks.exe" EntryPoint="Flurrystics.App">
       <VisualElements DisplayName="Flurrystics" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Flurrystics" ForegroundText="dark" BackgroundColor="#eaeaea">
+        <LockScreen Notification="badge" BadgeLogo="Assets\BadgeLogo.png" />
         <DefaultTile ShowName="noLogos" WideLogo="Assets\WideLogo.png" />
         <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#eaeaea" />
         <InitialRotationPreference>
@@ -30,11 +31,26 @@
           <Rotation Preference="landscapeFlipped" />
         </InitialRotationPreference>
       </VisualElements>
+      <Extensions>
+        <Extension Category="windows.backgroundTasks" EntryPoint="FlurrysticsBackgroundTask.BackgroundTask">
+          <BackgroundTasks>
+            <Task Type="timer" />
+          </BackgroundTasks>
+        </Extension>
+      </Extensions>
     </Application>
   </Applications>
   <Capabilities>
     <Capability Name="internetClient" />
   </Capabilities>
+  <Extensions>
+    <Extension Category="windows.activatableClass.inProcessServer">
+      <InProcessServer>
+        <Path>CLRHost.dll</Path>
+        <ActivatableClass ActivatableClassId="FlurrysticsBackgroundTask.BackgroundTask" ThreadingModel="both" />
+      </InProcessServer>
+    </Extension>
+  </Extensions>
   <build:Metadata>
     <build:Item Name="TargetFrameworkMoniker" Value=".NETCore,Version=v4.5" />
     <build:Item Name="VisualStudio" Version="11.0" />
