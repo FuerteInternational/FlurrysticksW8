@@ -23,6 +23,8 @@ using System.Collections.ObjectModel;
 using Windows.UI.Notifications;
 using Windows.Data.Xml.Dom;
 using Windows.UI.StartScreen;
+using Windows.UI;
+using Windows.UI.ViewManagement;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
@@ -46,6 +48,27 @@ namespace Flurrystics
         int actualMetricsIndex = 0;
         DownloadHelper dh = new DownloadHelper();
         Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+        private ListView EventsListBox;
+        string sXAML1 = @"<DataTemplate xmlns=""http://schemas.microsoft.com/winfx/2006/xaml/presentation"">
+                            <Grid Width=""470"" Background=""{StaticResource flurry_blue}"">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=""400""/>
+                                    <ColumnDefinition Width=""70""/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column=""0"" Margin=""10,10,0,10"" Foreground=""White"" Text=""{Binding eventName}"" TextWrapping=""NoWrap"" />
+                                <TextBlock Grid.Column=""1"" Margin=""0,10,10,10"" Foreground=""White"" HorizontalAlignment=""Stretch"" Text=""{Binding eventValue}"" TextWrapping=""NoWrap"" TextAlignment=""Right"" FontWeight=""SemiBold""/>
+                            </Grid>
+                        </DataTemplate>";
+        string sXAML2 = @"<DataTemplate xmlns=""http://schemas.microsoft.com/winfx/2006/xaml/presentation"">
+                            <Grid Width=""470"" Background=""{StaticResource flurry_blue}"">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=""210""/>
+                                    <ColumnDefinition Width=""70""/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column=""0"" Margin=""10,10,0,10"" Foreground=""White"" Text=""{Binding eventName}"" TextWrapping=""NoWrap"" />
+                                <TextBlock Grid.Column=""1"" Margin=""0,10,10,10"" Foreground=""White"" HorizontalAlignment=""Stretch"" Text=""{Binding eventValue}"" TextWrapping=""NoWrap"" TextAlignment=""Right"" FontWeight=""SemiBold""/>
+                            </Grid>
+                        </DataTemplate>";
 
         public AppMetrics()
         {
@@ -207,28 +230,16 @@ namespace Flurrystics
             }
 
             string metrics = AppMetricsNames[metricsIndex]; // this will be selectable
-            if (ProgressBar1 != null)
-            {
-                ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            }
             // check if it's loaded, if not - load it up
-
             if (DataSource.getChartData()[metricsIndex,targetSeries] == null) // if no data present
             {
 
-                bool success;
+                bool success = true;
                 XDocument result = null;
                 string callURL = "http://api.flurry.com/appMetrics/" + metrics + "?apiAccessCode=" + apiKey + "&apiKey=" + appApiKey + "&startDate=" + SDate + "&endDate=" + EDate;
                 Debug.WriteLine(callURL);
-                try
-                {
-                    result = await dh.DownloadXML(callURL); // load it   
-                    success = true;
-                }
-                catch (System.Net.Http.HttpRequestException)
-                {   // load failed
-                    success = false;
-                }
+                result = await dh.DownloadXML(callURL, ProgressBar1); // load it   
+                if (result == null) { success = false; }
                 Debug.WriteLine("Success:" + success);
                 if (success) { 
                                 int c = metricsIndex;
@@ -249,36 +260,25 @@ namespace Flurrystics
                     d2s[metricsIndex].Text = "(" + SDate + " - " + EDate + ")";
                 }
             }
-
-            //if (App.taskCount == 0)
-            //{
-                ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            //}
                 CompareToggleSetVisibility(flipView1.SelectedIndex);
         }
 
         private async void LoadUpXMLEvents(String SDate, String EDate, int orderByIndex)
         {
 
-            bool success;
+            bool success = true;
+            XDocument result = null;
             IEnumerable<EventItem> dataEvents = null;
-            if (ProgressBar1 != null) // display progressbar
-            {
-                ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            }
             if (DataSource.dataEventsXML == null)
             {
 
                 string callURL = "http://api.flurry.com/eventMetrics/Summary?apiAccessCode=" + apiKey + "&apiKey=" + appApiKey + "&startDate=" + SDate + "&endDate=" + EDate;
                 Debug.WriteLine(callURL);
-                try
+                result = await dh.DownloadXML(callURL,ProgressBar1); // load it 
+                if (result == null) {success = false;} else
                 {
-                    DataSource.dataEventsXML = await dh.DownloadXML(callURL); // load it 
+                    DataSource.dataEventsXML  = result;
                     success = true;
-                }
-                catch (System.Net.Http.HttpRequestException)
-                {   // load failed
-                    success = false;
                 }
 
             }
@@ -286,6 +286,8 @@ namespace Flurrystics
             {
                 success = true;
             }
+
+            if (DataSource.dataEventsXML == null) { success = false; }
 
                 Debug.WriteLine("Success:" + success);
                 if (success) { 
@@ -314,10 +316,38 @@ namespace Flurrystics
                 {
                     if (dataEvents.Count() > 0)
                     {
-                        EventsListBox.ItemsSource = dataEvents;
-                        EventsListBoxShrinked.ItemsSource = dataEvents;
                         noData.Visibility = Visibility.Collapsed;
                         EventsMetricsListPicker.IsEnabled = true;
+
+                        if ((EventsListBox == null) ) {
+
+                            EventsListBox = new ListView();
+                            EventsListBox.ItemClick += EventsListBox_ItemClick_1;
+                            EventsListBox.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
+                            EventsListBox.SelectionMode = ListViewSelectionMode.None;
+                            EventsListBox.IsItemClickEnabled = true;
+                            EventsListBox.IsSwipeEnabled = false;
+                            EventsListBox.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Left;
+                            EventsListBox.VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Stretch;
+
+                            ApplicationViewState myViewState = ApplicationView.Value;
+                            string sXAML = sXAML1;
+                            if (myViewState == ApplicationViewState.Snapped)
+                            {
+                                sXAML = sXAML2;
+                                System.Diagnostics.Debug.WriteLine("viewState is Snapped");
+                                EventsListBox.Width = 300;
+                            }
+                            else EventsListBox.Width = 490;
+                            var itemsTemplate = Windows.UI.Xaml.Markup.XamlReader.Load(sXAML) as DataTemplate;
+                            EventsListBox.ItemTemplate = itemsTemplate;
+                           
+                            EventsTableGrid.Children.Add(EventsListBox);                         
+                            Grid.SetRow(EventsListBox, 1);
+
+                        }
+                        EventsListBox.ItemsSource = dataEvents; // if not binded - bind it!
+ 
                     }
                     else
                     {
@@ -330,13 +360,29 @@ namespace Flurrystics
                     noData.Visibility = Visibility.Visible;
                     EventsMetricsListPicker.IsEnabled = false;
                 }
-                
-                
-                if (ProgressBar1 != null)
-                {
-                    ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                }
+               
             }
+
+        private void WindowSizeChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
+        {
+            // Obtain view state by explicitly querying for it
+            Debug.WriteLine("Window size changed!");
+            ApplicationViewState myViewState = ApplicationView.Value;
+            string sXAML = sXAML1;
+            int targetWidth = 490;
+            if (myViewState == ApplicationViewState.Snapped)
+            {
+                sXAML = sXAML2;
+                System.Diagnostics.Debug.WriteLine("viewState is Snapped");
+                targetWidth = 300;
+            }
+
+            if (EventsListBox != null) {
+                EventsListBox.Width = targetWidth;
+                EventsListBox.ItemTemplate = Windows.UI.Xaml.Markup.XamlReader.Load(sXAML) as DataTemplate;
+                }
+
+        }
 
 
         /// <summary>
@@ -352,6 +398,7 @@ namespace Flurrystics
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
             Debug.WriteLine("AppMetrics - LoadState");
+            Window.Current.SizeChanged += WindowSizeChanged;
             CallApp what = (CallApp)navigationParameter;
             appName = what.Name;
             pageTitle.Text = appName;
@@ -461,7 +508,7 @@ namespace Flurrystics
             Debug.WriteLine("flipView1 SelectionChanged");
             if (flipView1 != null)
             {
-                changeMetrics(((FlipView)sender).SelectedIndex);
+                changeMetrics(flipView1.SelectedIndex);
                 loadData(actualMetricsIndex, StartDate, EndDate, 0);
                 ZoomToggleSetVisibility(flipView1.SelectedIndex);
                 CompareToggleSetVisibility(flipView1.SelectedIndex);

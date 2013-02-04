@@ -452,9 +452,8 @@ namespace Flurrystics
             Debug.WriteLine("switching to currentAccount:" + currentAccount);
             Debug.WriteLine("switching to ApiKey:" + DataSource.getAccounts().ElementAt<Account>(currentAccount).ApiKey);
 
-            ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
             // check if it's loaded, if not - load it up
-            bool success;
+            bool success = true;
             bool retry = true;
             XDocument result = null;
 
@@ -464,15 +463,8 @@ namespace Flurrystics
                 if (!DataSource.getAccounts().ElementAt<Account>(currentAccount).IsLoaded) // if not loaded
                 {
                     string callURL = "http://api.flurry.com/appInfo/getAllApplications?apiAccessCode=" + DataSource.getAccounts().ElementAt<Account>(currentAccount).ApiKey;
-                    try
-                    {
-                        result = await dh.DownloadXML(callURL); // load it   
-                        success = true;
-                    }
-                    catch (System.Net.Http.HttpRequestException)
-                    { // load failed
-                        success = false;
-                    }
+                    result = await dh.DownloadXML(callURL, ProgressBar1); // load it   
+                    if (result == null) { success = false; }
 
                     if (success) // data OK
                     {
@@ -544,7 +536,6 @@ namespace Flurrystics
             this.DefaultViewModel["Items"] = dataLetter;
             */
               
-            ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             noAccountData();
             
         }

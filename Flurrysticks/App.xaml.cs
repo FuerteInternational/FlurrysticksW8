@@ -66,8 +66,15 @@ namespace Flurrystics
         //Registering the maintenance trigger background task      
         public async static void RegisterBackgroundTask()
         {
-
-            var result = await BackgroundExecutionManager.RequestAccessAsync();
+            BackgroundAccessStatus result = BackgroundAccessStatus.Denied;
+            try
+            {
+                result = await BackgroundExecutionManager.RequestAccessAsync();
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("RequestAccessAsync not supported"); // probably running on simulator
+            }
             if (result == BackgroundAccessStatus.AllowedMayUseActiveRealTimeConnectivity ||
                 result == BackgroundAccessStatus.AllowedWithAlwaysOnRealTimeConnectivity)
             {

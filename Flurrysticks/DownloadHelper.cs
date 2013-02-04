@@ -7,49 +7,66 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Diagnostics;
+using Windows.UI.Xaml.Controls;
 
 namespace Flurrystics
 {
     class DownloadHelper
     {
 
-        public async Task<XDocument> DownloadXML(string callURL)
+        List<string> queue = new List<string>();
+
+        public async Task<XDocument> DownloadXML(string callURL, ProgressBar pb)
         {
+
+            if (queue.Contains(callURL)) {
+                Debug.WriteLine("callURL already in queue");
+                return null;
+            }
+
+            XDocument xdoc = null;
+
             App.taskCount++;
+            queue.Add(callURL);
+            if (pb != null) { pb.Visibility = Windows.UI.Xaml.Visibility.Visible; }
 
-            long waitTime = App.taskCount * 1250;
+            try
+            {
 
-            Debug.WriteLine("Waiting " + waitTime);
-            await Task.Delay((int)waitTime);
-            Debug.WriteLine("Wait is over, continuing...");
+                long waitTime = App.taskCount * 1250;
 
-            // the following uri will returns a response with xml content
-            Debug.WriteLine("callURL:" + callURL);
-            Uri uri = new Uri(callURL);
+                Debug.WriteLine("Waiting " + waitTime);
+                await Task.Delay((int)waitTime);
+                Debug.WriteLine("Wait is over, continuing...");
 
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Accept", "application/xml"); // we want XML
-            HttpResponseMessage response = await client.GetAsync(uri);
-            response.EnsureSuccessStatusCode();
-            // ReadAsStreamAsync() returns when the whole message is downloaded
-            Stream stream = await response.Content.ReadAsStreamAsync();
-            XDocument xdoc = XDocument.Load(stream);
+                // the following uri will returns a response with xml content
+                Debug.WriteLine("callURL:" + callURL);
+                Uri uri = new Uri(callURL);
+
+                HttpClient client = new HttpClient();
+                client.DefaultRequestHeaders.Add("Accept", "application/xml"); // we want XML
+                HttpResponseMessage response = await client.GetAsync(uri);
+                response.EnsureSuccessStatusCode();
+                // ReadAsStreamAsync() returns when the whole message is downloaded
+                Stream stream = await response.Content.ReadAsStreamAsync();
+                xdoc = XDocument.Load(stream);
+
+            }
+            catch (Exception) // catch generally all exceptions, not only: System.Net.Http.HttpRequestException
+            {   // load failed
+                Debug.WriteLine("Load data failed");
+                xdoc = null;
+            }
+
             App.taskCount--;
+            queue.Remove(callURL);
+
+            if (App.taskCount == 0)
+            {
+                if (pb != null) { pb.Visibility = Windows.UI.Xaml.Visibility.Collapsed;}
+            }
+
             return xdoc; 
-
-            /*
-
-            XNamespace xns = "http://schemas.microsoft.com/search/local/ws/rest/v1";
-            var addresses = from node in xdoc.Descendants(xns + "Address")                               // query node named "Address"
-                            where node.Element(xns + "CountryRegion").Value.Contains("United States")    // where CountryRegion contains "United States"
-                            select node.Element(xns + "FormattedAddress").Value;                         // select the FormattedAddress node's value
-
-            StringBuilder stringBuilder = new StringBuilder("Manchester in US: ");
-            foreach (string name in addresses)
-                stringBuilder.Append(name + "; ");
-
-            return stringBuilder.ToString();
-            */
         }
 
     }

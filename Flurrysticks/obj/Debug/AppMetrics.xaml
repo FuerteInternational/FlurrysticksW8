@@ -73,12 +73,14 @@
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backgroundGrid" Storyboard.TargetProperty="ImageSource">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="/Assets/screen_shrinked.png"/>
                         </ObjectAnimationUsingKeyFrames>
+                        <!--
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EventsListBoxShrinked" Storyboard.TargetProperty="Visibility">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
                         </ObjectAnimationUsingKeyFrames>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EventsListBox" Storyboard.TargetProperty="Visibility">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
                         </ObjectAnimationUsingKeyFrames>
+                        -->
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EventsMetricsListPicker" Storyboard.TargetProperty="Width">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="290"/>
                         </ObjectAnimationUsingKeyFrames>
@@ -629,10 +631,10 @@
                 VerticalAlignment="Top" 
                 HorizontalContentAlignment="Stretch"  
                 Grid.Row="1"
-                Grid.ColumnSpan="2"
+                Grid.ColumnSpan="3"
                 />
 
-            <Button x:ConnectionId='14' x:Name="backButton"                IsEnabled="True" Style="{StaticResource BackButtonStyle}"/>
+            <Button x:ConnectionId='12' x:Name="backButton"                IsEnabled="True" Style="{StaticResource BackButtonStyle}"/>
             <!-- IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}"-->
 
             <StackPanel x:Name="titleArea" Orientation="Vertical" Grid.Column="1" VerticalAlignment="Bottom" Style="{StaticResource titleAreaStyle}">
@@ -640,7 +642,7 @@
                 <TextBlock x:Name="platformTitle" Text="Android" Style="{StaticResource SubheaderTextStyle}" />
             </StackPanel>
             
-            <StackPanel x:ConnectionId='15' 
+            <StackPanel x:ConnectionId='13' 
                 Orientation="Horizontal" 
                 Grid.Column="2" 
                 Grid.Row="2"
@@ -693,13 +695,13 @@
                         <DataTemplate x:Key="EmptyTemplate"/>
                     </Grid.Resources>
 
-                    <StackPanel Grid.Row="0" Margin="20,20,20,20"
+                    <StackPanel Grid.Row="0" Margin="20,10,20,10"
                                 HorizontalAlignment="Right"
                                 Orientation="Horizontal"
                                 x:Name="contextInfoText1"
                                 >
 
-                    <StackPanel x:Name="contextNumbersText1" Orientation="Vertical" Margin="0,0,10,0">
+                    <StackPanel x:Name="contextNumbersText1" Orientation="Vertical" Margin="0,-25,10,0">
                         
                         <StackPanel Orientation="Vertical">
                             <StackPanel Orientation="Horizontal">
@@ -2220,20 +2222,9 @@
 
                 <TextBlock x:Name="noData" Grid.Row="1" Text="No Events available."  Margin="0,20,0,0" Visibility="Collapsed"/>
 
-                <ListView x:ConnectionId='12' x:Name="EventsListBox"  
-                     ItemsSource="{Binding}" 
-                                                          
-                     Grid.ColumnSpan="1" 
-                     Background="Transparent"
-                     BorderThickness="0"
-                     Grid.Row="1"
-                     Width="495"
-                     VerticalAlignment="Stretch"
-                     ScrollViewer.VerticalScrollBarVisibility="Visible"  
-                     SelectionMode="None"
-                     IsSwipeEnabled="True"
-                     IsItemClickEnabled="True" 
-                     HorizontalAlignment="Left"
+                <!--
+                <ListView x:Name="EventsListBox"  
+                                     
                      >
                     
                 <ListView.ItemTemplate>
@@ -2250,9 +2241,9 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-                <ListView x:ConnectionId='13' x:Name="EventsListBoxShrinked"  
+                <ListView x:Name="EventsListBoxShrinked"  
                      ItemsSource="{Binding}" 
-                                                          
+                     ItemClick="EventsListBox_ItemClick_1"
                      Grid.ColumnSpan="1" 
                      Background="Transparent"
                      BorderThickness="0"
@@ -2278,6 +2269,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                -->
 
             </Grid>
 
@@ -2371,26 +2363,26 @@
         <AppBar x:Name="bottomAppBar" Padding="10,0,10,0" AutomationProperties.Name="Bottom App Bar">
             <Grid>
                 <StackPanel x:Name="RightAppBar"  Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
-                    <Button x:ConnectionId='21' x:Name="pinButton" Style="{StaticResource PinAppBarButtonStyle}"                           Tag="Pin"/>
+                    <Button x:ConnectionId='19' x:Name="pinButton" Style="{StaticResource PinAppBarButtonStyle}"                           Tag="Pin"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Column="0">
-                    <Button x:ConnectionId='16' x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}"                                 Tag="TimeRange" />
-                    <Button x:ConnectionId='17' x:Name="CompareToggleButton" Style="{StaticResource CompareToggleAppBarButtonStyle}"                                     Tag="CompareOn">
+                    <Button x:ConnectionId='14' x:Name="TimeRangeButton" Style="{StaticResource TimeRangeAppBarButtonStyle}"                                 Tag="TimeRange" />
+                    <Button x:ConnectionId='15' x:Name="CompareToggleButton" Style="{StaticResource CompareToggleAppBarButtonStyle}"                                     Tag="CompareOn">
                         <Button.Content>
                             <Image Source="Assets/compare.png" Margin="7,7,7,7"/>
                         </Button.Content>
                     </Button>
-                    <Button x:ConnectionId='18' x:Name="UnCompareToggleButton" Visibility="Collapsed" Style="{StaticResource UnCompareToggleAppBarButtonStyle}" Tag="CompareOff"                                     >
+                    <Button x:ConnectionId='16' x:Name="UnCompareToggleButton" Visibility="Collapsed" Style="{StaticResource UnCompareToggleAppBarButtonStyle}" Tag="CompareOff"                                     >
                         <Button.Content>
                             <Image Source="Assets/comparedisable.png" Margin="7,7,7,7"/>
                         </Button.Content>
                     </Button>
-                    <Button x:ConnectionId='19' x:Name="ZoomToggleButton" Style="{StaticResource ZoomToggleAppBarButtonStyle}"                                  Tag="Zoom">
+                    <Button x:ConnectionId='17' x:Name="ZoomToggleButton" Style="{StaticResource ZoomToggleAppBarButtonStyle}"                                  Tag="Zoom">
                         <Button.Content>
                             <Image Source="Assets/touch.png" Margin="7,7,7,7"/>
                         </Button.Content>
                     </Button>
-                    <Button x:ConnectionId='20' x:Name="UnZoomToggleButton" Visibility="Collapsed" Style="{StaticResource UnZoomToggleAppBarButtonStyle}" Tag="UnZoom"                                  >
+                    <Button x:ConnectionId='18' x:Name="UnZoomToggleButton" Visibility="Collapsed" Style="{StaticResource UnZoomToggleAppBarButtonStyle}" Tag="UnZoom"                                  >
                         <Button.Content>
                             <Image Source="Assets/touchdisable.png" Margin="7,7,7,7"/>
                         </Button.Content>

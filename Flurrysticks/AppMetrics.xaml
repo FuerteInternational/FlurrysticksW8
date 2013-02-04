@@ -73,12 +73,14 @@
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backgroundGrid" Storyboard.TargetProperty="ImageSource">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="/Assets/screen_shrinked.png"/>
                         </ObjectAnimationUsingKeyFrames>
+                        <!--
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EventsListBoxShrinked" Storyboard.TargetProperty="Visibility">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
                         </ObjectAnimationUsingKeyFrames>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EventsListBox" Storyboard.TargetProperty="Visibility">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
                         </ObjectAnimationUsingKeyFrames>
+                        -->
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EventsMetricsListPicker" Storyboard.TargetProperty="Width">
                             <DiscreteObjectKeyFrame KeyTime="0" Value="290"/>
                         </ObjectAnimationUsingKeyFrames>
@@ -629,7 +631,7 @@
                 VerticalAlignment="Top" 
                 HorizontalContentAlignment="Stretch"  
                 Grid.Row="1"
-                Grid.ColumnSpan="2"
+                Grid.ColumnSpan="3"
                 />
 
             <Button x:Name="backButton" Click="GoBack" IsEnabled="True" Style="{StaticResource BackButtonStyle}"/>
@@ -693,13 +695,13 @@
                         <DataTemplate x:Key="EmptyTemplate"/>
                     </Grid.Resources>
 
-                    <StackPanel Grid.Row="0" Margin="20,20,20,20"
+                    <StackPanel Grid.Row="0" Margin="20,10,20,10"
                                 HorizontalAlignment="Right"
                                 Orientation="Horizontal"
                                 x:Name="contextInfoText1"
                                 >
 
-                    <StackPanel x:Name="contextNumbersText1" Orientation="Vertical" Margin="0,0,10,0">
+                    <StackPanel x:Name="contextNumbersText1" Orientation="Vertical" Margin="0,-25,10,0">
                         
                         <StackPanel Orientation="Vertical">
                             <StackPanel Orientation="Horizontal">
@@ -2220,20 +2222,9 @@
 
                 <TextBlock x:Name="noData" Grid.Row="1" Text="No Events available."  Margin="0,20,0,0" Visibility="Collapsed"/>
 
+                <!--
                 <ListView x:Name="EventsListBox"  
-                     ItemsSource="{Binding}" 
-                     ItemClick="EventsListBox_ItemClick_1"
-                     Grid.ColumnSpan="1" 
-                     Background="Transparent"
-                     BorderThickness="0"
-                     Grid.Row="1"
-                     Width="495"
-                     VerticalAlignment="Stretch"
-                     ScrollViewer.VerticalScrollBarVisibility="Visible"  
-                     SelectionMode="None"
-                     IsSwipeEnabled="True"
-                     IsItemClickEnabled="True" 
-                     HorizontalAlignment="Left"
+                                     
                      >
                     
                 <ListView.ItemTemplate>
@@ -2278,6 +2269,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                -->
 
             </Grid>
 

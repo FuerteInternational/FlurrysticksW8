@@ -118,7 +118,6 @@ namespace Flurrystics
 
         private async void LoadUpXMLEventMetrics(String SDate, String EDate, int targetSeries)
         {
-            ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
 
             RadCartesianChart[] targetCharts = { radChart1, radChart2, radChart3 };
             RadCustomHubTile[] t1s = { tile1Text1, tile2Text1, tile3Text1 };
@@ -171,18 +170,16 @@ namespace Flurrystics
             if (DataSource.getChartData()[8, targetSeries] == null) // if no data present
             {
 
-                bool success;
+                bool success = true;
+                XDocument result = null;
                 string callURL = "http://api.flurry.com/eventMetrics/Event?apiAccessCode=" + apiKey + "&apiKey=" + appApiKey + "&startDate=" + SDate + "&endDate=" + EDate + "&eventName=" + eventName;
                 Debug.WriteLine(callURL);
 
-                try
-                {
-                    DataSource.dataParametersXML = await dh.DownloadXML(callURL); // load it   
+                result = await dh.DownloadXML(callURL,ProgressBar1); // load it   
+
+                if (result == null) {success = false;} else {
                     success = true;
-                }
-                catch (System.Net.Http.HttpRequestException)
-                {   // load failed
-                    success = false;
+                    DataSource.dataParametersXML = result;
                 }
 
                 Debug.WriteLine("Success:" + success);
@@ -311,7 +308,6 @@ namespace Flurrystics
 
             } // if noDataPresent
 
-            ProgressBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             CompareToggleSetVisibility(flipView1.SelectedIndex);
         }
 

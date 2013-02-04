@@ -209,6 +209,7 @@
                 HorizontalContentAlignment="Stretch"  
                 Grid.Row="1"
                 Grid.ColumnSpan="2"
+                Visibility="Collapsed"
             />
 
             <Button x:Name="backButton" 
