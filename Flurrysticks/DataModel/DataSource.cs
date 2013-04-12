@@ -40,7 +40,7 @@ namespace Flurrystics.Data
 
         public static ObservableCollection<AppItem> getApps()
         {
-            return _DataSource.sampleApps;
+            return _DataSource.sampleApps; 
         }
 
         public static void setApps(ObservableCollection<AppItem> what)

@@ -13,7 +13,7 @@ namespace Flurrysticks.DataModel
     /// Generic item data model.
     /// </summary>
     /// 
-    [DataContractAttribute]
+    [DataContractAttribute] 
     public class AppItem : Flurrystics.Common.BindableBase
     {
         public AppItem(String Name, String Platform, DateTime createdDate, String AppApiKey, String Image)

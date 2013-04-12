@@ -15,6 +15,7 @@
     xmlns:Chart="using:Telerik.UI.Xaml.Controls.Chart"
     >
 
+
     <!-- Non-brush values that vary across themes -->
 
     <ResourceDictionary.ThemeDictionaries>

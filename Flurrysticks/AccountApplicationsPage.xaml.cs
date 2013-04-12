@@ -174,6 +174,8 @@ namespace Flurrystics
 
             }
 
+            Debug.WriteLine("LoadApiKeyData - switchData");
+
             try
             {
                 switchData(DataSource.getAccounts().ElementAt<Account>(currentAccount).Name);
@@ -246,7 +248,7 @@ namespace Flurrystics
                 if (file == null)
                 {
                     Debug.WriteLine("Empty XML");
-                    return;
+                    return; 
                 }
 
                 var folder = ApplicationData.Current.RoamingFolder;
@@ -264,6 +266,8 @@ namespace Flurrystics
                 Debug.WriteLine("After await");
 
             }
+
+            initMode();
 
         }
 
@@ -361,8 +365,10 @@ namespace Flurrystics
 
             //if (DataSource.getAccounts().Count() == 0)
             //{ // if no account then try to deserialize
-                LoadApiKeyData();
-                LoadFavData();
+            
+            LoadFavData();
+            //initMode();
+            
             //}
         
         }   
@@ -732,7 +738,13 @@ namespace Flurrystics
             Debug.WriteLine(((AppItem)e.ClickedItem).AppApiKey);
             CallApp what = new CallApp();
             what.AppApiKey = ((AppItem)e.ClickedItem).AppApiKey;
-            what.ApiKey = DataSource.getAccounts().ElementAt<Account>(currentAccount).ApiKey;
+            if (MODE == MODE_ACC)
+            {
+                what.ApiKey = DataSource.getAccounts().ElementAt<Account>(currentAccount).ApiKey;
+            }
+            else
+                what.ApiKey = ((AppItem)e.ClickedItem).ApiKey;
+
             what.Name = ((AppItem)e.ClickedItem).Name;
             what.Platform = ((AppItem)e.ClickedItem).Platform;
             this.Frame.Navigate(typeof(AppMetrics), what);
@@ -864,6 +876,36 @@ namespace Flurrystics
             }
         }
 
+        private void initMode()
+        {
+            try
+            {
+                MODE = (int)localSettings.Values["defaultView"];
+            }
+            catch (System.NullReferenceException) 
+            {
+                MODE = MODE_ACC;
+            }
+            if (MODE == MODE_ACC)
+            { // standard account
+                MODE = MODE_ACC;
+                this.DefaultViewModel["Items"] = DataSource.getApps();
+                accountSelection.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                favTitle2.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                LoadApiKeyData();
+            }
+            if (MODE == MODE_FAV)
+            { // fav items
+                MODE = MODE_FAV;
+                this.DefaultViewModel["Items"] = DataSource.getFavApps();
+                accountSelection.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                favTitle2.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            }
+            TopAppBar.IsOpen = false;
+            BottomAppBar.IsOpen = false;
+            standardBottomBar();
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button sourceButton = (Button)sender;
@@ -874,6 +916,7 @@ namespace Flurrystics
                 this.DefaultViewModel["Items"] = DataSource.getApps();
                 accountSelection.Visibility = Windows.UI.Xaml.Visibility.Visible;
                 favTitle2.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                LoadApiKeyData();
             }
             if (sourceButton.Name.Equals("favorites"))
             { // fav items
@@ -882,6 +925,7 @@ namespace Flurrystics
                 accountSelection.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
                 favTitle2.Visibility = Windows.UI.Xaml.Visibility.Visible;
             }
+            localSettings.Values["defaultView"] = MODE;
             TopAppBar.IsOpen = false;
             BottomAppBar.IsOpen = false;
             standardBottomBar();
@@ -977,7 +1021,10 @@ namespace Flurrystics
             {
                 AppItem currentObject = (AppItem)enumerator.Current;
                 currentObject.ApiKey = DataSource.getAccounts().ElementAt<Account>(currentAccount).ApiKey; // add api access key
-                DataSource.getFavApps().Add(currentObject); // and add object
+                if (!(DataSource.getFavApps().Contains(currentObject))) // only add if it is not already there
+                {
+                    DataSource.getFavApps().Add(currentObject); // and add object
+                }
             }
 
             itemListView.SelectedItems.Clear();
@@ -1001,19 +1048,33 @@ namespace Flurrystics
 
         private void removeFromFavButton_Click(object sender, RoutedEventArgs e)
         {
-            IList<object> sourceSelected = null;
-            if (itemListView.SelectedItems.Count > 0) { sourceSelected = itemListView.SelectedItems; }
-            if (itemGridView.SelectedItems.Count > 0) { sourceSelected = itemGridView.SelectedItems; }
+
+            object[] sourceSelected = null;
+            if (itemListView.SelectedItems.Count > 0) { sourceSelected = itemListView.SelectedItems.ToArray<object>(); }
+            if (itemGridView.SelectedItems.Count > 0) { sourceSelected = itemGridView.SelectedItems.ToArray<object>(); }
             if (sourceSelected == null) { return; } // should not happen - ever
 
-            IEnumerator<object> enumerator = sourceSelected.GetEnumerator();
-
-            while (enumerator.MoveNext())
+            foreach (object item in sourceSelected)
             {
-                AppItem currentObject = (AppItem)enumerator.Current;
-                DataSource.getFavApps().Remove(currentObject); // remove object
+                DataSource.getFavApps().Remove((AppItem)item);
             }
 
+            //IEnumerator<object> enumerator = sourceSelected.GetEnumerator();
+            //ObservableCollection<AppItem> temp = DataSource.getFavApps();
+            ////int count = sourceSelected.Count;
+            ////for (int i = 0; i < count; i++)
+            ////{
+            ////    AppItem currentObject = (AppItem)sourceSelected[i];
+            ////    temp.Remove(currentObject);
+            ////}
+
+            //while (enumerator.MoveNext())
+            //{
+            //    AppItem currentObject = (AppItem)enumerator.Current;
+            //    temp.Remove(currentObject); // remove object
+            //}
+
+            //DataSource.setFavApps(temp);
             itemListView.SelectedItems.Clear();
             itemGridView.SelectedItems.Clear();
             bottomAppBar.IsOpen = false;

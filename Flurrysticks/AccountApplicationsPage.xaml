@@ -245,7 +245,7 @@
             </StackPanel>
 
             <Grid 
-                Grid.Column="1" 
+                Grid.Column="1"  
                 Grid.Row="2">
              <TextBlock 
                 x:Name="favTitle2"                

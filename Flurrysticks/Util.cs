@@ -9,7 +9,7 @@ using Windows.UI.Xaml.Media;
 namespace Flurrysticks
 {
     class Util
-    {
+    { 
 
         public static T FindFirstElementInVisualTree<T>(DependencyObject parentElement) where T : DependencyObject
         {

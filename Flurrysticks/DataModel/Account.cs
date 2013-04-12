@@ -14,7 +14,7 @@ namespace Flurrysticks.DataModel
         {
             //Items.CollectionChanged += ItemsCollectionChanged;
             this._Name = Name;
-            this._ApiKey = ApiKey;
+            this._ApiKey = ApiKey; 
             this._IsLoaded = isLoaded;
         }
 

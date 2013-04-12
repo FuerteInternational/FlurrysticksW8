@@ -354,7 +354,7 @@ namespace Flurrystics
                         noData.Visibility = Visibility.Visible;
                         EventsMetricsListPicker.IsEnabled = false;
                     }
-                }
+                } 
                 else
                 {
                     noData.Visibility = Visibility.Visible;
