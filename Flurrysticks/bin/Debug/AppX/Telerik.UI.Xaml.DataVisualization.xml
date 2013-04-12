@@ -203,6 +203,11 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Telerik.UI.Xaml.Controls.DataVisualization.RadBulletGraph.OnTemplateApplied">
+            <summary>
+            Ensures that all logical values fall within the specified range.
+            </summary>
+        </member>
         <member name="P:Telerik.UI.Xaml.Controls.DataVisualization.RadBulletGraph.IsAnimated">
             <summary>
             Gets a value that determines if the featured measure will be animated when its value changes.
@@ -1046,6 +1051,11 @@
             Initializes the template parts of the indicator (see the TemplatePart attributes for more information).
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.DataVisualization.MarkerGaugeIndicator.OnTemplateApplied">
+            <summary>
+            Occurs when the <see cref="M:OnApplyTemplate"/> method has been called and the template is already successfully applied.
+            </summary>
         </member>
         <member name="M:Telerik.UI.Xaml.Controls.DataVisualization.MarkerGaugeIndicator.MeasureOverride(Windows.Foundation.Size)">
             <summary>

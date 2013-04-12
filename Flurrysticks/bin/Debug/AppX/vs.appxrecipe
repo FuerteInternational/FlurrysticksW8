@@ -5,353 +5,373 @@
     <WindowsUser>fuerte</WindowsUser>
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
-    <RegisteredManifestChecksum>E3B5AFD34D6DBD39D36FBEAA2E59EA9B32B39A041A5486034689287AA12914AD</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>BF25C769.Flurrystics_1.0.0.17_neutral__fmn9gz4fh4avt</RegisteredPackageMoniker>
+    <RegisteredManifestChecksum>1A41EEE411A72E59B8F141D8F341CD56982BBBA5C126158F1166F9DED7095056</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>BF25C769.Flurrystics_1.0.0.18_neutral__fmn9gz4fh4avt</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>BF25C769.Flurrystics_fmn9gz4fh4avt!App</RegisteredUserModeAppID>
     <RegisteredPackageID>BF25C769.Flurrystics</RegisteredPackageID>
     <RegisteredPackagePublisher>CN=6867FAC2-F556-4432-9FD3-5336C97AD025</RegisteredPackagePublisher>
-    <RegisteredVersion>1.0.0.17</RegisteredVersion>
+    <RegisteredVersion>1.0.0.18</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-02-04T16:56:32.659</Modified>
+      <Modified>2013-04-12T12:32:13.627</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Flurrysticks.exe">
       <PackagePath>Flurrysticks.exe</PackagePath>
-      <Modified>2013-02-04T17:10:19.789</Modified>
+      <Modified>2013-04-12T12:33:25.028</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Flurrysticks.pdb">
       <PackagePath>Flurrysticks.pdb</PackagePath>
-      <Modified>2013-02-04T17:10:19.772</Modified>
+      <Modified>2013-04-12T12:33:24.987</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\FlurrysticsBackgroundTask\bin\Debug\FlurrysticsBackgroundTask.pdb">
       <PackagePath>FlurrysticsBackgroundTask.pdb</PackagePath>
-      <Modified>2013-02-04T11:17:23.323</Modified>
+      <Modified>2013-04-12T11:07:27.044</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Callisto\1.2.6\References\CommonConfiguration\neutral\Callisto.dll">
       <PackagePath>Callisto.dll</PackagePath>
       <Modified>2012-12-07T14:59:47.240</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.Core.dll">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.Core.dll">
       <PackagePath>Telerik.Core.dll</PackagePath>
-      <Modified>2012-12-04T16:16:44.000</Modified>
+      <Modified>2013-02-19T09:32:32.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.Chart.dll">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.Chart.dll">
       <PackagePath>Telerik.UI.Xaml.Chart.dll</PackagePath>
-      <Modified>2012-12-04T16:17:08.000</Modified>
+      <Modified>2013-02-19T09:32:52.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.DataVisualization.dll">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.DataVisualization.dll">
       <PackagePath>Telerik.UI.Xaml.DataVisualization.dll</PackagePath>
-      <Modified>2012-12-04T16:17:26.000</Modified>
+      <Modified>2013-02-19T09:33:10.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.Input.dll">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.Grid.dll">
+      <PackagePath>Telerik.UI.Xaml.Grid.dll</PackagePath>
+      <Modified>2013-02-19T09:33:28.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.Input.dll">
       <PackagePath>Telerik.UI.Xaml.Input.dll</PackagePath>
-      <Modified>2012-12-04T16:17:34.000</Modified>
+      <Modified>2013-02-19T09:33:18.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives.dll">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives.dll">
       <PackagePath>Telerik.UI.Xaml.Primitives.dll</PackagePath>
-      <Modified>2012-12-04T16:16:54.000</Modified>
+      <Modified>2013-02-19T09:32:40.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\packages\BugSense.W8.3.4\lib\win\BugSense-W8.dll">
       <PackagePath>BugSense-W8.dll</PackagePath>
-      <Modified>2013-02-04T10:41:47.138</Modified>
+      <Modified>2013-04-12T11:01:02.503</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\packages\winrtxamltoolkit.1.3.5.2\lib\netcore45\WinRTXamlToolkit.dll">
       <PackagePath>WinRTXamlToolkit.dll</PackagePath>
-      <Modified>2013-02-04T10:41:47.184</Modified>
+      <Modified>2013-04-12T11:01:02.545</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.Core.xml">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.Core.xml">
       <PackagePath>Telerik.Core.xml</PackagePath>
-      <Modified>2012-12-04T16:16:44.000</Modified>
+      <Modified>2013-02-19T09:32:32.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.Chart.xml">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.Chart.xml">
       <PackagePath>Telerik.UI.Xaml.Chart.xml</PackagePath>
-      <Modified>2012-12-04T16:17:08.000</Modified>
+      <Modified>2013-02-19T09:32:52.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.DataVisualization.xml">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.DataVisualization.xml">
       <PackagePath>Telerik.UI.Xaml.DataVisualization.xml</PackagePath>
-      <Modified>2012-12-04T16:17:26.000</Modified>
+      <Modified>2013-02-19T09:33:10.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.Input.xml">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.Grid.xml">
+      <PackagePath>Telerik.UI.Xaml.Grid.xml</PackagePath>
+      <Modified>2013-02-19T09:33:28.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.Input.xml">
       <PackagePath>Telerik.UI.Xaml.Input.xml</PackagePath>
-      <Modified>2012-12-04T16:17:34.000</Modified>
+      <Modified>2013-02-19T09:33:18.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives.xml">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives.xml">
       <PackagePath>Telerik.UI.Xaml.Primitives.xml</PackagePath>
-      <Modified>2012-12-04T16:16:54.000</Modified>
+      <Modified>2013-02-19T09:32:40.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\FlurrysticsBackgroundTask\bin\Debug\FlurrysticsBackgroundTask.winmd">
       <PackagePath>FlurrysticsBackgroundTask.winmd</PackagePath>
-      <Modified>2013-02-04T11:17:23.335</Modified>
+      <Modified>2013-04-12T11:07:27.056</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Callisto\1.2.6\Redist\CommonConfiguration\neutral\Themes\Generic.xaml">
       <PackagePath>Callisto\Themes\Generic.xaml</PackagePath>
       <Modified>2012-12-07T14:59:47.220</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Chart\Themes\Generic.xaml">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Chart\Themes\Generic.xaml">
       <PackagePath>Telerik.UI.Xaml.Chart\Themes\Generic.xaml</PackagePath>
-      <Modified>2012-12-04T16:14:24.000</Modified>
+      <Modified>2013-02-19T09:29:52.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.DataVisualization\Themes\Generic.xaml">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.DataVisualization\Themes\Generic.xaml">
       <PackagePath>Telerik.UI.Xaml.DataVisualization\Themes\Generic.xaml</PackagePath>
-      <Modified>2012-12-04T16:14:26.000</Modified>
+      <Modified>2013-02-19T09:29:54.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Input\Themes\Generic.xaml">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Grid\Themes\Generic.xaml">
+      <PackagePath>Telerik.UI.Xaml.Grid\Themes\Generic.xaml</PackagePath>
+      <Modified>2013-02-19T09:29:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Input\Themes\Generic.xaml">
       <PackagePath>Telerik.UI.Xaml.Input\Themes\Generic.xaml</PackagePath>
-      <Modified>2012-12-04T16:14:26.000</Modified>
+      <Modified>2013-02-19T09:29:54.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives\Themes\Generic.xaml">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives\Themes\Generic.xaml">
       <PackagePath>Telerik.UI.Xaml.Primitives\Themes\Generic.xaml</PackagePath>
-      <Modified>2012-12-04T16:14:26.000</Modified>
+      <Modified>2013-02-19T09:29:54.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives\Themes\GlobalPaletteDark.xaml">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives\Themes\GlobalPaletteDark.xaml">
       <PackagePath>Telerik.UI.Xaml.Primitives\Themes\GlobalPaletteDark.xaml</PackagePath>
-      <Modified>2012-12-04T16:14:26.000</Modified>
+      <Modified>2013-02-19T09:29:54.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives\Themes\GlobalPaletteLight.xaml">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives\Themes\GlobalPaletteLight.xaml">
       <PackagePath>Telerik.UI.Xaml.Primitives\Themes\GlobalPaletteLight.xaml</PackagePath>
-      <Modified>2012-12-04T16:14:26.000</Modified>
+      <Modified>2013-02-19T09:29:54.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives\Themes\HubTile.xaml">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives\Themes\HubTile.xaml">
       <PackagePath>Telerik.UI.Xaml.Primitives\Themes\HubTile.xaml</PackagePath>
-      <Modified>2012-12-04T16:14:26.000</Modified>
+      <Modified>2013-02-19T09:29:54.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives\Themes\Pagination.xaml">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives\Themes\Pagination.xaml">
       <PackagePath>Telerik.UI.Xaml.Primitives\Themes\Pagination.xaml</PackagePath>
-      <Modified>2012-12-04T16:14:26.000</Modified>
+      <Modified>2013-02-19T09:29:54.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.DataVisualization\Themes\PaletteDark.xaml">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.DataVisualization\Themes\PaletteDark.xaml">
       <PackagePath>Telerik.UI.Xaml.DataVisualization\Themes\PaletteDark.xaml</PackagePath>
-      <Modified>2012-12-04T16:14:26.000</Modified>
+      <Modified>2013-02-19T09:29:54.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Input\Themes\PaletteDark.xaml">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Grid\Themes\PaletteDark.xaml">
+      <PackagePath>Telerik.UI.Xaml.Grid\Themes\PaletteDark.xaml</PackagePath>
+      <Modified>2013-02-19T09:29:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Input\Themes\PaletteDark.xaml">
       <PackagePath>Telerik.UI.Xaml.Input\Themes\PaletteDark.xaml</PackagePath>
-      <Modified>2012-12-04T16:14:26.000</Modified>
+      <Modified>2013-02-19T09:29:54.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives\Themes\PaletteDark.xaml">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives\Themes\PaletteDark.xaml">
       <PackagePath>Telerik.UI.Xaml.Primitives\Themes\PaletteDark.xaml</PackagePath>
-      <Modified>2012-12-04T16:14:26.000</Modified>
+      <Modified>2013-02-19T09:29:54.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.DataVisualization\Themes\PaletteLight.xaml">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.DataVisualization\Themes\PaletteLight.xaml">
       <PackagePath>Telerik.UI.Xaml.DataVisualization\Themes\PaletteLight.xaml</PackagePath>
-      <Modified>2012-12-04T16:14:26.000</Modified>
+      <Modified>2013-02-19T09:29:54.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Input\Themes\PaletteLight.xaml">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Grid\Themes\PaletteLight.xaml">
+      <PackagePath>Telerik.UI.Xaml.Grid\Themes\PaletteLight.xaml</PackagePath>
+      <Modified>2013-02-19T09:29:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Input\Themes\PaletteLight.xaml">
       <PackagePath>Telerik.UI.Xaml.Input\Themes\PaletteLight.xaml</PackagePath>
-      <Modified>2012-12-04T16:14:26.000</Modified>
+      <Modified>2013-02-19T09:29:54.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q3 2012\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives\Themes\PaletteLight.xaml">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Primitives\Themes\PaletteLight.xaml">
       <PackagePath>Telerik.UI.Xaml.Primitives\Themes\PaletteLight.xaml</PackagePath>
-      <Modified>2012-12-04T16:14:26.000</Modified>
+      <Modified>2013-02-19T09:29:54.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\BadgeLogo.scale-100.png">
       <PackagePath>Assets\BadgeLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-02-04T10:41:36.140</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\BadgeLogo.scale-180.png">
       <PackagePath>Assets\BadgeLogo.scale-180.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-02-04T10:41:36.140</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\compare.png">
       <PackagePath>Assets\compare.png</PackagePath>
-      <Modified>2013-02-04T10:41:36.160</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\comparedisable.png">
       <PackagePath>Assets\comparedisable.png</PackagePath>
-      <Modified>2013-02-04T10:41:36.200</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\SplashScreen.scale-140.png">
       <PackagePath>Assets\SplashScreen.scale-140.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-02-04T10:41:36.150</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\Logo.scale-140.png">
       <PackagePath>Assets\Logo.scale-140.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-02-04T10:41:36.140</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\WideLogo.scale-140.png">
       <PackagePath>Assets\WideLogo.scale-140.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-02-04T10:41:36.160</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\SplashScreen.scale-180.png">
       <PackagePath>Assets\SplashScreen.scale-180.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-02-04T10:41:36.150</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\Logo.scale-180.png">
       <PackagePath>Assets\Logo.scale-180.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-02-04T10:41:36.150</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\WideLogo.scale-180.png">
       <PackagePath>Assets\WideLogo.scale-180.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-02-04T10:41:36.160</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\screen_shrinked.scale-140.png">
       <PackagePath>Assets\screen_shrinked.scale-140.png</PackagePath>
-      <Modified>2013-02-04T10:41:36.260</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\screen_shrinked.scale-180.png">
       <PackagePath>Assets\screen_shrinked.scale-180.png</PackagePath>
-      <Modified>2013-02-04T10:41:36.270</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\flurryst_icon_blackberry.png">
       <PackagePath>Assets\flurryst_icon_blackberry.png</PackagePath>
-      <Modified>2013-02-04T10:41:36.220</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\flurryst_icon_java.png">
       <PackagePath>Assets\flurryst_icon_java.png</PackagePath>
-      <Modified>2013-02-04T10:41:36.220</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\flurryst_icon_windows.png">
       <PackagePath>Assets\flurryst_icon_windows.png</PackagePath>
-      <Modified>2013-02-04T10:41:36.260</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\flu_bg.scale-80.png">
       <PackagePath>Assets\flu_bg.scale-80.png</PackagePath>
-      <Modified>2013-02-04T10:41:36.210</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\flu_bg.png">
       <PackagePath>Assets\flu_bg.png</PackagePath>
-      <Modified>2013-02-04T10:41:36.200</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\flu_bg.scale-180.png">
       <PackagePath>Assets\flu_bg.scale-180.png</PackagePath>
-      <Modified>2013-02-04T10:41:36.210</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\flu_device_8_android.png">
       <PackagePath>Assets\flu_device_8_android.png</PackagePath>
-      <Modified>2013-02-04T10:41:36.210</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\flu_device_8_ios.png">
       <PackagePath>Assets\flu_device_8_ios.png</PackagePath>
-      <Modified>2013-02-04T10:41:36.220</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\flu_home_logo.png">
       <PackagePath>Assets\flu_home_logo.png</PackagePath>
-      <Modified>2013-02-04T10:41:36.220</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-02-04T10:41:36.140</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\PageLogo.png">
       <PackagePath>Assets\PageLogo.png</PackagePath>
-      <Modified>2013-02-04T10:41:36.150</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\screen_shrinked.png">
       <PackagePath>Assets\screen_shrinked.png</PackagePath>
-      <Modified>2013-02-04T10:41:36.260</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-02-04T10:41:36.150</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-02-04T10:41:36.150</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-02-04T10:41:36.150</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\LightGray.png">
       <PackagePath>Assets\LightGray.png</PackagePath>
-      <Modified>2013-02-04T10:41:36.140</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\MediumGray.png">
       <PackagePath>Assets\MediumGray.png</PackagePath>
-      <Modified>2013-02-04T10:41:36.150</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\DarkGray.png">
       <PackagePath>Assets\DarkGray.png</PackagePath>
-      <Modified>2013-02-04T10:41:36.140</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\touch.png">
       <PackagePath>Assets\touch.png</PackagePath>
-      <Modified>2013-02-04T10:41:36.270</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\touchdisable.png">
       <PackagePath>Assets\touchdisable.png</PackagePath>
-      <Modified>2013-02-04T10:41:36.270</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Assets\WideLogo.scale-100.png">
       <PackagePath>Assets\WideLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-02-04T10:41:36.150</Modified>
+      <Modified>2013-04-12T11:00:57.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\App.xaml">
       <PackagePath>App.xaml</PackagePath>
-      <Modified>2013-02-04T10:41:35.770</Modified>
+      <Modified>2013-04-12T11:00:56.419</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\EventMetrics.xaml">
       <PackagePath>EventMetrics.xaml</PackagePath>
-      <Modified>2013-02-04T17:10:14.340</Modified>
+      <Modified>2013-04-12T11:00:57.312</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\AppMetrics.xaml">
       <PackagePath>AppMetrics.xaml</PackagePath>
-      <Modified>2013-02-04T17:10:00.013</Modified>
+      <Modified>2013-04-12T11:00:56.435</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Common\StandardStyles.xaml">
       <PackagePath>Common\StandardStyles.xaml</PackagePath>
-      <Modified>2013-02-04T17:06:20.378</Modified>
+      <Modified>2013-04-12T12:26:25.262</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\AccountApplicationsPage.xaml">
       <PackagePath>AccountApplicationsPage.xaml</PackagePath>
-      <Modified>2013-02-04T16:35:55.066</Modified>
+      <Modified>2013-04-12T12:33:17.013</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\packages\winrtxamltoolkit.1.3.5.2\lib\netcore45\WinRTXamlToolkit\Controls\AnimatingContainer.xaml">
       <PackagePath>WinRTXamlToolkit\Controls\AnimatingContainer.xaml</PackagePath>
-      <Modified>2013-02-04T10:41:47.216</Modified>
+      <Modified>2013-04-12T11:01:02.779</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\packages\winrtxamltoolkit.1.3.5.2\lib\netcore45\WinRTXamlToolkit\Controls\CascadingTextBlock.xaml">
       <PackagePath>WinRTXamlToolkit\Controls\CascadingTextBlock.xaml</PackagePath>
-      <Modified>2013-02-04T10:41:47.216</Modified>
+      <Modified>2013-04-12T11:01:02.780</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\packages\winrtxamltoolkit.1.3.5.2\lib\netcore45\WinRTXamlToolkit\Controls\CountdownControl.xaml">
       <PackagePath>WinRTXamlToolkit\Controls\CountdownControl.xaml</PackagePath>
-      <Modified>2013-02-04T10:41:47.247</Modified>
+      <Modified>2013-04-12T11:01:02.864</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\packages\winrtxamltoolkit.1.3.5.2\lib\netcore45\WinRTXamlToolkit\Controls\ColorPicker\ColorPicker.xaml">
       <PackagePath>WinRTXamlToolkit\Controls\ColorPicker\ColorPicker.xaml</PackagePath>
-      <Modified>2013-02-04T10:41:47.247</Modified>
+      <Modified>2013-04-12T11:01:02.862</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\packages\winrtxamltoolkit.1.3.5.2\lib\netcore45\WinRTXamlToolkit\Controls\CustomAppBar\CustomAppBar.xaml">
       <PackagePath>WinRTXamlToolkit\Controls\CustomAppBar\CustomAppBar.xaml</PackagePath>
-      <Modified>2013-02-04T10:41:47.247</Modified>
+      <Modified>2013-04-12T11:01:02.869</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\packages\winrtxamltoolkit.1.3.5.2\lib\netcore45\WinRTXamlToolkit\Controls\DelayedLoadControl\DelayedLoadControl.xaml">
       <PackagePath>WinRTXamlToolkit\Controls\DelayedLoadControl\DelayedLoadControl.xaml</PackagePath>
-      <Modified>2013-02-04T10:41:47.247</Modified>
+      <Modified>2013-04-12T11:01:02.870</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\packages\winrtxamltoolkit.1.3.5.2\lib\netcore45\WinRTXamlToolkit\Controls\InputDialog\InputDialog.xaml">
       <PackagePath>WinRTXamlToolkit\Controls\InputDialog\InputDialog.xaml</PackagePath>
-      <Modified>2013-02-04T10:41:47.247</Modified>
+      <Modified>2013-04-12T11:01:02.876</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\packages\winrtxamltoolkit.1.3.5.2\lib\netcore45\WinRTXamlToolkit\Controls\WebBrowser\WebBrowser.xaml">
       <PackagePath>WinRTXamlToolkit\Controls\WebBrowser\WebBrowser.xaml</PackagePath>
-      <Modified>2013-02-04T10:41:47.247</Modified>
+      <Modified>2013-04-12T11:01:02.881</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\packages\winrtxamltoolkit.1.3.5.2\lib\netcore45\WinRTXamlToolkit\Themes\Generic.xaml">
       <PackagePath>WinRTXamlToolkit\Themes\Generic.xaml</PackagePath>
-      <Modified>2013-02-04T10:41:47.262</Modified>
+      <Modified>2013-04-12T11:01:02.890</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2013-02-04T11:17:30.209</Modified>
+      <Modified>2013-04-12T11:07:31.807</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

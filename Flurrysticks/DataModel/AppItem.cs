@@ -15,6 +15,7 @@ namespace Flurrysticks.DataModel
         {
             this._Name = Name;
             this._AppApiKey = AppApiKey;
+            this._ApiKey = ApiKey; // api access key - only used for favItems
             this._Platform = Platform;
             this._CreatedDate = CreatedDate;
             this._Image = Image;
@@ -32,6 +33,13 @@ namespace Flurrysticks.DataModel
         {
             get { return this._AppApiKey; }
             set { this.SetProperty(ref this._AppApiKey, value); }
+        }
+
+        private string _ApiKey = string.Empty;
+        public string ApiKey
+        {
+            get { return this._ApiKey; }
+            set { this.SetProperty(ref this._ApiKey, value); }
         }
 
         private string _Platform = string.Empty;

@@ -28,12 +28,12 @@
                                                   BorderBrush="{TemplateBinding BorderBrush}"
                                                   Background="{TemplateBinding Background}"
                                                   BorderThickness="{TemplateBinding BorderThickness}"
-                                                 IsFlipped="{Binding IsFlipped, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
+                                                  IsFlipped="{Binding IsFlipped, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
                             <localHubTile:FlipControl.FrontContent>
                                 <Grid>
                                     <ContentPresenter Content="{TemplateBinding FrontContent}" ContentTemplate="{TemplateBinding FrontContentTemplate}" 
                                                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                                    <ContentPresenter x:Name="PART_Title" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
+                                    <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
                                                       Content="{TemplateBinding Title}" ContentTemplate="{TemplateBinding TitleTemplate}"
                                                       Margin="{TemplateBinding Padding}"/>
                                 </Grid>
@@ -64,7 +64,7 @@
 
                                     <Image Source="{TemplateBinding ImageSource}" Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-                                    <ContentPresenter x:Name="PART_Title" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="{TemplateBinding Padding}"
+                                    <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="{TemplateBinding Padding}"
                                                       Content="{TemplateBinding Title}" ContentTemplate="{TemplateBinding TitleTemplate}"/>
                                     <ContentControl x:Name="PART_Notification" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="{TemplateBinding Padding}"
                                                     FontWeight="Bold" Content="{TemplateBinding Notification}" ContentTemplate="{TemplateBinding NotificationTemplate}"/>
@@ -195,7 +195,7 @@
                                         <localHubTile:CustomMosaicTilePart Style="{TemplateBinding TileStyle}" Grid.Row="2" Grid.Column="2"/>
                                     </Grid>
 
-                                    <ContentPresenter x:Name="PART_Title" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="{TemplateBinding Padding}"
+                                    <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="{TemplateBinding Padding}"
                                                       Content="{TemplateBinding Title}" ContentTemplate="{TemplateBinding TitleTemplate}"/>
                                 </Grid>
                             </localHubTile:FlipControl.FrontContent>
@@ -310,7 +310,7 @@
                                     </Canvas>
 
                                     <ContentPresenter Content="{TemplateBinding Title}" ContentTemplate="{TemplateBinding TitleTemplate}"
-                                                      VerticalAlignment="Bottom" HorizontalAlignment="Stretch" x:Name="PART_Title" Margin="{TemplateBinding Padding}"/>
+                                                      VerticalAlignment="Bottom" HorizontalAlignment="Stretch"  Margin="{TemplateBinding Padding}"/>
                                 </Grid>
                             </localHubTile:FlipControl.FrontContent>
                         </localHubTile:FlipControl>
@@ -344,7 +344,7 @@
                                                                TopContent="{TemplateBinding TopContent}" TopContentTemplate="{TemplateBinding TopContentTemplate}"
                                                                BottomContent="{TemplateBinding BottomContent}" BottomContentTemplate="{TemplateBinding BottomContentTemplate}"/>
                                     <ContentPresenter Content="{TemplateBinding Title}" ContentTemplate="{TemplateBinding TitleTemplate}"
-                                                      VerticalAlignment="Bottom" HorizontalAlignment="Stretch" x:Name="PART_Title" Margin="{TemplateBinding Padding}"/>
+                                                      VerticalAlignment="Bottom" HorizontalAlignment="Stretch"  Margin="{TemplateBinding Padding}"/>
                                 </Grid>
                             </localHubTile:FlipControl.FrontContent>
                         </localHubTile:FlipControl>

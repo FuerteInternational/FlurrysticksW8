@@ -99,7 +99,7 @@
                 TabIndex="1"
                 Grid.Row="2"
                 Padding="116,19,116,36"
-                SelectionMode="None"
+                SelectionMode="Multiple"
                 IsSwipeEnabled="True"
                 IsItemClickEnabled="True"
                                               
@@ -267,15 +267,26 @@
         </Grid>
     </Grid>
 
+    <common:LayoutAwarePage.TopAppBar>
+        <AppBar AllowDrop="True">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:ConnectionId='7' Name="favorites" Content="favorites" HorizontalAlignment="Left" VerticalAlignment="Stretch"
+                        Style="{StaticResource TopAppBarStyle}"                      />
+                <Button x:ConnectionId='8' Name="accounts" Content="accounts" HorizontalAlignment="Left" VerticalAlignment="Stretch"  
+                        Style="{StaticResource TopAppBarStyle}"                      />
+            </StackPanel>
+        </AppBar>
+    </common:LayoutAwarePage.TopAppBar>
+
     <common:LayoutAwarePage.BottomAppBar>
-        <AppBar x:ConnectionId='7' x:Name="bottomAppBar" Padding="10,0,10,0"                               >
+        <AppBar x:ConnectionId='9' x:Name="bottomAppBar" Padding="10,0,10,0"                               >
             <Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:ConnectionId='9' x:Name="RemoveAppBarButton" Style="{StaticResource RemoveAppBarButtonStyle}"                       />
-                    <Button x:ConnectionId='10' Style="{StaticResource AddAppBarButtonStyle}"                       />
+                    <Button x:ConnectionId='11' x:Name="RemoveAppBarButton" Style="{StaticResource RemoveAppBarButtonStyle}"                       />
+                    <Button x:ConnectionId='12' Style="{StaticResource AddAppBarButtonStyle}"                       />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Button x:ConnectionId='8' x:Name="sortButton" Style="{StaticResource SortAppBarButtonStyle}"                       />
+                    <Button x:ConnectionId='10' x:Name="sortButton" Style="{StaticResource SortAppBarButtonStyle}"                       />
                 </StackPanel>
             </Grid>
         </AppBar>

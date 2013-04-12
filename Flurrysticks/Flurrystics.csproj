@@ -106,8 +106,8 @@
     <SDKReference Include="Callisto, Version=1.2.6">
       <Name>Callisto %28Callisto, Version=1.2.6%29</Name>
     </SDKReference>
-    <SDKReference Include="RadControls for Windows 8, Version=2012.3.1204">
-      <Name>RadControls for Windows 8</Name>
+    <SDKReference Include="RadControls for Windows 8, Version=2013.1.219">
+      <Name>RadControls for Windows 8 %28RadControls for Windows 8, Version=2013.1.219%29</Name>
     </SDKReference>
   </ItemGroup>
   <ItemGroup>

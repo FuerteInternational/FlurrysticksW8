@@ -753,6 +753,12 @@ namespace Flurrystics
             }
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button sourceButton = (Button)sender;
+            Debug.WriteLine("Change context:"+sourceButton.Name);
+        }
+
     }
 
     [XmlRoot]

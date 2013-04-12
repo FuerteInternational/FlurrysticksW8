@@ -7,8 +7,9 @@
     <localTheming:PaletteInitializer x:Key="PaletteInitializer"/>
 
     <Style TargetType="local:RadLegendControl">
-        <Setter Property="VerticalAlignment" Value="Top"></Setter>
-        <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Foreground" Value="{StaticResource TelerikSecondaryForegroundBrush}" />
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
@@ -21,7 +22,7 @@
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <Rectangle Margin="0 0 2 2" Width="10" Height="10" Fill="{Binding Fill}" Stroke="{Binding Stroke}" StrokeThickness="1"/>
-                        <TextBlock Margin="2" Text="{Binding Title}" Foreground="{StaticResource TelerikSecondaryForegroundBrush}"/>
+                        <TextBlock Margin="2" Text="{Binding Title}" />
                     </StackPanel>
                 </DataTemplate>
             </Setter.Value>
@@ -30,7 +31,13 @@
             <Setter.Value>
                 <ControlTemplate TargetType="local:RadLegendControl">
                     <Border Background="{TemplateBinding Background}" Margin="{TemplateBinding Margin}" Padding="{TemplateBinding Padding}">
-                        <ItemsControl x:Name="PART_LegendPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" ItemTemplate="{TemplateBinding ItemTemplate}"  Margin="10" VerticalAlignment="{TemplateBinding VerticalAlignment}" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" ItemsSource="{Binding}"/>
+                        <ItemsControl x:Name="PART_LegendPresenter" 
+                                      ItemsPanel="{TemplateBinding ItemsPanel}" 
+                                      ItemTemplate="{TemplateBinding ItemTemplate}"  
+                                      Margin="10" 
+                                      VerticalAlignment="{TemplateBinding VerticalAlignment}" 
+                                      HorizontalAlignment="{TemplateBinding HorizontalAlignment}" 
+                                      ItemsSource="{Binding}"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

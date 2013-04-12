@@ -48,11 +48,28 @@ namespace Flurrystics.Data
             _DataSource.sampleApps = what;
         }
 
+        public static ObservableCollection<AppItem> getFavApps()
+        {
+            return _DataSource.sampleFavApps;
+        }
+
+        public static void setFavApps(ObservableCollection<AppItem> what)
+        {
+            _DataSource.sampleFavApps = what;
+        }
+
         private ObservableCollection<AppItem> _sampleApps = new ObservableCollection<AppItem>();
         public ObservableCollection<AppItem> sampleApps
         {
             get { return this._sampleApps; }
             set { _sampleApps = value; }
+        }
+
+        private ObservableCollection<AppItem> _sampleFavApps = new ObservableCollection<AppItem>();
+        public ObservableCollection<AppItem> sampleFavApps
+        {
+            get { return this._sampleFavApps; }
+            set { _sampleFavApps = value; }
         }
 
         public static ObservableCollection<Account> getAccounts()

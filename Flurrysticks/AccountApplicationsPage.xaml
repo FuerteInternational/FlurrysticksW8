@@ -99,7 +99,7 @@
                 TabIndex="1"
                 Grid.Row="2"
                 Padding="116,19,116,36"
-                SelectionMode="None"
+                SelectionMode="Multiple"
                 IsSwipeEnabled="True"
                 IsItemClickEnabled="True"
                 ItemClick="ItemView_ItemClick"
@@ -185,7 +185,7 @@
             Padding="10,0,0,60"
             ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
             ItemTemplate="{StaticResource Standard80ItemTemplate}"
-            SelectionMode="None"
+            SelectionMode="Multiple"
             IsSwipeEnabled="True"
             IsItemClickEnabled="True"
             ItemClick="ItemView_ItemClick"/>
@@ -266,6 +266,17 @@
             </StackPanel>
         </Grid>
     </Grid>
+
+    <common:LayoutAwarePage.TopAppBar>
+        <AppBar AllowDrop="True">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Name="favorites" Content="favorites" HorizontalAlignment="Left" VerticalAlignment="Stretch"
+                        Style="{StaticResource TopAppBarStyle}" Click="Button_Click" />
+                <Button Name="accounts" Content="accounts" HorizontalAlignment="Left" VerticalAlignment="Stretch"  
+                        Style="{StaticResource TopAppBarStyle}" Click="Button_Click" />
+            </StackPanel>
+        </AppBar>
+    </common:LayoutAwarePage.TopAppBar>
 
     <common:LayoutAwarePage.BottomAppBar>
         <AppBar x:Name="bottomAppBar" Padding="10,0,10,0" Opened="bottomAppBar_Opened_1">

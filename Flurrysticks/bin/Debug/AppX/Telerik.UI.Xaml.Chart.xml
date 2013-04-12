@@ -4,221 +4,6 @@
         <name>Telerik.UI.Xaml.Chart</name>
     </assembly>
     <members>
-        <member name="T:Telerik.Charting.ChartElement">
-            <summary>
-            Base class for nodes that may have chidren.
-            </summary>
-        </member>
-        <member name="T:Telerik.Charting.ChartNode">
-            <summary>
-            Base class for all models that form the ChartArea tree.
-            </summary>
-        </member>
-        <member name="T:Telerik.Charting.PropertyBagObject">
-            <summary>
-            Represents a <see cref="T:Telerik.Charting.DisposableObject"/> that stores its properties within a property bag.
-            </summary>
-        </member>
-        <member name="T:Telerik.Charting.DisposableObject">
-            <summary>
-            Represents an object that implements the <see cref="T:System.IDisposable"/> interface and automatically releases any events, attached to this instance.
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.DisposableObject.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Telerik.Charting.DisposableObject"/> class.
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.DisposableObject.Dispose">
-            <summary>
-            Releases all resources, used by this instance.
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.DisposableObject.DisposeManagedResources">
-            <summary>
-            Disposes all managed resources allocated by this instance.
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.DisposableObject.DisposeUnmanagedResources">
-            <summary>
-            Disposes all unmanaged resources allocated by this instance.
-            </summary>
-        </member>
-        <member name="E:Telerik.Charting.DisposableObject.Disposing">
-            <summary>
-            Raised when the object enters its Dispose routine.
-            </summary>
-        </member>
-        <member name="E:Telerik.Charting.DisposableObject.Disposed">
-            <summary>
-            Raised when the object has finished its Dispose routine.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.DisposableObject.IsDisposing">
-            <summary>
-            Gets a value indicating whether the object is currently in a Dispose cycle.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.DisposableObject.IsDisposed">
-            <summary>
-            Gets a value indicating whether the object is already disposed.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.DisposableObject.Events">
-            <summary>
-            Gets the list of all events, associated with this instance.
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.PropertyBagObject.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Telerik.Charting.PropertyBagObject"/> class.
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.PropertyBagObject.DisposeManagedResources">
-            <summary>
-            Disposes all managed resources allocated by this instance.
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.ChartNode.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Telerik.Charting.ChartNode"/> class.
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.ChartNode.Arrange(Telerik.Charting.RadRect,System.Boolean)">
-            <summary>
-            Arranges the node within the specified layout slot.
-            </summary>
-            <param name="rect"></param>
-            <param name="shouldRoundLayout"></param>
-        </member>
-        <member name="M:Telerik.Charting.ChartNode.Invalidate">
-            <summary>
-            Delegates an "Invalidate" request to the owning <see cref="T:Telerik.Charting.IChartView"/> instance (if any).
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.ChartNode.ApplyLayoutRounding">
-            <summary>
-            Performs pixel-snapping and corrects floating-point calculations errors.
-            </summary>
-        </member>
-        <member name="E:Telerik.Charting.ChartNode.PropertyChanged">
-            <summary>
-            Occurs when a value of some property has changed.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.ChartNode.IsArrangeValid">
-            <summary>
-            Gets a value indicating whether the node is laid-out on the chart scene.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.ChartNode.NodeState">
-            <summary>
-            Gets the current state of the node.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.ChartNode.Index">
-            <summary>
-            Gets the index of this node in its parent <see cref="T:Telerik.Charting.ChartElement"/> nodes collection.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.ChartNode.CollectionIndex">
-            <summary>
-            Gets the index of this node in its owning typed collection.
-            An <see cref="T:Telerik.Charting.AxisLabelModel"/> for example will have this property set to the index of the label within the <see cref="P:Telerik.Charting.AxisModel.Labels"/> collection.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.ChartNode.IsTreeLoaded">
-            <summary>
-            Gets a value indicating whether the logical tree this node is part of is loaded.
-            </summary>
-            <remarks>
-            This actually checks for a valid <see cref="T:Telerik.Charting.ChartAreaModel"/> reference and asks whether the area itself is loaded.
-            This value may differ from the current <see cref="P:Telerik.Charting.ChartNode.NodeState"/>.
-            </remarks>
-        </member>
-        <member name="P:Telerik.Charting.ChartNode.LayoutSlot">
-            <summary>
-            Gets the rectangle (in physical coordinates) where this node resides.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.ChartNode.Parent">
-            <summary>
-            Gets the <see cref="T:Telerik.Charting.ChartElement"/> where this node resides.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.ChartNode.Presenter">
-            <summary>
-            Gets the <see cref="T:Telerik.Charting.IChartElementPresenter"/> instance where this node is visualized.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.ChartNode.TrackPropertyChanging">
-            <summary>
-            Gets or sets a value indicating whether the node will go through the OnPropertyChanging routine when a property is about to be changed.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.ChartNode.TrackPropertyChanged">
-            <summary>
-            Gets or sets a value indicating whether the node will go through the OnPropertyChanged routine when a property has changed.
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.ChartElement.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Telerik.Charting.ChartElement"/> class.
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.ChartElement.FindAncestor``1">
-            <summary>
-            Searches up the parent chain and returns the first parent of type T.
-            </summary>
-            <typeparam name="T">Must be a <see cref="T:Telerik.Charting.ChartElement"/>.</typeparam>
-        </member>
-        <member name="M:Telerik.Charting.ChartElement.IsAncestorOf(Telerik.Charting.ChartNode)">
-            <summary>
-            Gets a boolean value that determines whether a given element
-            resides in the element hierarchy of this element.
-            </summary>
-            <param name="node">An instance of the <see cref="T:Telerik.Charting.ChartNode"/>
-            class which is checked.</param>
-        </member>
-        <member name="M:Telerik.Charting.ChartElement.FindDescendant``1">
-            <summary>
-            Searches down the subtree of elements, using breadth-first approach, and returns the first descendant of type T.
-            </summary>
-            <typeparam name="T">Must be a <see cref="T:Telerik.Charting.ChartNode"/>.</typeparam>
-        </member>
-        <member name="M:Telerik.Charting.ChartElement.FindDescendant(System.Predicate{Telerik.Charting.ChartNode})">
-            <summary>
-            Searches down the subtree of elements, using breadth-first approach, and returns the first descendant of type T.
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.ChartElement.EnumDescendants">
-            <summary>
-            Provides flexible routine for traversing all descendants of this instance.
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.ChartElement.EnumDescendants(Telerik.Charting.TreeTraversalMode)">
-            <summary>
-            Provides flexible routine for traversing all descendants of this instance.
-            </summary>
-            <param name="traverseMode">The mode used to traverse the subtree.</param>
-        </member>
-        <member name="M:Telerik.Charting.ChartElement.EnumDescendants(System.Predicate{Telerik.Charting.ChartNode},Telerik.Charting.TreeTraversalMode)">
-            <summary>
-            Provides flexible routine for traversing all descendants of this instance that match the provided predicate.
-            </summary>
-            <param name="predicate">The predicate that defines the match criteria.</param>
-            <param name="traverseMode">The mode used to traverse the subtree.</param>
-        </member>
-        <member name="M:Telerik.Charting.ChartElement.DisposeManagedResources">
-            <summary>
-            Disposes all managed resources allocated by this instance.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.ChartElement.Presenter">
-            <summary>
-            Gets the <see cref="T:Telerik.Charting.IChartElementPresenter"/> instance where this element is presented.
-            </summary>
-        </member>
         <member name="M:Telerik.Charting.AxisModel.ApplyLayoutRounding">
             <summary>
             Performs pixel-snapping and corrects floating-point calculations errors.
@@ -563,7 +348,7 @@
             The <see cref="P:System.DateTime.DayOfYear"/> component.
             </summary>
         </member>
-        <member name="M:Telerik.Charting.AxisModelLayoutStrategy.GetVisibleRange(Telerik.Charting.RadSize)">
+        <member name="M:Telerik.Charting.AxisModelLayoutStrategy.GetVisibleRange(Telerik.Core.RadSize)">
             <summary>
             Gets the currently visible axis range within the [0, 1] order.
             We are using decimal here for higher precision; the Double type generates ridiculous floating-point errors - e.g. 1.2 / 0.2 != 6 but rather 5.999999999999991.
@@ -736,12 +521,6 @@
             </summary>
             <param name="point"></param>
             <param name="positive">Determines whether the point value is positive relative to the plot origin.</param>
-        </member>
-        <member name="M:Telerik.Charting.NumericalAxisModel.OnPropertyChanged(Telerik.Charting.RadPropertyEventArgs)">
-            <summary>
-            Raises the <see cref="E:PropertyChanged"/> event.
-            </summary>
-            <param name="e">The <see cref="T:Telerik.Charting.RadPropertyEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="P:Telerik.Charting.NumericalAxisModel.DesiredTickCount">
             <summary>
@@ -955,11 +734,6 @@
             Such chart areas are the <see cref="T:Telerik.Charting.CartesianChartAreaModel"/> and <see cref="T:Telerik.Charting.PolarChartAreaModel"/>.
             </summary>
         </member>
-        <member name="M:Telerik.Charting.ChartAreaModel.Arrange">
-            <summary>
-            Arranges the area using a rectangle located at (0, 0) and with Size equal to the current view's Viewport.
-            </summary>
-        </member>
         <member name="P:Telerik.Charting.ChartAreaModel.PlotArea">
             <summary>
             Gets the area where data points are plotted.
@@ -968,22 +742,6 @@
         <member name="P:Telerik.Charting.ChartAreaModel.Series">
             <summary>
             Gets the collection with all the series currently plotted by this instance.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.ChartAreaModel.IsTreeLoaded">
-            <summary>
-            Determines whether the node is loaded.
-            </summary>
-            <value></value>
-        </member>
-        <member name="P:Telerik.Charting.ChartAreaModel.IsSuspended">
-            <summary>
-            Gets a value indicating whether updates are currently suspended.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.ChartAreaModel.Dispatcher">
-            <summary>
-            Gets the dispatcher used to broadcast messages among tree nodes.
             </summary>
         </member>
         <member name="M:Telerik.Charting.ChartAreaModelWithAxes.#ctor">
@@ -1032,22 +790,6 @@
             Gets or sets the angle axis of the polar coordinate system.
             </summary>
         </member>
-        <member name="T:Telerik.Charting.IDataPointProcessor">
-            <summary>
-            Defines a type that may enrich a <see cref="T:Telerik.Charting.DataPoint"/> with additional properties.
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.IDataPointProcessor.Process(Telerik.Charting.DataPoint)">
-            <summary>
-            Performs the core action over the specified point.
-            </summary>
-            <param name="dataPoint"></param>
-        </member>
-        <member name="P:Telerik.Charting.IDataPointProcessor.IsEnabled">
-            <summary>
-            Gets or sets a value indicating whether the processor is currently enabled.
-            </summary>
-        </member>
         <member name="T:Telerik.Charting.DateTimeExtensions">
             <summary>
             Collection of helper methods for retrieving unique (year-wise) values for some date/time components besides the ones provided by DateTime class.  
@@ -1062,36 +804,6 @@
             <summary>
             Gets the quarter component of the date represented by the DateTime instance.
             </summary>
-        </member>
-        <member name="T:Telerik.Charting.ElementCollection`1">
-            <summary>
-            Represents a typed collection of <see cref="T:Telerik.Charting.ChartNode"/> instances. For example an <see cref="T:Telerik.Charting.AxisModel"/> aggregates two typed collections - Ticks and Labels.
-            </summary>
-            <typeparam name="T">Must be a <see cref="T:Telerik.Charting.ChartNode"/>.</typeparam>
-        </member>
-        <member name="M:Telerik.Charting.ElementCollection`1.#ctor(Telerik.Charting.ChartElement)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Telerik.Charting.ElementCollection`1"/> class.
-            </summary>
-            <param name="owner">The owner.</param>
-        </member>
-        <member name="M:Telerik.Charting.ElementCollection`1.InsertItem(System.Int32,`0)">
-            <summary>
-            Inserts the item at the specified index.
-            </summary>
-            <param name="index">The index.</param>
-            <param name="item">The item.</param>
-        </member>
-        <member name="M:Telerik.Charting.ElementCollection`1.ClearItems">
-            <summary>
-            Removes all items from the collection.
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.ElementCollection`1.RemoveItem(System.Int32)">
-            <summary>
-            Removes the item at the specified index.
-            </summary>
-            <param name="index">The index.</param>
         </member>
         <member name="T:Telerik.Charting.EventHandlerList">
             <summary>
@@ -1122,74 +834,6 @@
             Retrieves the delegate, associated with the provided key.
             </summary>
             <param name="key"></param>
-        </member>
-        <member name="T:Telerik.Charting.RadThickness">
-            <summary>
-            Represents a structure that defines margins (or padding) of an element.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.RadThickness.Empty">
-            <summary>
-            A <see cref="T:Telerik.Charting.RadThickness"/> instance with Left, Top, Right, and Bottom components equal to 0.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.RadThickness.Left">
-            <summary>
-            Left length.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.RadThickness.Top">
-            <summary>
-            Top length.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.RadThickness.Right">
-            <summary>
-            Right length.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.RadThickness.Bottom">
-            <summary>
-            Bottom length.
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.RadThickness.#ctor(System.Double,System.Double,System.Double,System.Double)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Telerik.Charting.RadThickness"/> struct.
-            </summary>
-            <param name="left">The left.</param>
-            <param name="top">The top.</param>
-            <param name="right">The right.</param>
-            <param name="bottom">The bottom.</param>
-        </member>
-        <member name="M:Telerik.Charting.RadThickness.op_Equality(Telerik.Charting.RadThickness,Telerik.Charting.RadThickness)">
-            <summary>
-            Determines whether two <see cref="T:Telerik.Charting.RadThickness"/> structures are equal.
-            </summary>
-            <param name="thickness1"></param>
-            <param name="thickness2"></param>
-        </member>
-        <member name="M:Telerik.Charting.RadThickness.op_Inequality(Telerik.Charting.RadThickness,Telerik.Charting.RadThickness)">
-            <summary>
-            Determines whether two <see cref="T:Telerik.Charting.RadThickness"/> structures are not equal.
-            </summary>
-            <param name="thickness1"></param>
-            <param name="thickness2"></param>
-        </member>
-        <member name="M:Telerik.Charting.RadThickness.Equals(System.Object)">
-            <summary>
-            Determines whether the specified <see cref="T:System.Object"/> is equal to this instance.
-            </summary>
-            <param name="obj">The <see cref="T:System.Object"/> to compare with this instance.</param>
-            <returns>
-                <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
-            </returns>
-        </member>
-        <member name="M:Telerik.Charting.RadThickness.GetHashCode">
-            <summary>
-            Serves as a hash function for a particular type.
-            </summary>
-            <returns>A hash code for the current <see cref="T:System.Object" />.</returns>
         </member>
         <member name="T:Telerik.Charting.ReferenceDictionary`2">
             <summary>
@@ -1263,6 +907,11 @@
             </summary>
             <typeparam name="T">Instances of type <see cref="T:Telerik.Charting.DataPoint"/>.</typeparam>
         </member>
+        <member name="T:Telerik.Charting.DoughnutDataPoint">
+            <summary>
+            Represents a single-value data point plotted by a doughnut series.
+            </summary>
+        </member>
         <member name="T:Telerik.Charting.PieDataPoint">
             <summary>
             Represents a single-value data point plotted by a pie chart.
@@ -1303,6 +952,11 @@
             A High-Low-Open-Close data point.
             </summary>
         </member>
+        <member name="M:Telerik.Charting.OhlcDataPoint.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Charting.OhlcDataPoint"/> class.
+            </summary>
+        </member>
         <member name="P:Telerik.Charting.OhlcDataPoint.IsRising">
             <summary>
             Gets a value indicating whether this instance is rising (Bullish).
@@ -1338,12 +992,6 @@
             Represents a data point that is plotted on charts, using Polar coordinate system and two linear axes.
             </summary>
         </member>
-        <member name="M:Telerik.Charting.PolarDataPoint.OnPropertyChanged(Telerik.Charting.RadPropertyEventArgs)">
-            <summary>
-            Raises the <see cref="E:PropertyChanged"/> event.
-            </summary>
-            <param name="e">The <see cref="T:Telerik.Charting.RadPropertyEventArgs"/> instance containing the event data.</param>
-        </member>
         <member name="P:Telerik.Charting.PolarDataPoint.Angle">
             <summary>
             Gets or sets the angle of the data point.
@@ -1359,12 +1007,6 @@
             Represents a data point that may be visualized by a Scatter series in a CartesianChart.
             Generally this is a point that provides values for both X and Y axes and may be plotted by two numerical axes - Linear or Logarithmic.
             </summary>
-        </member>
-        <member name="M:Telerik.Charting.ScatterDataPoint.OnPropertyChanged(Telerik.Charting.RadPropertyEventArgs)">
-            <summary>
-            Raises the <see cref="E:PropertyChanged"/> event.
-            </summary>
-            <param name="e">The <see cref="T:Telerik.Charting.RadPropertyEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="P:Telerik.Charting.ScatterDataPoint.XValue">
             <summary>
@@ -1406,6 +1048,16 @@
             Invalidates the visual presentation of the chart grid (if any).
             </summary>
         </member>
+        <member name="F:Telerik.Charting.ChartAreaInvalidateFlags.ResetAnnotations">
+            <summary>
+            Resets the plot information of the annotations.
+            </summary>
+        </member>
+        <member name="F:Telerik.Charting.ChartAreaInvalidateFlags.InvalidateAnnotations">
+            <summary>
+            Invalidates the visual presentation of the chart annotations (if any).
+            </summary>
+        </member>
         <member name="F:Telerik.Charting.ChartAreaInvalidateFlags.InvalidateAxesAndGrid">
             <summary>
             Invalidates each axis plus the chart grid (if any).
@@ -1420,608 +1072,6 @@
             <summary>
             All flags are specified.
             </summary>
-        </member>
-        <member name="T:Telerik.Charting.NodeCollection">
-            <summary>
-            Represents a collection of a <see cref="T:Telerik.Charting.ChartNode"/> instances.
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.NodeCollection.GetEnumerator">
-            <summary>
-            Gets the <see cref="T:System.Collections.IEnumerator"/> instance that allows for traversing all the items.
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.NodeCollection.IndexOf(Telerik.Charting.ChartNode)">
-            <summary>
-            Gets the index of the specified node within the collection.
-            </summary>
-            <param name="node"></param>
-        </member>
-        <member name="M:Telerik.Charting.NodeCollection.Contains(Telerik.Charting.ChartNode)">
-            <summary>
-            Determines whether the specified node is contained within the collection.
-            </summary>
-            <param name="node"></param>
-        </member>
-        <member name="P:Telerik.Charting.NodeCollection.Owner">
-            <summary>
-            Gets the <see cref="T:Telerik.Charting.ChartElement"/> instance that owns this collection.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.NodeCollection.Count">
-            <summary>
-            Gets the count of all the items.
-            </summary>
-        </member>
-        <member name="T:Telerik.Charting.RadPropertyEventArgs">
-            <summary>
-            Encapsulates all the data associated with a change in a <see cref="T:Telerik.Charting.PropertyBagObject"/> property store.
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.RadPropertyEventArgs.#ctor(System.Int32,System.Object,System.Object)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Telerik.Charting.RadPropertyEventArgs"/> class.
-            </summary>
-            <param name="key">The key.</param>
-            <param name="oldValue">The old value.</param>
-            <param name="newValue">The new value.</param>
-        </member>
-        <member name="M:Telerik.Charting.RadPropertyEventArgs.#ctor(System.String,System.Object,System.Object)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Telerik.Charting.RadPropertyEventArgs"/> class.
-            </summary>
-            <param name="name">The name.</param>
-            <param name="oldValue">The old value.</param>
-            <param name="newValue">The new value.</param>
-        </member>
-        <member name="P:Telerik.Charting.RadPropertyEventArgs.Cancel">
-            <summary>
-            Gets or sets a value indicating whether the property change can be accepted. Valid during the Changing pass.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.RadPropertyEventArgs.Key">
-            <summary>
-            Gets the key of the property associated with the event.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.RadPropertyEventArgs.PropertyName">
-            <summary>
-            Gets the name of the property that has changed. This member is not set if the property is associated with a valid key.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.RadPropertyEventArgs.OldValue">
-            <summary>
-            Gets the old value of the associated property.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.RadPropertyEventArgs.NewValue">
-            <summary>
-            Gets or sets the new value of the associated property.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.ChartMessage.Handled">
-            <summary>
-            Gets or sets a value indicating whether the message is handled (processed) by some receiver.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.ChartMessage.StopDispatch">
-            <summary>
-            Gets or sets a value indicating whether message may continue being dispatched or not.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.ChartMessage.DispatchPhase">
-            <summary>
-            Gets or sets the current phase of the dispatch process.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.ChartMessage.DispatchMode">
-            <summary>
-            Gets or sets the mode which determines how this message is dispatched.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.ChartMessage.Id">
-            <summary>
-            Gets the unique id for this message.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.ChartMessage.Sender">
-            <summary>
-            Gets the <see cref="T:Telerik.Charting.ChartNode"/> instance which generated this message.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.ChartMessage.PreviousReceiver">
-            <summary>
-            Gets or sets the <see cref="T:Telerik.Charting.ChartNode"/> instance that previously received the message.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.ChartMessage.Data">
-            <summary>
-            Gets or sets the raw data associated with the message.
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.MessageDispatcher.DispatchMessage(Telerik.Charting.ChartMessage)">
-            <summary>
-            Dispatches the provided message to the logical tree, starting from the Sender as a leaf.
-            </summary>
-            <param name="message"></param>
-        </member>
-        <member name="P:Telerik.Charting.MessageDispatcher.IsEnabled">
-            <summary>
-            Gets or sets a value indicating whether the dispatcher is currently enabled.
-            </summary>
-        </member>
-        <member name="T:Telerik.Charting.MessageDispatchMode">
-            <summary>
-            Defines how a message should be dispatched in the element tree.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.MessageDispatchMode.Bubble">
-            <summary>
-            Message is dispatched to the direct target and its ancestors.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.MessageDispatchMode.Tunnel">
-            <summary>
-            Message is dispatched to the direct target all its descendants.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.MessageDispatchMode.BubbleAndTunnel">
-            <summary>
-            Message is dispatched to the direct target, its ancestors and all its descendants.
-            </summary>
-        </member>
-        <member name="T:Telerik.Charting.MessageDispatchPhase">
-            <summary>
-            Defines the possible phases a message dispatch process may enter.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.MessageDispatchPhase.Bubble">
-            <summary>
-            Message is being dispatched up in the parent chain.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.MessageDispatchPhase.Tunnel">
-            <summary>
-            Message is being dispatched down to all descendants.
-            </summary>
-        </member>
-        <member name="T:Telerik.Charting.NodeState">
-            <summary>
-            Defines the possible states a <see cref="T:Telerik.Charting.ChartNode"/> may enter.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.NodeState.Initial">
-            <summary>
-            The node is created.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.NodeState.Loading">
-            <summary>
-            The node is loading on the visual scene.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.NodeState.Loaded">
-            <summary>
-            The node is loaded and ready to be visualized.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.NodeState.Unloading">
-            <summary>
-            The node is in a process of being unloaded from the visual scene.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.NodeState.Unloaded">
-            <summary>
-            The node is detached from teh visual scene.
-            </summary>
-        </member>
-        <member name="T:Telerik.Charting.TreeTraversalMode">
-            <summary>
-            Defines possible approaches when traversing a tree.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.TreeTraversalMode.DepthFirst">
-            <summary>
-            Depth-first traversal.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.TreeTraversalMode.BreadthFirst">
-            <summary>
-            Breadth first traversal.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.ChartLegendModel.Items">
-            <summary>
-            Gets the collection, containing all the items present on this legend.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.LegendItemModel.Label">
-            <summary>
-            Gets or sets the label associated with this item.
-            </summary>
-        </member>
-        <member name="T:Telerik.Charting.RadCircle">
-            <summary>
-            Represents a logical definition of a circle.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.RadCircle.Center">
-            <summary>
-            The center of the circle.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.RadCircle.Radius">
-            <summary>
-            The radius of the circle.
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.RadCircle.#ctor(Telerik.Charting.RadPoint,System.Double)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Telerik.Charting.RadCircle"/> struct.
-            </summary>
-            <param name="center">The center.</param>
-            <param name="radius">The radius.</param>
-        </member>
-        <member name="P:Telerik.Charting.RadCircle.Bounds">
-            <summary>
-            Gets the rectangle that encloses this circle.
-            </summary>
-        </member>
-        <member name="T:Telerik.Charting.RadMath">
-            <summary>
-            Provides static mathematical functions and constants.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.RadMath.DegToRadFactor">
-            <summary>
-            The factor used to convert degrees to their radians equivalent.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.RadMath.RadToDegFactor">
-            <summary>
-            The factor used to convert radians to their degree equivalent.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.RadMath.Epsilon">
-            <summary>
-            Smallest unit such that 1.0+DBL_EPSILON != 1.0.
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.RadMath.IsZero(System.Double)">
-            <summary>
-            Determines whether the specified value is close to 0 within the order of EPSILON.
-            </summary>
-            <param name="value"></param>
-        </member>
-        <member name="M:Telerik.Charting.RadMath.IsZero(System.Decimal)">
-            <summary>
-            Determines whether the specified value is close to 0 within the order of EPSILON.
-            </summary>
-            <param name="value"></param>
-        </member>
-        <member name="M:Telerik.Charting.RadMath.IsOne(System.Double)">
-            <summary>
-            Determines whether the specified value is close to 1 within the order of EPSILON.
-            </summary>
-            <param name="value"></param>
-        </member>
-        <member name="M:Telerik.Charting.RadMath.IsOne(System.Decimal)">
-            <summary>
-            Determines whether the specified value is close to 1 within the order of EPSILON.
-            </summary>
-            <param name="value"></param>
-        </member>
-        <member name="M:Telerik.Charting.RadMath.AreClose(System.Double,System.Double)">
-            <summary>
-            Determines whether the two specified values are close within the order of EPSILON.
-            </summary>
-            <param name="value1"></param>
-            <param name="value2"></param>
-        </member>
-        <member name="M:Telerik.Charting.RadMath.GetPointDistance(System.Double,System.Double,System.Double,System.Double)">
-            <summary>
-            Gets the distance between two points in a plane.
-            </summary>
-            <param name="x1">The x-coordinate of the first point.</param>
-            <param name="x2">The x-coordinate of the second point.</param>
-            <param name="y1">The y-coordinate of the first point.</param>
-            <param name="y2">The y-coordinate of the second point.</param>
-        </member>
-        <member name="M:Telerik.Charting.RadMath.GetArcPoint(System.Double,Telerik.Charting.RadPoint,System.Double)">
-            <summary>
-            Gets the point that lies on the arc segment of the ellipse, described by the center and radius parameters.
-            </summary>
-            <param name="angle"></param>
-            <param name="center"></param>
-            <param name="radius"></param>
-        </member>
-        <member name="T:Telerik.Charting.RadPoint">
-            <summary>
-            Represents a structure that defines a location (X, Y) in a two-dimensional space.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.RadPoint.Empty">
-            <summary>
-            A <see cref="T:Telerik.Charting.RadPoint"/> instance which X and Y values are set to 0.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.RadPoint.X">
-            <summary>
-            The X-coordinate of the point.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.RadPoint.Y">
-            <summary>
-            The Y-coordinate of the point.
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.RadPoint.#ctor(System.Double,System.Double)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Telerik.Charting.RadPoint"/> struct.
-            </summary>
-            <param name="x">The x.</param>
-            <param name="y">The y.</param>
-        </member>
-        <member name="M:Telerik.Charting.RadPoint.op_Equality(Telerik.Charting.RadPoint,Telerik.Charting.RadPoint)">
-            <summary>
-            Determines whether two <see cref="T:Telerik.Charting.RadPoint"/> structures are equal.
-            </summary>
-            <param name="point1"></param>
-            <param name="point2"></param>
-        </member>
-        <member name="M:Telerik.Charting.RadPoint.op_Inequality(Telerik.Charting.RadPoint,Telerik.Charting.RadPoint)">
-            <summary>
-            Determines whether two <see cref="T:Telerik.Charting.RadSize"/> structures are not equal.
-            </summary>
-            <param name="point1"></param>
-            <param name="point2"></param>
-        </member>
-        <member name="M:Telerik.Charting.RadPoint.Round(Telerik.Charting.RadPoint)">
-            <summary>
-            Rounds the X and Y members of the specified <see cref="T:Telerik.Charting.RadPoint"/>.
-            </summary>
-            <param name="point"></param>
-        </member>
-        <member name="M:Telerik.Charting.RadPoint.Equals(System.Object)">
-            <summary>
-            Determines whether the specified <see cref="T:System.Object"/> is equal to this instance.
-            </summary>
-            <param name="obj">The <see cref="T:System.Object"/> to compare with this instance.</param>
-            <returns>
-                <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
-            </returns>
-        </member>
-        <member name="M:Telerik.Charting.RadPoint.GetHashCode">
-            <summary>
-            Returns a hash code for this instance.
-            </summary>
-            <returns>
-            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
-            </returns>
-        </member>
-        <member name="T:Telerik.Charting.RadRect">
-            <summary>
-            Represents a Rectangle in the Euclidean plane geometry.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.RadRect.Invalid">
-            <summary>
-            Invalid rectangle, which Width and Height properties are set to (-1).
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.RadRect.Empty">
-            <summary>
-            Empty rectangle which values are zeroes.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.RadRect.X">
-            <summary>
-            The X-coordinate of the rectangle.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.RadRect.Y">
-            <summary>
-            The Y-coordinate of the rectangle.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.RadRect.Width">
-            <summary>
-            The length of the rectangle along the X-axis.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.RadRect.Height">
-            <summary>
-            The length of the rectangle along the Y-axis.
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.RadRect.#ctor(System.Double,System.Double)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Telerik.Charting.RadRect"/> struct.
-            </summary>
-            <param name="width">The width.</param>
-            <param name="height">The height.</param>
-        </member>
-        <member name="M:Telerik.Charting.RadRect.#ctor(Telerik.Charting.RadPoint,Telerik.Charting.RadPoint)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Telerik.Charting.RadRect"/> struct.
-            </summary>
-            <param name="point1">The point1.</param>
-            <param name="point2">The point2.</param>
-        </member>
-        <member name="M:Telerik.Charting.RadRect.#ctor(System.Double,System.Double,System.Double,System.Double)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Telerik.Charting.RadRect"/> struct.
-            </summary>
-            <param name="x">The x.</param>
-            <param name="y">The y.</param>
-            <param name="width">The width.</param>
-            <param name="height">The height.</param>
-        </member>
-        <member name="M:Telerik.Charting.RadRect.Round(Telerik.Charting.RadRect)">
-            <summary>
-            Rounds the rectangle's values to the closed whole number.
-            </summary>
-            <param name="rect"></param>
-        </member>
-        <member name="M:Telerik.Charting.RadRect.Floor(Telerik.Charting.RadRect)">
-            <summary>
-            Rounds the rectangle's value to the closest less than or equal to whole numbers.
-            </summary>
-            <param name="rect"></param>
-        </member>
-        <member name="M:Telerik.Charting.RadRect.op_Equality(Telerik.Charting.RadRect,Telerik.Charting.RadRect)">
-            <summary>
-            Determines whether two <see cref="T:Telerik.Charting.RadRect"/> structures are equal.
-            </summary>
-            <param name="rect1"></param>
-            <param name="rect2"></param>
-        </member>
-        <member name="M:Telerik.Charting.RadRect.op_Inequality(Telerik.Charting.RadRect,Telerik.Charting.RadRect)">
-            <summary>
-            Determines whether two <see cref="T:Telerik.Charting.RadRect"/> structures are not equal.
-            </summary>
-            <param name="rect1"></param>
-            <param name="rect2"></param>
-        </member>
-        <member name="M:Telerik.Charting.RadRect.Subtract(Telerik.Charting.RadRect,Telerik.Charting.RadRect)">
-            <summary>
-            Gets the difference between two <see cref="T:Telerik.Charting.RadRect"/> structures.
-            </summary>
-            <param name="rect1"></param>
-            <param name="rect2"></param>
-        </member>
-        <member name="M:Telerik.Charting.RadRect.ToSquare(Telerik.Charting.RadRect,System.Boolean)">
-            <summary>
-            Gets a rectangle that has equal width and height and is centered within the specified rect.
-            </summary>
-            <param name="rect">The rect to create the square from.</param>
-            <param name="offset">True to offset the rect's location to meet the smaller of the Width and Height properties.</param>
-        </member>
-        <member name="M:Telerik.Charting.RadRect.CenterRect(Telerik.Charting.RadRect,Telerik.Charting.RadRect)">
-            <summary>
-            Centers the specified rectangle within the provided available one.
-            </summary>
-            <param name="rect"></param>
-            <param name="bounds"></param>
-        </member>
-        <member name="M:Telerik.Charting.RadRect.IntersectsWith(Telerik.Charting.RadRect)">
-            <summary>
-            Determines whether the current rect intersects with the specified one.
-            </summary>
-            <param name="rect"></param>
-        </member>
-        <member name="M:Telerik.Charting.RadRect.IsSizeValid">
-            <summary>
-            Determines whether the size of this rect is valid - that is both Width and Height should be bigger than zero.
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.RadRect.Equals(System.Object)">
-            <summary>
-            Determines whether the specified <see cref="T:System.Object"/> is equal to this instance.
-            </summary>
-            <param name="obj">The <see cref="T:System.Object"/> to compare with this instance.</param>
-            <returns>
-                <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
-            </returns>
-        </member>
-        <member name="M:Telerik.Charting.RadRect.Contains(System.Double,System.Double)">
-            <summary>
-            Determines if this RadRect instance contains the point that is described by the arguments.
-            </summary>
-            <param name="x">The X coordinate of the point to check.</param>
-            <param name="y">The Y coordinate of the point to check.</param>
-            <returns>Returns true if this rectangle contains the point from the arguments and false otherwise.</returns>
-        </member>
-        <member name="M:Telerik.Charting.RadRect.GetHashCode">
-            <summary>
-            Returns a hash code for this instance.
-            </summary>
-            <returns>
-            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
-            </returns>
-        </member>
-        <member name="P:Telerik.Charting.RadRect.Bottom">
-            <summary>
-            Gets the Y-coordinate of the bottom side of the rectangle.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.RadRect.Right">
-            <summary>
-            Gets the X-coordinate of the right side of the rectangle.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.RadRect.Center">
-            <summary>
-            Gets the center of this rectangle.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.RadRect.Location">
-            <summary>
-            Gets the location (Top-Left corner) of the rectangle.
-            </summary>
-        </member>
-        <member name="T:Telerik.Charting.RadSize">
-            <summary>
-            Represents a structure that defines a size in the two-dimensional space.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.RadSize.Empty">
-            <summary>
-            A <see cref="T:Telerik.Charting.RadSize"/> instance which Width and Height are set to 0.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.RadSize.Invalid">
-            <summary>
-            A <see cref="T:Telerik.Charting.RadSize"/> instance which Width and Height are set to -1.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.RadSize.Width">
-            <summary>
-            The length along the horizontal axis.
-            </summary>
-        </member>
-        <member name="F:Telerik.Charting.RadSize.Height">
-            <summary>
-            The length along the vertical axis.
-            </summary>
-        </member>
-        <member name="M:Telerik.Charting.RadSize.#ctor(System.Double,System.Double)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Telerik.Charting.RadSize"/> struct.
-            </summary>
-            <param name="width">The width.</param>
-            <param name="height">The height.</param>
-        </member>
-        <member name="M:Telerik.Charting.RadSize.op_Equality(Telerik.Charting.RadSize,Telerik.Charting.RadSize)">
-            <summary>
-            Determines whether two <see cref="T:Telerik.Charting.RadSize"/> structures are equal.
-            </summary>
-            <param name="size1"></param>
-            <param name="size2"></param>
-        </member>
-        <member name="M:Telerik.Charting.RadSize.op_Inequality(Telerik.Charting.RadSize,Telerik.Charting.RadSize)">
-            <summary>
-            Determines whether two <see cref="T:Telerik.Charting.RadSize"/> structures are not equal.
-            </summary>
-            <param name="size1"></param>
-            <param name="size2"></param>
-        </member>
-        <member name="M:Telerik.Charting.RadSize.Equals(System.Object)">
-            <summary>
-            Determines whether the specified <see cref="T:System.Object"/> is equal to this instance.
-            </summary>
-            <param name="obj">The <see cref="T:System.Object"/> to compare with this instance.</param>
-            <returns>
-                <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
-            </returns>
-        </member>
-        <member name="M:Telerik.Charting.RadSize.GetHashCode">
-            <summary>
-            Returns a hash code for this instance.
-            </summary>
-            <returns>
-            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
-            </returns>
         </member>
         <member name="T:Telerik.Charting.DataPointSeriesModel`1">
             <summary>
@@ -2152,12 +1202,6 @@
             </summary>
             <value>The close value.</value>
         </member>
-        <member name="M:Telerik.Charting.PieSeriesModel.OnPropertyChanged(Telerik.Charting.RadPropertyEventArgs)">
-            <summary>
-            Raises the <see cref="E:PropertyChanged"/> event.
-            </summary>
-            <param name="e">The <see cref="T:Telerik.Charting.RadPropertyEventArgs"/> instance containing the event data.</param>
-        </member>
         <member name="P:Telerik.Charting.PieSeriesModel.LabelFormat">
             <summary>
             Gets or sets the string used to format the Percent value of each data point. Defaults to 'p0'.
@@ -2183,27 +1227,9 @@
             Defines a type which may visualize a logical chart element.
             </summary>
         </member>
-        <member name="M:Telerik.Charting.IChartElementPresenter.RefreshNode(System.Object)">
-            <summary>
-            Invalidates the visual representation of the specified logical node.
-            </summary>
-            <param name="node"></param>
-        </member>
-        <member name="M:Telerik.Charting.IChartElementPresenter.MeasureContent(System.Object,System.Object)">
-            <summary>
-            Retrieves the desired size of the specified logical node's content.
-            </summary>
-            <param name="owner"></param>
-            <param name="content"></param>
-        </member>
         <member name="M:Telerik.Charting.IChartElementPresenter.InvalidatePalette">
             <summary>
             Forces re-evaluation of the palette of this instance.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.IChartElementPresenter.IsVisible">
-            <summary>
-            Gets a value indicating whether this instance is visible.
             </summary>
         </member>
         <member name="T:Telerik.Charting.IChartSeries">
@@ -2220,16 +1246,6 @@
         <member name="T:Telerik.Charting.IChartView">
             <summary>
             Defines the root of the whole chart.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.IChartView.ViewportWidth">
-            <summary>
-            Gets the visible width of the chart view.
-            </summary>
-        </member>
-        <member name="P:Telerik.Charting.IChartView.ViewportHeight">
-            <summary>
-            Gets the visible height of the chart view.
             </summary>
         </member>
         <member name="P:Telerik.Charting.IChartView.ZoomWidth">
@@ -2261,6 +1277,1046 @@
             <summary>
             Represents an empty type, used as an entry point in Telerik's Named Resources initialization.
             </summary>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.CartesianAnnotationCollection">
+            <summary>
+            Represents a typed collection that stores <see cref="T:Telerik.UI.Xaml.Controls.Chart.CartesianChartAnnotation"/> instances.
+            </summary>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.PresenterCollection`1">
+            <summary>
+            Represents a strongly typed collection of <see cref="T:Telerik.UI.Xaml.Controls.Chart.ChartElementPresenter"/> instances.
+            </summary>
+            <typeparam name="T">Must be <see cref="T:Telerik.UI.Xaml.Controls.Chart.ChartElementPresenter"/>.</typeparam>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterCollection`1.InsertItem(System.Int32,`0)">
+            <summary>
+            Inserts an element into the collection at the specified index.
+            </summary>
+            <param name="index"></param>
+            <param name="item"></param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterCollection`1.RemoveItem(System.Int32)">
+            <summary>
+            Removes the element at the specified index of the collection.
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterCollection`1.ClearItems">
+            <summary>
+            Removes all elements from the <see cref="T:System.Collections.ObjectModel.Collection`1"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterCollection`1.SetItem(System.Int32,`0)">
+            <summary>
+            Replaces the element at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the element to replace.</param>
+            <param name="newPresenter">The new value for the element at the specified index. The value can be null for reference types.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="index"/> is less than zero.
+            -or-
+            <paramref name="index"/> is greater than <see cref="P:System.Collections.ObjectModel.Collection`1.Count"/>.
+            </exception>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.CartesianChartAnnotation">
+            <summary>
+            This is the base class for all chart annotations in a <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadCartesianChart"/>.
+            </summary>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.ChartAnnotation">
+            <summary>
+            This is the base class for all chart annotations.
+            </summary>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.ChartElementPresenter">
+            <summary>
+            Base class for all <see cref="T:Telerik.UI.Xaml.Controls.Chart.PresenterBase"/> instances that visualize a logical chart element.
+            </summary>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.PresenterBase">
+            <summary>
+            Base class for all <see cref="T:Windows.UI.Xaml.Controls.Control"/> instances that represent charting engine logical models.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.PresenterBase.InfinitySize">
+            <summary>
+            Represents a <see cref="T:Windows.Foundation.Size"/> structure, which Width and Height members are set to double.PositiveInfinity.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.PresenterBase.InfinityPoint">
+            <summary>
+            Represents a <see cref="T:Windows.Foundation.Point"/> structure, which Width and Height members are set to double.PositiveInfinity.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterBase.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.UI.Xaml.Controls.Chart.PresenterBase"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterBase.Telerik#Core#IElementPresenter#MeasureContent(System.Object,System.Object)">
+            <summary>
+            Retrieves the desired size for the specified node's content.
+            </summary>
+            <param name="owner"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterBase.RefreshNode(System.Object)">
+            <summary>
+            Invalidates the visual representation of the specified logical node.
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterBase.InvalidatePalette">
+            <summary>
+            Re-applies the owning chart's palette.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterBase.ApplyPaletteCore">
+            <summary>
+            Core entry point for applying owning chart's palette.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterBase.UpdateUICore(Telerik.UI.Xaml.Controls.Chart.ChartLayoutContext)">
+            <summary>
+            Updates of all of the chart elements presented by this instance.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterBase.ArrangeUIElement(Windows.UI.Xaml.FrameworkElement,Telerik.Core.RadRect,System.Boolean)">
+            <summary>
+            Updates the layout slot of the specified logical node, presented by the provided <see cref="T:Windows.UI.Xaml.FrameworkElement"/>.
+            </summary>
+            <param name="presenter"></param>
+            <param name="layoutSlot"></param>
+            <param name="setSize"></param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterBase.MeasureNodeOverride(Telerik.Core.Node,System.Object)">
+            <summary>
+            Core entry point for calculating the size of a node's content.
+            </summary>
+            <param name="node"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterBase.ApplyTemplateCore">
+            <summary>
+            Initializes the render surface template part.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterBase.RefreshNodeCore(Telerik.Core.Node)">
+            <summary>
+            Performs the core logic that invalidates the visual representation of the specified logical node.
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterBase.CreateContentPresenter(System.Object,Windows.UI.Xaml.DataTemplate)">
+            <summary>
+            Creates a <see cref="T:Windows.UI.Xaml.Controls.ContentPresenter"/> associated with the specified content and template.
+            </summary>
+            <param name="content"></param>
+            <param name="template"></param>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.PresenterBase.Telerik#Core#IElementPresenter#IsVisible">
+            <summary>
+            Gets a value indicating whether this instance is visible.
+            </summary>
+            <remarks>
+            This property supports the RadChart infrastructure and is not intended to be used directly from your code.
+            </remarks>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.PresenterBase.RenderSurface">
+            <summary>
+            Gets the <see cref="T:Windows.UI.Xaml.Controls.Canvas"/> instance used as a visual parent for all the child UI elements.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.ChartElementPresenter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.UI.Xaml.Controls.Chart.ChartElementPresenter"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.ChartElementPresenter.OnAttached">
+            <summary>
+            Occurs when the presenter has been successfully attached to its owning <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadChartBase"/> instance.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.ChartElementPresenter.OnDetached(Telerik.UI.Xaml.Controls.Chart.RadChartBase)">
+            <summary>
+            Occurs when the presenter has been successfully detached from its owning <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadChartBase"/> instance.
+            </summary>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.ChartElementPresenter.ZIndex">
+            <summary>
+            Gets or sets the Z-index of this series. Useful when adjusting the appearance of multiple series.
+            </summary>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.ChartElementPresenter.Chart">
+            <summary>
+            Gets the <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadChartBase"/> instance to which this <see cref="T:Telerik.UI.Xaml.Controls.Chart.ChartElementPresenter"/>
+            belongs.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.ChartAnnotation.ClipToPlotAreaProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.ChartAnnotation.ClipToPlotArea"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.ChartAnnotation.OnAttached">
+            <summary>
+            Occurs when the presenter has been successfully attached to its owning <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadChartBase"/> instance.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.ChartAnnotation.OnDetached(Telerik.UI.Xaml.Controls.Chart.RadChartBase)">
+            <summary>
+            Occurs when the presenter has been successfully detached from its owning <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadChartBase"/> instance.
+            </summary>
+            <param name="oldChart"></param>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.ChartAnnotation.ClipToPlotArea">
+            <summary>
+            Gets or sets a value indicating whether this instance will be clipped to the bounds of the plot area.
+            </summary>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation">
+            <summary>
+            Allows you to place a custom object at a specific place in your <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadCartesianChart"/>. 
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.HorizontalAxisProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.HorizontalAxis"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.VerticalAxisProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.VerticalAxis"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.HorizontalValueProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.HorizontalValue"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.VerticalValueProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.VerticalValue"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.ContentProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.Content"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.ContentTemplateProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.ContentTemplate"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.HorizontalOffsetProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.HorizontalOffset"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.VerticalOffsetProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.VerticalOffset"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.MeasureNodeOverride(Telerik.Core.Node,System.Object)">
+            <summary>
+            Core entry point for calculating the size of a node's content.
+            </summary>
+            <param name="node"></param>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.UnapplyTemplateCore">
+            <summary>
+            Unapplies the current control template. Occurs when a template has already been applied and a new one is applied.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.ApplyTemplateCore">
+            <summary>
+            Initializes the render surface template part.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.OnAttached">
+            <summary>
+            Occurs when the presenter has been successfully attached to its owning <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadChartBase"/> instance.
+            </summary>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.HorizontalAxis">
+            <summary>
+            Gets or sets the horizontal axis.
+            </summary>
+            <value>The horizontal axis.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.VerticalAxis">
+            <summary>
+            Gets or sets the vertical axis.
+            </summary>
+            <value>The vertical axis.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.HorizontalValue">
+            <summary>
+            Gets or sets the horizontal value.
+            </summary>
+            <value>The horizontal value.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.VerticalValue">
+            <summary>
+            Gets or sets the vertical value.
+            </summary>
+            <value>The vertical value.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.Content">
+            <summary>
+            Gets or sets the content.
+            </summary>
+            <value>The content.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.ContentTemplate">
+            <summary>
+            Gets or sets the content template.
+            </summary>
+            <value>
+            The content template.
+            </value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.HorizontalOffset">
+            <summary>
+            Gets or sets the horizontal offset.
+            </summary>
+            <value>The horizontal offset.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianCustomAnnotation.VerticalOffset">
+            <summary>
+            Gets or sets the vertical offset.
+            </summary>
+            <value>The vertical offset.</value>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.CartesianGridLineAnnotation">
+            <summary>
+            Allows you to place a straight line at a specific place in your <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadCartesianChart"/>. 
+            </summary>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.CartesianStrokedAnnotation">
+            <summary>
+            Represents an annotation which shape may be stroked (outlined).
+            </summary>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.IStrokedAnnotation.Stroke">
+            <summary>
+            Gets the <see cref="T:Windows.UI.Xaml.Media.Brush"/> instance that defines the stroke of the annotation.
+            </summary>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.IStrokedAnnotation.StrokeThickness">
+            <summary>
+            Gets the thickness of the outline of the annotation.
+            </summary>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.IStrokedAnnotation.StrokeDashArray">
+            <summary>
+            Gets a collection of <see cref="T:System.Double" /> values that indicates the pattern of dashes and gaps that is used to outline stroked annotations.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.CartesianStrokedAnnotation.StrokeProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.CartesianStrokedAnnotation.Stroke"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.CartesianStrokedAnnotation.StrokeThicknessProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.CartesianStrokedAnnotation.StrokeThickness"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.CartesianStrokedAnnotation.StrokeDashArrayProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.CartesianStrokedAnnotation.StrokeDashArray"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.CartesianStrokedAnnotation.LabelProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.CartesianStrokedAnnotation.Label"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.CartesianStrokedAnnotation.LabelDefinitionProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.CartesianStrokedAnnotation.LabelDefinition"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianStrokedAnnotation.Stroke">
+            <summary>
+            Gets or sets the <see cref="T:Windows.UI.Xaml.Media.Brush"/> that specifies how the shape outline is painted.
+            </summary>
+            <value>The line stroke.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianStrokedAnnotation.StrokeThickness">
+            <summary>
+            Gets or sets the width of the shape stroke outline.
+            </summary>
+            <value>The line stroke thickness.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianStrokedAnnotation.StrokeDashArray">
+            <summary>
+            Gets or sets a collection of <see cref="T:System.Double" /> values that indicates the pattern of dashes and gaps that is used to outline stroked series.
+            </summary>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianStrokedAnnotation.Label">
+            <summary>
+            Gets or sets the label.
+            </summary>
+            <value>The label.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianStrokedAnnotation.LabelDefinition">
+            <summary>
+            Gets or sets the definition that describe the appearance of the label.
+            </summary>
+            <value>
+            The label definition.
+            </value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianStrokedAnnotation.Presenter">
+            <summary>
+            Gets the presenter.
+            </summary>
+            <value>The presenter.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianStrokedAnnotation.IsStrokeInset">
+            <summary>
+            Gets a value indicating whether the stroke goes inwards by the full <see cref="P:Telerik.UI.Xaml.Controls.Chart.CartesianStrokedAnnotation.StrokeThickness"/>.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is stroke inset; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.CartesianGridLineAnnotation.AxisProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.CartesianGridLineAnnotation.Axis"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.CartesianGridLineAnnotation.ValueProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.CartesianGridLineAnnotation.Value"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.CartesianGridLineAnnotation.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.UI.Xaml.Controls.Chart.CartesianGridLineAnnotation"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.CartesianGridLineAnnotation.UnapplyTemplateCore">
+            <summary>
+            Unapplies the current control template. Occurs when a template has already been applied and a new one is applied.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.CartesianGridLineAnnotation.ApplyTemplateCore">
+            <summary>
+            Initializes the render surface template part.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianGridLineAnnotation.Axis">
+            <summary>
+            Gets or sets the axis.
+            </summary>
+            <value>The axis.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianGridLineAnnotation.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+            <value>The value.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianGridLineAnnotation.Presenter">
+            <summary>
+            Gets the presenter.
+            </summary>
+            <value>The presenter.</value>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.CartesianPlotBandAnnotation">
+            <summary>
+            Allows you highlight the area between two values drawn by the <see cref="P:Telerik.UI.Xaml.Controls.Chart.CartesianPlotBandAnnotation.Axis"/>
+            in the <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadCartesianChart"/>.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.CartesianPlotBandAnnotation.AxisProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.CartesianPlotBandAnnotation.Axis"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.CartesianPlotBandAnnotation.FromProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.CartesianPlotBandAnnotation.From"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.CartesianPlotBandAnnotation.ToProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.CartesianPlotBandAnnotation.To"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.CartesianPlotBandAnnotation.FillProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.CartesianPlotBandAnnotation.Fill"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.CartesianPlotBandAnnotation.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.UI.Xaml.Controls.Chart.CartesianPlotBandAnnotation"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.CartesianPlotBandAnnotation.UnapplyTemplateCore">
+            <summary>
+            Unapplies the current control template. Occurs when a template has already been applied and a new one is applied.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.CartesianPlotBandAnnotation.ApplyTemplateCore">
+            <summary>
+            Initializes the render surface template part.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianPlotBandAnnotation.Axis">
+            <summary>
+            Gets or sets the axis.
+            </summary>
+            <value>The axis.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianPlotBandAnnotation.From">
+            <summary>
+            Gets or sets from.
+            </summary>
+            <value>From.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianPlotBandAnnotation.To">
+            <summary>
+            Gets or sets to.
+            </summary>
+            <value>To.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianPlotBandAnnotation.Fill">
+            <summary>
+            Gets or sets the Brush that specifies how the shape's interior is painted.
+            </summary>
+            <value>The fill.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianPlotBandAnnotation.Presenter">
+            <summary>
+            Gets the presenter.
+            </summary>
+            <value>The presenter.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianPlotBandAnnotation.IsStrokeInset">
+            <summary>
+            Gets a value indicating whether the stroke goes inwards by the full <see cref="P:Windows.UI.Xaml.Shapes.Shape.StrokeThickness"/>.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is stroke inset; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelDefinition">
+            <summary>
+            Describes the appearance of the labels within a <see cref="T:Telerik.UI.Xaml.Controls.Chart.ChartAnnotation"/>.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelDefinition.FormatProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelDefinition.Format"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelDefinition.TemplateProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelDefinition.Template"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelDefinition.DefaultVisualStyleProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelDefinition.DefaultVisualStyle"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelDefinition.LocationProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelDefinition.Location"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelDefinition.HorizontalAlignmentProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelDefinition.HorizontalAlignment"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelDefinition.VerticalAlignmentProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelDefinition.VerticalAlignment"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelDefinition.HorizontalOffsetProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelDefinition.HorizontalOffset"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelDefinition.VerticalOffsetProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelDefinition.VerticalOffset"/> property.
+            </summary>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelDefinition.Format">
+            <summary>
+            Gets or sets the string used to format the label content, using the <see cref="M:String.Format"/> method.
+            </summary>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelDefinition.Template">
+            <summary>
+            Gets or sets the <see cref="T:Windows.UI.Xaml.DataTemplate"/> instance that may be used to define custom-looking label.
+            </summary>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelDefinition.DefaultVisualStyle">
+            <summary>
+            Gets or sets the <see cref="T:Windows.UI.Xaml.Style"/> instance that defines the appearance of the default label visual - <see cref="T:Windows.UI.Xaml.Controls.TextBlock"/> instance.
+            </summary>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelDefinition.Location">
+            <summary>
+            Gets or sets the <see cref="T:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelLocation"/> value that defines the primary location of the annotation label visual.
+            </summary>
+            <remarks>Annotations provide a mechanism for label positioning that consists of three layers -- primary (Location), secondary (Horizontal/VerticalOffset),
+            and tertiary (Horizontal/VerticalOffset).</remarks>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelDefinition.HorizontalAlignment">
+            <summary>
+            Gets or sets the horizontal alignment value that can be used as a secondary mechanism in conjunction with the primary Location property value.
+            </summary>
+            <remarks>
+            Annotations provide a mechanism for label positioning that consists of three layers -- primary (Location), secondary (Horizontal/VerticalOffset),
+            and tertiary (Horizontal/VerticalOffset).
+            </remarks>
+            <value>HorizontalAlignment property value is not applicable if Location property is set to either ChartAnnotationLabelLocation.Left, 
+            or ChartAnnotationLabelLocation.Right.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelDefinition.VerticalAlignment">
+            <summary>
+            Gets or sets the vertical alignment value that can be used in conjunction with the primary Location property value.
+            </summary>
+            <remarks>
+            Annotations provide a mechanism for label positioning that consists of three layers -- primary (Location), secondary (Horizontal/VerticalOffset),
+            and tertiary (Horizontal/VerticalOffset).
+            </remarks>
+            <value>
+            VerticalAlignment property value is not applicable if Location property is set to either ChartAnnotationLabelLocation.Top, or ChartAnnotationLabelLocation.Bottom.
+            </value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelDefinition.HorizontalOffset">
+            <summary>
+            Gets or sets the horizontal offset in pixels that can be specified besides the primary Location and the secondary HorizontalAlignment properties.
+            </summary>
+            <remarks>
+            Annotations provide a mechanism for label positioning that consists of three layers -- primary (Location), secondary (Horizontal/VerticalOffset),
+            and tertiary (Horizontal/VerticalOffset).
+            </remarks>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelDefinition.VerticalOffset">
+            <summary>
+            Gets or sets the vertical offset in pixels that can be specified besides the primary Location and the secondary VerticalAlignment properties.
+            </summary>
+            <remarks>
+            Annotations provide a mechanism for label positioning that consists of three layers -- primary (Location), secondary (Horizontal/VerticalOffset),
+            and tertiary (Horizontal/VerticalOffset).
+            </remarks>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelLocation">
+            <summary>
+            Defines the primary label location for a <see cref="T:Telerik.UI.Xaml.Controls.Chart.CartesianGridLineAnnotation"/> or <see cref="T:Telerik.UI.Xaml.Controls.Chart.CartesianPlotBandAnnotation"/>.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelLocation.Left">
+            <summary>
+            Left specifies that the label is positioned to the left of the actual annotation.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelLocation.Top">
+            <summary>
+            Top specifies that the label is positioned above the actual annotation.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelLocation.Right">
+            <summary>
+            Right specifies that the label is positioned to the right of the actual annotation..
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelLocation.Bottom">
+            <summary>
+            Bottom specifies that the label is positioned below the actual annotation.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.ChartAnnotationLabelLocation.Inside">
+            <summary>
+            Inside specifies that the label is positioned inside the actual annotation (or centered to it).
+            </summary>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.PolarAnnotationCollection">
+            <summary>
+            Represents a typed collection that stores <see cref="T:Telerik.UI.Xaml.Controls.Chart.PolarChartAnnotation"/> instances.
+            </summary>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.PolarAxisGridLineAnnotation">
+            <summary>
+            Allows you to place am ellipse at a specific place in your <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadCartesianChart"/>. This annotation
+            uses the <see cref="P:Telerik.UI.Xaml.Controls.Chart.RadPolarChart.PolarAxis"/>.
+            </summary>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.PolarStrokedAnnotation">
+            <summary>
+            Represents an annotation which shape may be stroked (outlined).
+            </summary>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.PolarChartAnnotation">
+            <summary>
+            This is the base class for all chart annotations in a <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadPolarChart"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PolarChartAnnotation.ChartAxisChanged(Telerik.UI.Xaml.Controls.Chart.Axis,Telerik.UI.Xaml.Controls.Chart.Axis)">
+            <summary>
+            Occurs when one of the axes of the owning <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadPolarChart"/> has been changed.
+            </summary>
+            <param name="oldAxis">The old axis.</param>
+            <param name="newAxis">The new axis.</param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PolarChartAnnotation.OnAttached">
+            <summary>
+            Occurs when the presenter has been successfully attached to its owning <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadChartBase"/> instance.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.PolarStrokedAnnotation.StrokeProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.PolarStrokedAnnotation.Stroke"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.PolarStrokedAnnotation.StrokeThicknessProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.PolarStrokedAnnotation.StrokeThickness"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.PolarStrokedAnnotation.StrokeDashArrayProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.PolarStrokedAnnotation.StrokeDashArray"/> property.
+            </summary>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.PolarStrokedAnnotation.Stroke">
+            <summary>
+            Gets or sets the <see cref="T:Windows.UI.Xaml.Media.Brush"/> that specifies how the shape outline is painted.
+            </summary>
+            <value>The line stroke.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.PolarStrokedAnnotation.StrokeThickness">
+            <summary>
+            Gets or sets the width of the shape stroke outline.
+            </summary>
+            <value>The line stroke thickness.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.PolarStrokedAnnotation.StrokeDashArray">
+            <summary>
+            Gets or sets a collection of <see cref="T:System.Double" /> values that indicates the pattern of dashes and gaps that is used to outline stroked series.
+            </summary>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.PolarStrokedAnnotation.Presenter">
+            <summary>
+            Gets the presenter.
+            </summary>
+            <value>The presenter.</value>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.PolarAxisGridLineAnnotation.ValueProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.PolarAxisGridLineAnnotation.Value"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PolarAxisGridLineAnnotation.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.UI.Xaml.Controls.Chart.PolarAxisGridLineAnnotation"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PolarAxisGridLineAnnotation.UnapplyTemplateCore">
+            <summary>
+            Unapplies the current control template. Occurs when a template has already been applied and a new one is applied.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PolarAxisGridLineAnnotation.ApplyTemplateCore">
+            <summary>
+            Initializes the render surface template part.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.PolarAxisGridLineAnnotation.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+            <value>The value.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.PolarAxisGridLineAnnotation.Presenter">
+            <summary>
+            Gets the presenter.
+            </summary>
+            <value>The presenter.</value>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.PolarAxisPlotBandAnnotation">
+            <summary>
+            Allows you highlight the area between two values drawn by the <see cref="P:Telerik.UI.Xaml.Controls.Chart.RadPolarChart.PolarAxis"/>
+            in the <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadPolarChart"/>.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.PolarAxisPlotBandAnnotation.FromProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.PolarAxisPlotBandAnnotation.From"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.PolarAxisPlotBandAnnotation.ToProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.PolarAxisPlotBandAnnotation.To"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.PolarAxisPlotBandAnnotation.FillProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.PolarAxisPlotBandAnnotation.Fill"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PolarAxisPlotBandAnnotation.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.UI.Xaml.Controls.Chart.PolarAxisPlotBandAnnotation"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PolarAxisPlotBandAnnotation.UnapplyTemplateCore">
+            <summary>
+            Unapplies the current control template. Occurs when a template has already been applied and a new one is applied.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PolarAxisPlotBandAnnotation.ApplyTemplateCore">
+            <summary>
+            Initializes the render surface template part.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.PolarAxisPlotBandAnnotation.From">
+            <summary>
+            Gets or sets from.
+            </summary>
+            <value>From.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.PolarAxisPlotBandAnnotation.To">
+            <summary>
+            Gets or sets to.
+            </summary>
+            <value>To.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.PolarAxisPlotBandAnnotation.Fill">
+            <summary>
+            Gets or sets the Brush that specifies how the shape's interior is painted.
+            </summary>
+            <value>The fill.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.PolarAxisPlotBandAnnotation.Presenter">
+            <summary>
+            Gets the presenter.
+            </summary>
+            <value>The presenter.</value>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.PolarCustomAnnotation">
+            <summary>
+            Allows you to place a custom object at a specific place in your <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadPolarChart"/>. 
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.PolarCustomAnnotation.RadialValueProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.PolarCustomAnnotation.RadialValue"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.PolarCustomAnnotation.PolarValueProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.PolarCustomAnnotation.PolarValue"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.PolarCustomAnnotation.ContentProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.PolarCustomAnnotation.Content"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.PolarCustomAnnotation.ContentTemplateProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.PolarCustomAnnotation.ContentTemplate"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.PolarCustomAnnotation.HorizontalOffsetProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.PolarCustomAnnotation.HorizontalOffset"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.PolarCustomAnnotation.VerticalOffsetProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.PolarCustomAnnotation.VerticalOffset"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PolarCustomAnnotation.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.UI.Xaml.Controls.Chart.PolarCustomAnnotation"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PolarCustomAnnotation.MeasureNodeOverride(Telerik.Core.Node,System.Object)">
+            <summary>
+            Core entry point for calculating the size of a node's content.
+            </summary>
+            <param name="node"></param>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PolarCustomAnnotation.UnapplyTemplateCore">
+            <summary>
+            Unapplies the current control template. Occurs when a template has already been applied and a new one is applied.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PolarCustomAnnotation.ApplyTemplateCore">
+            <summary>
+            Initializes the render surface template part.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.PolarCustomAnnotation.RadialValue">
+            <summary>
+            Gets or sets the radial value.
+            </summary>
+            <value>The radial value.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.PolarCustomAnnotation.PolarValue">
+            <summary>
+            Gets or sets the polar value.
+            </summary>
+            <value>The polar value.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.PolarCustomAnnotation.Content">
+            <summary>
+            Gets or sets the content.
+            </summary>
+            <value>The content.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.PolarCustomAnnotation.ContentTemplate">
+            <summary>
+            Gets or sets the content template.
+            </summary>
+            <value>
+            The content template.
+            </value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.PolarCustomAnnotation.HorizontalOffset">
+            <summary>
+            Gets or sets the horizontal offset.
+            </summary>
+            <value>The horizontal offset.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.PolarCustomAnnotation.VerticalOffset">
+            <summary>
+            Gets or sets the vertical offset.
+            </summary>
+            <value>The vertical offset.</value>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.RadialAxisGridLineAnnotation">
+            <summary>
+            Allows you to place a straight line at a specific place in your <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadCartesianChart"/>. This annotation
+            uses the <see cref="P:Telerik.UI.Xaml.Controls.Chart.RadPolarChart.RadialAxis"/>.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.RadialAxisGridLineAnnotation.ValueProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.RadialAxisGridLineAnnotation.Value"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.RadialAxisGridLineAnnotation.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadialAxisGridLineAnnotation"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.RadialAxisGridLineAnnotation.UnapplyTemplateCore">
+            <summary>
+            Unapplies the current control template. Occurs when a template has already been applied and a new one is applied.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.RadialAxisGridLineAnnotation.ApplyTemplateCore">
+            <summary>
+            Initializes the render surface template part.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.RadialAxisGridLineAnnotation.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+            <value>The value.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.RadialAxisGridLineAnnotation.Presenter">
+            <summary>
+            Gets the presenter.
+            </summary>
+            <value>The presenter.</value>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.RadialAxisPlotBandAnnotation">
+            <summary>
+            Allows you highlight the area between two values drawn by the <see cref="P:Telerik.UI.Xaml.Controls.Chart.RadPolarChart.RadialAxis"/>
+            in the <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadPolarChart"/>.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.RadialAxisPlotBandAnnotation.FromProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.RadialAxisPlotBandAnnotation.From"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.RadialAxisPlotBandAnnotation.ToProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.RadialAxisPlotBandAnnotation.To"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.RadialAxisPlotBandAnnotation.FillProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.RadialAxisPlotBandAnnotation.Fill"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.RadialAxisPlotBandAnnotation.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadialAxisPlotBandAnnotation"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.RadialAxisPlotBandAnnotation.UnapplyTemplateCore">
+            <summary>
+            Unapplies the current control template. Occurs when a template has already been applied and a new one is applied.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.RadialAxisPlotBandAnnotation.ApplyTemplateCore">
+            <summary>
+            Initializes the render surface template part.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.RadialAxisPlotBandAnnotation.From">
+            <summary>
+            Gets or sets from.
+            </summary>
+            <value>From.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.RadialAxisPlotBandAnnotation.To">
+            <summary>
+            Gets or sets to.
+            </summary>
+            <value>To.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.RadialAxisPlotBandAnnotation.Fill">
+            <summary>
+            Gets or sets the Brush that specifies how the shape's interior is painted.
+            </summary>
+            <value>The fill.</value>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.RadialAxisPlotBandAnnotation.Presenter">
+            <summary>
+            Gets the presenter.
+            </summary>
+            <value>The presenter.</value>
         </member>
         <member name="T:Telerik.UI.Xaml.Controls.Chart.ChartBehavior">
             <summary>
@@ -2419,6 +2475,21 @@
             Removes all behaviors from RadChart.
             </summary>
         </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.ChartPointDistanceCalculationMode">
+            <summary>
+            Specifies the point distance calculation method.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.ChartPointDistanceCalculationMode.Linear">
+            <summary>
+            Point distance is calculated based on a single dimension (either x or y based on plot direction).
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.ChartPointDistanceCalculationMode.Euclidean">
+            <summary>
+            Point distance is calculated based on both XY dimensions (Pythagorean Theorem).
+            </summary>
+        </member>
         <member name="T:Telerik.UI.Xaml.Controls.Chart.ChartDataContext">
             <summary>
             An object of this type is used as a data context for chart's behaviors.
@@ -2441,6 +2512,36 @@
             <summary>
             Gets a list of <see cref="T:Telerik.UI.Xaml.Controls.Chart.DataPointInfo"/> objects each of which contains the closest data
             point to the tap location and the point's corresponding series.
+            </summary>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.Primitives.DataPointInfoToPaletteBrushConverter">
+            <summary>
+            Represents a converter that retrieves a chart palette brush from a <see cref="T:Telerik.UI.Xaml.Controls.Chart.DataPointInfo"/> object.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.Primitives.DataPointInfoToPaletteBrushConverter.Convert(System.Object,System.Type,System.Object,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="language"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.Primitives.DataPointInfoToPaletteBrushConverter.ConvertBack(System.Object,System.Type,System.Object,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="language"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.Primitives.DataPointInfoToPaletteBrushConverter.PaletteVisualPart">
+            <summary>
+            Gets or sets the <see cref="P:Telerik.UI.Xaml.Controls.Chart.Primitives.DataPointInfoToPaletteBrushConverter.PaletteVisualPart"/> value which will be used to retrieve the palette value from the passed data point.
             </summary>
         </member>
         <member name="T:Telerik.UI.Xaml.Controls.Chart.ChartPanAndZoomBehavior">
@@ -2681,6 +2782,16 @@
             This method is called when the chart owner is removed from the Silverlight element tree.
             </summary>
         </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.ChartTooltipBehavior.GetDataContext(Windows.Foundation.Point,System.Boolean)">
+            <summary>
+            Gets <see cref="T:Telerik.UI.Xaml.Controls.Chart.ChartDataContext"/> assosiated with a gives physycal location.
+            </summary>
+            <param name="physicalOrigin">The relative physical position of the requested data context.</param>
+            <param name="findNearestPoints">True to find the nearest points, if no points are found on the requested physical location.</param>
+            <returns>
+            Returns <see cref="T:Telerik.UI.Xaml.Controls.Chart.ChartDataContext"/> object holding information for the requested physical location.
+            </returns>
+        </member>
         <member name="E:Telerik.UI.Xaml.Controls.Chart.ChartTooltipBehavior.ContextNeeded">
             <summary>
             Fires before the tool tip of RadChart is shown so that the user can provide
@@ -2709,7 +2820,7 @@
         </member>
         <member name="P:Telerik.UI.Xaml.Controls.Chart.ChartTooltipBehavior.IsOpen">
             <summary>
-            Determines whether the tooltip is currently displayed.
+            Gets a value indicating whether the tooltip is currently displayed.
             </summary>
         </member>
         <member name="P:Telerik.UI.Xaml.Controls.Chart.ChartTooltipBehavior.SnapToClosestPoint">
@@ -2899,7 +3010,7 @@
         </member>
         <member name="P:Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior.ShowIntersectionPoints">
             <summary>
-            Determines whether a visual information for all the closest data points will be displayed.
+            Determines whether a visual representation for all the intersection points will be displayed.
             </summary>
         </member>
         <member name="P:Telerik.UI.Xaml.Controls.Chart.ChartTrackBallBehavior.SnapMode">
@@ -3128,132 +3239,6 @@
             Represents an axis within a <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadCartesianChart"/> instance.
             </summary>
         </member>
-        <member name="T:Telerik.UI.Xaml.Controls.Chart.ChartElementPresenter">
-            <summary>
-            Base class for all <see cref="T:Telerik.UI.Xaml.Controls.Chart.PresenterBase"/> instances that visualize a logical chart element.
-            </summary>
-        </member>
-        <member name="T:Telerik.UI.Xaml.Controls.Chart.PresenterBase">
-            <summary>
-            Base class for all <see cref="T:Windows.UI.Xaml.Controls.Control"/> instances that represent charting engine logical models.
-            </summary>
-        </member>
-        <member name="F:Telerik.UI.Xaml.Controls.Chart.PresenterBase.InfinitySize">
-            <summary>
-            Represents a <see cref="T:Windows.Foundation.Size"/> structure, which Width and Height members are set to double.PositiveInfinity.
-            </summary>
-        </member>
-        <member name="F:Telerik.UI.Xaml.Controls.Chart.PresenterBase.InfinityPoint">
-            <summary>
-            Represents a <see cref="T:Windows.Foundation.Point"/> structure, which Width and Height members are set to double.PositiveInfinity.
-            </summary>
-        </member>
-        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterBase.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Telerik.UI.Xaml.Controls.Chart.PresenterBase"/> class.
-            </summary>
-        </member>
-        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterBase.Telerik#Charting#IChartElementPresenter#MeasureContent(System.Object,System.Object)">
-            <summary>
-            Retrieves the desired size for the specified node's content.
-            </summary>
-            <param name="owner"></param>
-            <param name="content"></param>
-        </member>
-        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterBase.RefreshNode(System.Object)">
-            <summary>
-            Invalidates the visual representation of the specified logical node.
-            </summary>
-            <param name="node"></param>
-        </member>
-        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterBase.InvalidatePalette">
-            <summary>
-            Re-applies the owning chart's palette.
-            </summary>
-        </member>
-        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterBase.ApplyPaletteCore">
-            <summary>
-            Core entry point for applying owning chart's palette.
-            </summary>
-        </member>
-        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterBase.UpdateUICore(Telerik.UI.Xaml.Controls.Chart.ChartLayoutContext)">
-            <summary>
-            Updates of all of the chart elements presented by this instance.
-            </summary>
-        </member>
-        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterBase.ArrangeUIElement(Windows.UI.Xaml.FrameworkElement,Telerik.Charting.RadRect,System.Boolean)">
-            <summary>
-            Updates the layout slot of the specified logical node, presented by the provided <see cref="T:Windows.UI.Xaml.FrameworkElement"/>.
-            </summary>
-            <param name="presenter"></param>
-            <param name="layoutSlot"></param>
-            <param name="setSize"></param>
-        </member>
-        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterBase.MeasureNodeOverride(Telerik.Charting.ChartNode,System.Object)">
-            <summary>
-            Core entry point for calculating the size of a node's content.
-            </summary>
-            <param name="node"></param>
-            <param name="content"></param>
-        </member>
-        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterBase.ApplyTemplateCore">
-            <summary>
-            Initializes the render surface template part.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterBase.RefreshNodeCore(Telerik.Charting.ChartNode)">
-            <summary>
-            Performs the core logic that invalidates the visual representation of the specified logical node.
-            </summary>
-            <param name="node"></param>
-        </member>
-        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterBase.CreateContentPresenter(System.Object,Windows.UI.Xaml.DataTemplate)">
-            <summary>
-            Creates a <see cref="T:Windows.UI.Xaml.Controls.ContentPresenter"/> associated with the specified content and template.
-            </summary>
-            <param name="content"></param>
-            <param name="template"></param>
-        </member>
-        <member name="P:Telerik.UI.Xaml.Controls.Chart.PresenterBase.Telerik#Charting#IChartElementPresenter#IsVisible">
-            <summary>
-            Gets a value indicating whether this instance is visible.
-            </summary>
-            <remarks>
-            This property supports the RadChart infrastructure and is not intended to be used directly from your code.
-            </remarks>
-        </member>
-        <member name="P:Telerik.UI.Xaml.Controls.Chart.PresenterBase.RenderSurface">
-            <summary>
-            Gets the <see cref="T:Windows.UI.Xaml.Controls.Canvas"/> instance used as a visual parent for all the child UI elements.
-            </summary>
-        </member>
-        <member name="M:Telerik.UI.Xaml.Controls.Chart.ChartElementPresenter.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Telerik.UI.Xaml.Controls.Chart.ChartElementPresenter"/> class.
-            </summary>
-        </member>
-        <member name="M:Telerik.UI.Xaml.Controls.Chart.ChartElementPresenter.OnAttached">
-            <summary>
-            Occurs when the presenter has been successfully attached to its owning <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadChartBase"/> instance.
-            </summary>
-        </member>
-        <member name="M:Telerik.UI.Xaml.Controls.Chart.ChartElementPresenter.OnDetached(Telerik.UI.Xaml.Controls.Chart.RadChartBase)">
-            <summary>
-            Occurs when the presenter has been successfully detached from its owning <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadChartBase"/> instance.
-            </summary>
-        </member>
-        <member name="P:Telerik.UI.Xaml.Controls.Chart.ChartElementPresenter.ZIndex">
-            <summary>
-            Gets or sets the Z-index of this series. Useful when adjusting the appearance of multiple series.
-            </summary>
-        </member>
-        <member name="P:Telerik.UI.Xaml.Controls.Chart.ChartElementPresenter.Chart">
-            <summary>
-            Gets the <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadChartBase"/> instance to which this <see cref="T:Telerik.UI.Xaml.Controls.Chart.ChartElementPresenter"/>
-            belongs.
-            </summary>
-        </member>
         <member name="F:Telerik.UI.Xaml.Controls.Chart.Axis.LabelRotationAngleProperty">
             <summary>
             Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.Axis.LabelRotationAngle"/> property.
@@ -3340,7 +3325,7 @@
             Updates of all of the chart elements presented by this instance.
             </summary>
         </member>
-        <member name="M:Telerik.UI.Xaml.Controls.Chart.Axis.MeasureNodeOverride(Telerik.Charting.ChartNode,System.Object)">
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.Axis.MeasureNodeOverride(Telerik.Core.Node,System.Object)">
             <summary>
             Core entry point for calculating the size of a node's content.
             </summary>
@@ -3356,6 +3341,11 @@
         <member name="M:Telerik.UI.Xaml.Controls.Chart.Axis.OnAttached">
             <summary>
             Occurs when the presenter has been successfully attached to its owning <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadChartBase"/> instance.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.Axis.UnapplyTemplateCore">
+            <summary>
+            Unapplies the current control template. Occurs when a template has already been applied and a new one is applied.
             </summary>
         </member>
         <member name="M:Telerik.UI.Xaml.Controls.Chart.Axis.ApplyTemplateCore">
@@ -3476,6 +3466,11 @@
         <member name="M:Telerik.UI.Xaml.Controls.Chart.LineAxis.UpdateUICore(Telerik.UI.Xaml.Controls.Chart.ChartLayoutContext)">
             <summary>
             Updates of all of the chart elements presented by this instance.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.LineAxis.UnapplyTemplateCore">
+            <summary>
+            Unapplies the current control template. Occurs when a template has already been applied and a new one is applied.
             </summary>
         </member>
         <member name="M:Telerik.UI.Xaml.Controls.Chart.LineAxis.ApplyTemplateCore">
@@ -3845,41 +3840,6 @@
             <summary>
             Represents a typed collection that stores <see cref="T:Telerik.UI.Xaml.Controls.Chart.CartesianSeries"/> instances.
             </summary>
-        </member>
-        <member name="T:Telerik.UI.Xaml.Controls.Chart.PresenterCollection`1">
-            <summary>
-            Represents a strongly typed collection of <see cref="T:Telerik.UI.Xaml.Controls.Chart.ChartElementPresenter"/> instances.
-            </summary>
-            <typeparam name="T">Must be <see cref="T:Telerik.UI.Xaml.Controls.Chart.ChartElementPresenter"/>.</typeparam>
-        </member>
-        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterCollection`1.InsertItem(System.Int32,`0)">
-            <summary>
-            Inserts an element into the collection at the specified index.
-            </summary>
-            <param name="index"></param>
-            <param name="item"></param>
-        </member>
-        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterCollection`1.RemoveItem(System.Int32)">
-            <summary>
-            Removes the element at the specified index of the collection.
-            </summary>
-            <param name="index"></param>
-        </member>
-        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterCollection`1.ClearItems">
-            <summary>
-            Removes all elements from the <see cref="T:System.Collections.ObjectModel.Collection`1"/>.
-            </summary>
-        </member>
-        <member name="M:Telerik.UI.Xaml.Controls.Chart.PresenterCollection`1.SetItem(System.Int32,`0)">
-            <summary>
-            Replaces the element at the specified index.
-            </summary>
-            <param name="index">The zero-based index of the element to replace.</param>
-            <param name="newPresenter">The new value for the element at the specified index. The value can be null for reference types.</param>
-            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="index"/> is less than zero.
-            -or-
-            <paramref name="index"/> is greater than <see cref="P:System.Collections.ObjectModel.Collection`1.Count"/>.
-            </exception>
         </member>
         <member name="T:Telerik.UI.Xaml.Controls.Chart.GridLineRenderMode">
             <summary>
@@ -4253,6 +4213,11 @@
             </summary>
             <param name="context"></param>
         </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.LineIndicatorBase.UnapplyTemplateCore">
+            <summary>
+            Unapplies the current control template. Occurs when a template has already been applied and a new one is applied.
+            </summary>
+        </member>
         <member name="M:Telerik.UI.Xaml.Controls.Chart.LineIndicatorBase.ApplyTemplateCore">
             <summary>
             Adds the polyline shape to the visual tree.
@@ -4486,6 +4451,11 @@
             <param name="oldAxis">The old axis.</param>
             <param name="newAxis">The new axis.</param>
         </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.BollingerBandsIndicator.UnapplyTemplateCore">
+            <summary>
+            Unapplies the current control template. Occurs when a template has already been applied and a new one is applied.
+            </summary>
+        </member>
         <member name="M:Telerik.UI.Xaml.Controls.Chart.BollingerBandsIndicator.ApplyTemplateCore">
             <summary>
             Adds the polyline shape to the visual tree.
@@ -4712,6 +4682,11 @@
             </summary>
             <param name="oldAxis">The old axis.</param>
             <param name="newAxis">The new axis.</param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.MacdIndicator.UnapplyTemplateCore">
+            <summary>
+            Unapplies the current control template. Occurs when a template has already been applied and a new one is applied.
+            </summary>
         </member>
         <member name="M:Telerik.UI.Xaml.Controls.Chart.MacdIndicator.ApplyTemplateCore">
             <summary>
@@ -4944,6 +4919,11 @@
             </summary>
             <param name="oldAxis">The old axis.</param>
             <param name="newAxis">The new axis.</param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.StochasticFastIndicator.UnapplyTemplateCore">
+            <summary>
+            Unapplies the current control template. Occurs when a template has already been applied and a new one is applied.
+            </summary>
         </member>
         <member name="M:Telerik.UI.Xaml.Controls.Chart.StochasticFastIndicator.ApplyTemplateCore">
             <summary>
@@ -5185,11 +5165,12 @@
             </summary>
             <param name="e"></param>
         </member>
-        <member name="M:Telerik.UI.Xaml.Controls.Chart.RadChartBase.GetDataContextCore(Windows.Foundation.Point)">
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.RadChartBase.GetDataContextCore(Windows.Foundation.Point,Telerik.UI.Xaml.Controls.Chart.ChartPointDistanceCalculationMode)">
             <summary>
             Gets <see cref="T:Telerik.UI.Xaml.Controls.Chart.ChartDataContext"/> assosiated with a gives physycal location.
             </summary>
             <param name="tapLocation">The relative physical position of the requested data context.</param>
+            <param name="pointDistanceMode">The point distance calculation mode to be used in finding closest point.</param>
             <returns>Returns <see cref="T:Telerik.UI.Xaml.Controls.Chart.ChartDataContext"/> object holding information for the requested physical location.</returns>
         </member>
         <member name="F:Telerik.UI.Xaml.Controls.Chart.RadChartBase.ZoomProperty">
@@ -5419,12 +5400,12 @@
             Gets or sets the <see cref="P:Telerik.UI.Xaml.Controls.Chart.RadChartBase.PaletteName"/> value used to apply a predefined pallete to the chart.
             </summary>
         </member>
-        <member name="P:Telerik.UI.Xaml.Controls.Chart.RadChartBase.Telerik#Charting#IChartView#ViewportWidth">
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.RadChartBase.Telerik#Core#IView#ViewportWidth">
             <summary>
             Gets the actual width of the chart.
             </summary>
         </member>
-        <member name="P:Telerik.UI.Xaml.Controls.Chart.RadChartBase.Telerik#Charting#IChartView#ViewportHeight">
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.RadChartBase.Telerik#Core#IView#ViewportHeight">
             <summary>
             Gets the actual height of the chart.
             </summary>
@@ -5470,6 +5451,11 @@
             Gets the collection containing all the indicators presented by this instance.
             </summary>
         </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.RadCartesianChart.Annotations">
+            <summary>
+            Gets the collection containing all the annotations presented by this instance.
+            </summary>
+        </member>
         <member name="P:Telerik.UI.Xaml.Controls.Chart.RadCartesianChart.Grid">
             <summary>
             Gets or sets the <see cref="T:Telerik.UI.Xaml.Controls.Chart.CartesianChartGrid"/> used to decorate the chart plot area with major/minor grid and strip lines.
@@ -5493,6 +5479,16 @@
         <member name="T:Telerik.UI.Xaml.Controls.Chart.PointTemplateSeries">
             <summary>
             Base class for all <see cref="T:Telerik.UI.Xaml.Controls.Chart.ChartSeries"/> that may visualize their data points through Data templates.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.PointTemplateSeries.LegendTitleProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.PointTemplateSeries.LegendTitle"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.PointTemplateSeries.IsVisibleInLegendProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.PointTemplateSeries.IsVisibleInLegend"/> dependency property.
             </summary>
         </member>
         <member name="F:Telerik.UI.Xaml.Controls.Chart.PointTemplateSeries.PointTemplateProperty">
@@ -5526,18 +5522,44 @@
             Updates of all of the chart elements presented by this instance.
             </summary>
         </member>
-        <member name="M:Telerik.UI.Xaml.Controls.Chart.PointTemplateSeries.MeasureNodeOverride(Telerik.Charting.ChartNode,System.Object)">
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PointTemplateSeries.MeasureNodeOverride(Telerik.Core.Node,System.Object)">
             <summary>
             Core entry point for calculating the size of a node's content.
             </summary>
             <param name="node"></param>
             <param name="content"></param>
         </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PointTemplateSeries.UnapplyTemplateCore">
+            <summary>
+            Unapplies the current control template. Occurs when a template has already been applied and a new one is applied.
+            </summary>
+        </member>
         <member name="M:Telerik.UI.Xaml.Controls.Chart.PointTemplateSeries.ApplyTemplateCore">
             <summary>
             Adds the <see cref="T:Windows.UI.Xaml.Controls.ContentPresenter"/> instance used to retrieve the desired size of each chart model.
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PointTemplateSeries.OnAttached">
+            <summary>
+            Occurs when the presenter has been successfully attached to its owning <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadChartBase"/> instance.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PointTemplateSeries.OnDetached(Telerik.UI.Xaml.Controls.Chart.RadChartBase)">
+            <summary>
+            Occurs when the presenter has been successfully detached from its owning <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadChartBase"/> instance.
+            </summary>
+            <param name="oldChart"></param>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.PointTemplateSeries.LegendTitle">
+            <summary>
+            Gets or sets the title that will be used by <see cref="T:Telerik.UI.Xaml.Controls.Primitives.RadLegendControl"/> to display chart legend.
+            </summary>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.PointTemplateSeries.IsVisibleInLegend">
+            <summary>
+            Gets or sets whether this series will be  used in <see cref="T:Telerik.UI.Xaml.Controls.Primitives.RadLegendControl"/> to display chart legend.
+            </summary>
         </member>
         <member name="P:Telerik.UI.Xaml.Controls.Chart.PointTemplateSeries.DefaultVisualStyle">
             <summary>
@@ -5604,16 +5626,6 @@
             </summary>
             <param name="oldChart"></param>
         </member>
-        <member name="F:Telerik.UI.Xaml.Controls.Chart.CartesianSeries.LegendTitleProperty">
-            <summary>
-            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.CartesianSeries.LegendTitle"/> dependency property.
-            </summary>
-        </member>
-        <member name="F:Telerik.UI.Xaml.Controls.Chart.CartesianSeries.IsVisibleInLegendProperty">
-            <summary>
-            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.CartesianSeries.IsVisibleInLegend"/> dependency property.
-            </summary>
-        </member>
         <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianSeries.HorizontalAxis">
             <summary>
             Gets or sets the visual <see cref="T:Telerik.UI.Xaml.Controls.Chart.CartesianAxis"/> instance that will be used to plot points along the horizontal (X) axis.
@@ -5622,16 +5634,6 @@
         <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianSeries.VerticalAxis">
             <summary>
             Gets or sets the visual <see cref="T:Telerik.UI.Xaml.Controls.Chart.CartesianAxis"/> instance that will be used to plot points along the vertical (Y) axis.
-            </summary>
-        </member>
-        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianSeries.LegendTitle">
-            <summary>
-            Gets or sets the title that will be used by <see cref="T:Telerik.UI.Xaml.Controls.Primitives.RadLegendControl"/> to display chart legend.
-            </summary>
-        </member>
-        <member name="P:Telerik.UI.Xaml.Controls.Chart.CartesianSeries.IsVisibleInLegend">
-            <summary>
-            Gets or sets whether this series will be  used in <see cref="T:Telerik.UI.Xaml.Controls.Primitives.RadLegendControl"/> to display chart legend.
             </summary>
         </member>
         <member name="T:Telerik.UI.Xaml.Controls.Chart.AreaSeries">
@@ -5760,6 +5762,11 @@
             </summary>
             <param name="context"></param>
         </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries.UnapplyTemplateCore">
+            <summary>
+            Unapplies the current control template. Occurs when a template has already been applied and a new one is applied.
+            </summary>
+        </member>
         <member name="M:Telerik.UI.Xaml.Controls.Chart.CategoricalStrokedSeries.ApplyTemplateCore">
             <summary>
             Adds the polyline shape to the visual tree.
@@ -5815,6 +5822,11 @@
         <member name="M:Telerik.UI.Xaml.Controls.Chart.AreaSeries.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Telerik.UI.Xaml.Controls.Chart.AreaSeries"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.AreaSeries.UnapplyTemplateCore">
+            <summary>
+            Unapplies the current control template. Occurs when a template has already been applied and a new one is applied.
             </summary>
         </member>
         <member name="M:Telerik.UI.Xaml.Controls.Chart.AreaSeries.ApplyTemplateCore">
@@ -5906,6 +5918,11 @@
             Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.BarSeries.PaletteMode"/> dependency property.
             </summary>
         </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.BarSeries.LegendTitleBindingProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.BarSeries.LegendTitleBinding"/> property.
+            </summary>
+        </member>
         <member name="M:Telerik.UI.Xaml.Controls.Chart.BarSeries.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Telerik.UI.Xaml.Controls.Chart.BarSeries"/> class.
@@ -5914,6 +5931,11 @@
         <member name="P:Telerik.UI.Xaml.Controls.Chart.BarSeries.PaletteMode">
             <summary>
             Gets or sets the target type of the chart palette, specified to the owning Chart instance. Defaults to PaletteTargetType.Series.
+            </summary>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.BarSeries.LegendTitleBinding">
+            <summary>
+            Gets or sets the binding that will be used by any attached legend to display legend item title.
             </summary>
         </member>
         <member name="P:Telerik.UI.Xaml.Controls.Chart.BarSeries.Family">
@@ -6200,6 +6222,11 @@
             </summary>
             <param name="context"></param>
         </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.ScatterLineSeries.UnapplyTemplateCore">
+            <summary>
+            Unapplies the current control template. Occurs when a template has already been applied and a new one is applied.
+            </summary>
+        </member>
         <member name="M:Telerik.UI.Xaml.Controls.Chart.ScatterLineSeries.ApplyTemplateCore">
             <summary>
             Adds the polyline shape to the visual tree.
@@ -6246,6 +6273,11 @@
         <member name="M:Telerik.UI.Xaml.Controls.Chart.ScatterAreaSeries.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Telerik.UI.Xaml.Controls.Chart.ScatterAreaSeries"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.ScatterAreaSeries.UnapplyTemplateCore">
+            <summary>
+            Unapplies the current control template. Occurs when a template has already been applied and a new one is applied.
             </summary>
         </member>
         <member name="M:Telerik.UI.Xaml.Controls.Chart.ScatterAreaSeries.ApplyTemplateCore">
@@ -6327,6 +6359,11 @@
         <member name="M:Telerik.UI.Xaml.Controls.Chart.RadialAxis.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadialAxis"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.RadialAxis.UnapplyTemplateCore">
+            <summary>
+            Unapplies the current control template. Occurs when a template has already been applied and a new one is applied.
             </summary>
         </member>
         <member name="M:Telerik.UI.Xaml.Controls.Chart.RadialAxis.ApplyTemplateCore">
@@ -6467,7 +6504,7 @@
         </member>
         <member name="M:Telerik.UI.Xaml.Controls.Chart.ChartSeriesLabelStrategy.GetLabelLayoutSlot(Telerik.Charting.DataPoint,Windows.UI.Xaml.FrameworkElement,System.Int32)">
             <summary>
-            Gets the <see cref="T:Telerik.Charting.RadRect"/> structure that defines the layout slot of the label at the specified label index, associated with the provided data point.
+            Gets the <see cref="T:Telerik.Core.RadRect"/> structure that defines the layout slot of the label at the specified label index, associated with the provided data point.
             </summary>
             <param name="point"></param>
             <param name="visual"></param>
@@ -6475,7 +6512,7 @@
         </member>
         <member name="M:Telerik.UI.Xaml.Controls.Chart.ChartSeriesLabelStrategy.GetLabelDesiredSize(Telerik.Charting.DataPoint,Windows.UI.Xaml.FrameworkElement,System.Int32)">
             <summary>
-            Gets the <see cref="T:Telerik.Charting.RadSize"/> structure that is the desired size of the specified label visual, associated with the provided data point.
+            Gets the <see cref="T:Telerik.Core.RadSize"/> structure that is the desired size of the specified label visual, associated with the provided data point.
             </summary>
             <param name="point"></param>
             <param name="visual"></param>
@@ -7314,19 +7351,29 @@
             Represents a typed collection that stores <see cref="T:Telerik.UI.Xaml.Controls.Chart.PolarSeries"/> instances.
             </summary>
         </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.PolarSplineAreaSeries">
+            <summary>
+            Represents series which define a area with smooth curves among points.
+            </summary>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.PolarAreaSeries">
+            <summary>
+            Represents <see cref="T:Telerik.UI.Xaml.Controls.Chart.PolarLineSeries"/> that may optionally fill the area, enclosed by all points.
+            </summary>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.PolarLineSeries">
+            <summary>
+            Represents <see cref="T:Telerik.UI.Xaml.Controls.Chart.PolarPointSeries"/> which connect each <see cref="T:Telerik.Charting.PolarDataPoint"/> with a straight line segment.
+            </summary>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Chart.PolarPointSeries">
+            <summary>
+            Represents <see cref="T:Telerik.UI.Xaml.Controls.Chart.CartesianSeries"/> which may visualize <see cref="T:Telerik.Charting.PolarDataPoint"/> objects in <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadPolarChart"/>.
+            </summary>
+        </member>
         <member name="T:Telerik.UI.Xaml.Controls.Chart.PolarSeries">
             <summary>
             Base class for all <see cref="T:Telerik.UI.Xaml.Controls.Chart.ChartSeries"/> that may visualize their data points in a circle.
-            </summary>
-        </member>
-        <member name="F:Telerik.UI.Xaml.Controls.Chart.PolarSeries.LegendTitleProperty">
-            <summary>
-            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.PolarSeries.LegendTitle"/> dependency property.
-            </summary>
-        </member>
-        <member name="F:Telerik.UI.Xaml.Controls.Chart.PolarSeries.IsVisibleInLegendProperty">
-            <summary>
-            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.PolarSeries.IsVisibleInLegend"/> dependency property.
             </summary>
         </member>
         <member name="F:Telerik.UI.Xaml.Controls.Chart.PolarSeries.ValueBindingProperty">
@@ -7359,16 +7406,6 @@
             </summary>
             <param name="oldChart"></param>
         </member>
-        <member name="P:Telerik.UI.Xaml.Controls.Chart.PolarSeries.LegendTitle">
-            <summary>
-            Gets or sets the title that will be used by <see cref="T:Telerik.UI.Xaml.Controls.Primitives.RadLegendControl"/> to display chart legend.
-            </summary>
-        </member>
-        <member name="P:Telerik.UI.Xaml.Controls.Chart.PolarSeries.IsVisibleInLegend">
-            <summary>
-            Gets or sets whether this series will be  used in <see cref="T:Telerik.UI.Xaml.Controls.Primitives.RadLegendControl"/> to display chart legend.
-            </summary>
-        </member>
         <member name="P:Telerik.UI.Xaml.Controls.Chart.PolarSeries.ValueBinding">
             <summary>
             Gets or sets the binding that will be used to fill the Value member of the contained data points.
@@ -7379,26 +7416,6 @@
             Gets the human-readable family of this instance. For example Area is the family for Area, SplineArea and PolarArea series.
             </summary>
             <value></value>
-        </member>
-        <member name="T:Telerik.UI.Xaml.Controls.Chart.PolarSplineAreaSeries">
-            <summary>
-            Represents series which define a area with smooth curves among points.
-            </summary>
-        </member>
-        <member name="T:Telerik.UI.Xaml.Controls.Chart.PolarAreaSeries">
-            <summary>
-            Represents <see cref="T:Telerik.UI.Xaml.Controls.Chart.PolarLineSeries"/> that may optionally fill the area, enclosed by all points.
-            </summary>
-        </member>
-        <member name="T:Telerik.UI.Xaml.Controls.Chart.PolarLineSeries">
-            <summary>
-            Represents <see cref="T:Telerik.UI.Xaml.Controls.Chart.PolarPointSeries"/> which connect each <see cref="T:Telerik.Charting.PolarDataPoint"/> with a straight line segment.
-            </summary>
-        </member>
-        <member name="T:Telerik.UI.Xaml.Controls.Chart.PolarPointSeries">
-            <summary>
-            Represents <see cref="T:Telerik.UI.Xaml.Controls.Chart.CartesianSeries"/> which may visualize <see cref="T:Telerik.Charting.PolarDataPoint"/> objects in <see cref="T:Telerik.UI.Xaml.Controls.Chart.RadPolarChart"/>.
-            </summary>
         </member>
         <member name="F:Telerik.UI.Xaml.Controls.Chart.PolarPointSeries.AngleBindingProperty">
             <summary>
@@ -7462,6 +7479,11 @@
             Updates of all of the chart elements presented by this instance.
             </summary>
             <param name="context"></param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.PolarLineSeries.UnapplyTemplateCore">
+            <summary>
+            Unapplies the current control template. Occurs when a template has already been applied and a new one is applied.
+            </summary>
         </member>
         <member name="M:Telerik.UI.Xaml.Controls.Chart.PolarLineSeries.ApplyTemplateCore">
             <summary>
@@ -7651,6 +7673,11 @@
             </summary>
             <param name="context"></param>
         </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.RadarLineSeries.UnapplyTemplateCore">
+            <summary>
+            Unapplies the current control template. Occurs when a template has already been applied and a new one is applied.
+            </summary>
+        </member>
         <member name="M:Telerik.UI.Xaml.Controls.Chart.RadarLineSeries.ApplyTemplateCore">
             <summary>
             Adds the polyline shape to the visual tree.
@@ -7751,11 +7778,12 @@
             Creates the model of the plot area.
             </summary>
         </member>
-        <member name="M:Telerik.UI.Xaml.Controls.Chart.RadPieChart.GetDataContextCore(Windows.Foundation.Point)">
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.RadPieChart.GetDataContextCore(Windows.Foundation.Point,Telerik.UI.Xaml.Controls.Chart.ChartPointDistanceCalculationMode)">
             <summary>
             Gets <see cref="T:Telerik.UI.Xaml.Controls.Chart.ChartDataContext"/> assosiated with a gives physycal location.
             </summary>
             <param name="tapLocation">The relative physical position of the requested data context.</param>
+            <param name="pointDistanceMode">The point distance calculation mode to be used in finding closest point.</param>
             <returns>Returns <see cref="T:Telerik.UI.Xaml.Controls.Chart.ChartDataContext"/> object holding information for the requested physical location.</returns>
         </member>
         <member name="P:Telerik.UI.Xaml.Controls.Chart.RadPieChart.Series">
@@ -7997,6 +8025,12 @@
             <summary>
             Gets or sets the visual <see cref="P:Telerik.UI.Xaml.Controls.Chart.RadPolarChart.RadialAxis"/> instance that will be used to plot points along the vertical (Y) axis.
             </summary>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.RadPolarChart.Annotations">
+            <summary>
+            Gets the collection containing all the annotations presented by this instance.
+            </summary>
+            <value>The annotations.</value>
         </member>
     </members>
 </doc>
