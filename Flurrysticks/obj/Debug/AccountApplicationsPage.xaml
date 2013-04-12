@@ -96,6 +96,7 @@
                 AutomationProperties.AutomationId="ItemsGridView"
                 ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
                 ItemTemplate="{StaticResource Standard250x250ItemTemplate}"
+                                                                
                 TabIndex="1"
                 Grid.Row="2"
                 Padding="116,19,116,36"
@@ -185,7 +186,8 @@
             Padding="10,0,0,60"
             ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
             ItemTemplate="{StaticResource Standard80ItemTemplate}"
-            SelectionMode="None"
+                                                            
+            SelectionMode="Multiple"
             IsSwipeEnabled="True"
             IsItemClickEnabled="True"
                                           />
@@ -279,14 +281,16 @@
     </common:LayoutAwarePage.TopAppBar>
 
     <common:LayoutAwarePage.BottomAppBar>
-        <AppBar x:ConnectionId='9' x:Name="bottomAppBar" Padding="10,0,10,0"                               >
+        <AppBar x:ConnectionId='9' x:Name="bottomAppBar" Padding="10,0,10,0"                                                            >
             <Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:ConnectionId='11' x:Name="RemoveAppBarButton" Style="{StaticResource RemoveAppBarButtonStyle}"                       />
-                    <Button x:ConnectionId='12' Style="{StaticResource AddAppBarButtonStyle}"                       />
+                    <Button x:ConnectionId='13' x:Name="RemoveAppBarButton" Style="{StaticResource RemoveAppBarButtonStyle}"                       />
+                    <Button x:ConnectionId='14' x:Name="AddAppBarButton" Style="{StaticResource AddAppBarButtonStyle}"                       />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Button x:ConnectionId='10' x:Name="sortButton" Style="{StaticResource SortAppBarButtonStyle}"                       />
+                    <Button x:ConnectionId='10' x:Name="addToFavButton" Style="{StaticResource FavoriteAppBarButtonStyle}"                              Visibility="Collapsed" />
+                    <Button x:ConnectionId='11' x:Name="clearSelection" Style="{StaticResource ClearSelectionAppBarButtonStyle}"                              Visibility="Collapsed" />
+                    <Button x:ConnectionId='12' x:Name="sortButton" Style="{StaticResource SortAppBarButtonStyle}"                       />
                 </StackPanel>
             </Grid>
         </AppBar>

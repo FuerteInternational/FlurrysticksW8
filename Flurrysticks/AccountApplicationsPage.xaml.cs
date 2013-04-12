@@ -757,6 +757,82 @@ namespace Flurrystics
         {
             Button sourceButton = (Button)sender;
             Debug.WriteLine("Change context:"+sourceButton.Name);
+            if (sourceButton.Name.Equals("accounts"))
+            { // standard account
+
+            }
+            if (sourceButton.Name.Equals("favorites"))
+            { // fav items
+
+            }
+        }
+
+        private void standardBottomBar()
+        {
+            RemoveAppBarButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            AddAppBarButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            sortButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            addToFavButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            clearSelection.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+        }
+
+        private void favBottomBar()
+        {
+            RemoveAppBarButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            AddAppBarButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            sortButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            addToFavButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            clearSelection.Visibility = Windows.UI.Xaml.Visibility.Visible;
+        }
+
+        private void itemGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (itemGridView.SelectedItems.Count > 0)
+            {
+                this.bottomAppBar.IsSticky = true;
+                this.bottomAppBar.IsOpen = true;
+                favBottomBar();
+            }
+            else
+            {
+                this.bottomAppBar.IsOpen = false;
+                this.bottomAppBar.IsSticky = false;             
+                standardBottomBar();                
+            }
+            
+        }
+
+        private void itemListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (itemGridView.SelectedItems.Count > 0)
+            {
+                this.bottomAppBar.IsSticky = true;
+                this.bottomAppBar.IsOpen = true;
+                favBottomBar();
+            }
+            else
+            {
+                this.bottomAppBar.IsOpen = false;
+                this.bottomAppBar.IsSticky = false;
+                standardBottomBar();
+            }
+        }
+
+        private void addToFavButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void clearSelection_Click(object sender, RoutedEventArgs e)
+        {
+            itemListView.SelectedItems.Clear();
+            itemGridView.SelectedItems.Clear();
+            bottomAppBar.IsOpen = false;
+        }
+
+        private void bottomAppBar_Closed(object sender, object e)
+        {
+            standardBottomBar();
         }
 
     }

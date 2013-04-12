@@ -96,6 +96,7 @@
                 AutomationProperties.AutomationId="ItemsGridView"
                 ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
                 ItemTemplate="{StaticResource Standard250x250ItemTemplate}"
+                SelectionChanged="itemGridView_SelectionChanged"
                 TabIndex="1"
                 Grid.Row="2"
                 Padding="116,19,116,36"
@@ -185,6 +186,7 @@
             Padding="10,0,0,60"
             ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
             ItemTemplate="{StaticResource Standard80ItemTemplate}"
+            SelectionChanged="itemListView_SelectionChanged"
             SelectionMode="Multiple"
             IsSwipeEnabled="True"
             IsItemClickEnabled="True"
@@ -279,13 +281,15 @@
     </common:LayoutAwarePage.TopAppBar>
 
     <common:LayoutAwarePage.BottomAppBar>
-        <AppBar x:Name="bottomAppBar" Padding="10,0,10,0" Opened="bottomAppBar_Opened_1">
+        <AppBar x:Name="bottomAppBar" Padding="10,0,10,0" Opened="bottomAppBar_Opened_1" Closed="bottomAppBar_Closed">
             <Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button x:Name="RemoveAppBarButton" Style="{StaticResource RemoveAppBarButtonStyle}" Click="Button_Click_1"/>
-                    <Button Style="{StaticResource AddAppBarButtonStyle}" Click="Button_Click_2"/>
+                    <Button x:Name="AddAppBarButton" Style="{StaticResource AddAppBarButtonStyle}" Click="Button_Click_2"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Button x:Name="addToFavButton" Style="{StaticResource FavoriteAppBarButtonStyle}" Click="addToFavButton_Click" Visibility="Collapsed" />
+                    <Button x:Name="clearSelection" Style="{StaticResource ClearSelectionAppBarButtonStyle}" Click="clearSelection_Click" Visibility="Collapsed" />
                     <Button x:Name="sortButton" Style="{StaticResource SortAppBarButtonStyle}" Click="Button_Click_3"/>
                 </StackPanel>
             </Grid>
