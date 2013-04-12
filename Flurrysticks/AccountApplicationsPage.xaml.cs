@@ -38,6 +38,9 @@ namespace Flurrystics
     public sealed partial class AccountApplicationsPage : Flurrystics.Common.LayoutAwarePage
     {
         int currentAccount;
+        const int MODE_FAV = 1; // favorites
+        const int MODE_ACC = 0; // account
+        int MODE = MODE_ACC;
         DownloadHelper dh = new DownloadHelper();
         ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
         String settingsOrderBy = "name1";
@@ -741,15 +744,22 @@ namespace Flurrystics
 
         private void bottomAppBar_Opened_1(object sender, object e)
         {
-            if (!(DataSource.getAccounts().Count() > 0))
+            if (MODE == MODE_ACC)
             {
-                RemoveAppBarButton.Visibility = Visibility.Collapsed;
-                sortButton.Visibility = Visibility.Collapsed;
+                if (!(DataSource.getAccounts().Count() > 0))
+                {
+                    RemoveAppBarButton.Visibility = Visibility.Collapsed;
+                    sortButton.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    RemoveAppBarButton.Visibility = Visibility.Visible;
+                    sortButton.Visibility = Visibility.Visible;
+                }
             }
             else
             {
-                RemoveAppBarButton.Visibility = Visibility.Visible;
-                sortButton.Visibility = Visibility.Visible;
+                RemoveAppBarButton.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -759,30 +769,59 @@ namespace Flurrystics
             Debug.WriteLine("Change context:"+sourceButton.Name);
             if (sourceButton.Name.Equals("accounts"))
             { // standard account
-
+                MODE = MODE_ACC;
             }
             if (sourceButton.Name.Equals("favorites"))
             { // fav items
-
+                MODE = MODE_FAV;
             }
+            TopAppBar.IsOpen = false;
+            BottomAppBar.IsOpen = false;
+            standardBottomBar();
         }
 
         private void standardBottomBar()
         {
-            RemoveAppBarButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            AddAppBarButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            sortButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            addToFavButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            clearSelection.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            if (MODE == MODE_ACC)
+            {
+                RemoveAppBarButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                removeFromFavButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                AddAppBarButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                sortButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                addToFavButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                clearSelection.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            } else
+                if (MODE == MODE_FAV)
+                {
+                    RemoveAppBarButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                    removeFromFavButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                    AddAppBarButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                    sortButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                    addToFavButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                    clearSelection.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                }
         }
 
         private void favBottomBar()
         {
-            RemoveAppBarButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            AddAppBarButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            sortButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            addToFavButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            clearSelection.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            if (MODE == MODE_ACC)
+            {
+                RemoveAppBarButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                removeFromFavButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                AddAppBarButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                sortButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                addToFavButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                clearSelection.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            } else
+                if (MODE == MODE_FAV)
+                {
+                    RemoveAppBarButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                    removeFromFavButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                    AddAppBarButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                    sortButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                    addToFavButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                    clearSelection.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                }
         }
 
         private void itemGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -833,6 +872,11 @@ namespace Flurrystics
         private void bottomAppBar_Closed(object sender, object e)
         {
             standardBottomBar();
+        }
+
+        private void removeFromFavButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
     }

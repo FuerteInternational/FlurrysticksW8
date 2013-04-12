@@ -289,6 +289,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <Button x:Name="addToFavButton" Style="{StaticResource FavoriteAppBarButtonStyle}" Click="addToFavButton_Click" Visibility="Collapsed" />
+                    <Button x:Name="removeFromFavButton" Style="{StaticResource UnfavoriteAppBarButtonStyle}" Click="removeFromFavButton_Click" Visibility="Collapsed" />                   
                     <Button x:Name="clearSelection" Style="{StaticResource ClearSelectionAppBarButtonStyle}" Click="clearSelection_Click" Visibility="Collapsed" />
                     <Button x:Name="sortButton" Style="{StaticResource SortAppBarButtonStyle}" Click="Button_Click_3"/>
                 </StackPanel>

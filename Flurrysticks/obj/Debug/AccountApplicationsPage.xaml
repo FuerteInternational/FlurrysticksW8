@@ -284,13 +284,14 @@
         <AppBar x:ConnectionId='9' x:Name="bottomAppBar" Padding="10,0,10,0"                                                            >
             <Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:ConnectionId='13' x:Name="RemoveAppBarButton" Style="{StaticResource RemoveAppBarButtonStyle}"                       />
-                    <Button x:ConnectionId='14' x:Name="AddAppBarButton" Style="{StaticResource AddAppBarButtonStyle}"                       />
+                    <Button x:ConnectionId='14' x:Name="RemoveAppBarButton" Style="{StaticResource RemoveAppBarButtonStyle}"                       />
+                    <Button x:ConnectionId='15' x:Name="AddAppBarButton" Style="{StaticResource AddAppBarButtonStyle}"                       />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <Button x:ConnectionId='10' x:Name="addToFavButton" Style="{StaticResource FavoriteAppBarButtonStyle}"                              Visibility="Collapsed" />
-                    <Button x:ConnectionId='11' x:Name="clearSelection" Style="{StaticResource ClearSelectionAppBarButtonStyle}"                              Visibility="Collapsed" />
-                    <Button x:ConnectionId='12' x:Name="sortButton" Style="{StaticResource SortAppBarButtonStyle}"                       />
+                    <Button x:ConnectionId='11' x:Name="removeFromFavButton" Style="{StaticResource UnfavoriteAppBarButtonStyle}"                                   Visibility="Collapsed" />                   
+                    <Button x:ConnectionId='12' x:Name="clearSelection" Style="{StaticResource ClearSelectionAppBarButtonStyle}"                              Visibility="Collapsed" />
+                    <Button x:ConnectionId='13' x:Name="sortButton" Style="{StaticResource SortAppBarButtonStyle}"                       />
                 </StackPanel>
             </Grid>
         </AppBar>
