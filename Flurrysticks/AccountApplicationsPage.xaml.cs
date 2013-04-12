@@ -938,7 +938,22 @@ namespace Flurrystics
 
         private void removeFromFavButton_Click(object sender, RoutedEventArgs e)
         {
+            IList<object> sourceSelected = null;
+            if (itemListView.SelectedItems.Count > 0) { sourceSelected = itemListView.SelectedItems; }
+            if (itemGridView.SelectedItems.Count > 0) { sourceSelected = itemGridView.SelectedItems; }
+            if (sourceSelected == null) { return; } // should not happen - ever
 
+            IEnumerator<object> enumerator = sourceSelected.GetEnumerator();
+
+            while (enumerator.MoveNext())
+            {
+                AppItem currentObject = (AppItem)enumerator.Current;
+                DataSource.getFavApps().Remove(currentObject); // remove object
+            }
+
+            itemListView.SelectedItems.Clear();
+            itemGridView.SelectedItems.Clear();
+            bottomAppBar.IsOpen = false;
         }
 
     }
