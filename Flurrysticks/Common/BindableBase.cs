@@ -8,8 +8,9 @@ namespace Flurrystics.Common
 {
     /// <summary>
     /// Implementation of <see cref="INotifyPropertyChanged"/> to simplify models.
-    /// </summary>
+    /// </summary>    
     [Windows.Foundation.Metadata.WebHostHidden]
+    [DataContractAttribute]
     public abstract class BindableBase : INotifyPropertyChanged
     {
         /// <summary>

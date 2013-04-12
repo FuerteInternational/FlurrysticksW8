@@ -45,6 +45,7 @@ namespace Flurrystics
         ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
         String settingsOrderBy = "name1";
         static readonly string ApiFileName = "apikeys.xml";
+        static readonly string FavFileName = "favlist.xml";
         /*
         int fingerCount = 0;
         int currentOffset;
@@ -207,6 +208,66 @@ namespace Flurrystics
             });
 
         }
+
+        private void SaveFavData()
+        {
+            //List<AccountItem> Accounts = new List<AccountItem>();
+            //if (DataSource.getAccounts() == null) { return; }
+            //IEnumerator<Account> MyEnumerator = DataSource.getAccounts().GetEnumerator();
+            //while (MyEnumerator.MoveNext())
+            //{
+            //    Account processingAccount = MyEnumerator.Current;
+            //    var newItem = new AccountItem { Name = processingAccount.Name, ApiKey = processingAccount.ApiKey };
+            //    Accounts.Add(newItem);
+            //}
+
+            WriteFile(FavFileName).ContinueWith(opentask =>
+            {
+                using (var stream = opentask.Result)
+                {
+                    DataContractSerializer serializer = new DataContractSerializer(typeof(ObservableCollection<AppItem>));
+                    serializer.WriteObject(stream, DataSource.getFavApps());
+                }
+            });
+
+        }
+
+        public async void LoadFavData()
+        {
+
+            if (DataSource.getAccounts().Count() == 0)
+            { // if empty - try...
+
+                //List<AccountItem> Accounts = new List<AccountItem>();
+                Debug.WriteLine("LoadFavData()");
+                //AccountItem[] AccountsArray;
+                StorageFile x = await GetFile(FavFileName);
+                var file = x;
+                if (file == null)
+                {
+                    Debug.WriteLine("Empty XML");
+                    return;
+                }
+
+                var folder = ApplicationData.Current.RoamingFolder;
+                Stream filevalue = await folder.OpenStreamForReadAsync(FavFileName);
+
+                Debug.WriteLine("OpenStreamForReadAsync()");
+                using (var stream = filevalue)
+                {
+                    Debug.WriteLine("filevalue.Result");
+                    DataContractSerializer serializer = new DataContractSerializer(typeof(ObservableCollection<AppItem>));
+                    var localCats = serializer.ReadObject(stream) as ObservableCollection<AppItem>;
+                    DataSource.setFavApps(localCats);
+                }
+
+                Debug.WriteLine("After await");
+
+            }
+
+        }
+
+
 /*
         protected override void OnPointerPressed(PointerRoutedEventArgs e)
         {
@@ -301,6 +362,7 @@ namespace Flurrystics
             //if (DataSource.getAccounts().Count() == 0)
             //{ // if no account then try to deserialize
                 LoadApiKeyData();
+                LoadFavData();
             //}
         
         }   
@@ -921,6 +983,7 @@ namespace Flurrystics
             itemListView.SelectedItems.Clear();
             itemGridView.SelectedItems.Clear();
             bottomAppBar.IsOpen = false;
+            SaveFavData();
 
         }
 
@@ -954,6 +1017,7 @@ namespace Flurrystics
             itemListView.SelectedItems.Clear();
             itemGridView.SelectedItems.Clear();
             bottomAppBar.IsOpen = false;
+            SaveFavData();
         }
 
     }
