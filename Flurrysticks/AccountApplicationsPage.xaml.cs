@@ -565,9 +565,48 @@ namespace Flurrystics
             try
             {
                 // switchData(sampleAccounts.ElementAt<Account>(currentAccount).Name);
-                if (DataSource.getAccounts().ToList().Count > 0)
+
+                if (MODE == MODE_ACC)
                 {
-                    ParseXML(DataSource.getAccounts().ElementAt<Account>(currentAccount)); // -> REORDER
+
+                    if (DataSource.getAccounts().ToList().Count > 0)
+                    {
+                        ParseXML(DataSource.getAccounts().ElementAt<Account>(currentAccount)); // -> REORDER
+                    }
+                }
+                Func<AppItem, object> pp = p => p.Name; // default
+                if (MODE == MODE_FAV)
+                {
+
+                if (settingsOrderBy.Contains("name"))
+                {
+                    pp = p => p.Name;
+                }
+                if (settingsOrderBy.Contains("createddate"))
+                {
+                    pp = p => p.CreatedDate;
+                }
+                if (settingsOrderBy.Contains("platform"))
+                {
+                    pp = p => p.Platform;
+                }
+                IOrderedEnumerable<AppItem> sorted;
+                if (settingsOrderBy.Contains("1")) // ascending
+                {
+                    sorted = DataSource.getFavApps().OrderBy(pp);
+                }
+                else // descending
+                {
+                    sorted = DataSource.getFavApps().OrderByDescending(pp);
+                }
+                ObservableCollection<AppItem> sortedCollection = new ObservableCollection<AppItem>();
+                IEnumerator<AppItem> enumerator = sorted.GetEnumerator();
+                while (enumerator.MoveNext())
+                {
+                    sortedCollection.Add(enumerator.Current);
+                }
+                DataSource.setFavApps(sortedCollection);
+                this.DefaultViewModel["Items"] = DataSource.getFavApps();
                 }
             }
             catch (System.ArgumentOutOfRangeException)
@@ -770,10 +809,16 @@ namespace Flurrystics
             if (sourceButton.Name.Equals("accounts"))
             { // standard account
                 MODE = MODE_ACC;
+                this.DefaultViewModel["Items"] = DataSource.getApps();
+                accountSelection.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                favTitle2.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             }
             if (sourceButton.Name.Equals("favorites"))
             { // fav items
                 MODE = MODE_FAV;
+                this.DefaultViewModel["Items"] = DataSource.getFavApps();
+                accountSelection.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                favTitle2.Visibility = Windows.UI.Xaml.Visibility.Visible;
             }
             TopAppBar.IsOpen = false;
             BottomAppBar.IsOpen = false;
@@ -859,6 +904,23 @@ namespace Flurrystics
 
         private void addToFavButton_Click(object sender, RoutedEventArgs e)
         {
+            IList<object> sourceSelected = null;
+            if (itemListView.SelectedItems.Count > 0) { sourceSelected = itemListView.SelectedItems; }
+            if (itemGridView.SelectedItems.Count > 0) { sourceSelected = itemGridView.SelectedItems; }
+            if (sourceSelected == null) { return; } // should not happen - ever
+
+            IEnumerator<object> enumerator = sourceSelected.GetEnumerator();
+
+            while (enumerator.MoveNext())
+            {
+                AppItem currentObject = (AppItem)enumerator.Current;
+                currentObject.ApiKey = DataSource.getAccounts().ElementAt<Account>(currentAccount).ApiKey; // add api access key
+                DataSource.getFavApps().Add(currentObject); // and add object
+            }
+
+            itemListView.SelectedItems.Clear();
+            itemGridView.SelectedItems.Clear();
+            bottomAppBar.IsOpen = false;
 
         }
 

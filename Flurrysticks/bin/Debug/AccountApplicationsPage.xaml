@@ -243,10 +243,20 @@
                        VerticalAlignment="Bottom"
                        />
             </StackPanel>
-            <StackPanel x:ConnectionId='4' 
-                Orientation="Horizontal" 
+
+            <Grid 
                 Grid.Column="1" 
-                Grid.Row="2"
+                Grid.Row="2">
+             <TextBlock 
+                x:Name="favTitle2"                
+                Text="favorites" 
+                Style="{StaticResource PageHeaderTextStyle}" 
+                HorizontalAlignment="Right"
+                Visibility="Collapsed" 
+                />
+            <StackPanel x:ConnectionId='4'
+                x:Name="accountSelection"
+                Orientation="Horizontal" 
                 HorizontalAlignment="Right"
                 IsTapEnabled="True"
                                           
@@ -263,9 +273,10 @@
                 Style="{StaticResource PageHeaderTextStyle}" 
                 HorizontalAlignment="Left"
                 Text=""
-                />
-                
+                />    
             </StackPanel>
+            </Grid>
+            
         </Grid>
     </Grid>
 

@@ -243,10 +243,20 @@
                        VerticalAlignment="Bottom"
                        />
             </StackPanel>
-            <StackPanel 
-                Orientation="Horizontal" 
+
+            <Grid 
                 Grid.Column="1" 
-                Grid.Row="2"
+                Grid.Row="2">
+             <TextBlock 
+                x:Name="favTitle2"                
+                Text="favorites" 
+                Style="{StaticResource PageHeaderTextStyle}" 
+                HorizontalAlignment="Right"
+                Visibility="Collapsed" 
+                />
+            <StackPanel
+                x:Name="accountSelection"
+                Orientation="Horizontal" 
                 HorizontalAlignment="Right"
                 IsTapEnabled="True"
                 Tapped="headerMenuClicked"
@@ -263,9 +273,10 @@
                 Style="{StaticResource PageHeaderTextStyle}" 
                 HorizontalAlignment="Left"
                 Text=""
-                />
-                
+                />    
             </StackPanel>
+            </Grid>
+            
         </Grid>
     </Grid>
 
