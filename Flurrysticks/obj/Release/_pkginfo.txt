@@ -1,1 +1,1 @@
-C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\AppPackages\Flurrystics_1.0.0.19_AnyCPU_Test\Flurrystics_1.0.0.19_AnyCPU.appx
+C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\AppPackages\Flurrystics_1.0.0.20_AnyCPU_Test\Flurrystics_1.0.0.20_AnyCPU.appx
