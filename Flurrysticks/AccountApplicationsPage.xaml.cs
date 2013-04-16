@@ -994,7 +994,8 @@ namespace Flurrystics
 
         private void itemListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (itemGridView.SelectedItems.Count > 0)
+            Debug.WriteLine("itemListView_SelectionChanged");
+            if (itemListView.SelectedItems.Count > 0)
             {
                 this.bottomAppBar.IsSticky = true;
                 this.bottomAppBar.IsOpen = true;
