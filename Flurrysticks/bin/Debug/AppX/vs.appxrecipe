@@ -5,36 +5,36 @@
     <WindowsUser>fuerte</WindowsUser>
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
-    <RegisteredManifestChecksum>1A41EEE411A72E59B8F141D8F341CD56982BBBA5C126158F1166F9DED7095056</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>BF25C769.Flurrystics_1.0.0.18_neutral__fmn9gz4fh4avt</RegisteredPackageMoniker>
+    <RegisteredManifestChecksum>2DAA4AB714ED1094D42AEC666B975CFA01CA2934670DD270FDE95D037647B27D</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>BF25C769.Flurrystics_1.0.0.19_neutral__fmn9gz4fh4avt</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>BF25C769.Flurrystics_fmn9gz4fh4avt!App</RegisteredUserModeAppID>
     <RegisteredPackageID>BF25C769.Flurrystics</RegisteredPackageID>
     <RegisteredPackagePublisher>CN=6867FAC2-F556-4432-9FD3-5336C97AD025</RegisteredPackagePublisher>
-    <RegisteredVersion>1.0.0.18</RegisteredVersion>
+    <RegisteredVersion>1.0.0.19</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-04-12T11:07:33.594</Modified>
+      <Modified>2013-04-16T10:45:36.140</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Flurrysticks.exe">
       <PackagePath>Flurrysticks.exe</PackagePath>
-      <Modified>2013-04-12T12:28:16.903</Modified>
+      <Modified>2013-04-16T10:45:34.193</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Flurrysticks.pdb">
       <PackagePath>Flurrysticks.pdb</PackagePath>
-      <Modified>2013-04-12T12:28:16.885</Modified>
+      <Modified>2013-04-16T10:45:34.161</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\FlurrysticsBackgroundTask\bin\Debug\FlurrysticsBackgroundTask.pdb">
       <PackagePath>FlurrysticsBackgroundTask.pdb</PackagePath>
-      <Modified>2013-04-12T11:07:27.044</Modified>
+      <Modified>2013-04-16T10:43:29.085</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Callisto\1.2.6\References\CommonConfiguration\neutral\Callisto.dll">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Callisto\1.2.8\References\CommonConfiguration\neutral\Callisto.dll">
       <PackagePath>Callisto.dll</PackagePath>
-      <Modified>2012-12-07T14:59:47.240</Modified>
+      <Modified>2013-04-16T10:38:10.622</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\References\CommonConfiguration\neutral\Telerik.Core.dll">
       <PackagePath>Telerik.Core.dll</PackagePath>
@@ -94,11 +94,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\FlurrysticsBackgroundTask\bin\Debug\FlurrysticsBackgroundTask.winmd">
       <PackagePath>FlurrysticsBackgroundTask.winmd</PackagePath>
-      <Modified>2013-04-12T11:07:27.056</Modified>
+      <Modified>2013-04-16T10:43:29.097</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Callisto\1.2.6\Redist\CommonConfiguration\neutral\Themes\Generic.xaml">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Callisto\1.2.8\Redist\CommonConfiguration\neutral\Themes\Generic.xaml">
       <PackagePath>Callisto\Themes\Generic.xaml</PackagePath>
-      <Modified>2012-12-07T14:59:47.220</Modified>
+      <Modified>2013-04-16T10:38:10.573</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Telerik\RadControls for Windows 8 XAML Q1 2013\ExtensionSDK\Redist\CommonConfiguration\neutral\Telerik.UI.Xaml.Chart\Themes\Generic.xaml">
       <PackagePath>Telerik.UI.Xaml.Chart\Themes\Generic.xaml</PackagePath>
@@ -315,7 +315,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\App.xaml">
       <PackagePath>App.xaml</PackagePath>
-      <Modified>2013-04-12T11:00:56.419</Modified>
+      <Modified>2013-04-12T17:56:15.788</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\EventMetrics.xaml">
       <PackagePath>EventMetrics.xaml</PackagePath>
@@ -323,15 +323,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\AppMetrics.xaml">
       <PackagePath>AppMetrics.xaml</PackagePath>
-      <Modified>2013-04-12T11:00:56.435</Modified>
+      <Modified>2013-04-12T17:56:29.539</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Common\StandardStyles.xaml">
       <PackagePath>Common\StandardStyles.xaml</PackagePath>
-      <Modified>2013-04-12T12:26:25.262</Modified>
+      <Modified>2013-04-12T17:56:35.892</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\AccountApplicationsPage.xaml">
       <PackagePath>AccountApplicationsPage.xaml</PackagePath>
-      <Modified>2013-04-12T12:27:12.505</Modified>
+      <Modified>2013-04-12T17:56:12.803</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\packages\winrtxamltoolkit.1.3.5.2\lib\netcore45\WinRTXamlToolkit\Controls\AnimatingContainer.xaml">
       <PackagePath>WinRTXamlToolkit\Controls\AnimatingContainer.xaml</PackagePath>
@@ -371,7 +371,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2013-04-12T11:07:31.807</Modified>
+      <Modified>2013-04-16T10:45:35.062</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

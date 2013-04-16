@@ -96,10 +96,11 @@
                 AutomationProperties.AutomationId="ItemsGridView"
                 ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
                 ItemTemplate="{StaticResource Standard250x250ItemTemplate}"
+                                                                
                 TabIndex="1"
                 Grid.Row="2"
                 Padding="116,19,116,36"
-                SelectionMode="None"
+                SelectionMode="Multiple"
                 IsSwipeEnabled="True"
                 IsItemClickEnabled="True"
                                               
@@ -185,7 +186,8 @@
             Padding="10,0,0,60"
             ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
             ItemTemplate="{StaticResource Standard80ItemTemplate}"
-            SelectionMode="None"
+                                                            
+            SelectionMode="Multiple"
             IsSwipeEnabled="True"
             IsItemClickEnabled="True"
                                           />
@@ -241,10 +243,20 @@
                        VerticalAlignment="Bottom"
                        />
             </StackPanel>
-            <StackPanel x:ConnectionId='4' 
+
+            <Grid 
+                Grid.Column="1"  
+                Grid.Row="2">
+             <TextBlock 
+                x:Name="favTitle2"                
+                Text="favorites" 
+                Style="{StaticResource PageHeaderTextStyle}" 
+                HorizontalAlignment="Right"
+                Visibility="Collapsed" 
+                />
+            <StackPanel x:ConnectionId='4'
+                x:Name="accountSelection"
                 Orientation="Horizontal" 
-                Grid.Column="1" 
-                Grid.Row="2"
                 HorizontalAlignment="Right"
                 IsTapEnabled="True"
                                           
@@ -261,21 +273,36 @@
                 Style="{StaticResource PageHeaderTextStyle}" 
                 HorizontalAlignment="Left"
                 Text=""
-                />
-                
+                />    
             </StackPanel>
+            </Grid>
+            
         </Grid>
     </Grid>
 
+    <common:LayoutAwarePage.TopAppBar>
+        <AppBar AllowDrop="True">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:ConnectionId='7' Name="favorites" Content="favorites" HorizontalAlignment="Left" VerticalAlignment="Stretch"
+                        Style="{StaticResource TopAppBarStyle}"                      />
+                <Button x:ConnectionId='8' Name="accounts" Content="accounts" HorizontalAlignment="Left" VerticalAlignment="Stretch"  
+                        Style="{StaticResource TopAppBarStyle}"                      />
+            </StackPanel>
+        </AppBar>
+    </common:LayoutAwarePage.TopAppBar>
+
     <common:LayoutAwarePage.BottomAppBar>
-        <AppBar x:ConnectionId='7' x:Name="bottomAppBar" Padding="10,0,10,0"                               >
+        <AppBar x:ConnectionId='9' x:Name="bottomAppBar" Padding="10,0,10,0"                                                            >
             <Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:ConnectionId='9' x:Name="RemoveAppBarButton" Style="{StaticResource RemoveAppBarButtonStyle}"                       />
-                    <Button x:ConnectionId='10' Style="{StaticResource AddAppBarButtonStyle}"                       />
+                    <Button x:ConnectionId='14' x:Name="RemoveAppBarButton" Style="{StaticResource RemoveAppBarButtonStyle}"                       />
+                    <Button x:ConnectionId='15' x:Name="AddAppBarButton" Style="{StaticResource AddAppBarButtonStyle}"                       />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Button x:ConnectionId='8' x:Name="sortButton" Style="{StaticResource SortAppBarButtonStyle}"                       />
+                    <Button x:ConnectionId='10' x:Name="addToFavButton" Style="{StaticResource FavoriteAppBarButtonStyle}"                              Visibility="Collapsed" />
+                    <Button x:ConnectionId='11' x:Name="removeFromFavButton" Style="{StaticResource UnfavoriteAppBarButtonStyle}"                                   Visibility="Collapsed" />                   
+                    <Button x:ConnectionId='12' x:Name="clearSelection" Style="{StaticResource ClearSelectionAppBarButtonStyle}"                              Visibility="Collapsed" />
+                    <Button x:ConnectionId='13' x:Name="sortButton" Style="{StaticResource SortAppBarButtonStyle}"                       />
                 </StackPanel>
             </Grid>
         </AppBar>

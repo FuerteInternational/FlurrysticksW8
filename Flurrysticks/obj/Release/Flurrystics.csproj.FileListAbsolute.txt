@@ -70,3 +70,5 @@ C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\b
 C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Release\FlurrysticsBackgroundTask.pri
 C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\obj\Release\BugSense-W8\priconfig.xml.intermediate
 C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\obj\Release\BugSense-W8\Resources.resfiles.intermediate
+C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Release\Telerik.UI.Xaml.Grid.dll
+C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Release\Telerik.UI.Xaml.Grid.xml

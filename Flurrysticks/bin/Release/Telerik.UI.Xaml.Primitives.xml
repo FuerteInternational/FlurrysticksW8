@@ -4,6 +4,232 @@
         <name>Telerik.UI.Xaml.Primitives</name>
     </assembly>
     <members>
+        <member name="T:Telerik.UI.Xaml.Controls.Primitives.AttachableObject`1">
+            <summary>
+            Represents an object that is attached to an owning object.
+            </summary>
+            <typeparam name="T">The type that owns this object.</typeparam>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Primitives.RadDependencyObject">
+            <summary>
+            Represents an extended <see cref="T:Windows.UI.Xaml.DependencyObject"/> that recognizes whether a property is changed internally within the class or programmatically by the user.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.AttachableObject`1.#ctor(`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.UI.Xaml.Controls.Primitives.AttachableObject`1"/> class.
+            </summary>
+            <param name="owner">The object instance that owns this one.</param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.AttachableObject`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.UI.Xaml.Controls.Primitives.AttachableObject`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.AttachableObject`1.OnDetached(`0)">
+            <summary>
+            Performs the core logic behind the Detach routine. Allows inheritors to provide additional implementation.
+            </summary>
+            <param name="previousOwner"></param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.AttachableObject`1.OnAttached">
+            <summary>
+            Performs the core logic behind the Attach routine. Allows inheritors to provide additional implementation.
+            </summary>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Primitives.AttachableObject`1.Owner">
+            <summary>
+            Gets the object instance that owns this service.
+            </summary>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Primitives.AttachableObjectCollection`2">
+            <summary>
+            Represents a collection of <see cref="T:Telerik.UI.Xaml.Controls.Primitives.AttachableObject`1"/> instances.
+            </summary>
+            <typeparam name="TOwner">Specifies the type of the owner of the items.</typeparam>
+            <typeparam name="TObject">Specifies the type of the attachable objects.</typeparam>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.AttachableObjectCollection`2.#ctor(`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.UI.Xaml.Controls.Primitives.AttachableObjectCollection`2"/> class.
+            </summary>
+            <param name="owner">The owner.</param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.AttachableObjectCollection`2.RemoveItem(System.Int32)">
+            <summary>
+            Removes the item.
+            </summary>
+            <param name="index">The index.</param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.AttachableObjectCollection`2.SetItem(System.Int32,`1)">
+            <summary>
+            Sets the item.
+            </summary>
+            <param name="index">The index.</param>
+            <param name="item">The item.</param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.AttachableObjectCollection`2.InsertItem(System.Int32,`1)">
+            <summary>
+            Inserts the item.
+            </summary>
+            <param name="index">The index.</param>
+            <param name="item">The item.</param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.AttachableObjectCollection`2.ClearItems">
+            <summary>
+            Clears the items.
+            </summary>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Primitives.StringCaseConverter">
+            <summary>
+            Represents a converter that changes the letter case of the provided System.String value.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.StringCaseConverter.Convert(System.Object,System.Type,System.Object,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="language"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.StringCaseConverter.ConvertBack(System.Object,System.Type,System.Object,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="language"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Primitives.StringCaseConverter.CaseMode">
+            <summary>
+            Gets or sets the <see cref="T:Telerik.UI.Xaml.Controls.Primitives.StringCaseMode"/> value that specifies which letter case to be used.
+            </summary>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Primitives.StringCaseMode">
+            <summary>
+            Defines the possible casing modes to be applied over a System.String object.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Primitives.StringCaseMode.Default">
+            <summary>
+            No casing is applied - the string is left in its original form.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Primitives.StringCaseMode.ToUpper">
+            <summary>
+            All characters are converted to upper case.
+            </summary>
+        </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Primitives.StringCaseMode.ToLower">
+            <summary>
+            All characters are converted to lower case.
+            </summary>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Primitives.INoDesiredSizeControl">
+            <summary>
+            Represents a component that does not have a desired size - such as RadChart.
+            In this case the entire UI update happens in the Arrange pass and virtualizing components like RadDataGrid need an entry point to invalidate control's current state.
+            </summary>
+        </member>
+        <member name="T:Telerik.UI.Xaml.Controls.Primitives.InputBehavior`1">
+            <summary>
+            Represents an attachable object, that handles Input events from the owning control instance.
+            </summary>
+            <typeparam name="T">The type of the object this behavior can be attached to. Minimum requirement is the <see cref="T:Telerik.UI.Xaml.Controls.RadControl"/> type.</typeparam>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.InputBehavior`1.OnPointerEntered(Windows.UI.Xaml.Input.PointerRoutedEventArgs)">
+            <summary>
+            Handles the <see cref="E:{T}.PointerEntered"/> event of the owning instance.
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.InputBehavior`1.OnPointerMoved(Windows.UI.Xaml.Input.PointerRoutedEventArgs)">
+            <summary>
+            Handles the <see cref="E:{T}.PointerMoved"/> event of the owning instance.
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.InputBehavior`1.OnPointerExited(Windows.UI.Xaml.Input.PointerRoutedEventArgs)">
+            <summary>
+            Handles the <see cref="E:{T}.PointerExited"/> event of the owning instance.
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.InputBehavior`1.OnPointerPressed(Windows.UI.Xaml.Input.PointerRoutedEventArgs)">
+            <summary>
+            Handles the <see cref="E:{T}.PointerPressed"/> event of the owning instance.
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.InputBehavior`1.OnHoldCompleted(Windows.UI.Xaml.Input.HoldingRoutedEventArgs)">
+            <summary>
+            Handles the <see cref="E:{T}.HoldCompleted"/> event of the owning instance.
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.InputBehavior`1.OnHoldStarted(Windows.UI.Xaml.Input.HoldingRoutedEventArgs)">
+            <summary>
+            Handles the <see cref="E:{T}.HoldStarted"/> event of the owning instance.
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.InputBehavior`1.OnTapped(Windows.UI.Xaml.Input.TappedRoutedEventArgs)">
+            <summary>
+            Handles the <see cref="E:{T}.Tapped"/> event of the owning instance.
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.InputBehavior`1.OnDoubleTapped(Windows.UI.Xaml.Input.DoubleTappedRoutedEventArgs)">
+            <summary>
+            Handles the <see cref="E:{T}.DoubleTapped"/> event of the owning instance.
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.InputBehavior`1.OnManipulationStarted(Windows.UI.Xaml.Input.ManipulationStartedRoutedEventArgs)">
+            <summary>
+            Handles the <see cref="E:{T}.ManipulationStarted"/> event of the owning instance.
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.InputBehavior`1.OnManipulationDelta(Windows.UI.Xaml.Input.ManipulationDeltaRoutedEventArgs)">
+            <summary>
+            Handles the <see cref="E:{T}.ManipulationDelta"/> event of the owning instance.
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.InputBehavior`1.OnManipulationCompleted(Windows.UI.Xaml.Input.ManipulationCompletedRoutedEventArgs)">
+            <summary>
+            Handles the <see cref="E:{T}.ManipulationCompleted"/> event of the owning instance.
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.InputBehavior`1.OnPointerWheelChanged(Windows.UI.Xaml.Input.PointerRoutedEventArgs)">
+            <summary>
+            Handles the <see cref="E:{T}.PointerWheelChanged"/> event of the owning instance.
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.InputBehavior`1.OnPointerReleased(Windows.UI.Xaml.Input.PointerRoutedEventArgs)">
+            <summary>
+            Handles the <see cref="E:{T}.PointerReleased"/> event of the owning instance.
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.InputBehavior`1.OnLoaded">
+            <summary>
+            Called when the owning instance is loaded in the visual tree.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.InputBehavior`1.OnUnloaded">
+            <summary>
+            Called when the owning instance is unloaded from the visual tree.
+            </summary>
+        </member>
         <member name="T:Telerik.UI.Xaml.Controls.RadHeaderedContentControl">
             <summary>
             Defines a <see cref="T:Telerik.UI.Xaml.Controls.RadContentControl"/> class that adds notation for a header.
@@ -17,7 +243,7 @@
         </member>
         <member name="T:Telerik.UI.Xaml.Controls.RadControl">
             <summary>
-            Defines the base class for all Telerik-specific controls. Encapsulates common rountines and properties.
+            Defines the base class for all Telerik-specific controls. Encapsulates common routines and properties.
             </summary>
         </member>
         <member name="M:Telerik.UI.Xaml.Controls.RadControl.#ctor">
@@ -71,7 +297,7 @@
         </member>
         <member name="M:Telerik.UI.Xaml.Controls.RadControl.ArrangeOverride(Windows.Foundation.Size)">
             <summary>
-            Provides the behavior for the Arrange pass of Silverlight layout. Classes can override this method to define their own Arrange pass behavior.
+            Provides the behavior for the Arrange pass of layout. Classes can override this method to define their own Arrange pass behavior.
             </summary>
             <param name="finalSize">The final area within the parent that this object should use to arrange itself and its children.</param>
             <returns>
@@ -86,6 +312,11 @@
         <member name="M:Telerik.UI.Xaml.Controls.RadControl.UnapplyTemplateCore">
             <summary>
             Unapplies the current control template. Occurs when a template has already been applied and a new one is applied.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.RadControl.OnIsEnabledChanged(System.Boolean,System.Boolean)">
+            <summary>
+            Called when isEnabled property is changed.
             </summary>
         </member>
         <member name="M:Telerik.UI.Xaml.Controls.RadControl.OnTemplateApplied">
@@ -457,7 +688,7 @@
         </member>
         <member name="M:Telerik.UI.Xaml.Controls.Primitives.HubTile.CustomMosaicTilePart.Flip(Windows.UI.Xaml.Media.ImageSource)">
             <summary>
-            Flipes the tile and displays the provided image on the new side.
+            Flips the tile and displays the provided image on the new side.
             </summary>
             <param name="newSource">The new image.</param>
         </member>
@@ -756,7 +987,7 @@
         <member name="P:Telerik.UI.Xaml.Controls.Primitives.HubTileBase.IsFrozen">
             <summary>
             Gets or sets the IsFrozen property. Freezing a hub tile means that it will cease to
-            periodically update itself. For example when it is offscreen..
+            periodically update itself. For example when it is off-screen.
             </summary>
         </member>
         <member name="P:Telerik.UI.Xaml.Controls.Primitives.HubTileBase.UpdateInterval">
@@ -848,7 +1079,7 @@
         </member>
         <member name="F:Telerik.UI.Xaml.Controls.Primitives.MosaicFlipMode.Row">
             <summary>
-            A whoe row of MosaicTiles flip together at a time.
+            A whole row of MosaicTiles flip together at a time.
             </summary>
         </member>
         <member name="T:Telerik.UI.Xaml.Controls.Primitives.PictureHubTile">
@@ -871,15 +1102,27 @@
             Initializes a new instance of the PictureHubTile class.
             </summary>
         </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.PictureHubTile.Finalize">
+            <summary>
+            Finalizes an instance of the <see cref="T:Telerik.UI.Xaml.Controls.Primitives.PictureHubTile"/> class.
+            </summary>
+        </member>
         <member name="M:Telerik.UI.Xaml.Controls.Primitives.PictureHubTile.GetRandomImageSource">
             <summary>
             Creates an ImageSource from a randomly chosen URI from the ImageSources collection and returns it.
             </summary>
             <returns>Returns an ImageSource with a randomly chosen URI from the ImageSources collection.</returns>
         </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.PictureHubTile.GetNewIndex(System.Int32)">
+            <summary>
+            Should be overridden in descendant classes to generate the new index from the picture collection.
+            </summary>
+            <param name="count">The length of the collection.</param>
+            <returns>Returns new index different from previous.</returns>
+        </member>
         <member name="M:Telerik.UI.Xaml.Controls.Primitives.PictureHubTile.IsNewIndexValid(System.Int32)">
             <summary>
-            Should be overridden in descendant classes to indicate if the same image can be displayed
+            Should be overridden in descendant classes to indicate if the same image can be displayed.
             many times in a row.
             </summary>
             <param name="index">The index of the new image.</param>
@@ -1021,7 +1264,7 @@
         </member>
         <member name="P:Telerik.UI.Xaml.Controls.Primitives.RadCycleHubTile.Orientation">
             <summary>
-            Gets or sets the orientaion of the cycle animation.
+            Gets or sets the orientation of the cycle animation.
             </summary>
         </member>
         <member name="P:Telerik.UI.Xaml.Controls.Primitives.RadCycleHubTile.CycleRandomly">
@@ -1102,7 +1345,7 @@
         </member>
         <member name="T:Telerik.UI.Xaml.Controls.Primitives.HubTileService">
             <summary>
-            HubTileService provids the ability to group hub tiles with a group tag and to freeze or unfreeze groups of hub tiles.
+            HubTileService provides the ability to group hub tiles with a group tag and to freeze or unfreeze groups of hub tiles.
             </summary>
         </member>
         <member name="F:Telerik.UI.Xaml.Controls.Primitives.HubTileService.GroupTagProperty">
@@ -1207,6 +1450,13 @@
             <param name="index">The index of the new image.</param>
             <returns>Returns true if the image can be repeated and false otherwise.</returns>
         </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.RadPictureRotatorHubTile.GetNewIndex(System.Int32)">
+            <summary>
+            Should be overridden in descendant classes to generate the new index from the picture collection.
+            </summary>
+            <param name="count">The length of the collection.</param>
+            <returns>Returns new index different from previous.</returns>
+        </member>
         <member name="M:Telerik.UI.Xaml.Controls.Primitives.RadPictureRotatorHubTile.LoadCore">
             <summary>
             Called within the handler of the <see cref="E:Loaded"/> event. Allows inheritors to provide their specific logic.
@@ -1216,6 +1466,16 @@
             <summary>
             A virtual callback that is called periodically when the tile is no frozen. It can be used to
             update the tile visual states or other necessary operations.
+            </summary>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Primitives.RadPictureRotatorHubTile.SecondImage">
+            <summary>
+            Gets a value of the secondImage displayed. Exposed for testing purposes.
+            </summary>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Primitives.RadPictureRotatorHubTile.FirstImage">
+            <summary>
+            Gets a value of the firstImage displayed. Exposed for testing purposes.
             </summary>
         </member>
         <member name="P:Telerik.UI.Xaml.Controls.Primitives.RadPictureRotatorHubTile.ShouldClip">
@@ -1302,7 +1562,7 @@
         </member>
         <member name="P:Telerik.UI.Xaml.Controls.Primitives.RadSlideHubTile.FlipControl">
             <summary>
-            Gets the HubTile Flipcontrol. Exposed for testing purposes.
+            Gets the HubTile <see cref="P:Telerik.UI.Xaml.Controls.Primitives.RadSlideHubTile.FlipControl"/>. Exposed for testing purposes.
             </summary>
         </member>
         <member name="P:Telerik.UI.Xaml.Controls.Primitives.RadSlideHubTile.ShouldClip">
@@ -1493,7 +1753,7 @@
         </member>
         <member name="F:Telerik.UI.Xaml.Controls.Primitives.TiltInteractionEffect.DedicatedTiltTargetProperty">
             <summary>
-            Identifies the DedicatedTiltTarget depdendency property.
+            Identifies the DedicatedTiltTarget dependency property.
             </summary>
         </member>
         <member name="F:Telerik.UI.Xaml.Controls.Primitives.TiltInteractionEffect.MaxRotationAngleProperty">
@@ -1848,12 +2108,12 @@
         </member>
         <member name="M:Telerik.UI.Xaml.Controls.Primitives.LoopingList.LoopingListItem.SetVerticalOffset(System.Double)">
             <summary>
-            Applies the desired vertical offset by setting a TranslateTranform.Y value.
+            Applies the desired vertical offset by setting a TranslateTransform.Y value.
             </summary>
         </member>
         <member name="M:Telerik.UI.Xaml.Controls.Primitives.LoopingList.LoopingListItem.SetHorizontalOffset(System.Double)">
             <summary>
-            Applies the desired horizontal offset by setting a TranslateTranform.X value.
+            Applies the desired horizontal offset by setting a TranslateTransform.X value.
             </summary>
         </member>
         <member name="M:Telerik.UI.Xaml.Controls.Primitives.LoopingList.LoopingListItem.ComposeVisualStateName">
@@ -2420,7 +2680,7 @@
         <member name="P:Telerik.UI.Xaml.Controls.Primitives.LoopingList.RadLoopingList.SnapOffsetCorrection">
             <summary>
             Gets or sets a double value that is applied as an offset correction
-            after the selected item has been snapped according ot the <see cref="P:Telerik.UI.Xaml.Controls.Primitives.LoopingList.RadLoopingList.CenteredItemSnapPosition"/>.
+            after the selected item has been snapped according to the <see cref="P:Telerik.UI.Xaml.Controls.Primitives.LoopingList.RadLoopingList.CenteredItemSnapPosition"/>.
             </summary>
         </member>
         <member name="P:Telerik.UI.Xaml.Controls.Primitives.LoopingList.RadLoopingList.Orientation">
@@ -2786,6 +3046,11 @@
             <summary>
             Called when the Framework OnApplyTemplate is called. Inheritors should override this method should they have some custom template-related logic.
             This is done to ensure that the <see cref="P:IsTemplateApplied"/> property is properly initialized.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.RadPaginationControl.OnTemplateApplied">
+            <summary>
+            Occurs when the OnApplyTemplate() method has been called and the template is already successfully applied.
             </summary>
         </member>
         <member name="P:Telerik.UI.Xaml.Controls.Primitives.RadPaginationControl.DisplayMode">
