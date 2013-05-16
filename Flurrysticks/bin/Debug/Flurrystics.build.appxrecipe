@@ -13,11 +13,11 @@
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Flurrysticks.exe">
-      <PackagePath>Flurrysticks.exe</PackagePath>
+    <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Applytics.exe">
+      <PackagePath>Applytics.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Flurrysticks.pdb">
-      <PackagePath>Flurrysticks.pdb</PackagePath>
+    <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Applytics.pdb">
+      <PackagePath>Applytics.pdb</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\FlurrysticsBackgroundTask\bin\Debug\FlurrysticsBackgroundTask.pdb">
       <PackagePath>FlurrysticsBackgroundTask.pdb</PackagePath>

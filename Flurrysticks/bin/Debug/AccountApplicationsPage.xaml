@@ -239,7 +239,7 @@
                    VerticalAlignment="Bottom"
                    />
                 
-            <TextBlock Text="Flurrystics"
+            <TextBlock Text="Applytics"
                        Style="{StaticResource PageHeaderTextStyleBold}" 
                        Margin="15,0,0,15"
                        HorizontalAlignment="Left"

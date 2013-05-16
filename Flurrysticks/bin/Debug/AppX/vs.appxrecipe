@@ -5,28 +5,28 @@
     <WindowsUser>fuerte</WindowsUser>
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
-    <RegisteredManifestChecksum>2DAA4AB714ED1094D42AEC666B975CFA01CA2934670DD270FDE95D037647B27D</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>BF25C769.Flurrystics_1.0.0.19_neutral__fmn9gz4fh4avt</RegisteredPackageMoniker>
+    <RegisteredManifestChecksum>DFA74C7C6A19EDDD46A41EF6D043736C3B5B1A3569226901601AA3FF7C368BD2</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>BF25C769.Flurrystics_1.0.0.20_neutral__fmn9gz4fh4avt</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>BF25C769.Flurrystics_fmn9gz4fh4avt!App</RegisteredUserModeAppID>
     <RegisteredPackageID>BF25C769.Flurrystics</RegisteredPackageID>
     <RegisteredPackagePublisher>CN=6867FAC2-F556-4432-9FD3-5336C97AD025</RegisteredPackagePublisher>
-    <RegisteredVersion>1.0.0.19</RegisteredVersion>
+    <RegisteredVersion>1.0.0.20</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2013-04-16T10:58:43.187</Modified>
+      <Modified>2013-05-16T10:03:34.362</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Flurrysticks.exe">
-      <PackagePath>Flurrysticks.exe</PackagePath>
-      <Modified>2013-04-16T10:58:42.975</Modified>
+    <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Applytics.exe">
+      <PackagePath>Applytics.exe</PackagePath>
+      <Modified>2013-05-16T10:03:32.693</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Flurrysticks.pdb">
-      <PackagePath>Flurrysticks.pdb</PackagePath>
-      <Modified>2013-04-16T10:58:42.911</Modified>
+    <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\Applytics.pdb">
+      <PackagePath>Applytics.pdb</PackagePath>
+      <Modified>2013-05-16T10:03:32.634</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\FlurrysticsBackgroundTask\bin\Debug\FlurrysticsBackgroundTask.pdb">
       <PackagePath>FlurrysticsBackgroundTask.pdb</PackagePath>
@@ -315,7 +315,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\App.xaml">
       <PackagePath>App.xaml</PackagePath>
-      <Modified>2013-04-12T17:56:15.788</Modified>
+      <Modified>2013-05-16T10:02:33.470</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\EventMetrics.xaml">
       <PackagePath>EventMetrics.xaml</PackagePath>
@@ -331,7 +331,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\AccountApplicationsPage.xaml">
       <PackagePath>AccountApplicationsPage.xaml</PackagePath>
-      <Modified>2013-04-16T10:47:58.010</Modified>
+      <Modified>2013-05-16T10:01:14.449</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\packages\winrtxamltoolkit.1.3.5.2\lib\netcore45\WinRTXamlToolkit\Controls\AnimatingContainer.xaml">
       <PackagePath>WinRTXamlToolkit\Controls\AnimatingContainer.xaml</PackagePath>
@@ -371,7 +371,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2013-04-16T10:45:35.062</Modified>
+      <Modified>2013-05-16T10:03:33.588</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -32,7 +32,7 @@
 
             <!-- Application-specific resources -->
 
-            <x:String x:Key="AppName">Flurrystics</x:String>
+            <x:String x:Key="AppName">Applytics</x:String>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
