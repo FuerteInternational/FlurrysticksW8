@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-  <Identity Name="BF25C769.Flurrystics" Publisher="CN=6867FAC2-F556-4432-9FD3-5336C97AD025" Version="1.0.0.20" />
+  <Identity Name="BF25C769.Flurrystics" Publisher="CN=6867FAC2-F556-4432-9FD3-5336C97AD025" Version="1.0.0.21" />
   <Properties>
-    <DisplayName>Applytics</DisplayName>
+    <DisplayName>Flurrystics</DisplayName>
     <PublisherDisplayName>Fuerte International Ltd.</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Flurrystics.App">
-      <VisualElements DisplayName="Applytics" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Applytics - Flurry client for Windows 8" ForegroundText="dark" BackgroundColor="#eaeaea">
+      <VisualElements DisplayName="Flurrystics" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Applytics - Flurry client for Windows 8" ForegroundText="dark" BackgroundColor="#eaeaea">
         <LockScreen Notification="badge" BadgeLogo="Assets\BadgeLogo.png" />
         <DefaultTile ShowName="noLogos" WideLogo="Assets\WideLogo.png" />
         <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#eaeaea" />
