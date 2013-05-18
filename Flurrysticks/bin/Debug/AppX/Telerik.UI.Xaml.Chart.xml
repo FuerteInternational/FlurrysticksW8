@@ -1278,6 +1278,11 @@
             Represents an empty type, used as an entry point in Telerik's Named Resources initialization.
             </summary>
         </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.Theming.PaletteInitializer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.UI.Xaml.Controls.Chart.Theming.PaletteInitializer"/> class.
+            </summary>
+        </member>
         <member name="T:Telerik.UI.Xaml.Controls.Chart.CartesianAnnotationCollection">
             <summary>
             Represents a typed collection that stores <see cref="T:Telerik.UI.Xaml.Controls.Chart.CartesianChartAnnotation"/> instances.
@@ -3958,17 +3963,12 @@
             </summary>
             <param name="touchRect"></param>
         </member>
-        <member name="M:Telerik.UI.Xaml.Controls.Chart.ChartSeries.HitTestElements(Windows.Foundation.Rect)">
-            <summary>
-            Finds all the visual representations that contain the specified touch rect.
-            </summary>
-            <param name="touchRect"></param>
-        </member>
-        <member name="M:Telerik.UI.Xaml.Controls.Chart.ChartSeries.HitTestElementsCore(Windows.Foundation.Rect,System.Boolean)">
+        <member name="M:Telerik.UI.Xaml.Controls.Chart.ChartSeries.HitTestElementsCore(Windows.Foundation.Rect,System.Boolean,System.Boolean)">
             <summary>
             Performs the core logic behind the HitTestElements method.
             </summary>
             <param name="touchRect"></param>
+            <param name="dataPointsOnly"></param>
             <param name="includeAllElements"></param>
             <returns></returns>
         </member>
@@ -4078,6 +4078,11 @@
         <member name="P:Telerik.UI.Xaml.Controls.Chart.ChartSeries.AllowSelect">
             <summary>
             Determines whether the series might enter the IsSelected state.
+            </summary>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.ChartSeries.SeriesVisual">
+            <summary>
+            Gets the UI that represents the series itself (not the datapoints).
             </summary>
         </member>
         <member name="E:Telerik.UI.Xaml.Controls.Chart.ChartSeries.DataBindingComplete">
@@ -7223,6 +7228,11 @@
             Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.PieSeries.HighlightBrush"/> property.
             </summary>
         </member>
+        <member name="F:Telerik.UI.Xaml.Controls.Chart.PieSeries.HighlightInnerRadiusFactorProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.PieSeries.HighlightInnerRadiusFactor"/> property.
+            </summary>
+        </member>
         <member name="F:Telerik.UI.Xaml.Controls.Chart.PieSeries.LegendTitleBindingProperty">
             <summary>
             Identifies the <see cref="P:Telerik.UI.Xaml.Controls.Chart.PieSeries.LegendTitleBinding"/> property.
@@ -7255,6 +7265,11 @@
             <param name="touchRect"></param>
             <param name="includeAllDataPoints">True to return all datapoints in the touch rectangle.</param>
             <returns></returns>
+        </member>
+        <member name="P:Telerik.UI.Xaml.Controls.Chart.PieSeries.HighlightInnerRadiusFactor">
+            <summary>
+            Gets or sets the scale ([0,1]) that defines the radius of the overlay UI that represents the highlight effect of the series.
+            </summary>
         </member>
         <member name="P:Telerik.UI.Xaml.Controls.Chart.PieSeries.HighlightBrush">
             <summary>

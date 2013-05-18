@@ -340,13 +340,14 @@
     <MainPackageIdentityName>BF25C769.Flurrystics</MainPackageIdentityName>
     <ReservedNames>
       <ReservedName>Flurrystics</ReservedName>
+      <ReservedName>Applytics</ReservedName>
     </ReservedNames>
   </ProductReservedInfo>
   <AccountPackageIdentityNames />
   <PackageInfoList LandingUrl="https://appdev.microsoft.com:443/StorePortals/Developer/Catalog/ReleaseAnchor/677d6472-f3b4-409f-9d66-dd44ced295bd">
     <PackageInfo>
       <PackageArchitecture>neutral</PackageArchitecture>
-      <PackageMaxArchitectureVersion>1.0.0.20</PackageMaxArchitectureVersion>
+      <PackageMaxArchitectureVersion>1.0.0.21</PackageMaxArchitectureVersion>
     </PackageInfo>
   </PackageInfoList>
 </StoreAssociation>

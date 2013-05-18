@@ -1619,5 +1619,10 @@
             Represents an empty type, used as an entry point in Telerik's Named Resources initialization.
             </summary>
         </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Input.Theming.PaletteInitializer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.UI.Xaml.Controls.Input.Theming.PaletteInitializer"/> class.
+            </summary>
+        </member>
     </members>
 </doc>

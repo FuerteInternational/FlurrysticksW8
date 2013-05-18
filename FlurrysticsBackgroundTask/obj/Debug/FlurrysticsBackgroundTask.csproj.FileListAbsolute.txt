@@ -14,3 +14,15 @@ C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\FlurrysticsBac
 C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\FlurrysticsBackgroundTask\obj\Debug\resources.resfiles
 C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\FlurrysticsBackgroundTask\obj\Debug\pri.resfiles
 C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\FlurrysticsBackgroundTask\obj\Debug\LanguageQualifiers.txt
+D:\MyFiles\Visual Studio 2012\Projects\FlurrysticksW8\FlurrysticsBackgroundTask\bin\Debug\FlurrysticsBackgroundTask.winmd
+D:\MyFiles\Visual Studio 2012\Projects\FlurrysticksW8\FlurrysticsBackgroundTask\bin\Debug\FlurrysticsBackgroundTask.pdb
+D:\MyFiles\Visual Studio 2012\Projects\FlurrysticksW8\FlurrysticsBackgroundTask\bin\Debug\FlurrysticsBackgroundTask.pri
+D:\MyFiles\Visual Studio 2012\Projects\FlurrysticksW8\FlurrysticsBackgroundTask\obj\Debug\FlurrysticsBackgroundTask.winmd
+D:\MyFiles\Visual Studio 2012\Projects\FlurrysticksW8\FlurrysticsBackgroundTask\obj\Debug\FlurrysticsBackgroundTask.pdb
+D:\MyFiles\Visual Studio 2012\Projects\FlurrysticksW8\FlurrysticsBackgroundTask\obj\Debug\FlurrysticsBackgroundTask.winmdobj
+D:\MyFiles\Visual Studio 2012\Projects\FlurrysticksW8\FlurrysticsBackgroundTask\obj\Debug\FlurrysticsBackgroundTask.compile.pdb
+D:\MyFiles\Visual Studio 2012\Projects\FlurrysticksW8\FlurrysticsBackgroundTask\obj\Debug\priconfig.xml
+D:\MyFiles\Visual Studio 2012\Projects\FlurrysticksW8\FlurrysticsBackgroundTask\obj\Debug\layout.resfiles
+D:\MyFiles\Visual Studio 2012\Projects\FlurrysticksW8\FlurrysticsBackgroundTask\obj\Debug\resources.resfiles
+D:\MyFiles\Visual Studio 2012\Projects\FlurrysticksW8\FlurrysticsBackgroundTask\obj\Debug\pri.resfiles
+D:\MyFiles\Visual Studio 2012\Projects\FlurrysticksW8\FlurrysticsBackgroundTask\obj\Debug\LanguageQualifiers.txt

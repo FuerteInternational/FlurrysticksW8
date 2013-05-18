@@ -321,12 +321,12 @@
         </member>
         <member name="M:Telerik.UI.Xaml.Controls.RadControl.OnTemplateApplied">
             <summary>
-            Occurs when the <see cref="M:Telerik.UI.Xaml.Controls.RadControl.OnApplyTemplate"/> method has been called and the template is already successfully applied.
+            Occurs when the <see cref="M:OnApplyTemplate"/> method has been called and the template is already successfully applied.
             </summary>
         </member>
         <member name="M:Telerik.UI.Xaml.Controls.RadControl.ApplyTemplateCore">
             <summary>
-            Called when the Framework <see cref="M:Telerik.UI.Xaml.Controls.RadControl.OnApplyTemplate"/> is called. Inheritors should override this method should they have some custom template-related logic.
+            Called when the Framework <see cref="M:OnApplyTemplate"/> is called. Inheritors should override this method should they have some custom template-related logic.
             This is done to ensure that the <see cref="P:IsTemplateApplied"/> property is properly initialized.
             </summary>
         </member>
@@ -3156,6 +3156,11 @@
         <member name="T:Telerik.UI.Xaml.Controls.Primitives.Theming.PaletteInitializer">
             <summary>
             Represents an empty type, used as an entry point in Telerik's Named Resources initialization.
+            </summary>
+        </member>
+        <member name="M:Telerik.UI.Xaml.Controls.Primitives.Theming.PaletteInitializer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.UI.Xaml.Controls.Primitives.Theming.PaletteInitializer"/> class.
             </summary>
         </member>
         <member name="T:Telerik.UI.Xaml.Controls.Primitives.SolidColorBrushToColorConverter">

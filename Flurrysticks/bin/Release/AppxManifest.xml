@@ -7,9 +7,9 @@
 
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="BF25C769.Flurrystics" Publisher="CN=6867FAC2-F556-4432-9FD3-5336C97AD025" Version="1.0.0.21" ProcessorArchitecture="neutral" />
+  <Identity Name="BF25C769.Flurrystics" Publisher="CN=6867FAC2-F556-4432-9FD3-5336C97AD025" Version="1.0.0.22" ProcessorArchitecture="neutral" />
   <Properties>
-    <DisplayName>Flurrystics</DisplayName>
+    <DisplayName>Applytics</DisplayName>
     <PublisherDisplayName>Fuerte International Ltd.</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -22,7 +22,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="Applytics.exe" EntryPoint="Flurrystics.App">
-      <VisualElements DisplayName="Flurrystics" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Applytics - Flurry client for Windows 8" ForegroundText="dark" BackgroundColor="#eaeaea">
+      <VisualElements DisplayName="Applytics" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Applytics - Flurry client for Windows 8" ForegroundText="dark" BackgroundColor="#eaeaea">
         <LockScreen Notification="badge" BadgeLogo="Assets\BadgeLogo.png" />
         <DefaultTile ShowName="noLogos" WideLogo="Assets\WideLogo.png" />
         <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#eaeaea" />
@@ -58,8 +58,8 @@
     <build:Item Name="OperatingSystem" Version="6.2.9200.16384 (win8_rtm.120725-1247)" />
     <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="11.0.60315.1" />
     <build:Item Name="Microsoft.Windows.UI.Xaml.Build.Tasks.dll" Version="11.0.60315.1" />
-    <build:Item Name="Callisto" Version="1.2.8" />
-    <build:Item Name="RadControls for Windows 8" Version="2013.1.219" />
+    <build:Item Name="Callisto" Version="1.2.6" />
+    <build:Item Name="RadControls for Windows 8" Version="2013.1.417" />
     <build:Item Name="MakePri.exe" Version="6.2.9200.16384 (win8_rtm.120725-1247)" />
   </build:Metadata>
 </Package>

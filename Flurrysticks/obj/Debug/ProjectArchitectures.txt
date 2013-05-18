@@ -1,2 +1,2 @@
-C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\Flurrysticks\Flurrystics.csproj;neutral
-C:\Users\fuerte\Dropbox\projects\Windows8_Projects\FlurrysticksW8\FlurrysticsBackgroundTask\FlurrysticsBackgroundTask.csproj;neutral
+D:\MyFiles\Visual Studio 2012\Projects\FlurrysticksW8\Flurrysticks\Flurrystics.csproj;neutral
+D:\MyFiles\Visual Studio 2012\Projects\FlurrysticksW8\FlurrysticsBackgroundTask\FlurrysticsBackgroundTask.csproj;neutral
